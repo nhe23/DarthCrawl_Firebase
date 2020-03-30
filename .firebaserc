@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "darth-crawl": "darth-crawl",
+    "default": "darth-crawl"
+  }
+}
