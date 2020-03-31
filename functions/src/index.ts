@@ -53,6 +53,7 @@ const crawlDocument = async (snap: functions.firestore.DocumentSnapshot) => {
   console.log(`URL: ${url}`);
   console.log(`Elements: ${crawlElements}`);
   console.log(`Elements value: ${newValue.crawlElements[0].value}`);
+  console.log(`Elements name: ${newValue.crawlElements[0].name}`);
   const result = { date: admin.firestore.Timestamp.now(), crawlResults };
   return snap.ref.collection("results").add(result);
 };

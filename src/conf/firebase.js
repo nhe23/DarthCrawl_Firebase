@@ -21,5 +21,5 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
 export const db = firebase.firestore();
-// db.settings({ host: "localhost:8080", ssl: false });
+db.settings({ host: "localhost:8080", ssl: false });
 export const analytics = firebase.analytics();

@@ -34,26 +34,33 @@
 </style>
 
 <main>
-  <div class="field">
-    <div class="control has-icons-left has-icons-right">
-      <input
-        class="input"
-        type="text"
-        placeholder="xPath"
-        bind:value={element.value} 
-        on:blur={reassign}/>
-      <span
-        on:click={removeElement}
-        class="icon is-small is-left has-text-danger">
-        <i class="fas fa-minus-circle" />
-      </span>
-      {#if !element.children || element.children.length === 0 && element.value !== ""}
+  <div class="columns">
+    <div class="column is-8">
+      <div class="field control has-icons-left has-icons-right">
+        <input
+          class="input"
+          type="text"
+          placeholder="xPath"
+          bind:value={element.value} 
+          on:blur={reassign}/>
         <span
-          on:click={addChildElement}
-          class="icon is-small is-right has-text-success">
-          <i class="fas fa-plus-circle" />
+          on:click={removeElement}
+          class="icon is-small is-left has-text-danger">
+          <i class="fas fa-minus-circle" />
         </span>
-      {/if}
+        {#if !element.children || element.children.length === 0 && element.value !== ""}
+          <span
+            on:click={addChildElement}
+            class="icon is-small is-right has-text-success">
+            <i class="fas fa-plus-circle" />
+          </span>
+        {/if}
+      </div>
+    </div>
+    <div class="column is-4">
+      <div class="field control">
+        <input class="input" type="text" placeholder="Name" bind:value={element.name} on:blur={reassign}>
+      </div>
     </div>
   </div>
 </main>

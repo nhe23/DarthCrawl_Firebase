@@ -68,7 +68,7 @@ const handleElements = async (
   for (const element of elements) {
     if (element.children.length > 0) {
       const newParent = await page.$$(element.value);
-      const parentObject: any = { parent: element.value, result: [] };
+      const parentObject: any = { parent: element.value, name:element.name, result: [] };
       result.push(parentObject);
       await crawl(page, element.children, parentObject.result, newParent);
       continue;
@@ -81,7 +81,7 @@ const handleElements = async (
       await pageResult.getProperty("textContent")
     ).jsonValue();
     if (!resultElements) {
-      result.push({ element: element.value, value: text });
+      result.push({ element: element.value, name: element.name, value: text });
       continue;
     }
     console.log(`Found element ${element.value} with ${text}`)

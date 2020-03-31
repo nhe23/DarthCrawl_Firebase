@@ -23,7 +23,7 @@ export const newestCrawlResult = (crawlId, createTime) => {
       .collection(`crawls/${crawlId}/results`)
       .where("date", ">=", createTime)
       .orderBy("date", "desc")
-  ).pipe(startWith([{}]));
+  );
 };
 
 export const setCrawl = async ({ id, uid, createTime, url, elements }) => {

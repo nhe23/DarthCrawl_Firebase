@@ -16,6 +16,7 @@
     {
       id: 0,
       value: "",
+      name:"",
       children: []
     }
   ];
@@ -55,7 +56,7 @@
     for (const i of event.detail.parentIndeces) {
       ref = ref[i].children;
     }
-    ref.push({ id: Date.now(), value: "", children: [] });
+    ref.push({ id: Date.now(), value: "", name:"", children: [] });
     console.log("Elements before add");
     console.log(elements);
     elements = [...elementCopy];
@@ -70,7 +71,7 @@
     }
     const parentElement = ref.find(r => r.id == event.detail.elementId);
     const index = ref.indexOf(parentElement);
-    ref[index].children.push({ id: Date.now(), value: "", children: [] });
+    ref[index].children.push({ id: Date.now(), value: "", name:"", children: [] });
     elements = [...elementCopy];
   }
 
@@ -141,8 +142,9 @@
           parentIndeces={[]} />
       </div>
       <div class="column is-three-fifths container text">
-        {#if results}
-          {#if !$results[0] || !$results[0].crawlResults || $results[0].crawlResults.length === 0}
+        {#if $results}
+          <!-- {#if !$results[0] || !$results[0].crawlResults || $results[0].crawlResults.length === 0} -->
+          {#if $results.length === 0}
             <progress class="progress is-small is-primary" max="100">
               15%
             </progress>

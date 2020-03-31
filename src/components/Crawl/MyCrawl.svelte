@@ -1,17 +1,28 @@
 <script>
   import { collectionData, docData } from "rxfire/firestore";
   import { startWith } from "rxjs/operators";
-  import { crawlResults, deleteCrawl } from "../../services/firestore";
+  import { crawlResults, deleteCrawl, setReCrawl, newestCrawlResult } from "../../services/firestore";
+  import firebase from "firebase/app";
   import CrawlElements from "./CrawlElements.svelte";
   import CrawlResults from "./CrawlResults.svelte";
   export let crawl;
 
   let showResults = false;
   let results = crawlResults(crawl.id)
+  let result;
   console.log(crawl);
 
-  function reCrawl(){
-
+  let reCrawlLoading = false;
+  async function reCrawl(){
+    reCrawlLoading = true;
+    const createTime = firebase.firestore.Timestamp.now();
+    await setReCrawl(crawl.id, createTime);
+    result = newestCrawlResult(crawl.id, createTime).subscribe(r=> {
+      console.log(r);
+      if (r.length > 0){
+        reCrawlLoading = false;
+      }
+    })
   } 
 
   let deleteCrawlLoading=false;
@@ -71,12 +82,12 @@
       <!-- <CrawlResults /> -->
     </div>
     <div class="column is-1">
-      <button on:click={reCrawl} class="button" class:is-loading={deleteCrawlLoading} title="Recrawl">
+      <button on:click={reCrawl} class="button" class:is-loading={reCrawlLoading} title="Recrawl">
         <span class="icon">
           <i class="fas fa-redo-alt" />
         </span>
       </button>
-      <button on:click={deleteCrawl} class="button" title="Delete">
+      <button on:click={deleteUserCrawl} class:is-loading={deleteCrawlLoading} class="button" title="Delete">
         <span class="icon">
           <i class="fas fa-minus-circle has-text-danger" />
         </span>
