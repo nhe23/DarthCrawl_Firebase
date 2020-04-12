@@ -24,6 +24,7 @@
     });
   }
 
+
   let logoutPromise;
   function logout() {
     isLoading = true;

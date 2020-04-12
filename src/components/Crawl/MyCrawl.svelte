@@ -1,6 +1,7 @@
 <script>
   import { collectionData, docData } from "rxfire/firestore";
   import { startWith } from "rxjs/operators";
+  import { fade } from 'svelte/transition';
   import { crawlResults, deleteCrawl, setReCrawl, newestCrawlResult } from "../../services/firestore";
   import firebase from "firebase/app";
   import CrawlElements from "./CrawlElements.svelte";
@@ -8,6 +9,7 @@
   export let crawl;
 
   let showResults = false;
+  let showElements= false;
   let results = crawlResults(crawl.id)
   let result;
   console.log(crawl);
@@ -53,13 +55,24 @@
     <div class="column is-3 url">
       <a href={crawl.url} target="_blank">{crawl.url}</a>
     </div>
-    <div class="column is-2">{crawl.createDate.toDate()}</div>
-    <div class="column is-3 elements">
-      <CrawlElements
-        elements={crawl.crawlElements}
-        parentIndeces={[]}
-        staticView={true} />
+    <div class="column is-2">{crawl.createDate.toDate().toLocaleString()}</div>
+    <div class="column is-3 elements" on:click={() => (showElements = !showElements)}>
+      Elements
+      {#if showElements}
+        <span class="icon is-small has-text-link">
+          <i class="fas fa-chevron-up" />
+        </span>
+        <CrawlElements
+          elements={crawl.crawlElements}
+          parentIndeces={[]}
+          staticView={true} />
+      {:else}
+        <span class="icon is-small has-text-link">
+          <i class="fas fa-chevron-down" />
+        </span>
+      {/if}
     </div>
+
     <div class="column is-3" on:click={() => (showResults = !showResults)}>
       Result
       {#if showResults}
