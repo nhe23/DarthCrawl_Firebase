@@ -1,7 +1,8 @@
 <script>
   import { auth } from "../../conf/firebase";
   import { authState } from "rxfire/auth";
-  import LoginDialog from './LoginDialog.svelte'
+  import LoginDialog from "./LoginDialog.svelte";
+  import UserDialog from "./UserDialog.svelte";
 
   let email;
   let password;
@@ -9,6 +10,7 @@
   let stored;
   let isLoading = false;
   let showLogin = false;
+  let showSignup = false;
 
   const unsubscribeUser = authState(auth).subscribe(u => (user = u));
 
@@ -17,13 +19,24 @@
   function login(event) {
     console.log("login called");
     isLoading = true;
-    loginPromise = auth.signInWithEmailAndPassword(event.detail.email, event.detail.password);
+    loginPromise = auth.signInWithEmailAndPassword(
+      event.detail.email,
+      event.detail.password
+    );
     loginPromise.then(() => {
-      showLogin=false;
+      showLogin = false;
       isLoading = false;
     });
   }
 
+  function signUp(event) {
+    console.log("Signup called");
+    isLoading = true;
+    auth.createUserWithEmailAndPassword(event.detail.email, event.detail.password).then(()=>{
+      showSignup = false;
+      isLoading= false;
+    })
+  }
 
   let logoutPromise;
   function logout() {
@@ -46,20 +59,27 @@
         Log out
       </button>
     {:else}
-      <button class="button is-primary">
+      <button
+        class="button is-primary"
+        on:click={() => {
+          showSignup = true;
+          console.log(showSignup)
+        }}>
         <strong>Sign up</strong>
       </button>
       <button
         class="button is-light"
         on:click={() => {
-          
           showLogin = true;
           console.log(showLogin);
         }}>
         Log in
       </button>
       {#if showLogin}
-        <LoginDialog bind:isLoading={isLoading} bind:showLogin={showLogin} on:login={login}/>
+        <UserDialog bind:isLoading bind:showDialog={showLogin} on:signupOrLogin={login} dialogType="Log in"/>
+      {/if}
+      {#if showSignup}
+        <UserDialog bind:isLoading bind:showDialog={showSignup} on:signupOrLogin={signUp} dialogType="Sign up"/>
       {/if}
     {/if}
   </div>

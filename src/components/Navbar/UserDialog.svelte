@@ -7,7 +7,7 @@
   let timer;
   const dispatch = createEventDispatcher();
 
-  export let showLogin;
+  export let showDialog;
   export let isLoading;
   export let dialogType;
 
@@ -37,13 +37,13 @@
     }
     emailValid = false;
   }
-  function login() {
-    dispatch("login", {email, password});
+  function signupOrLogin() {
+    dispatch("signupOrLogin", { email, password });
   }
 </script>
 
 <main>
-  <div class="modal is-active" class:is-active={showLogin}>
+  <div class="modal is-active" class:is-active={showDialog}>
     <div class="modal-background" />
     <div class="modal-card">
       <header class="modal-card-head">
@@ -51,60 +51,68 @@
         <button
           class="delete"
           aria-label="close"
-          on:click={() => (showLogin = false)} />
+          on:click={() => (showDialog = false)} />
       </header>
-      <section class="modal-card-body">
-        <div class="field">
-          <label class="label">Email</label>
-          <div class="control has-icons-left has-icons-right">
-            <input
-              class="input"
-              type="email"
-              placeholder="Email input"
-              bind:value={email}
-              on:input={() => {
-                debounce(validateEmail);
-              }} />
-            <span class="icon is-small is-left">
-              <i class="fas fa-envelope" />
-            </span>
+      <form
+        on:submit={e => {
+          console.log("Submit");
+          e.preventDefault();
+          signupOrLogin();
+        }}>
+        <section class="modal-card-body">
+
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+              <input
+                class="input"
+                type="email"
+                placeholder="Email input"
+                bind:value={email}
+                on:input={() => {
+                  debounce(validateEmail);
+                }} />
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope" />
+              </span>
+            </div>
+            {#if email && emailValid !== undefined && !emailValid}
+              <p class="help is-danger">This email is invalid</p>
+            {/if}
           </div>
-          {#if email && emailValid !== undefined && !emailValid}
-            <p class="help is-danger">This email is invalid</p>
-          {/if}
-        </div>
-        <div class="field">
-          <label class="label">Password</label>
-          <div class="control has-icons-left has-icons-right">
-            <input
-              class="input"
-              type="password"
-              placeholder="Password"
-              bind:value={password}
-              on:input={() => {
-                debounce(validatePassword);
-              }} />
-            <span class="icon is-small is-left">
-              <i class="fas fa-key" />
-            </span>
+          <div class="field">
+            <label class="label">Password</label>
+            <div class="control has-icons-left has-icons-right">
+              <input
+                class="input"
+                type="password"
+                placeholder="Password"
+                bind:value={password}
+                on:input={() => {
+                  debounce(validatePassword);
+                }} />
+              <span class="icon is-small is-left">
+                <i class="fas fa-key" />
+              </span>
+            </div>
+            {#if password && passwordValid !== undefined && !passwordValid}
+              <p class="help is-danger">This password is invalid</p>
+            {/if}
           </div>
-          {#if password && passwordValid !== undefined && !passwordValid}
-            <p class="help is-danger">This password is invalid</p>
-          {/if}
-        </div>
-      </section>
-      <footer class="modal-card-foot">
-        <button
-          class="button is-primary"
-          disabled={!emailValid || !passwordValid}
-          on:click={login}
-          class:is-loading={isLoading}>
-          {dialogType}
-        </button>
-        <button class="button" on:click={() => (showLogin = false)}>
-          Cancel
-        </button>
-      </footer>
+        </section>
+        <footer class="modal-card-foot">
+          <button
+            class="button is-primary"
+            type="submit"
+            disabled={!emailValid || !passwordValid}
+            class:is-loading={isLoading}>
+            {dialogType}
+          </button>
+          <button class="button" on:click={() => (showDialog = false)}>
+            Cancel
+          </button>
+        </footer>
+      </form>
     </div>
   </div>
 </main>
