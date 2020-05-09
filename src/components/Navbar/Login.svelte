@@ -1,6 +1,7 @@
 <script>
   import { auth } from "../../conf/firebase";
   import { authState } from "rxfire/auth";
+  import { navigate } from "svelte-routing";
   import LoginDialog from "./LoginDialog.svelte";
   import UserDialog from "./UserDialog.svelte";
 
@@ -32,10 +33,12 @@
   function signUp(event) {
     console.log("Signup called");
     isLoading = true;
-    auth.createUserWithEmailAndPassword(event.detail.email, event.detail.password).then(()=>{
-      showSignup = false;
-      isLoading= false;
-    })
+    auth
+      .createUserWithEmailAndPassword(event.detail.email, event.detail.password)
+      .then(() => {
+        showSignup = false;
+        isLoading = false;
+      });
   }
 
   let logoutPromise;
@@ -44,8 +47,8 @@
     logoutPromise = auth.signOut();
     logoutPromise.then(() => {
       isLoading = false;
+      navigate("/", { replace: true });
     });
-    // storedUser.set({isLoggedIn: false, user:''})
   }
 </script>
 
@@ -63,7 +66,7 @@
         class="button is-primary"
         on:click={() => {
           showSignup = true;
-          console.log(showSignup)
+          console.log(showSignup);
         }}>
         <strong>Sign up</strong>
       </button>
@@ -76,10 +79,18 @@
         Log in
       </button>
       {#if showLogin}
-        <UserDialog bind:isLoading bind:showDialog={showLogin} on:signupOrLogin={login} dialogType="Log in"/>
+        <UserDialog
+          bind:isLoading
+          bind:showDialog={showLogin}
+          on:signupOrLogin={login}
+          dialogType="Log in" />
       {/if}
       {#if showSignup}
-        <UserDialog bind:isLoading bind:showDialog={showSignup} on:signupOrLogin={signUp} dialogType="Sign up"/>
+        <UserDialog
+          bind:isLoading
+          bind:showDialog={showSignup}
+          on:signupOrLogin={signUp}
+          dialogType="Sign up" />
       {/if}
     {/if}
   </div>

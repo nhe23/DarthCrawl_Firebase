@@ -7,28 +7,31 @@
   import { slide } from "svelte/transition";
   import CrawlElements from "./CrawlElements.svelte";
   import CrawlResults from "./CrawlResults.svelte";
+  import QuotaUsed from "./QuotaUsed.svelte";
   import md5 from "md5";
 
   export let uid;
+  export let loadedUserData;
   let url = "";
 
   let elements = [
     {
       id: 0,
       value: "",
-      name:"",
+      name: "",
       children: []
     }
   ];
 
   let results;
   async function addCrawl() {
+    console.log(loadedUserData);
     console.log(elements);
     const id = md5(`${url}_${uid}`);
     try {
       const createTime = firebase.firestore.Timestamp.now();
-      const ref = await setCrawl({id, uid, createTime, url, elements})
-      results = newestCrawlResult(id, createTime)
+      const ref = await setCrawl({ id, uid, createTime, url, elements });
+      results = newestCrawlResult(id, createTime);
     } catch (err) {
       console.log(err);
     }
@@ -50,13 +53,14 @@
   }
 
   function addElement(event) {
+    console.log(loadedUserData);
     let elementCopy = [...elements];
     let ref = elementCopy;
     console.log(event.detail.parentIndeces);
     for (const i of event.detail.parentIndeces) {
       ref = ref[i].children;
     }
-    ref.push({ id: Date.now(), value: "", name:"", children: [] });
+    ref.push({ id: Date.now(), value: "", name: "", children: [] });
     console.log("Elements before add");
     console.log(elements);
     elements = [...elementCopy];
@@ -71,7 +75,12 @@
     }
     const parentElement = ref.find(r => r.id == event.detail.elementId);
     const index = ref.indexOf(parentElement);
-    ref[index].children.push({ id: Date.now(), value: "", name:"", children: [] });
+    ref[index].children.push({
+      id: Date.now(),
+      value: "",
+      name: "",
+      children: []
+    });
     elements = [...elementCopy];
   }
 
@@ -84,7 +93,7 @@
 
 <style>
   /* .elements { */
-    /* display: flex;
+  /* display: flex;
     flex-direction: column;
   }
   .crawl {
@@ -110,7 +119,11 @@
       </div>
     </div>
   </section>
+  {#if loadedUserData.quotaUsed >= loadedUserData.quota}
+    <QuotaUsed />
+  {/if}
   <section class="section">
+
     <div class="columns">
       <div class="column is-10">
 
@@ -119,11 +132,11 @@
           placeholder="URL"
           bind:value={url}
           type="text" />
-        </div>
-        <div class="column is-2">
+      </div>
+      <div class="column is-2">
         <button
           class="button is-primary crawlButton"
-          disabled={url.length === 0 || !elements.some(e => e.value !== '')}
+          disabled={url.length === 0 || !elements.some(e => e.value !== '') || loadedUserData.quotaUsed >= loadedUserData.quota}
           on:click={addCrawl}>
           Crawl
         </button>
@@ -148,6 +161,8 @@
             <progress class="progress is-small is-primary" max="100">
               15%
             </progress>
+          {:else if $results[0].error}
+            <div class="notification is-danger is-light">{$results[0].error}</div>
           {:else}
             <CrawlResults results={$results[0].crawlResults} />
           {/if}

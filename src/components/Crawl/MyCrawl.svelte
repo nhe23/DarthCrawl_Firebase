@@ -1,36 +1,43 @@
 <script>
   import { collectionData, docData } from "rxfire/firestore";
   import { startWith } from "rxjs/operators";
-  import { fade } from 'svelte/transition';
-  import { crawlResults, deleteCrawl, setReCrawl, newestCrawlResult } from "../../services/firestore";
+  import { fade } from "svelte/transition";
+  import {
+    crawlResults,
+    deleteCrawl,
+    setReCrawl,
+    newestCrawlResult
+  } from "../../services/firestore";
   import firebase from "firebase/app";
   import CrawlElements from "./CrawlElements.svelte";
   import CrawlResults from "./CrawlResults.svelte";
   export let crawl;
+  export let userHasQuotaLeft;
 
   let showResults = false;
-  let showElements= false;
-  let results = crawlResults(crawl.id)
+  let showElements = false;
+  let results = crawlResults(crawl.id);
   let result;
+
   console.log(crawl);
 
   let reCrawlLoading = false;
-  async function reCrawl(){
+  async function reCrawl() {
     reCrawlLoading = true;
     const createTime = firebase.firestore.Timestamp.now();
     await setReCrawl(crawl.id, createTime);
-    result = newestCrawlResult(crawl.id, createTime).subscribe(r=> {
+    result = newestCrawlResult(crawl.id, createTime).subscribe(r => {
       console.log(r);
-      if (r.length > 0){
+      if (r.length > 0) {
         reCrawlLoading = false;
       }
-    })
-  } 
+    });
+  }
 
-  let deleteCrawlLoading=false;
-  function deleteUserCrawl(){
-    deleteCrawlLoading=true;
-    deleteCrawl(crawl.id).then(() => deleteCrawlLoading=false);
+  let deleteCrawlLoading = false;
+  function deleteUserCrawl() {
+    deleteCrawlLoading = true;
+    deleteCrawl(crawl.id).then(() => (deleteCrawlLoading = false));
   }
 </script>
 
@@ -56,7 +63,9 @@
       <a href={crawl.url} target="_blank">{crawl.url}</a>
     </div>
     <div class="column is-2">{crawl.createDate.toDate().toLocaleString()}</div>
-    <div class="column is-3 elements" on:click={() => (showElements = !showElements)}>
+    <div
+      class="column is-3 elements"
+      on:click={() => (showElements = !showElements)}>
       Elements
       {#if showElements}
         <span class="icon is-small has-text-link">
@@ -82,7 +91,15 @@
         {#each $results as result}
           {#if result.crawlResults}
             <CrawlResults results={result.crawlResults} />
-          {:else}Loading{/if}
+          {:else if result.error}
+            <ul>
+              <li>Run had errors</li>
+            </ul>
+          {:else}
+            <ul>
+              <li>Loading</li>
+            </ul>
+          {/if}
         {/each}
       {:else}
         <span class="icon is-small has-text-link">
@@ -95,12 +112,21 @@
       <!-- <CrawlResults /> -->
     </div>
     <div class="column is-1">
-      <button on:click={reCrawl} class="button" class:is-loading={reCrawlLoading} title="Recrawl">
+      <button
+        on:click={reCrawl}
+        disabled={!userHasQuotaLeft}
+        class="button"
+        class:is-loading={reCrawlLoading}
+        title="Recrawl">
         <span class="icon">
           <i class="fas fa-redo-alt" />
         </span>
       </button>
-      <button on:click={deleteUserCrawl} class:is-loading={deleteCrawlLoading} class="button" title="Delete">
+      <button
+        on:click={deleteUserCrawl}
+        class:is-loading={deleteCrawlLoading}
+        class="button"
+        title="Delete">
         <span class="icon">
           <i class="fas fa-minus-circle has-text-danger" />
         </span>

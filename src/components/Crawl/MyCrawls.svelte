@@ -4,14 +4,11 @@
   import { startWith } from "rxjs/operators";
   import { userCrawls } from "../../services/firestore";
   import MyCrawl from "./MyCrawl.svelte";
+  import QuotaUsed from "./QuotaUsed.svelte";
   export let uid;
-  // const query = db
-  //   .collection("crawls")
-  //   .where("uid", "==", uid)
-  //   .orderBy("createDate");
-
-  // let crawls = collectionData(query, 'id').pipe(startWith([{ url: "test" }]));
+  export let loadedUserData;
   let crawls = userCrawls(uid);
+  $: userHasQuotaLeft = loadedUserData.quotaUsed < loadedUserData.quota;
 </script>
 
 <section class="hero is-small is-primary is-bold">
@@ -24,26 +21,13 @@
     </div>
   </div>
 </section>
+{#if !userHasQuotaLeft}
+  <QuotaUsed />
+{/if}
 <section class="section">
   {#each $crawls as crawl}
     {#if crawl.createDate}
-      <MyCrawl {crawl} />
-      <!-- <div class="box">
-        <div class="columns">
-          <div class="column is-one-quarter url">
-            <a href={crawl.url} target="_blank">{crawl.url}</a>
-          </div>
-          <div class="column is-one-fifth">{crawl.createDate.toDate()}</div>
-          <div class="column is-one-quarter elements">
-            <!-- {crawl.crawlElements[0].value} -->
-      <!-- <CrawlElements
-              elements={crawl.crawlElements}
-              parentIndeces={[]}
-              staticView={true} />
-          </div>
-          <div class="column is-one-quarter"><CrawlResults/></div>
-        </div>
-      </div> -->
+      <MyCrawl {crawl} {userHasQuotaLeft} />
     {/if}
   {/each}
 </section>

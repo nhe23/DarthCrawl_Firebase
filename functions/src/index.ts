@@ -5,12 +5,14 @@ import { crawlUrl } from "./crawler";
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://darth-crawl.firebaseio.com"
+  databaseURL: "https://darth-crawl.firebaseio.com",
 });
+
+const db = admin.firestore();
 
 const runtimeOpts: functions.RuntimeOptions = {
   timeoutSeconds: 30,
-  memory: "1GB"
+  memory: "1GB",
 };
 
 export const onCrawlCreate = functions
@@ -40,6 +42,36 @@ export const onCrawlDelete = functions
     // return snap.ref.set({crawlResults}, {merge: true});
   });
 
+export const updateUserQuota = functions.https.onCall(async (data, context) => {
+  const uid = context.auth?.uid;
+  if (!uid) return;
+  const resetDate =  admin.firestore.Timestamp.fromMillis(
+    Date.now() + 30 * 24 * 60 * 60 * 1000
+  );
+  let userDataRef = db.collection("users").doc(uid);
+  let userData = await userDataRef.get();
+  const userDataDoc = userData.data();
+  if (!userData.exists) {
+    console.log("No data available");
+    return await userDataRef.set({
+      quota: 2,
+      quotaUsed: 0,
+      resetDate
+    });
+  }
+  
+  else if (userDataDoc?.resetDate.seconds < admin.firestore.Timestamp.now().seconds){
+    console.log("Reset quota")
+    return await userDataRef.set({
+      quotaUsed: 0,
+      resetDate
+    }, {merge:true});
+  }
+  console.log("Nothing to do");
+  return;
+
+});
+
 const crawlDocument = async (snap: functions.firestore.DocumentSnapshot) => {
   console.log("Function called");
   const newValue = snap.data();
@@ -48,13 +80,27 @@ const crawlDocument = async (snap: functions.firestore.DocumentSnapshot) => {
   }
   const url = newValue.url;
   const crawlElements = newValue.crawlElements;
-  const crawlResults = await crawlUrl(url, crawlElements);
-
+  let crawlResults = null;
+  let error = null;
+  try {
+   crawlResults = await crawlUrl(url, crawlElements);
+  }
+  
+  catch (err) {
+    error = err.message;
+  }
   console.log(`URL: ${url}`);
   console.log(`Elements: ${crawlElements}`);
   console.log(`Elements value: ${newValue.crawlElements[0].value}`);
   console.log(`Elements name: ${newValue.crawlElements[0].name}`);
-  const result = { date: admin.firestore.Timestamp.now(), crawlResults };
+  const result = { date: admin.firestore.Timestamp.now(), crawlResults, error };
+  console.log(newValue.uid);
+  await db
+    .collection("users")
+    .doc(newValue.uid)
+    .update({
+      quotaUsed: admin.firestore.FieldValue.increment(1),
+    });
   return snap.ref.collection("results").add(result);
 };
 
@@ -87,7 +133,7 @@ function deleteQueryBatch(
 
       // Delete documents in a batch
       let batch = db.batch();
-      snapshot.docs.forEach(doc => {
+      snapshot.docs.forEach((doc) => {
         batch.delete(doc.ref);
       });
 
@@ -95,7 +141,7 @@ function deleteQueryBatch(
         return snapshot.size;
       });
     })
-    .then(numDeleted => {
+    .then((numDeleted) => {
       if (numDeleted === 0) {
         resolve();
         return;
