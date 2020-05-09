@@ -1,5 +1,5 @@
 <script>
-  import  {Link}  from "../utils";
+  import { Link } from "../utils";
   import Branding from "./Branding.svelte";
   import Login from "./Login.svelte";
 
@@ -30,26 +30,6 @@
     display: flex;
     align-items: center;
   }
-
-  .white {
-    color: #ffffff;
-    text-decoration: none;
-  }
-  .white:active {
-    color: goldenrod;
-    text-decoration: none;
-  }
-
-  .white:hover {
-    background-color: goldenrod;
-  }
-
-  a:active {
-    background-color: goldenrod;
-  }
-  .test {
-    font-size: 1px;
-  }
 </style>
 
 <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
@@ -62,7 +42,7 @@
       <Login />
       <a
         on:click={toggleBurger}
-        class="navbar-burger burger is-dark"
+        class="navbar-burger burger"
         class:is-active={showBurger}
         aria-label="menu"
         aria-expanded="false"
@@ -81,10 +61,18 @@
     class:is-active={showBurger}>
     <div class="navbar-start">
 
-      <Link className="navbar-item" to="/">Home</Link>
-      <Link className="navbar-item" to="/mycrawls">My Crawls</Link>
-      <Link className="navbar-item" to="/crawl">Crawl</Link>
-      <Link className="navbar-item" to="/documentation">Documentation</Link>
+      <Link className="navbar-item" to="/" on:click={toggleBurger}>Home</Link>
+      <Link className="navbar-item" to="/mycrawls" on:click={toggleBurger}>
+        My Crawls
+      </Link>
+
+      <Link className="navbar-item" to="/crawl" on:click={toggleBurger}>
+        Crawl
+      </Link>
+
+      <Link className="navbar-item" to="/documentation" on:click={toggleBurger}>
+        Documentation
+      </Link>
 
       <div class="navbar-item has-dropdown" class:is-hoverable={!showBurger}>
 

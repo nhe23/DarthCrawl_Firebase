@@ -1,7 +1,7 @@
 <script>
   // import { db } from "../firebase";
   import { setCrawl, newestCrawlResult } from "../../services/firestore";
-  import { Link } from "svelte-routing";
+  import { Link } from "../utils";
   import firebase from "firebase/app";
   import { fade } from "svelte/transition";
   import { slide } from "svelte/transition";
@@ -107,7 +107,7 @@
 </style>
 
 <main>
-  <section class="hero is-small is-primary is-bold">
+  <section class="hero is-small is-light is-bold">
     <div class="hero-body">
       <div class="container">
         <h1 class="title">Add crawl</h1>

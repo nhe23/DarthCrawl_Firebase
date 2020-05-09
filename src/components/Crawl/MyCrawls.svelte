@@ -11,7 +11,7 @@
   $: userHasQuotaLeft = loadedUserData.quotaUsed < loadedUserData.quota;
 </script>
 
-<section class="hero is-small is-primary is-bold">
+<section class="hero is-small is-light is-bold">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">My Crawls</h1>

@@ -7127,6 +7127,26 @@ label.panel-block {
     display: flex;
     align-items: center; }
 
+.navbar-link:not(.is-arrowless)::after {
+  border-color: #ffdd57; }
+
+.navbar-link:not(.is-arrowless):hover::after {
+  border-color: #4a4a4a; }
+
+.navbar-item a,
+a.navbar-item {
+  color: white; }
+
+.navbar-item a:hover,
+.navbar-item a:active,
+a.navbar-item:hover,
+a.navbar-item:focus {
+  background-color: #ffdd57;
+  color: #4a4a4a; }
+
+.navbar-menu {
+  background-color: #363636; }
+
 .navbar-link div {
   width: 100%;
   height: 100%;
