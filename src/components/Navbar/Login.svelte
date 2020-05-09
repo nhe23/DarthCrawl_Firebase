@@ -1,7 +1,7 @@
 <script>
   import { auth } from "../../conf/firebase";
   import { authState } from "rxfire/auth";
-  import { navigate } from "svelte-routing";
+  import { navigate } from "../utils";
   import LoginDialog from "./LoginDialog.svelte";
   import UserDialog from "./UserDialog.svelte";
 

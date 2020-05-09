@@ -1,6 +1,6 @@
 <style>
 .brandText {
-     font-Family: "herculanum";
+     font-Family: "Quicksand";
       font-style: normal;
       font-display: swap;
       font-weight: 400;
@@ -9,7 +9,7 @@
 .branding {
     display:flex;
     align-items: center;
-    margin-right: 100px;
+    margin-right: 100px
 }
 
 </style>
@@ -159,5 +159,5 @@
     </g>
   </svg>
   </div>
-  <div class="brandText">Darth Crawl</div>
+  <div class="is-hidden-mobile brandText">Darth Crawl</div>
 </div>

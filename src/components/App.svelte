@@ -1,5 +1,5 @@
 <script>
-  import { Router, Link, Route } from "svelte-routing";
+  import { Router, Link, Route } from "./utils";
   import { auth } from "../conf/firebase";
   import { authState } from "rxfire/auth";
   import { userData } from "../services/firestore";
