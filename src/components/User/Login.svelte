@@ -1,17 +1,21 @@
 <script>
-  import { createEventDispatcher } from "svelte";
   import { auth, googleProvider } from "../../conf/firebase";
+  import { validateEmail, validatePassword } from "../utils/helper";
   import GoogleLogin from "./GoogleLogin.svelte";
   let email;
   let password;
-  let passwordValid;
-  let loginError;
-  let emailValid;
-  let timer;
-  const dispatch = createEventDispatcher();
+  let submitted = false;
 
-  export let showDialog;
+  $: passwordValid = validatePassword(password);
+  let loginError;
+  $: emailValid = validateEmail(email);
+
+  let showDialog;
   let isLoading = false;
+
+  function resetLoginError() {
+    loginError = null
+  }
 
   function loginWithEmail() {
     loginError = null;
@@ -51,33 +55,6 @@
         // ...
       });
   }
-
-  function validatePassword() {
-    if (password && password.length >= 6) {
-      passwordValid = true;
-      return;
-    }
-    passwordValid = false;
-  }
-  const debounce = (v) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      v();
-    }, 750);
-  };
-  function validateEmail() {
-    console.log(email);
-    if (
-      email &&
-      email.length >= 5 &&
-      email.includes("@") &&
-      email.includes(".")
-    ) {
-      emailValid = true;
-      return;
-    }
-    emailValid = false;
-  }
 </script>
 
 <style>
@@ -95,7 +72,7 @@
   }
 </style>
 
-<main>
+<div>
   <button
     class="button is-light"
     on:click={() => {
@@ -115,11 +92,11 @@
           on:click={() => (showDialog = false)} />
       </header>
       <form
+        id="login"
         on:submit={(e) => {
-          console.log('Submit');
           e.preventDefault();
-          console.log(e);
-          loginWithEmail();
+          submitted = true;
+          if (emailValid && passwordValid) loginWithEmail();
         }}>
         <section class="modal-card-body">
 
@@ -130,15 +107,14 @@
                 class="input"
                 type="email"
                 placeholder="Email input"
+                autocomplete="username"
                 bind:value={email}
-                on:input={() => {
-                  debounce(validateEmail);
-                }} />
+                on:input={resetLoginError} />
               <span class="icon is-small is-left">
                 <i class="fas fa-envelope" />
               </span>
             </div>
-            {#if email && emailValid !== undefined && !emailValid}
+            {#if submitted && email && emailValid !== undefined && !emailValid}
               <p class="help is-danger">This email is invalid</p>
             {/if}
           </div>
@@ -149,15 +125,14 @@
                 class="input"
                 type="password"
                 placeholder="Password"
-                bind:value={password}
-                on:input={() => {
-                  debounce(validatePassword);
-                }} />
+                autocomplete="current-password"
+                bind:value={password} 
+                on:input={resetLoginError}/>
               <span class="icon is-small is-left">
                 <i class="fas fa-key" />
               </span>
             </div>
-            {#if password && passwordValid !== undefined && !passwordValid}
+            {#if submitted && password && passwordValid !== undefined && !passwordValid}
               <p class="help is-danger">This password is invalid</p>
             {/if}
           </div>
@@ -170,16 +145,15 @@
             <button
               class="button is-primary signinButton"
               type="submit"
-              disabled={!emailValid || !passwordValid}
+              disabled={!email || !password}
               class:is-loading={isLoading}>
               Sign in
             </button>
             <span>or sign in with</span>
             <GoogleLogin login={loginWithGoogle} />
           </div>
-
         </footer>
       </form>
     </div>
   </div>
-</main>
+</div>

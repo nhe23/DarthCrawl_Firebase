@@ -1,7 +1,7 @@
 <script>
   // import { db } from "../firebase";
   import { setCrawl, newestCrawlResult } from "../../services/firestore";
-  import { Link } from "../utils";
+  import { Link } from "../Router";
   import firebase from "firebase/app";
   import { fade } from "svelte/transition";
   import { slide } from "svelte/transition";

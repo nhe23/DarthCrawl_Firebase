@@ -1,5 +1,5 @@
 <script>
-  import { Router, Link, Route } from "./utils";
+  import { Router, Link, Route } from "../components/Router";
   import { auth } from "../conf/firebase";
   import { authState } from "rxfire/auth";
   import { userData } from "../services/firestore";

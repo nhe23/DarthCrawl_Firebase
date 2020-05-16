@@ -1,5 +1,5 @@
 <script>
-  import { Link } from "../utils";
+  import { Link } from "../Router";
   import Branding from "./Branding.svelte";
   import UserActions from "./UserActions.svelte";
 

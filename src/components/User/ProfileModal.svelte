@@ -1,7 +1,7 @@
 <script>
   import ProfilePicture from "./ProfilePicture.svelte";
   import { auth, googleProvider } from "../../conf/firebase";
-  import { navigate } from "../utils";
+  import { navigate } from "../Router";
   export let user;
   let showProfileMenu = false;
   let isLoading = false;
