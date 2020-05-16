@@ -1,7 +1,7 @@
 <script>
   import { Link } from "../utils";
   import Branding from "./Branding.svelte";
-  import Login from "./Login.svelte";
+  import UserActions from "./UserActions.svelte";
 
   let showBurger = false;
   let showDropdown = false;
@@ -13,6 +13,10 @@
     showDropdown = !showDropdown;
   }
 
+  function linkClick(e) {
+    e.preventDefault();
+    showBurger = false;
+  }
   function getProps({ location, href, isPartiallyCurrent, isCurrent }) {
     const isActive = href === "/" ? isCurrent : isPartiallyCurrent || isCurrent;
 
@@ -27,6 +31,7 @@
 <style>
   .navend {
     margin-left: auto;
+    margin-right:10px;
     display: flex;
     align-items: center;
   }
@@ -35,11 +40,14 @@
 <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <div class="navbar-item">
-      <Branding />
+      <Link to="/" on:click={linkClick}>
+        <Branding />
+      </Link>
+
     </div>
 
     <div class="navend is-hidden-desktop">
-      <Login />
+      <UserActions />
       <a
         on:click={toggleBurger}
         class="navbar-burger burger"
@@ -55,27 +63,22 @@
 
   </div>
 
-  <div
-    id="navbarBasicExample"
-    class="navbar-menu is-dark"
-    class:is-active={showBurger}>
+  <div id="navbarBasicExample" class="navbar-menu" class:is-active={showBurger}>
     <div class="navbar-start">
 
-      <Link className="navbar-item" to="/" on:click={toggleBurger}>Home</Link>
-      <Link className="navbar-item" to="/mycrawls" on:click={toggleBurger}>
+      <Link className="navbar-item" to="/mycrawls" on:click={linkClick}>
         My Crawls
       </Link>
 
-      <Link className="navbar-item" to="/crawl" on:click={toggleBurger}>
+      <Link className="navbar-item" to="/crawl" on:click={linkClick}>
         Crawl
       </Link>
 
-      <Link className="navbar-item" to="/documentation" on:click={toggleBurger}>
+      <Link className="navbar-item" to="/documentation" on:click={linkClick}>
         Documentation
       </Link>
 
-      <div class="navbar-item has-dropdown" class:is-hoverable={!showBurger}>
-
+      <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link" on:click={toggleNavbarlink}>
           <div>More</div>
         </a>
@@ -89,10 +92,11 @@
           </div>
         {/if}
       </div>
+
     </div>
 
   </div>
   <div class="navend is-hidden-touch">
-    <Login />
+    <UserActions />
   </div>
 </nav>
