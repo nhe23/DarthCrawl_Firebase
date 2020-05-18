@@ -1,6 +1,6 @@
 <script>
   import { validatePassword } from "../../utils/helper";
-  import {onMount} from "svelte";
+  import { onMount } from "svelte";
   export let formValues;
   export let continueDisabled;
   let timer;
@@ -15,11 +15,25 @@
   }
 
   onMount(() => {
-     setContinueDisabled();
+    setContinueDisabled();
   });
 </script>
 
+<style>
+  .icon {
+    pointer-events: initial !important;
+    cursor: pointer;
+  }
+  .modal-card-title {
+    margin-bottom: 20px;
+  }
+  .field {
+    margin-bottom: 20px !important;
+  }
+</style>
+
 <div>
+  <div class="modal-card-title has-text-white">Choose your password</div>
   <div class="field">
     <div class="control has-icons-left has-icons-right">
       {#if showPassword}
@@ -67,5 +81,10 @@
     {#if formValues.password && formValues.passwordValid !== null && !formValues.passwordValid}
       <p class="help is-danger">This password is invalid</p>
     {/if}
+
   </div>
+  <span>
+    By registering you accept the terms and conditions privacy policy of
+    DarthCrawl.
+  </span>
 </div>

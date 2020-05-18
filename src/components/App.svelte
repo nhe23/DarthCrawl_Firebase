@@ -7,6 +7,7 @@
   import { userData } from "../services/firestore";
   import { updateQuota } from "../services/users";
   import Navbar from "./Navbar/Navbar.svelte";
+  import SingupVerification from "./User/Signup/SignupStepVerification.svelte";
   import Crawl from "./Crawl/Crawl.svelte";
   import Home from "./Home.svelte";
   import Documentation from "./Documentation.svelte";
@@ -16,30 +17,31 @@
   let loadedUserData;
   export let url = "";
 
-  let userVerified = false;
-  function reload(currentUser) {
-    if (!currentUser) return Promise.resolve("No User");
-    console.log("Reload");
-    return currentUser.reload();
-  }
+  let userVerified = true;
+  // function reload(currentUser) {
+  //   if (!currentUser) return Promise.resolve("No User");
+  //   console.log("Reload");
+  //   return currentUser.reload();
+  // }
 
-  const source = interval(2000).pipe(
-    flatMap(() => from(reload(auth.currentUser))),
-    map(() => {
-      if (auth.currentUser) return auth.currentUser.emailVerified;
-      return false;
-    }),
-    takeWhile(() => !userVerified)
-  );
+  // const source = interval(2000).pipe(
+  //   flatMap(() => from(reload(auth.currentUser))),
+  //   map(() => {
+  //     if (auth.currentUser) return auth.currentUser.emailVerified;
+  //     return false;
+  //   }),
+  //   takeWhile(() => !userVerified)
+  // );
 
-  const subscribe = source.subscribe(verified => {
-    userVerified = verified;
-  });
+  // const subscribe = source.subscribe(verified => {
+  //   userVerified = verified;
+  // });
 
   const unsubscribeUser = authState(auth).subscribe(async u => {
     loadedUser = u;
     if (u) {
       if (!u.emailVerified) {
+        userVerified=false;
         u.sendEmailVerification()
           .then(function() {
             console.log("Email sent");
@@ -69,7 +71,9 @@
   </script>
 </svelte:head>
 <main class="background">
-  {#if !userVerified}VERIFY BITCH{/if}
+  {#if !userVerified}
+    <SingupVerification />
+  {/if}
   <Router {url}>
     <Navbar />
     <div>

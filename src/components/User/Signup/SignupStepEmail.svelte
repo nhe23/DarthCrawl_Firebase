@@ -16,11 +16,9 @@
 </script>
 
 <style>
-  .icon {
-    pointer-events: initial !important;
-    cursor: pointer;
+  .field {
+    margin-bottom: 20px !important;
   }
-
   .modal-card-title {
     margin-bottom: 20px;
   }

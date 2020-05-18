@@ -7,15 +7,14 @@
   import SignUpStepVerification from "./SignupStepVerification.svelte";
   let showDialog = false;
   let isLoading = false;
-  let continueDisabled=true;
-  let email;
-  let password;
+  let signUpLoading = false;
+  let continueDisabled = true;
   let signupError;
   let name;
 
   const formValues = {
     name: "",
-    nameValie: null,
+    nameValid: null,
     email: "",
     emailValid: null,
     password: "",
@@ -23,26 +22,56 @@
   };
 
   let signUpSteps = [
-    { name: "email", component: SignUpStepEmail},
-    { name: "password", component: SignUpStepPassword},
-    { name: "verification", component: SignUpStepVerification}
+    {
+      name: "email",
+      component: SignUpStepEmail,
+      nextButtonName: "Continue",
+      clickFunction: () => {
+        selectedIndex++;
+      }
+    },
+    {
+      name: "password",
+      component: SignUpStepPassword,
+      nextButtonName: "Register",
+      clickFunction: () => {
+        signUp();
+      }
+    }
   ];
 
   let selectedIndex = 0;
 
   let submitted;
 
-  function signUp(event) {
+  function signUp() {
     console.log("Signup called");
-    isLoading = true;
-    auth.createUserWithEmailAndPassword(email, password).then(() => {
-      showDialog = false;
-      isLoading = false;
-    });
+    signUpLoading = true;
+    auth
+      .createUserWithEmailAndPassword(formValues.email, formValues.password)
+      .then(() => {
+        auth.currentUser
+          .updateProfile({
+            displayName: formValues.name
+          })
+          .then(() => {
+            console.log("Created user with name");
+            signUpLoading = false;
+          })
+          .catch(() => {
+            signUpLoading = false;
+            console.log("Could not create user");
+          });
+      });
   }
 </script>
 
 <style>
+  .backButton {
+    background-color: transparent;
+    border: 0;
+    padding-left: 0px !important;
+  }
   .footerContainer {
     display: flex;
     align-items: center;
@@ -52,7 +81,7 @@
     border-bottom: 0px;
     flex-flow: row-reverse;
     justify-content: space-between;
-    padding-bottom: 0px;
+    padding-bottom: 10px;
   }
 
   .modal-card-body {
@@ -61,6 +90,7 @@
 
   .modal-card {
     max-width: 440px;
+    min-height: 400px;
   }
 </style>
 
@@ -84,41 +114,34 @@
           class="button is-rounded"
           aria-label="continue"
           disabled={continueDisabled}
-          on:click={() => {
-            if (selectedIndex < signUpSteps.length - 1) selectedIndex++;
-            else showDialog = false;
-          }}>
-          {selectedIndex < signUpSteps.length - 1 ? 'Continue' : 'Done'}
+          class:is-loading={signUpLoading}
+          on:click={signUpSteps[selectedIndex].clickFunction}>
+          {signUpSteps[selectedIndex].nextButtonName}
         </button>
         {#if selectedIndex > 0}
           <div
-            class="button is-rounded"
+            class="button is-rounded backButton"
             aria-label="continue"
             on:click={() => {
               selectedIndex--;
             }}>
-            <i class="fas fa-arrow-left" />
+            <i class="fas fa-arrow-left has-text-white" />
           </div>
         {/if}
       </header>
-      <form
-        id="register"
-        on:submit={e => {
-          e.preventDefault();
-          submitted = true;
-          if (emailValid && passwordValid) signUp();
-        }}>
-        <section class="modal-card-body">
-          <svelte:component this={signUpSteps[selectedIndex].component} bind:continueDisabled={continueDisabled} {formValues}/>
-        </section>
+      <section class="modal-card-body">
+        <svelte:component
+          this={signUpSteps[selectedIndex].component}
+          bind:continueDisabled
+          {formValues} />
+      </section>
 
-        <footer class="modal-card-foot">
-          <div class="footerContainer">
-            <span>Or register via</span>
-            <GoogleLogin />
-          </div>
-        </footer>
-      </form>
+      <footer class="modal-card-foot">
+        <div class="footerContainer">
+          <span>Or register via</span>
+          <GoogleLogin />
+        </div>
+      </footer>
     </div>
   </div>
 
