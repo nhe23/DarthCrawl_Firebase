@@ -100,7 +100,7 @@
     </section>
     <footer class="modal-card-foot">
       <button
-        class="button is-dark"
+        class="button is-dark is-rounded"
         class:is-loading={isLoading}
         on:click={logout}>
         Log out

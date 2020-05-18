@@ -1,33 +1,22 @@
-// export const debounce = (v) => {
-//   let timer;
-//   clearTimeout(timer);
-//   let value;
-//   timer = setTimeout(() => {
-//     value = v();
-//     console.log(value);
-//   }, 750);
-//   console.log(value);
-//   return value;
-// };
-
-const debounce = (v) => {
+export const debounce = (v) => {
+  let timer;
   clearTimeout(timer);
+  let value;
   timer = setTimeout(() => {
-    val = v;
+    value =v();
   }, 750);
 };
+
+
 export const validateEmail = (email) => {
-  console.log("EXECUTED");
   if (
     email &&
     email.length >= 5 &&
     email.includes("@") &&
     email.includes(".")
   ) {
-    console.log("return");
     return true;
   }
-  console.log("return");
   return false;
 };
 

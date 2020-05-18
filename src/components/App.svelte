@@ -1,7 +1,9 @@
 <script>
   import { Router, Link, Route } from "../components/Router";
   import { auth } from "../conf/firebase";
-  import { authState } from "rxfire/auth";
+  import { authState, user } from "rxfire/auth";
+  import { interval, from } from "rxjs";
+  import { flatMap, map, takeWhile } from "rxjs/operators";
   import { userData } from "../services/firestore";
   import { updateQuota } from "../services/users";
   import Navbar from "./Navbar/Navbar.svelte";
@@ -10,16 +12,45 @@
   import Documentation from "./Documentation.svelte";
   import MyCrawls from "./Crawl/MyCrawls.svelte";
 
-  let user;
+  let loadedUser;
   let loadedUserData;
   export let url = "";
+
+  let userVerified = false;
+  function reload(currentUser) {
+    if (!currentUser) return Promise.resolve("No User");
+    console.log("Reload");
+    return currentUser.reload();
+  }
+
+  const source = interval(2000).pipe(
+    flatMap(() => from(reload(auth.currentUser))),
+    map(() => {
+      if (auth.currentUser) return auth.currentUser.emailVerified;
+      return false;
+    }),
+    takeWhile(() => !userVerified)
+  );
+
+  const subscribe = source.subscribe(verified => {
+    userVerified = verified;
+  });
+
   const unsubscribeUser = authState(auth).subscribe(async u => {
-    user = u;
+    loadedUser = u;
     if (u) {
+      if (!u.emailVerified) {
+        u.sendEmailVerification()
+          .then(function() {
+            console.log("Email sent");
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+      }
       await updateQuota(u.uid);
       userData(u.uid).then(d =>
         d.subscribe(d => {
-          console.log(d);
           loadedUserData = d;
         })
       );
@@ -38,7 +69,7 @@
   </script>
 </svelte:head>
 <main class="background">
-
+  {#if !userVerified}VERIFY BITCH{/if}
   <Router {url}>
     <Navbar />
     <div>
@@ -46,13 +77,13 @@
         <Home />
       </Route>
       <Route path="/mycrawls">
-        {#if user && loadedUserData}
-          <MyCrawls uid={user.uid} {loadedUserData} />
+        {#if loadedUser && loadedUserData}
+          <MyCrawls uid={loadedUser.uid} {loadedUserData} />
         {:else}NOT LOGGED IN{/if}
       </Route>
       <Route path="/crawl">
-        {#if user && loadedUserData}
-          <Crawl uid={user.uid} {loadedUserData} />
+        {#if loadedUser && loadedUserData}
+          <Crawl uid={loadedUser.uid} {loadedUserData} />
         {:else}NOT LOGGED IN{/if}
       </Route>
       <Route path="documentation">Just google it</Route>
