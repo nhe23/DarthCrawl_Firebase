@@ -1,5 +1,6 @@
 <script>
   import { Router, Link, Route } from "../components/Router";
+  import { userDbData } from "../store";
   import { auth } from "../conf/firebase";
   import { authState, user } from "rxfire/auth";
   import { interval, from } from "rxjs";
@@ -15,33 +16,18 @@
 
   let loadedUser;
   let loadedUserData;
+  const unsbscribeUserData = userDbData.subscribe(u => {
+    loadedUserData = u;
+  });
   export let url = "";
 
   let userVerified = true;
-  // function reload(currentUser) {
-  //   if (!currentUser) return Promise.resolve("No User");
-  //   console.log("Reload");
-  //   return currentUser.reload();
-  // }
-
-  // const source = interval(2000).pipe(
-  //   flatMap(() => from(reload(auth.currentUser))),
-  //   map(() => {
-  //     if (auth.currentUser) return auth.currentUser.emailVerified;
-  //     return false;
-  //   }),
-  //   takeWhile(() => !userVerified)
-  // );
-
-  // const subscribe = source.subscribe(verified => {
-  //   userVerified = verified;
-  // });
 
   const unsubscribeUser = authState(auth).subscribe(async u => {
     loadedUser = u;
     if (u) {
       if (!u.emailVerified) {
-        userVerified=false;
+        userVerified = false;
         u.sendEmailVerification()
           .then(function() {
             console.log("Email sent");
@@ -53,7 +39,7 @@
       await updateQuota(u.uid);
       userData(u.uid).then(d =>
         d.subscribe(d => {
-          loadedUserData = d;
+          userDbData.set(d);
         })
       );
     }
@@ -86,11 +72,13 @@
         {:else}NOT LOGGED IN{/if}
       </Route>
       <Route path="/crawl">
-        {#if loadedUser && loadedUserData}
+        {#if loadedUser && $userDbData}
           <Crawl uid={loadedUser.uid} {loadedUserData} />
         {:else}NOT LOGGED IN{/if}
       </Route>
-      <Route path="documentation">Just google it</Route>
+      <Route path="documentation">
+        <Documentation />
+      </Route>
 
     </div>
   </Router>

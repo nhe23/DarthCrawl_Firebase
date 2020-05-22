@@ -2,6 +2,7 @@
   import { createEventDispatcher } from "svelte";
   import { auth } from "../../conf/firebase";
   const dispatch = createEventDispatcher();
+  export let imgSrc;
   export let size = "M";
   export let hasCameraIcon = false;
 </script>
@@ -52,11 +53,21 @@
 
   .profilePictureContainer {
     display: flex;
+  }
+
+  .changeProfilePicture {
     margin-left: 1.5em;
+  }
+
+  .profilePictures {
+    margin: 10px;
   }
 </style>
 
-<div class="profilePictureContainer">
+<div
+  class="profilePictureContainer"
+  class:changeProfilePicture={hasCameraIcon}
+  class:profilePictures={!hasCameraIcon}>
   <div
     class="imageBackground has-background-black-ter background{size.toUpperCase()}"
     on:click={() => {
@@ -65,8 +76,8 @@
     <img
       class="profileImage image{size.toUpperCase()}"
       type="image/png"
-      alt="Profile picture"
-      src="/media/profile_pics/cewie.png" />
+      alt="Profile"
+      src={imgSrc ? imgSrc : '/media/profile_pics/cewie.png'} />
 
   </div>
   {#if hasCameraIcon}

@@ -41,14 +41,14 @@
           class="input"
           type="text"
           placeholder="xPath"
-          bind:value={element.value} 
-          on:blur={reassign}/>
+          bind:value={element.value}
+          on:blur={reassign} />
         <span
           on:click={removeElement}
           class="icon is-small is-left has-text-danger">
           <i class="fas fa-minus-circle" />
         </span>
-        {#if !element.children || element.children.length === 0 && element.value !== ""}
+        {#if !element.children || (element.children.length === 0 && element.value !== '')}
           <span
             on:click={addChildElement}
             class="icon is-small is-right has-text-success">
@@ -59,7 +59,12 @@
     </div>
     <div class="column is-4">
       <div class="field control">
-        <input class="input" type="text" placeholder="Name" bind:value={element.name} on:blur={reassign}>
+        <input
+          class="input"
+          type="text"
+          placeholder="Name"
+          bind:value={element.name}
+          on:blur={reassign} />
       </div>
     </div>
   </div>

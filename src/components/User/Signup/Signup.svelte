@@ -1,16 +1,13 @@
 <script>
-  import { auth, googleProvider } from "../../../conf/firebase";
+  import { auth } from "../../../conf/firebase";
   import GoogleLogin from "../GoogleLogin.svelte";
   import { validateEmail, validatePassword } from "../../utils/helper";
   import SignUpStepEmail from "./SignupStepEmail.svelte";
   import SignUpStepPassword from "./SignupStepPassword.svelte";
   import SignUpStepVerification from "./SignupStepVerification.svelte";
   let showDialog = false;
-  let isLoading = false;
   let signUpLoading = false;
   let continueDisabled = true;
-  let signupError;
-  let name;
 
   const formValues = {
     name: "",

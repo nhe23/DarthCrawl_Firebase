@@ -1,7 +1,4 @@
 <script>
-  // import { db } from "../firebase";
-  import { collectionData, docData } from "rxfire/firestore";
-  import { startWith } from "rxjs/operators";
   import { userCrawls } from "../../services/firestore";
   import MyCrawl from "./MyCrawl.svelte";
   import QuotaUsed from "./QuotaUsed.svelte";

@@ -13,7 +13,7 @@ export const userCrawls = (uid) => {
 
 export const userData = async (uid) => {
   let userDataRef = db.collection("users").doc(uid);
-  return docData(userDataRef, 'uid');
+  return docData(userDataRef, "uid");
 };
 
 export const crawlResults = (crawlId) => {
@@ -47,6 +47,16 @@ export const setReCrawl = async (id, createTime) => {
   return await db.collection("crawls").doc(id).set(
     {
       createDate: createTime,
+    },
+    { merge: true }
+  );
+};
+
+export const setUserPofilePicture = async (storagePath, uid) => {
+  console.log(uid);
+  return await db.collection("users").doc(uid).set(
+    {
+      profilePicture: storagePath,
     },
     { merge: true }
   );

@@ -1,10 +1,28 @@
 <script>
+  import { onMount } from "svelte";
+  import { storageRef } from "../../conf/firebase";
+  import { userDbData } from "../../store";
   import ProfilePicture from "./ProfilePicture.svelte";
+  import ProfilePictureModal from "./ChangeProfilePicture/ProfilePictureModal.svelte";
   import { auth, googleProvider } from "../../conf/firebase";
   import { navigate } from "../Router";
   export let user;
   let showProfileMenu = false;
   let isLoading = false;
+  let showChangeProfilePicture = false;
+  let imgSrc;
+
+  let loadedUserData;
+  const userDbData$ = userDbData.subscribe(d => {
+    if (d && d.profilePicture) {
+      storageRef
+        .child(d.profilePicture)
+        .getDownloadURL()
+        .then(url => {
+          imgSrc = url;
+        });
+    }
+  });
 
   function logout() {
     isLoading = true;
@@ -65,10 +83,16 @@
   }
 </style>
 
+{#if showChangeProfilePicture}
+  <ProfilePictureModal bind:showChangeProfilePicture />
+{/if}
+{#if imgSrc}
 <ProfilePicture
+  {imgSrc}
   on:click={() => {
     showProfileMenu = !showProfileMenu;
   }} />
+  {/if}
 <div class="modal" class:is-active={showProfileMenu}>
   <div
     class="modal-background"
@@ -77,7 +101,13 @@
     }} />
   <div class="modal-card">
     <header class="modal-card-head">
-      <ProfilePicture size="L" hasCameraIcon="true" />
+      <ProfilePicture
+        {imgSrc}
+        size="L"
+        hasCameraIcon="true"
+        on:click={() => {
+          showChangeProfilePicture = true;
+        }} />
       {#if user.displayName}
         <span class="has-text-weight-semibold">{user.displayName}</span>
       {/if}

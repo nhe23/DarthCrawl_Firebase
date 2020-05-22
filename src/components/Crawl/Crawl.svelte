@@ -1,5 +1,4 @@
 <script>
-  // import { db } from "../firebase";
   import { setCrawl, newestCrawlResult } from "../../services/firestore";
   import { Link } from "../Router";
   import firebase from "firebase/app";
@@ -162,7 +161,9 @@
               15%
             </progress>
           {:else if $results[0].error}
-            <div class="notification is-danger is-light">{$results[0].error}</div>
+            <div class="notification is-danger is-light">
+              {$results[0].error}
+            </div>
           {:else}
             <CrawlResults results={$results[0].crawlResults} />
           {/if}

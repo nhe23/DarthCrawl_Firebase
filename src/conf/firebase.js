@@ -3,6 +3,7 @@ import "firebase/analytics";
 import "firebase/auth";
 import "firebase/firestore";
 import "firebase/functions";
+import "firebase/storage";
 
 // const firebaseConfig = {
 //   apiKey: "AIzaSyCexB0u6-dNC5pyijr4ZmU0jZh0DoxQf3Q",
@@ -23,9 +24,11 @@ export const auth = firebase.auth();
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
 export const db = firebase.firestore();
 export const functions = firebase.functions();
+const storage = firebase.storage();
+export const storageRef = storage.ref();
 
-if (location.host.includes("localhost")) {
-  db.settings({ host: "localhost:8080", ssl: false });
-  functions.useFunctionsEmulator("http://localhost:5001");
-}
+// if (location.host.includes("localhost")) {
+//   db.settings({ host: "localhost:8080", ssl: false });
+//   functions.useFunctionsEmulator("http://localhost:5001");
+// }
 export const analytics = firebase.analytics();

@@ -1,5 +1,6 @@
 <script>
   import { onDestroy } from "svelte";
+  import { userDbData } from "../../store";
   import Signup from "../User/Signup/Signup.svelte";
 
   import { auth, googleProvider } from "../../conf/firebase";
@@ -8,9 +9,10 @@
   import ProfileModal from "../User/ProfileModal.svelte";
 
   let user;
+  let userData;
 
-  const unsubscribeUser = authState(auth).subscribe((u) => (user = u));
-
+  const unsubscribeUser = authState(auth).subscribe(u => (user = u));
+  const userDbData$ = userDbData.subscribe(d => (userData=d));
 
   onDestroy(() => {
     unsubscribeUser.unsubscribe();
@@ -22,7 +24,7 @@
 </style>
 
 <div>
-  {#if user}
+  {#if user && userData}
     <ProfileModal {user} />
   {:else}
     <div class="buttons">
