@@ -11,11 +11,16 @@
   let user;
   let userData;
 
-  const unsubscribeUser = authState(auth).subscribe(u => (user = u));
-  const userDbData$ = userDbData.subscribe(d => (userData=d));
+  const unsubscribeUser = authState(auth).subscribe(u => {
+    console.log(u);
+    user = u});
+  const userDbData$ = userDbData.subscribe(d => {
+    console.log(d);
+    userData=d});
 
   onDestroy(() => {
     unsubscribeUser.unsubscribe();
+    userDbData$.unsubscribe();
   });
 </script>
 

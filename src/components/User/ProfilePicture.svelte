@@ -10,34 +10,27 @@
 <style>
   .profileImage {
     border-radius: 50%;
+    height: 100%;
+    overflow: hidden;
+    max-width: max-content;
   }
 
-  .imageM {
-    height: 32px;
-    width: 30px;
-  }
-
-  .imageL {
-    height: 64px;
-    width: 60px;
-  }
   .imageBackground {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     cursor: pointer;
     border-radius: 50%;
     z-index: 40;
     position: relative;
+    overflow: hidden;
   }
 
   .backgroundM {
+    padding: 3px;
     height: 40px;
     width: 40px;
   }
 
   .backgroundL {
+    padding: 6px;
     height: 80px;
     width: 80px;
   }
@@ -62,6 +55,16 @@
   .profilePictures {
     margin: 10px;
   }
+
+  .imageContainer {
+    display: flex;
+    flex-direction: column;
+    border-radius: 50%;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
 </style>
 
 <div
@@ -73,12 +76,13 @@
     on:click={() => {
       dispatch('click');
     }}>
-    <img
-      class="profileImage image{size.toUpperCase()}"
-      type="image/png"
-      alt="Profile"
-      src={imgSrc ? imgSrc : '/media/profile_pics/cewie.png'} />
-
+    <div class="imageContainer">
+      <img
+        class="profileImage"
+        type="image/png"
+        alt="Profile"
+        src={imgSrc ? imgSrc : '/media/profile_pics/user.png'} />
+    </div>
   </div>
   {#if hasCameraIcon}
     <span

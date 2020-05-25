@@ -27,8 +27,8 @@ export const functions = firebase.functions();
 const storage = firebase.storage();
 export const storageRef = storage.ref();
 
-// if (location.host.includes("localhost")) {
-//   db.settings({ host: "localhost:8080", ssl: false });
-//   functions.useFunctionsEmulator("http://localhost:5001");
-// }
+if (location.host.includes("localhost")) {
+  db.settings({ host: "localhost:8080", ssl: false });
+  functions.useFunctionsEmulator("http://localhost:5001");
+}
 export const analytics = firebase.analytics();

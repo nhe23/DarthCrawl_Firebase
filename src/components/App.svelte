@@ -1,7 +1,7 @@
 <script>
   import { Router, Link, Route } from "../components/Router";
   import { userDbData } from "../store";
-  import { auth } from "../conf/firebase";
+  import { auth, storageRef } from "../conf/firebase";
   import { authState, user } from "rxfire/auth";
   import { interval, from } from "rxjs";
   import { flatMap, map, takeWhile } from "rxjs/operators";
@@ -25,24 +25,28 @@
 
   const unsubscribeUser = authState(auth).subscribe(async u => {
     loadedUser = u;
-    if (u) {
-      if (!u.emailVerified) {
-        userVerified = false;
-        u.sendEmailVerification()
-          .then(function() {
-            console.log("Email sent");
-          })
-          .catch(function(error) {
-            console.log(error);
-          });
-      }
-      await updateQuota(u.uid);
-      userData(u.uid).then(d =>
-        d.subscribe(d => {
-          userDbData.set(d);
+    if (!u) return;
+
+    if (!u.emailVerified) {
+      userVerified = false;
+      u.sendEmailVerification()
+        .then(function() {
+          console.log("Email sent");
         })
-      );
+        .catch(function(error) {
+          console.log(error);
+        });
     }
+    await updateQuota(u.uid);
+    const userData$ = await userData(u.uid);
+    userData$.subscribe(async d => {
+      let imgSrc;
+      if (d && d.profilePicture) {
+        imgSrc = await storageRef.child(d.profilePicture).getDownloadURL();
+      }
+
+      userDbData.set({ ...d, imgSrc });
+    });
   });
 </script>
 

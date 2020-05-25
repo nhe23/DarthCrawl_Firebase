@@ -1,6 +1,5 @@
 <script>
   import { onMount } from "svelte";
-  import { storageRef } from "../../conf/firebase";
   import { userDbData } from "../../store";
   import ProfilePicture from "./ProfilePicture.svelte";
   import ProfilePictureModal from "./ChangeProfilePicture/ProfilePictureModal.svelte";
@@ -14,14 +13,7 @@
 
   let loadedUserData;
   const userDbData$ = userDbData.subscribe(d => {
-    if (d && d.profilePicture) {
-      storageRef
-        .child(d.profilePicture)
-        .getDownloadURL()
-        .then(url => {
-          imgSrc = url;
-        });
-    }
+    imgSrc = d.imgSrc;
   });
 
   function logout() {
@@ -84,15 +76,15 @@
 </style>
 
 {#if showChangeProfilePicture}
-  <ProfilePictureModal bind:showChangeProfilePicture />
+  <ProfilePictureModal bind:showChangeProfilePicture {user}/>
 {/if}
-{#if imgSrc}
+
 <ProfilePicture
   {imgSrc}
   on:click={() => {
     showProfileMenu = !showProfileMenu;
   }} />
-  {/if}
+
 <div class="modal" class:is-active={showProfileMenu}>
   <div
     class="modal-background"
