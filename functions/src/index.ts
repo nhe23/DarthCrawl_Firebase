@@ -15,6 +15,13 @@ const runtimeOpts: functions.RuntimeOptions = {
   memory: "1GB",
 };
 
+export const scheduler = functions.pubsub
+  .schedule("* * * * *")
+  .onRun((context) => {
+    console.log("This will be run every 1 minutes!");
+    return null;
+  });
+
 export const onCrawlCreate = functions
   .runWith(runtimeOpts)
   .firestore.document("/crawls/{crawlsId}")
@@ -45,7 +52,7 @@ export const onCrawlDelete = functions
 export const updateUserQuota = functions.https.onCall(async (data, context) => {
   const uid = context.auth?.uid;
   if (!uid) return;
-  const resetDate =  admin.firestore.Timestamp.fromMillis(
+  const resetDate = admin.firestore.Timestamp.fromMillis(
     Date.now() + 30 * 24 * 60 * 60 * 1000
   );
   let userDataRef = db.collection("users").doc(uid);
@@ -54,22 +61,69 @@ export const updateUserQuota = functions.https.onCall(async (data, context) => {
   if (!userData.exists) {
     console.log("No data available");
     return await userDataRef.set({
-      quota: 2,
+      quota: 5,
       quotaUsed: 0,
-      resetDate
+      resetDate,
     });
-  }
-  
-  else if (userDataDoc?.resetDate.seconds < admin.firestore.Timestamp.now().seconds){
-    console.log("Reset quota")
-    return await userDataRef.set({
-      quotaUsed: 0,
-      resetDate
-    }, {merge:true});
+  } else if (
+    userDataDoc?.resetDate.seconds < admin.firestore.Timestamp.now().seconds
+  ) {
+    console.log("Reset quota");
+    return await userDataRef.set(
+      {
+        quotaUsed: 0,
+        resetDate,
+      },
+      { merge: true }
+    );
   }
   console.log("Nothing to do");
   return;
+});
+export const runscheduler = functions.https.onRequest(async (req, res) => {
+  // const uid = context.auth?.uid;
+  // if (!uid) return;
 
+  const scheduledJobs = await db
+    .collection("scheduledJobs")
+    .where("nextExecution", "<", admin.firestore.Timestamp.now())
+    .get();
+  console.log("Empty", scheduledJobs.empty);
+  scheduledJobs.forEach(async (doc) => {
+    console.log("Got job");
+    const docData = doc.data();
+    const userData = (
+      await db.collection("users").doc(docData.uid).get()
+    ).data();
+    if (!userData) await doc.ref.delete();
+
+    if (userData && userData.quotaUsed >= userData.quota) {
+      console.log("No more quota left. Deactivating job");
+      doc.ref.set({ nextExecution: userData.resetDate }, { merge: true });
+      return;
+    }
+
+    await db.collection("crawls").doc(doc.id).set(
+      {
+        createDate: admin.firestore.Timestamp.now(),
+      },
+      { merge: true }
+    );
+    const date =  new Date(Date.now() + docData.executionInterval)
+    console.log(date)
+    await doc.ref.set(
+      {
+        nextExecution: admin.firestore.Timestamp.fromDate(
+          new Date(Date.now() + docData.executionInterval)
+        ),
+      },
+      { merge: true }
+    );
+  });
+
+  console.log("Nothing to do");
+
+  return res.send({ status: "success" });
 });
 
 const crawlDocument = async (snap: functions.firestore.DocumentSnapshot) => {
@@ -83,10 +137,8 @@ const crawlDocument = async (snap: functions.firestore.DocumentSnapshot) => {
   let crawlResults = null;
   let error = null;
   try {
-   crawlResults = await crawlUrl(url, crawlElements);
-  }
-  
-  catch (err) {
+    crawlResults = await crawlUrl(url, crawlElements);
+  } catch (err) {
     error = err.message;
   }
   console.log(`URL: ${url}`);

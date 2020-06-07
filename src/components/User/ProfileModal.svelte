@@ -4,7 +4,7 @@
   import ProfilePicture from "./ProfilePicture.svelte";
   import ProfilePictureModal from "./ChangeProfilePicture/ProfilePictureModal.svelte";
   import { auth, googleProvider } from "../../conf/firebase";
-  import { navigate } from "../Router";
+  import { navigate, Link } from "../Router";
   export let user;
   let showProfileMenu = false;
   let isLoading = false;
@@ -76,7 +76,7 @@
 </style>
 
 {#if showChangeProfilePicture}
-  <ProfilePictureModal bind:showChangeProfilePicture {user}/>
+  <ProfilePictureModal bind:showChangeProfilePicture {user} />
 {/if}
 
 <ProfilePicture
@@ -106,19 +106,20 @@
       <span class="has-text-weight-medium">{user.email}</span>
     </header>
     <section class="modal-card-body">
-      <div class="settingsContainer">
-        <div class="settings">
-          <span
-            class="icon is-medium"
+      <Link className="has-text-white" to="user/profile">
+        <div class="settingsContainer">
+          <div
+            class="settings"
             on:click={() => {
-              console.log('Settings');
+              showProfileMenu = false;
             }}>
-            <i class="fas fa-cog fas fa-lg " />
-          </span>
-          <span>Manage Profile</span>
+            <span class="icon is-medium">
+              <i class="fas fa-cog fas fa-lg " />
+            </span>
+            <span>Manage Profile</span>
+          </div>
         </div>
-      </div>
-
+      </Link>
     </section>
     <footer class="modal-card-foot">
       <button

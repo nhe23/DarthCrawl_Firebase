@@ -13,6 +13,7 @@
   import Home from "./Home.svelte";
   import Documentation from "./Documentation.svelte";
   import MyCrawls from "./Crawl/MyCrawls.svelte";
+  import Profile from "./User/Profile/Profile.svelte";
 
   let loadedUser;
   let loadedUserData;
@@ -55,6 +56,7 @@
 </style>
 
 <svelte:head>
+<base href="/">
   <link rel="stylesheet" href="css/mystyles.css" />
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js">
 
@@ -66,7 +68,6 @@
   {/if}
   <Router {url}>
     <Navbar />
-    <div>
       <Route path="/">
         <Home />
       </Route>
@@ -80,10 +81,15 @@
           <Crawl uid={loadedUser.uid} {loadedUserData} />
         {:else}NOT LOGGED IN{/if}
       </Route>
-      <Route path="documentation">
+      <Route path="/documentation">
         <Documentation />
       </Route>
 
-    </div>
+
+    <Route path="user/profile">
+      {#if loadedUser && $userDbData}
+        <Profile />
+      {:else}NOT LOGGED IN{/if}
+    </Route>
   </Router>
 </main>

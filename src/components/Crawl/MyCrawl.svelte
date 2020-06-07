@@ -42,6 +42,10 @@
 </script>
 
 <style>
+  .urlBlock {
+    display: flex;
+    flex-direction: column;
+  }
   .url {
     display: block;
     overflow: hidden;
@@ -59,8 +63,11 @@
 
 <div class="box">
   <div class="columns">
-    <div class="column is-3 url">
-      <a href={crawl.url} target="_blank">{crawl.url}</a>
+    <div class="column is-3 urlBlock">
+      <div class="url">
+        <a href={crawl.url} target="_blank">{crawl.crawlName}</a>
+      </div>
+
     </div>
     <div class="column is-2">{crawl.createDate.toDate().toLocaleString()}</div>
     <div

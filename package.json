@@ -16,19 +16,18 @@
     "node-sass": "^4.13.1",
     "rollup": "^1.20.0",
     "rollup-plugin-livereload": "^1.0.0",
-    "rollup-plugin-svelte": "^5.0.3",
+    "rollup-plugin-svelte": "^5.2.2",
     "rollup-plugin-terser": "^5.1.2",
     "svelte": "^3.22.3"
   },
   "dependencies": {
     "firebase": "7.14.2",
     "firebase-admin": "8.9.2",
-    "node-sass": "^4.13.1",
     "md5": "^2.2.1",
+    "node-sass": "^4.13.1",
     "rxfire": "^3.9.15",
     "rxjs": "^6.5.4",
     "sirv-cli": "^0.4.4",
-    "svelte-routing": "^1.4.2",
-    "svelte-spa-router": "^2.0.1"
+    "svelte-routing": "^1.4.2"
   }
 }

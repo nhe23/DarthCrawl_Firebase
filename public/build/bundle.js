@@ -4347,7 +4347,7 @@ var app = (function () {
     exports.validateCallback = validateCallback;
     exports.validateContextObject = validateContextObject;
     exports.validateNamespace = validateNamespace;
-    //# sourceMappingURL=index.cjs.js.map
+
     });
 
     unwrapExports(index_cjs);
@@ -4710,7 +4710,7 @@ var app = (function () {
     exports.Component = Component;
     exports.ComponentContainer = ComponentContainer;
     exports.Provider = Provider;
-    //# sourceMappingURL=index.cjs.js.map
+
     });
 
     unwrapExports(index_cjs$1);
@@ -4999,7 +4999,6 @@ var app = (function () {
             _loop_1(instance);
         }
     }
-    //# sourceMappingURL=index.esm.js.map
 
     var index_esm = /*#__PURE__*/Object.freeze({
         __proto__: null,
@@ -5682,7 +5681,7 @@ var app = (function () {
 
     exports.default = firebase$1;
     exports.firebase = firebase$1;
-    //# sourceMappingURL=index.cjs.js.map
+
     });
 
     var firebase = unwrapExports(index_cjs$2);
@@ -7361,7 +7360,7 @@ var app = (function () {
     exports.validateCallback = validateCallback;
     exports.validateContextObject = validateContextObject;
     exports.validateNamespace = validateNamespace;
-    //# sourceMappingURL=index.cjs.js.map
+
     });
 
     unwrapExports(index_cjs$4);
@@ -7724,7 +7723,7 @@ var app = (function () {
     exports.Component = Component;
     exports.ComponentContainer = ComponentContainer;
     exports.Provider = Provider;
-    //# sourceMappingURL=index.cjs.js.map
+
     });
 
     unwrapExports(index_cjs$5);
@@ -9370,7 +9369,6 @@ var app = (function () {
         instance.registerVersion(name$2, version$1);
     }
     registerInstallations(firebase);
-    //# sourceMappingURL=index.esm.js.map
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -9583,7 +9581,6 @@ var app = (function () {
         };
         return Logger;
     }());
-    //# sourceMappingURL=index.esm.js.map
 
     var index_cjs$6 = createCommonjsModule(function (module, exports) {
 
@@ -11231,7 +11228,7 @@ var app = (function () {
     exports.validateCallback = validateCallback;
     exports.validateContextObject = validateContextObject;
     exports.validateNamespace = validateNamespace;
-    //# sourceMappingURL=index.cjs.js.map
+
     });
 
     unwrapExports(index_cjs$6);
@@ -11594,7 +11591,7 @@ var app = (function () {
     exports.Component = Component;
     exports.ComponentContainer = ComponentContainer;
     exports.Provider = Provider;
-    //# sourceMappingURL=index.cjs.js.map
+
     });
 
     unwrapExports(index_cjs$7);
@@ -12159,7 +12156,6 @@ var app = (function () {
         }
     }
     registerAnalytics(firebase);
-    //# sourceMappingURL=index.esm.js.map
 
     (function() {/*
 
@@ -12539,8 +12535,6 @@ var app = (function () {
     Z(a,"OAuthProvider",M,[V("providerId")]);Z(a,"SAMLAuthProvider",Lg,[V("providerId")]);Z(a,"PhoneAuthProvider",hh,[oo()]);Z(a,"RecaptchaVerifier",ho,[X(V(),no(),"recaptchaContainer"),W("recaptchaParameters",!0),po()]);Z(a,"ActionCodeURL",Gf,[]);Z(a,"PhoneMultiFactorGenerator",Rn,[]);firebase.INTERNAL.registerComponent({name:"auth",instanceFactory:function(b){b=b.getProvider("app").getImmediate();return new un(b)},multipleInstances:!1,serviceProps:a,instantiationMode:"LAZY",type:"PUBLIC"});firebase.INTERNAL.registerComponent({name:"auth-internal",
     instanceFactory:function(b){b=b.getProvider("auth").getImmediate();return {getUid:r(b.getUid,b),getToken:r(b.kc,b),addAuthTokenListener:r(b.bc,b),removeAuthTokenListener:r(b.Nc,b)}},multipleInstances:!1,instantiationMode:"LAZY",type:"PRIVATE"});firebase.registerVersion("@firebase/auth","0.14.4");firebase.INTERNAL.extendNamespace({User:P});}else throw Error("Cannot find the firebase namespace; be sure to include firebase-app.js before this library.");})();}).apply(typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : typeof window !== 'undefined' ? window : {});
 
-    //# sourceMappingURL=auth.esm.js.map
-
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
     Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -12822,7 +12816,6 @@ var app = (function () {
             _loop_1(instance);
         }
     }
-    //# sourceMappingURL=index.esm.js.map
 
     var index_esm$1 = /*#__PURE__*/Object.freeze({
         __proto__: null,
@@ -14478,7 +14471,7 @@ var app = (function () {
     exports.validateCallback = validateCallback;
     exports.validateContextObject = validateContextObject;
     exports.validateNamespace = validateNamespace;
-    //# sourceMappingURL=index.cjs.js.map
+
     });
 
     unwrapExports(index_cjs$8);
@@ -14841,7 +14834,7 @@ var app = (function () {
     exports.Component = Component;
     exports.ComponentContainer = ComponentContainer;
     exports.Provider = Provider;
-    //# sourceMappingURL=index.cjs.js.map
+
     });
 
     unwrapExports(index_cjs$9);
@@ -14938,7 +14931,6 @@ var app = (function () {
     */
     Qd.prototype.createWebChannel=Qd.prototype.a;Y.prototype.send=Y.prototype.Wa;Y.prototype.open=Y.prototype.Va;Y.prototype.close=Y.prototype.close;Pb.NO_ERROR=0;Pb.TIMEOUT=8;Pb.HTTP_ERROR=6;Qb.COMPLETE="complete";Tb.EventType=L;L.OPEN="a";L.CLOSE="b";L.ERROR="c";L.MESSAGE="d";G.prototype.listen=G.prototype.za;X.prototype.listenOnce=X.prototype.Aa;X.prototype.getLastError=X.prototype.Xa;X.prototype.getLastErrorCode=X.prototype.ya;X.prototype.getStatus=X.prototype.T;X.prototype.getResponseJson=X.prototype.Ua;
     X.prototype.getResponseText=X.prototype.aa;X.prototype.send=X.prototype.ca;var tmp={createWebChannelTransport:Td,ErrorCode:Pb,EventType:Qb,WebChannel:Tb,XhrIo:X};
-    //# sourceMappingURL=index.esm.js.map
 
     var index_cjs$a = createCommonjsModule(function (module, exports) {
 
@@ -29999,7 +29991,7 @@ var app = (function () {
             return btoa(t);
         }, t;
     }())), go(n), exports.__PRIVATE_registerFirestore = go;
-    //# sourceMappingURL=index.cjs.js.map
+
     });
 
     unwrapExports(index_cjs$a);
@@ -31651,7 +31643,7 @@ var app = (function () {
     exports.validateCallback = validateCallback;
     exports.validateContextObject = validateContextObject;
     exports.validateNamespace = validateNamespace;
-    //# sourceMappingURL=index.cjs.js.map
+
     });
 
     unwrapExports(index_cjs$b);
@@ -32014,7 +32006,7 @@ var app = (function () {
     exports.Component = Component;
     exports.ComponentContainer = ComponentContainer;
     exports.Provider = Provider;
-    //# sourceMappingURL=index.cjs.js.map
+
     });
 
     unwrapExports(index_cjs$c);
@@ -34289,7 +34281,7 @@ var app = (function () {
     exports.validateCallback = validateCallback;
     exports.validateContextObject = validateContextObject;
     exports.validateNamespace = validateNamespace;
-    //# sourceMappingURL=index.cjs.js.map
+
     });
 
     unwrapExports(index_cjs$d);
@@ -34652,7 +34644,7 @@ var app = (function () {
     exports.Component = Component;
     exports.ComponentContainer = ComponentContainer;
     exports.Provider = Provider;
-    //# sourceMappingURL=index.cjs.js.map
+
     });
 
     unwrapExports(index_cjs$e);
@@ -38231,7 +38223,6 @@ var app = (function () {
         instance.registerVersion(name$5, version$4);
     }
     registerStorage(firebase);
-    //# sourceMappingURL=index.esm.js.map
 
     // const firebaseConfig = {
     //   apiKey: "AIzaSyCexB0u6-dNC5pyijr4ZmU0jZh0DoxQf3Q",
@@ -38265,7 +38256,6 @@ var app = (function () {
     function isFunction$1(x) {
         return typeof x === 'function';
     }
-    //# sourceMappingURL=isFunction.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     var _enable_super_gross_mode_that_will_cause_bad_things = false;
@@ -38282,13 +38272,11 @@ var app = (function () {
             return _enable_super_gross_mode_that_will_cause_bad_things;
         },
     };
-    //# sourceMappingURL=config.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     function hostReportError(err) {
         setTimeout(function () { throw err; }, 0);
     }
-    //# sourceMappingURL=hostReportError.js.map
 
     /** PURE_IMPORTS_START _config,_util_hostReportError PURE_IMPORTS_END */
     var empty$1 = {
@@ -38304,17 +38292,14 @@ var app = (function () {
         },
         complete: function () { }
     };
-    //# sourceMappingURL=Observer.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     var isArray = /*@__PURE__*/ (function () { return Array.isArray || (function (x) { return x && typeof x.length === 'number'; }); })();
-    //# sourceMappingURL=isArray.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     function isObject$1(x) {
         return x !== null && typeof x === 'object';
     }
-    //# sourceMappingURL=isObject.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     var UnsubscriptionErrorImpl = /*@__PURE__*/ (function () {
@@ -38330,7 +38315,6 @@ var app = (function () {
         return UnsubscriptionErrorImpl;
     })();
     var UnsubscriptionError = UnsubscriptionErrorImpl;
-    //# sourceMappingURL=UnsubscriptionError.js.map
 
     /** PURE_IMPORTS_START _util_isArray,_util_isObject,_util_isFunction,_util_UnsubscriptionError PURE_IMPORTS_END */
     var Subscription = /*@__PURE__*/ (function () {
@@ -38462,7 +38446,6 @@ var app = (function () {
     function flattenUnsubscriptionErrors(errors) {
         return errors.reduce(function (errs, err) { return errs.concat((err instanceof UnsubscriptionError) ? err.errors : err); }, []);
     }
-    //# sourceMappingURL=Subscription.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     var rxSubscriber = /*@__PURE__*/ (function () {
@@ -38470,7 +38453,6 @@ var app = (function () {
             ? /*@__PURE__*/ Symbol('rxSubscriber')
             : '@@rxSubscriber_' + /*@__PURE__*/ Math.random();
     })();
-    //# sourceMappingURL=rxSubscriber.js.map
 
     /** PURE_IMPORTS_START tslib,_util_isFunction,_Observer,_Subscription,_internal_symbol_rxSubscriber,_config,_util_hostReportError PURE_IMPORTS_END */
     var Subscriber = /*@__PURE__*/ (function (_super) {
@@ -38695,7 +38677,6 @@ var app = (function () {
         };
         return SafeSubscriber;
     }(Subscriber));
-    //# sourceMappingURL=Subscriber.js.map
 
     /** PURE_IMPORTS_START _Subscriber PURE_IMPORTS_END */
     function canReportError(observer) {
@@ -38713,7 +38694,6 @@ var app = (function () {
         }
         return true;
     }
-    //# sourceMappingURL=canReportError.js.map
 
     /** PURE_IMPORTS_START _Subscriber,_symbol_rxSubscriber,_Observer PURE_IMPORTS_END */
     function toSubscriber(nextOrObserver, error, complete) {
@@ -38730,15 +38710,12 @@ var app = (function () {
         }
         return new Subscriber(nextOrObserver, error, complete);
     }
-    //# sourceMappingURL=toSubscriber.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     var observable = /*@__PURE__*/ (function () { return typeof Symbol === 'function' && Symbol.observable || '@@observable'; })();
-    //# sourceMappingURL=observable.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     function noop$1() { }
-    //# sourceMappingURL=noop.js.map
 
     /** PURE_IMPORTS_START _noop PURE_IMPORTS_END */
     function pipeFromArray(fns) {
@@ -38752,7 +38729,6 @@ var app = (function () {
             return fns.reduce(function (prev, fn) { return fn(prev); }, input);
         };
     }
-    //# sourceMappingURL=pipe.js.map
 
     /** PURE_IMPORTS_START _util_canReportError,_util_toSubscriber,_symbol_observable,_util_pipe,_config PURE_IMPORTS_END */
     var Observable = /*@__PURE__*/ (function () {
@@ -38863,7 +38839,6 @@ var app = (function () {
         }
         return promiseCtor;
     }
-    //# sourceMappingURL=Observable.js.map
 
     /** PURE_IMPORTS_START tslib,_Subscription PURE_IMPORTS_END */
     var Action = /*@__PURE__*/ (function (_super) {
@@ -38876,7 +38851,6 @@ var app = (function () {
         };
         return Action;
     }(Subscription));
-    //# sourceMappingURL=Action.js.map
 
     /** PURE_IMPORTS_START tslib,_Action PURE_IMPORTS_END */
     var AsyncAction = /*@__PURE__*/ (function (_super) {
@@ -38969,7 +38943,6 @@ var app = (function () {
         };
         return AsyncAction;
     }(Action));
-    //# sourceMappingURL=AsyncAction.js.map
 
     var Scheduler = /*@__PURE__*/ (function () {
         function Scheduler(SchedulerAction, now) {
@@ -38988,7 +38961,6 @@ var app = (function () {
         Scheduler.now = function () { return Date.now(); };
         return Scheduler;
     }());
-    //# sourceMappingURL=Scheduler.js.map
 
     /** PURE_IMPORTS_START tslib,_Scheduler PURE_IMPORTS_END */
     var AsyncScheduler = /*@__PURE__*/ (function (_super) {
@@ -39044,13 +39016,11 @@ var app = (function () {
         };
         return AsyncScheduler;
     }(Scheduler));
-    //# sourceMappingURL=AsyncScheduler.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     function isScheduler(value) {
         return value && typeof value.schedule === 'function';
     }
-    //# sourceMappingURL=isScheduler.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     var subscribeToArray = function (array) {
@@ -39061,7 +39031,6 @@ var app = (function () {
             subscriber.complete();
         };
     };
-    //# sourceMappingURL=subscribeToArray.js.map
 
     /** PURE_IMPORTS_START _Observable,_Subscription PURE_IMPORTS_END */
     function scheduleArray(input, scheduler) {
@@ -39081,7 +39050,6 @@ var app = (function () {
             return sub;
         });
     }
-    //# sourceMappingURL=scheduleArray.js.map
 
     /** PURE_IMPORTS_START _Observable,_util_subscribeToArray,_scheduled_scheduleArray PURE_IMPORTS_END */
     function fromArray(input, scheduler) {
@@ -39092,7 +39060,6 @@ var app = (function () {
             return scheduleArray(input, scheduler);
         }
     }
-    //# sourceMappingURL=fromArray.js.map
 
     /** PURE_IMPORTS_START _util_isScheduler,_fromArray,_scheduled_scheduleArray PURE_IMPORTS_END */
     function of() {
@@ -39109,17 +39076,14 @@ var app = (function () {
             return fromArray(args);
         }
     }
-    //# sourceMappingURL=of.js.map
 
     /** PURE_IMPORTS_START _AsyncAction,_AsyncScheduler PURE_IMPORTS_END */
     var async$1 = /*@__PURE__*/ new AsyncScheduler(AsyncAction);
-    //# sourceMappingURL=async.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     function identity$1(x) {
         return x;
     }
-    //# sourceMappingURL=identity.js.map
 
     /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
     function map(project, thisArg) {
@@ -39162,7 +39126,6 @@ var app = (function () {
         };
         return MapSubscriber;
     }(Subscriber));
-    //# sourceMappingURL=map.js.map
 
     /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
     var OuterSubscriber = /*@__PURE__*/ (function (_super) {
@@ -39181,7 +39144,6 @@ var app = (function () {
         };
         return OuterSubscriber;
     }(Subscriber));
-    //# sourceMappingURL=OuterSubscriber.js.map
 
     /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
     var InnerSubscriber = /*@__PURE__*/ (function (_super) {
@@ -39207,7 +39169,6 @@ var app = (function () {
         };
         return InnerSubscriber;
     }(Subscriber));
-    //# sourceMappingURL=InnerSubscriber.js.map
 
     /** PURE_IMPORTS_START _hostReportError PURE_IMPORTS_END */
     var subscribeToPromise = function (promise) {
@@ -39222,7 +39183,6 @@ var app = (function () {
             return subscriber;
         };
     };
-    //# sourceMappingURL=subscribeToPromise.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     function getSymbolIterator() {
@@ -39232,7 +39192,6 @@ var app = (function () {
         return Symbol.iterator;
     }
     var iterator = /*@__PURE__*/ getSymbolIterator();
-    //# sourceMappingURL=iterator.js.map
 
     /** PURE_IMPORTS_START _symbol_iterator PURE_IMPORTS_END */
     var subscribeToIterable = function (iterable) {
@@ -39259,7 +39218,6 @@ var app = (function () {
             return subscriber;
         };
     };
-    //# sourceMappingURL=subscribeToIterable.js.map
 
     /** PURE_IMPORTS_START _symbol_observable PURE_IMPORTS_END */
     var subscribeToObservable = function (obj) {
@@ -39273,17 +39231,14 @@ var app = (function () {
             }
         };
     };
-    //# sourceMappingURL=subscribeToObservable.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     var isArrayLike = (function (x) { return x && typeof x.length === 'number' && typeof x !== 'function'; });
-    //# sourceMappingURL=isArrayLike.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     function isPromise(value) {
         return !!value && typeof value.subscribe !== 'function' && typeof value.then === 'function';
     }
-    //# sourceMappingURL=isPromise.js.map
 
     /** PURE_IMPORTS_START _subscribeToArray,_subscribeToPromise,_subscribeToIterable,_subscribeToObservable,_isArrayLike,_isPromise,_isObject,_symbol_iterator,_symbol_observable PURE_IMPORTS_END */
     var subscribeTo = function (result) {
@@ -39306,7 +39261,6 @@ var app = (function () {
             throw new TypeError(msg);
         }
     };
-    //# sourceMappingURL=subscribeTo.js.map
 
     /** PURE_IMPORTS_START _InnerSubscriber,_subscribeTo,_Observable PURE_IMPORTS_END */
     function subscribeToResult(outerSubscriber, result, outerValue, outerIndex, innerSubscriber) {
@@ -39321,7 +39275,6 @@ var app = (function () {
         }
         return subscribeTo(result)(innerSubscriber);
     }
-    //# sourceMappingURL=subscribeToResult.js.map
 
     /** PURE_IMPORTS_START _Observable,_Subscription,_symbol_observable PURE_IMPORTS_END */
     function scheduleObservable(input, scheduler) {
@@ -39338,7 +39291,6 @@ var app = (function () {
             return sub;
         });
     }
-    //# sourceMappingURL=scheduleObservable.js.map
 
     /** PURE_IMPORTS_START _Observable,_Subscription PURE_IMPORTS_END */
     function schedulePromise(input, scheduler) {
@@ -39357,7 +39309,6 @@ var app = (function () {
             return sub;
         });
     }
-    //# sourceMappingURL=schedulePromise.js.map
 
     /** PURE_IMPORTS_START _Observable,_Subscription,_symbol_iterator PURE_IMPORTS_END */
     function scheduleIterable(input, scheduler) {
@@ -39401,19 +39352,16 @@ var app = (function () {
             return sub;
         });
     }
-    //# sourceMappingURL=scheduleIterable.js.map
 
     /** PURE_IMPORTS_START _symbol_observable PURE_IMPORTS_END */
     function isInteropObservable(input) {
         return input && typeof input[observable] === 'function';
     }
-    //# sourceMappingURL=isInteropObservable.js.map
 
     /** PURE_IMPORTS_START _symbol_iterator PURE_IMPORTS_END */
     function isIterable(input) {
         return input && typeof input[iterator] === 'function';
     }
-    //# sourceMappingURL=isIterable.js.map
 
     /** PURE_IMPORTS_START _scheduleObservable,_schedulePromise,_scheduleArray,_scheduleIterable,_util_isInteropObservable,_util_isPromise,_util_isArrayLike,_util_isIterable PURE_IMPORTS_END */
     function scheduled(input, scheduler) {
@@ -39433,7 +39381,6 @@ var app = (function () {
         }
         throw new TypeError((input !== null && typeof input || input) + ' is not observable');
     }
-    //# sourceMappingURL=scheduled.js.map
 
     /** PURE_IMPORTS_START _Observable,_util_subscribeTo,_scheduled_scheduled PURE_IMPORTS_END */
     function from(input, scheduler) {
@@ -39447,7 +39394,6 @@ var app = (function () {
             return scheduled(input, scheduler);
         }
     }
-    //# sourceMappingURL=from.js.map
 
     /** PURE_IMPORTS_START tslib,_util_subscribeToResult,_OuterSubscriber,_InnerSubscriber,_map,_observable_from PURE_IMPORTS_END */
     function mergeMap(project, resultSelector, concurrent) {
@@ -39543,7 +39489,6 @@ var app = (function () {
         };
         return MergeMapSubscriber;
     }(OuterSubscriber));
-    //# sourceMappingURL=mergeMap.js.map
 
     /** PURE_IMPORTS_START _mergeMap,_util_identity PURE_IMPORTS_END */
     function mergeAll(concurrent) {
@@ -39552,13 +39497,11 @@ var app = (function () {
         }
         return mergeMap(identity$1, concurrent);
     }
-    //# sourceMappingURL=mergeAll.js.map
 
     /** PURE_IMPORTS_START _mergeAll PURE_IMPORTS_END */
     function concatAll() {
         return mergeAll(1);
     }
-    //# sourceMappingURL=concatAll.js.map
 
     /** PURE_IMPORTS_START _of,_operators_concatAll PURE_IMPORTS_END */
     function concat() {
@@ -39568,13 +39511,11 @@ var app = (function () {
         }
         return concatAll()(of.apply(void 0, observables));
     }
-    //# sourceMappingURL=concat.js.map
 
     /** PURE_IMPORTS_START _isArray PURE_IMPORTS_END */
     function isNumeric(val) {
         return !isArray(val) && (val - parseFloat(val) + 1) >= 0;
     }
-    //# sourceMappingURL=isNumeric.js.map
 
     /** PURE_IMPORTS_START _Observable,_scheduler_async,_util_isNumeric PURE_IMPORTS_END */
     function interval(period, scheduler) {
@@ -39600,7 +39541,6 @@ var app = (function () {
         subscriber.next(counter);
         this.schedule({ subscriber: subscriber, counter: counter + 1, period: period }, period);
     }
-    //# sourceMappingURL=interval.js.map
 
     /** PURE_IMPORTS_START _observable_concat,_util_isScheduler PURE_IMPORTS_END */
     function startWith() {
@@ -39617,7 +39557,6 @@ var app = (function () {
             return function (source) { return concat(array, source); };
         }
     }
-    //# sourceMappingURL=startWith.js.map
 
     /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
     function takeWhile(predicate, inclusive) {
@@ -39673,7 +39612,6 @@ var app = (function () {
         };
         return TakeWhileSubscriber;
     }(Subscriber));
-    //# sourceMappingURL=takeWhile.js.map
 
     /**
      * @license
@@ -39713,7 +39651,6 @@ var app = (function () {
             return { unsubscribe: unsubscribe };
         });
     }
-    //# sourceMappingURL=index.esm.js.map
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -39821,7 +39758,6 @@ var app = (function () {
             return arr.map(function (snap) { return snapToData(snap, idField); });
         }));
     }
-    //# sourceMappingURL=index.esm.js.map
 
     const userCrawls = (uid) => {
       const query = db$1
@@ -39852,11 +39788,12 @@ var app = (function () {
       );
     };
 
-    const setCrawl = async ({ id, uid, createTime, url, elements }) => {
+    const setCrawl = async ({ id, uid, crawlName, createTime, url, elements }) => {
       return await db$1.collection("crawls").doc(id).set(
         {
           uid,
           createDate: createTime,
+          crawlName,
           url,
           crawlElements: elements,
         },
@@ -43746,8 +43683,6 @@ var app = (function () {
     }
 
     /* src/components/User/ProfileModal.svelte generated by Svelte v3.22.3 */
-
-    const { console: console_1$5 } = globals;
     const file$c = "src/components/User/ProfileModal.svelte";
 
     // (78:0) {#if showChangeProfilePicture}
@@ -43828,7 +43763,7 @@ var app = (function () {
     			span = element("span");
     			t = text(t_value);
     			attr_dev(span, "class", "has-text-weight-semibold");
-    			add_location(span, file$c, 103, 8, 2161);
+    			add_location(span, file$c, 103, 8, 2168);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -43853,28 +43788,79 @@ var app = (function () {
     	return block;
     }
 
+    // (109:6) <Link className="has-text-white" to="user/profile">
+    function create_default_slot(ctx) {
+    	let div1;
+    	let div0;
+    	let span0;
+    	let i;
+    	let t0;
+    	let span1;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			div1 = element("div");
+    			div0 = element("div");
+    			span0 = element("span");
+    			i = element("i");
+    			t0 = space();
+    			span1 = element("span");
+    			span1.textContent = "Manage Profile";
+    			attr_dev(i, "class", "fas fa-cog fas fa-lg ");
+    			add_location(i, file$c, 116, 14, 2643);
+    			attr_dev(span0, "class", "icon is-medium svelte-1x5hqak");
+    			add_location(span0, file$c, 115, 12, 2599);
+    			add_location(span1, file$c, 118, 12, 2711);
+    			attr_dev(div0, "class", "settings svelte-1x5hqak");
+    			add_location(div0, file$c, 110, 10, 2468);
+    			attr_dev(div1, "class", "settingsContainer svelte-1x5hqak");
+    			add_location(div1, file$c, 109, 8, 2426);
+    		},
+    		m: function mount(target, anchor, remount) {
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, div0);
+    			append_dev(div0, span0);
+    			append_dev(span0, i);
+    			append_dev(div0, t0);
+    			append_dev(div0, span1);
+    			if (remount) dispose();
+    			dispose = listen_dev(div0, "click", /*click_handler_3*/ ctx[12], false, false, false);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div1);
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot.name,
+    		type: "slot",
+    		source: "(109:6) <Link className=\\\"has-text-white\\\" to=\\\"user/profile\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
     function create_fragment$e(ctx) {
     	let t0;
     	let t1;
-    	let div4;
+    	let div2;
     	let div0;
     	let t2;
-    	let div3;
+    	let div1;
     	let header;
     	let t3;
     	let t4;
-    	let span0;
+    	let span;
     	let t5_value = /*user*/ ctx[0].email + "";
     	let t5;
     	let t6;
     	let section;
-    	let div2;
-    	let div1;
-    	let span1;
-    	let i;
     	let t7;
-    	let span2;
-    	let t9;
     	let footer;
     	let button;
     	let current;
@@ -43900,63 +43886,58 @@ var app = (function () {
     	profilepicture1.$on("click", /*click_handler_2*/ ctx[11]);
     	let if_block1 = /*user*/ ctx[0].displayName && create_if_block$8(ctx);
 
+    	const link = new Link({
+    			props: {
+    				className: "has-text-white",
+    				to: "user/profile",
+    				$$slots: { default: [create_default_slot] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
     	const block = {
     		c: function create() {
     			if (if_block0) if_block0.c();
     			t0 = space();
     			create_component(profilepicture0.$$.fragment);
     			t1 = space();
-    			div4 = element("div");
+    			div2 = element("div");
     			div0 = element("div");
     			t2 = space();
-    			div3 = element("div");
+    			div1 = element("div");
     			header = element("header");
     			create_component(profilepicture1.$$.fragment);
     			t3 = space();
     			if (if_block1) if_block1.c();
     			t4 = space();
-    			span0 = element("span");
+    			span = element("span");
     			t5 = text(t5_value);
     			t6 = space();
     			section = element("section");
-    			div2 = element("div");
-    			div1 = element("div");
-    			span1 = element("span");
-    			i = element("i");
+    			create_component(link.$$.fragment);
     			t7 = space();
-    			span2 = element("span");
-    			span2.textContent = "Manage Profile";
-    			t9 = space();
     			footer = element("footer");
     			button = element("button");
     			button.textContent = "Log out";
     			attr_dev(div0, "class", "modal-background svelte-1x5hqak");
-    			add_location(div0, file$c, 88, 2, 1795);
-    			attr_dev(span0, "class", "has-text-weight-medium");
-    			add_location(span0, file$c, 105, 6, 2244);
+    			add_location(div0, file$c, 88, 2, 1802);
+    			attr_dev(span, "class", "has-text-weight-medium");
+    			add_location(span, file$c, 105, 6, 2251);
     			attr_dev(header, "class", "modal-card-head svelte-1x5hqak");
-    			add_location(header, file$c, 94, 4, 1923);
-    			attr_dev(i, "class", "fas fa-cog fas fa-lg ");
-    			add_location(i, file$c, 115, 12, 2570);
-    			attr_dev(span1, "class", "icon is-medium svelte-1x5hqak");
-    			add_location(span1, file$c, 110, 10, 2432);
-    			add_location(span2, file$c, 117, 10, 2634);
-    			attr_dev(div1, "class", "settings svelte-1x5hqak");
-    			add_location(div1, file$c, 109, 8, 2399);
-    			attr_dev(div2, "class", "settingsContainer svelte-1x5hqak");
-    			add_location(div2, file$c, 108, 6, 2359);
+    			add_location(header, file$c, 94, 4, 1930);
     			attr_dev(section, "class", "modal-card-body");
-    			add_location(section, file$c, 107, 4, 2319);
+    			add_location(section, file$c, 107, 4, 2326);
     			attr_dev(button, "class", "button is-dark is-rounded");
     			toggle_class(button, "is-loading", /*isLoading*/ ctx[2]);
-    			add_location(button, file$c, 123, 6, 2749);
+    			add_location(button, file$c, 124, 6, 2843);
     			attr_dev(footer, "class", "modal-card-foot svelte-1x5hqak");
-    			add_location(footer, file$c, 122, 4, 2710);
-    			attr_dev(div3, "class", "modal-card svelte-1x5hqak");
-    			add_location(div3, file$c, 93, 2, 1894);
-    			attr_dev(div4, "class", "modal svelte-1x5hqak");
-    			toggle_class(div4, "is-active", /*showProfileMenu*/ ctx[1]);
-    			add_location(div4, file$c, 87, 0, 1739);
+    			add_location(footer, file$c, 123, 4, 2804);
+    			attr_dev(div1, "class", "modal-card svelte-1x5hqak");
+    			add_location(div1, file$c, 93, 2, 1901);
+    			attr_dev(div2, "class", "modal svelte-1x5hqak");
+    			toggle_class(div2, "is-active", /*showProfileMenu*/ ctx[1]);
+    			add_location(div2, file$c, 87, 0, 1746);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -43966,34 +43947,28 @@ var app = (function () {
     			insert_dev(target, t0, anchor);
     			mount_component(profilepicture0, target, anchor);
     			insert_dev(target, t1, anchor);
-    			insert_dev(target, div4, anchor);
-    			append_dev(div4, div0);
-    			append_dev(div4, t2);
-    			append_dev(div4, div3);
-    			append_dev(div3, header);
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, div0);
+    			append_dev(div2, t2);
+    			append_dev(div2, div1);
+    			append_dev(div1, header);
     			mount_component(profilepicture1, header, null);
     			append_dev(header, t3);
     			if (if_block1) if_block1.m(header, null);
     			append_dev(header, t4);
-    			append_dev(header, span0);
-    			append_dev(span0, t5);
-    			append_dev(div3, t6);
-    			append_dev(div3, section);
-    			append_dev(section, div2);
-    			append_dev(div2, div1);
-    			append_dev(div1, span1);
-    			append_dev(span1, i);
+    			append_dev(header, span);
+    			append_dev(span, t5);
+    			append_dev(div1, t6);
+    			append_dev(div1, section);
+    			mount_component(link, section, null);
     			append_dev(div1, t7);
-    			append_dev(div1, span2);
-    			append_dev(div3, t9);
-    			append_dev(div3, footer);
+    			append_dev(div1, footer);
     			append_dev(footer, button);
     			current = true;
     			if (remount) run_all(dispose);
 
     			dispose = [
     				listen_dev(div0, "click", /*click_handler_1*/ ctx[10], false, false, false),
-    				listen_dev(span1, "click", /*click_handler_3*/ ctx[12], false, false, false),
     				listen_dev(button, "click", /*logout*/ ctx[5], false, false, false)
     			];
     		},
@@ -44042,13 +44017,20 @@ var app = (function () {
     			}
 
     			if ((!current || dirty & /*user*/ 1) && t5_value !== (t5_value = /*user*/ ctx[0].email + "")) set_data_dev(t5, t5_value);
+    			const link_changes = {};
+
+    			if (dirty & /*$$scope, showProfileMenu*/ 8194) {
+    				link_changes.$$scope = { dirty, ctx };
+    			}
+
+    			link.$set(link_changes);
 
     			if (dirty & /*isLoading*/ 4) {
     				toggle_class(button, "is-loading", /*isLoading*/ ctx[2]);
     			}
 
     			if (dirty & /*showProfileMenu*/ 2) {
-    				toggle_class(div4, "is-active", /*showProfileMenu*/ ctx[1]);
+    				toggle_class(div2, "is-active", /*showProfileMenu*/ ctx[1]);
     			}
     		},
     		i: function intro(local) {
@@ -44056,12 +44038,14 @@ var app = (function () {
     			transition_in(if_block0);
     			transition_in(profilepicture0.$$.fragment, local);
     			transition_in(profilepicture1.$$.fragment, local);
+    			transition_in(link.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
     			transition_out(if_block0);
     			transition_out(profilepicture0.$$.fragment, local);
     			transition_out(profilepicture1.$$.fragment, local);
+    			transition_out(link.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
@@ -44069,9 +44053,10 @@ var app = (function () {
     			if (detaching) detach_dev(t0);
     			destroy_component(profilepicture0, detaching);
     			if (detaching) detach_dev(t1);
-    			if (detaching) detach_dev(div4);
+    			if (detaching) detach_dev(div2);
     			destroy_component(profilepicture1);
     			if (if_block1) if_block1.d();
+    			destroy_component(link);
     			run_all(dispose);
     		}
     	};
@@ -44113,7 +44098,7 @@ var app = (function () {
     	const writable_props = ["user"];
 
     	Object.keys($$props).forEach(key => {
-    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$5.warn(`<ProfileModal> was created with unknown prop '${key}'`);
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<ProfileModal> was created with unknown prop '${key}'`);
     	});
 
     	let { $$slots = {}, $$scope } = $$props;
@@ -44137,7 +44122,7 @@ var app = (function () {
     	};
 
     	const click_handler_3 = () => {
-    		console.log("Settings");
+    		$$invalidate(1, showProfileMenu = false);
     	};
 
     	$$self.$set = $$props => {
@@ -44152,6 +44137,7 @@ var app = (function () {
     		auth,
     		googleProvider,
     		navigate,
+    		Link,
     		user,
     		showProfileMenu,
     		isLoading,
@@ -44208,7 +44194,7 @@ var app = (function () {
     		const props = options.props || {};
 
     		if (/*user*/ ctx[0] === undefined && !("user" in props)) {
-    			console_1$5.warn("<ProfileModal> was created without expected prop 'user'");
+    			console.warn("<ProfileModal> was created without expected prop 'user'");
     		}
     	}
 
@@ -44223,7 +44209,7 @@ var app = (function () {
 
     /* src/components/Navbar/UserActions.svelte generated by Svelte v3.22.3 */
 
-    const { console: console_1$6 } = globals;
+    const { console: console_1$5 } = globals;
     const file$d = "src/components/Navbar/UserActions.svelte";
 
     // (34:2) {:else}
@@ -44430,7 +44416,7 @@ var app = (function () {
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
-    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$6.warn(`<UserActions> was created with unknown prop '${key}'`);
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$5.warn(`<UserActions> was created with unknown prop '${key}'`);
     	});
 
     	let { $$slots = {}, $$scope } = $$props;
@@ -44573,7 +44559,7 @@ var app = (function () {
     }
 
     // (77:6) <Link className="navbar-item" to="/documentation" on:click={linkClick}>
-    function create_default_slot(ctx) {
+    function create_default_slot$1(ctx) {
     	let t;
 
     	const block = {
@@ -44590,7 +44576,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot.name,
+    		id: create_default_slot$1.name,
     		type: "slot",
     		source: "(77:6) <Link className=\\\"navbar-item\\\" to=\\\"/documentation\\\" on:click={linkClick}>",
     		ctx
@@ -44737,7 +44723,7 @@ var app = (function () {
     			props: {
     				className: "navbar-item",
     				to: "/documentation",
-    				$$slots: { default: [create_default_slot] },
+    				$$slots: { default: [create_default_slot$1] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -45032,7 +45018,7 @@ var app = (function () {
 
     /* src/components/Crawl/CrawlElementEditable.svelte generated by Svelte v3.22.3 */
 
-    const { console: console_1$7 } = globals;
+    const { console: console_1$6 } = globals;
     const file$f = "src/components/Crawl/CrawlElementEditable.svelte";
 
     // (51:8) {#if !element.children || (element.children.length === 0 && element.value !== '')}
@@ -45227,7 +45213,7 @@ var app = (function () {
     	const writable_props = ["element", "parentIndeces"];
 
     	Object.keys($$props).forEach(key => {
-    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$7.warn(`<CrawlElementEditable> was created with unknown prop '${key}'`);
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$6.warn(`<CrawlElementEditable> was created with unknown prop '${key}'`);
     	});
 
     	let { $$slots = {}, $$scope } = $$props;
@@ -45295,11 +45281,11 @@ var app = (function () {
     		const props = options.props || {};
 
     		if (/*element*/ ctx[0] === undefined && !("element" in props)) {
-    			console_1$7.warn("<CrawlElementEditable> was created without expected prop 'element'");
+    			console_1$6.warn("<CrawlElementEditable> was created without expected prop 'element'");
     		}
 
     		if (/*parentIndeces*/ ctx[4] === undefined && !("parentIndeces" in props)) {
-    			console_1$7.warn("<CrawlElementEditable> was created without expected prop 'parentIndeces'");
+    			console_1$6.warn("<CrawlElementEditable> was created without expected prop 'parentIndeces'");
     		}
     	}
 
@@ -45374,7 +45360,7 @@ var app = (function () {
 
     /* src/components/Crawl/CrawlElements.svelte generated by Svelte v3.22.3 */
 
-    const { console: console_1$8 } = globals;
+    const { console: console_1$7 } = globals;
     const file$g = "src/components/Crawl/CrawlElements.svelte";
 
     function get_each_context$1(ctx, list, i) {
@@ -45842,7 +45828,7 @@ var app = (function () {
     	const writable_props = ["elements", "parentIndeces", "staticView"];
 
     	Object.keys($$props).forEach(key => {
-    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$8.warn(`<CrawlElements> was created with unknown prop '${key}'`);
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$7.warn(`<CrawlElements> was created with unknown prop '${key}'`);
     	});
 
     	let { $$slots = {}, $$scope } = $$props;
@@ -45911,11 +45897,11 @@ var app = (function () {
     		const props = options.props || {};
 
     		if (/*elements*/ ctx[0] === undefined && !("elements" in props)) {
-    			console_1$8.warn("<CrawlElements> was created without expected prop 'elements'");
+    			console_1$7.warn("<CrawlElements> was created without expected prop 'elements'");
     		}
 
     		if (/*parentIndeces*/ ctx[1] === undefined && !("parentIndeces" in props)) {
-    			console_1$8.warn("<CrawlElements> was created without expected prop 'parentIndeces'");
+    			console_1$7.warn("<CrawlElements> was created without expected prop 'parentIndeces'");
     		}
     	}
 
@@ -45946,7 +45932,7 @@ var app = (function () {
 
     /* src/components/Crawl/CrawlResult.svelte generated by Svelte v3.22.3 */
 
-    const { console: console_1$9 } = globals;
+    const { console: console_1$8 } = globals;
     const file$h = "src/components/Crawl/CrawlResult.svelte";
 
     function get_each_context$2(ctx, list, i) {
@@ -46250,7 +46236,7 @@ var app = (function () {
     	const writable_props = ["result"];
 
     	Object.keys($$props).forEach(key => {
-    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$9.warn(`<CrawlResult> was created with unknown prop '${key}'`);
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$8.warn(`<CrawlResult> was created with unknown prop '${key}'`);
     	});
 
     	let { $$slots = {}, $$scope } = $$props;
@@ -46289,7 +46275,7 @@ var app = (function () {
     		const props = options.props || {};
 
     		if (/*result*/ ctx[0] === undefined && !("result" in props)) {
-    			console_1$9.warn("<CrawlResult> was created without expected prop 'result'");
+    			console_1$8.warn("<CrawlResult> was created without expected prop 'result'");
     		}
     	}
 
@@ -46304,7 +46290,7 @@ var app = (function () {
 
     /* src/components/Crawl/CrawlResults.svelte generated by Svelte v3.22.3 */
 
-    const { console: console_1$a } = globals;
+    const { console: console_1$9 } = globals;
     const file$i = "src/components/Crawl/CrawlResults.svelte";
 
     function get_each_context$3(ctx, list, i) {
@@ -46567,7 +46553,7 @@ var app = (function () {
     	const writable_props = ["results"];
 
     	Object.keys($$props).forEach(key => {
-    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$a.warn(`<CrawlResults> was created with unknown prop '${key}'`);
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$9.warn(`<CrawlResults> was created with unknown prop '${key}'`);
     	});
 
     	let { $$slots = {}, $$scope } = $$props;
@@ -46606,7 +46592,7 @@ var app = (function () {
     		const props = options.props || {};
 
     		if (/*results*/ ctx[0] === undefined && !("results" in props)) {
-    			console_1$a.warn("<CrawlResults> was created without expected prop 'results'");
+    			console_1$9.warn("<CrawlResults> was created without expected prop 'results'");
     		}
     	}
 
@@ -47004,11 +46990,11 @@ var app = (function () {
 
     /* src/components/Crawl/Crawl.svelte generated by Svelte v3.22.3 */
 
-    const { console: console_1$b } = globals;
+    const { console: console_1$a } = globals;
     const file$k = "src/components/Crawl/Crawl.svelte";
 
-    // (116:10) <Link to="/documentation">
-    function create_default_slot$1(ctx) {
+    // (116:8) <Link to="/documentation">
+    function create_default_slot$2(ctx) {
     	let t;
 
     	const block = {
@@ -47025,9 +47011,9 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot$1.name,
+    		id: create_default_slot$2.name,
     		type: "slot",
-    		source: "(116:10) <Link to=\\\"/documentation\\\">",
+    		source: "(116:8) <Link to=\\\"/documentation\\\">",
     		ctx
     	});
 
@@ -47072,7 +47058,7 @@ var app = (function () {
     	return block;
     }
 
-    // (157:8) {#if $results}
+    // (162:8) {#if $results}
     function create_if_block$f(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -47082,8 +47068,8 @@ var app = (function () {
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
-    		if (/*$results*/ ctx[4].length === 0) return 0;
-    		if (/*$results*/ ctx[4][0].error) return 1;
+    		if (/*$results*/ ctx[5].length === 0) return 0;
+    		if (/*$results*/ ctx[5][0].error) return 1;
     		return 2;
     	}
 
@@ -47144,20 +47130,20 @@ var app = (function () {
     		block,
     		id: create_if_block$f.name,
     		type: "if",
-    		source: "(157:8) {#if $results}",
+    		source: "(162:8) {#if $results}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (167:10) {:else}
+    // (172:10) {:else}
     function create_else_block$6(ctx) {
     	let current;
 
     	const crawlresults = new CrawlResults({
     			props: {
-    				results: /*$results*/ ctx[4][0].crawlResults
+    				results: /*$results*/ ctx[5][0].crawlResults
     			},
     			$$inline: true
     		});
@@ -47172,7 +47158,7 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const crawlresults_changes = {};
-    			if (dirty & /*$results*/ 16) crawlresults_changes.results = /*$results*/ ctx[4][0].crawlResults;
+    			if (dirty & /*$results*/ 32) crawlresults_changes.results = /*$results*/ ctx[5][0].crawlResults;
     			crawlresults.$set(crawlresults_changes);
     		},
     		i: function intro(local) {
@@ -47193,17 +47179,17 @@ var app = (function () {
     		block,
     		id: create_else_block$6.name,
     		type: "else",
-    		source: "(167:10) {:else}",
+    		source: "(172:10) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (163:38) 
+    // (168:38) 
     function create_if_block_2$4(ctx) {
     	let div;
-    	let t_value = /*$results*/ ctx[4][0].error + "";
+    	let t_value = /*$results*/ ctx[5][0].error + "";
     	let t;
 
     	const block = {
@@ -47211,14 +47197,14 @@ var app = (function () {
     			div = element("div");
     			t = text(t_value);
     			attr_dev(div, "class", "notification is-danger is-light");
-    			add_location(div, file$k, 163, 12, 4427);
+    			add_location(div, file$k, 168, 12, 4577);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
     			append_dev(div, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*$results*/ 16 && t_value !== (t_value = /*$results*/ ctx[4][0].error + "")) set_data_dev(t, t_value);
+    			if (dirty & /*$results*/ 32 && t_value !== (t_value = /*$results*/ ctx[5][0].error + "")) set_data_dev(t, t_value);
     		},
     		i: noop,
     		o: noop,
@@ -47231,14 +47217,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2$4.name,
     		type: "if",
-    		source: "(163:38) ",
+    		source: "(168:38) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (159:10) {#if $results.length === 0}
+    // (164:10) {#if $results.length === 0}
     function create_if_block_1$7(ctx) {
     	let progress;
 
@@ -47248,7 +47234,7 @@ var app = (function () {
     			progress.textContent = "15%";
     			attr_dev(progress, "class", "progress is-small is-primary");
     			attr_dev(progress, "max", "100");
-    			add_location(progress, file$k, 159, 12, 4276);
+    			add_location(progress, file$k, 164, 12, 4426);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, progress, anchor);
@@ -47265,7 +47251,7 @@ var app = (function () {
     		block,
     		id: create_if_block_1$7.name,
     		type: "if",
-    		source: "(159:10) {#if $results.length === 0}",
+    		source: "(164:10) {#if $results.length === 0}",
     		ctx
     	});
 
@@ -47275,7 +47261,6 @@ var app = (function () {
     function create_fragment$n(ctx) {
     	let main;
     	let section0;
-    	let div1;
     	let div0;
     	let h1;
     	let t1;
@@ -47285,17 +47270,20 @@ var app = (function () {
     	let t4;
     	let section1;
     	let div4;
-    	let div2;
-    	let input;
+    	let div1;
+    	let input0;
     	let t5;
+    	let div2;
+    	let input1;
+    	let t6;
     	let div3;
     	let button;
-    	let t6;
-    	let button_disabled_value;
     	let t7;
+    	let button_disabled_value;
+    	let t8;
     	let div7;
     	let div5;
-    	let t8;
+    	let t9;
     	let div6;
     	let current;
     	let dispose;
@@ -47303,7 +47291,7 @@ var app = (function () {
     	const link = new Link({
     			props: {
     				to: "/documentation",
-    				$$slots: { default: [create_default_slot$1] },
+    				$$slots: { default: [create_default_slot$2] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -47313,80 +47301,86 @@ var app = (function () {
 
     	const crawlelements = new CrawlElements({
     			props: {
-    				elements: /*elements*/ ctx[2],
+    				elements: /*elements*/ ctx[3],
     				parentIndeces: []
     			},
     			$$inline: true
     		});
 
-    	crawlelements.$on("removeElement", /*removeElement*/ ctx[6]);
-    	crawlelements.$on("addElement", /*addElement*/ ctx[7]);
-    	crawlelements.$on("addChildElement", /*addChildElement*/ ctx[8]);
-    	crawlelements.$on("reassign", /*reassign*/ ctx[9]);
-    	let if_block1 = /*$results*/ ctx[4] && create_if_block$f(ctx);
+    	crawlelements.$on("removeElement", /*removeElement*/ ctx[7]);
+    	crawlelements.$on("addElement", /*addElement*/ ctx[8]);
+    	crawlelements.$on("addChildElement", /*addChildElement*/ ctx[9]);
+    	crawlelements.$on("reassign", /*reassign*/ ctx[10]);
+    	let if_block1 = /*$results*/ ctx[5] && create_if_block$f(ctx);
 
     	const block = {
     		c: function create() {
     			main = element("main");
     			section0 = element("section");
-    			div1 = element("div");
     			div0 = element("div");
     			h1 = element("h1");
     			h1.textContent = "Add crawl";
     			t1 = space();
     			h2 = element("h2");
-    			t2 = text("Crawl xPath or relative elements with children. For detailed\n          information see\n          ");
+    			t2 = text("Crawl xPath or relative elements with children. For detailed information\n        see\n        ");
     			create_component(link.$$.fragment);
     			t3 = space();
     			if (if_block0) if_block0.c();
     			t4 = space();
     			section1 = element("section");
     			div4 = element("div");
-    			div2 = element("div");
-    			input = element("input");
+    			div1 = element("div");
+    			input0 = element("input");
     			t5 = space();
+    			div2 = element("div");
+    			input1 = element("input");
+    			t6 = space();
     			div3 = element("div");
     			button = element("button");
-    			t6 = text("Crawl");
-    			t7 = space();
+    			t7 = text("Crawl");
+    			t8 = space();
     			div7 = element("div");
     			div5 = element("div");
     			create_component(crawlelements.$$.fragment);
-    			t8 = space();
+    			t9 = space();
     			div6 = element("div");
     			if (if_block1) if_block1.c();
     			attr_dev(h1, "class", "title");
-    			add_location(h1, file$k, 111, 8, 2812);
+    			add_location(h1, file$k, 111, 6, 2786);
     			attr_dev(h2, "class", "subtitle");
-    			add_location(h2, file$k, 112, 8, 2853);
-    			attr_dev(div0, "class", "container");
-    			add_location(div0, file$k, 110, 6, 2780);
-    			attr_dev(div1, "class", "hero-body");
-    			add_location(div1, file$k, 109, 4, 2750);
+    			add_location(h2, file$k, 112, 6, 2825);
+    			attr_dev(div0, "class", "hero-body");
+    			add_location(div0, file$k, 109, 4, 2755);
     			attr_dev(section0, "class", "hero is-small is-light is-bold");
-    			add_location(section0, file$k, 108, 2, 2697);
-    			attr_dev(input, "class", "input is-rounded");
-    			attr_dev(input, "placeholder", "URL");
-    			attr_dev(input, "type", "text");
-    			add_location(input, file$k, 128, 8, 3260);
-    			attr_dev(div2, "class", "column is-10");
-    			add_location(div2, file$k, 126, 6, 3224);
-    			attr_dev(button, "class", "button is-primary crawlButton svelte-1otvf8a");
-    			button.disabled = button_disabled_value = /*url*/ ctx[1].length === 0 || !/*elements*/ ctx[2].some(func) || /*loadedUserData*/ ctx[0].quotaUsed >= /*loadedUserData*/ ctx[0].quota;
-    			add_location(button, file$k, 135, 8, 3435);
+    			add_location(section0, file$k, 108, 2, 2702);
+    			attr_dev(input0, "class", "input is-rounded");
+    			attr_dev(input0, "placeholder", "Crawl Name");
+    			attr_dev(input0, "type", "text");
+    			add_location(input0, file$k, 126, 8, 3209);
+    			attr_dev(div1, "class", "column is-3");
+    			add_location(div1, file$k, 125, 6, 3175);
+    			attr_dev(input1, "class", "input is-rounded");
+    			attr_dev(input1, "placeholder", "URL");
+    			attr_dev(input1, "type", "text");
+    			add_location(input1, file$k, 133, 8, 3397);
+    			attr_dev(div2, "class", "column is-7");
+    			add_location(div2, file$k, 132, 6, 3363);
+    			attr_dev(button, "class", "button is-primary crawlButton svelte-fzt200");
+    			button.disabled = button_disabled_value = /*url*/ ctx[1].length === 0 || !/*elements*/ ctx[3].some(func) || /*loadedUserData*/ ctx[0].quotaUsed >= /*loadedUserData*/ ctx[0].quota || /*crawlName*/ ctx[2].length === 0;
+    			add_location(button, file$k, 140, 8, 3572);
     			attr_dev(div3, "class", "column is-2");
-    			add_location(div3, file$k, 134, 6, 3401);
+    			add_location(div3, file$k, 139, 6, 3538);
     			attr_dev(div4, "class", "columns");
-    			add_location(div4, file$k, 125, 4, 3196);
-    			attr_dev(div5, "class", "cloumn is-two-fifths container");
-    			add_location(div5, file$k, 145, 6, 3742);
-    			attr_dev(div6, "class", "column is-three-fifths container text");
-    			add_location(div6, file$k, 155, 6, 4043);
-    			attr_dev(div7, "class", "columns");
-    			add_location(div7, file$k, 144, 4, 3714);
+    			add_location(div4, file$k, 124, 4, 3147);
+    			attr_dev(div5, "class", "cloumn is-5 container");
+    			add_location(div5, file$k, 150, 6, 3912);
+    			attr_dev(div6, "class", "column is-6 container text");
+    			add_location(div6, file$k, 160, 6, 4204);
+    			attr_dev(div7, "class", "columns elements svelte-fzt200");
+    			add_location(div7, file$k, 149, 4, 3875);
     			attr_dev(section1, "class", "section");
-    			add_location(section1, file$k, 123, 2, 3165);
-    			add_location(main, file$k, 107, 0, 2688);
+    			add_location(section1, file$k, 123, 2, 3117);
+    			add_location(main, file$k, 107, 0, 2693);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -47394,8 +47388,7 @@ var app = (function () {
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, main, anchor);
     			append_dev(main, section0);
-    			append_dev(section0, div1);
-    			append_dev(div1, div0);
+    			append_dev(section0, div0);
     			append_dev(div0, h1);
     			append_dev(div0, t1);
     			append_dev(div0, h2);
@@ -47406,32 +47399,37 @@ var app = (function () {
     			append_dev(main, t4);
     			append_dev(main, section1);
     			append_dev(section1, div4);
-    			append_dev(div4, div2);
-    			append_dev(div2, input);
-    			set_input_value(input, /*url*/ ctx[1]);
+    			append_dev(div4, div1);
+    			append_dev(div1, input0);
+    			set_input_value(input0, /*crawlName*/ ctx[2]);
     			append_dev(div4, t5);
+    			append_dev(div4, div2);
+    			append_dev(div2, input1);
+    			set_input_value(input1, /*url*/ ctx[1]);
+    			append_dev(div4, t6);
     			append_dev(div4, div3);
     			append_dev(div3, button);
-    			append_dev(button, t6);
-    			append_dev(section1, t7);
+    			append_dev(button, t7);
+    			append_dev(section1, t8);
     			append_dev(section1, div7);
     			append_dev(div7, div5);
     			mount_component(crawlelements, div5, null);
-    			append_dev(div7, t8);
+    			append_dev(div7, t9);
     			append_dev(div7, div6);
     			if (if_block1) if_block1.m(div6, null);
     			current = true;
     			if (remount) run_all(dispose);
 
     			dispose = [
-    				listen_dev(input, "input", /*input_input_handler*/ ctx[11]),
-    				listen_dev(button, "click", /*addCrawl*/ ctx[5], false, false, false)
+    				listen_dev(input0, "input", /*input0_input_handler*/ ctx[12]),
+    				listen_dev(input1, "input", /*input1_input_handler*/ ctx[13]),
+    				listen_dev(button, "click", /*addCrawl*/ ctx[6], false, false, false)
     			];
     		},
     		p: function update(ctx, [dirty]) {
     			const link_changes = {};
 
-    			if (dirty & /*$$scope*/ 4096) {
+    			if (dirty & /*$$scope*/ 16384) {
     				link_changes.$$scope = { dirty, ctx };
     			}
 
@@ -47458,23 +47456,27 @@ var app = (function () {
     				check_outros();
     			}
 
-    			if (dirty & /*url*/ 2 && input.value !== /*url*/ ctx[1]) {
-    				set_input_value(input, /*url*/ ctx[1]);
+    			if (dirty & /*crawlName*/ 4 && input0.value !== /*crawlName*/ ctx[2]) {
+    				set_input_value(input0, /*crawlName*/ ctx[2]);
     			}
 
-    			if (!current || dirty & /*url, elements, loadedUserData*/ 7 && button_disabled_value !== (button_disabled_value = /*url*/ ctx[1].length === 0 || !/*elements*/ ctx[2].some(func) || /*loadedUserData*/ ctx[0].quotaUsed >= /*loadedUserData*/ ctx[0].quota)) {
+    			if (dirty & /*url*/ 2 && input1.value !== /*url*/ ctx[1]) {
+    				set_input_value(input1, /*url*/ ctx[1]);
+    			}
+
+    			if (!current || dirty & /*url, elements, loadedUserData, crawlName*/ 15 && button_disabled_value !== (button_disabled_value = /*url*/ ctx[1].length === 0 || !/*elements*/ ctx[3].some(func) || /*loadedUserData*/ ctx[0].quotaUsed >= /*loadedUserData*/ ctx[0].quota || /*crawlName*/ ctx[2].length === 0)) {
     				prop_dev(button, "disabled", button_disabled_value);
     			}
 
     			const crawlelements_changes = {};
-    			if (dirty & /*elements*/ 4) crawlelements_changes.elements = /*elements*/ ctx[2];
+    			if (dirty & /*elements*/ 8) crawlelements_changes.elements = /*elements*/ ctx[3];
     			crawlelements.$set(crawlelements_changes);
 
-    			if (/*$results*/ ctx[4]) {
+    			if (/*$results*/ ctx[5]) {
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
 
-    					if (dirty & /*$results*/ 16) {
+    					if (dirty & /*$results*/ 32) {
     						transition_in(if_block1, 1);
     					}
     				} else {
@@ -47534,12 +47536,13 @@ var app = (function () {
     function instance$n($$self, $$props, $$invalidate) {
     	let $results,
     		$$unsubscribe_results = noop,
-    		$$subscribe_results = () => ($$unsubscribe_results(), $$unsubscribe_results = subscribe(results, $$value => $$invalidate(4, $results = $$value)), results);
+    		$$subscribe_results = () => ($$unsubscribe_results(), $$unsubscribe_results = subscribe(results, $$value => $$invalidate(5, $results = $$value)), results);
 
     	$$self.$$.on_destroy.push(() => $$unsubscribe_results());
     	let { uid } = $$props;
     	let { loadedUserData } = $$props;
     	let url = "";
+    	let crawlName = "";
     	let elements = [{ id: 0, value: "", name: "", children: [] }];
     	let results;
     	validate_store(results, "results");
@@ -47552,8 +47555,17 @@ var app = (function () {
 
     		try {
     			const createTime = index_cjs$3.firestore.Timestamp.now();
-    			const ref = await setCrawl({ id, uid, createTime, url, elements });
-    			$$subscribe_results($$invalidate(3, results = newestCrawlResult(id, createTime)));
+
+    			const ref = await setCrawl({
+    				id,
+    				uid,
+    				crawlName,
+    				createTime,
+    				url,
+    				elements
+    			});
+
+    			$$subscribe_results($$invalidate(4, results = newestCrawlResult(id, createTime)));
     		} catch(err) {
     			console.log(err);
     		}
@@ -47575,7 +47587,7 @@ var app = (function () {
     			ref.splice(index, 1);
     		}
 
-    		$$invalidate(2, elements = [...elementCopy]);
+    		$$invalidate(3, elements = [...elementCopy]);
     	}
 
     	function addElement(event) {
@@ -47597,7 +47609,7 @@ var app = (function () {
 
     		console.log("Elements before add");
     		console.log(elements);
-    		$$invalidate(2, elements = [...elementCopy]);
+    		$$invalidate(3, elements = [...elementCopy]);
     		console.log(elements);
     	}
 
@@ -47619,31 +47631,36 @@ var app = (function () {
     			children: []
     		});
 
-    		$$invalidate(2, elements = [...elementCopy]);
+    		$$invalidate(3, elements = [...elementCopy]);
     	}
 
     	function reassign() {
     		console.log(elements);
     		console.log(elements.some(e => e.value !== ""));
-    		$$invalidate(2, elements = [...elements]);
+    		$$invalidate(3, elements = [...elements]);
     	}
 
     	const writable_props = ["uid", "loadedUserData"];
 
     	Object.keys($$props).forEach(key => {
-    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$b.warn(`<Crawl> was created with unknown prop '${key}'`);
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$a.warn(`<Crawl> was created with unknown prop '${key}'`);
     	});
 
     	let { $$slots = {}, $$scope } = $$props;
     	validate_slots("Crawl", $$slots, []);
 
-    	function input_input_handler() {
+    	function input0_input_handler() {
+    		crawlName = this.value;
+    		$$invalidate(2, crawlName);
+    	}
+
+    	function input1_input_handler() {
     		url = this.value;
     		$$invalidate(1, url);
     	}
 
     	$$self.$set = $$props => {
-    		if ("uid" in $$props) $$invalidate(10, uid = $$props.uid);
+    		if ("uid" in $$props) $$invalidate(11, uid = $$props.uid);
     		if ("loadedUserData" in $$props) $$invalidate(0, loadedUserData = $$props.loadedUserData);
     	};
 
@@ -47661,6 +47678,7 @@ var app = (function () {
     		uid,
     		loadedUserData,
     		url,
+    		crawlName,
     		elements,
     		results,
     		addCrawl,
@@ -47672,11 +47690,12 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ("uid" in $$props) $$invalidate(10, uid = $$props.uid);
+    		if ("uid" in $$props) $$invalidate(11, uid = $$props.uid);
     		if ("loadedUserData" in $$props) $$invalidate(0, loadedUserData = $$props.loadedUserData);
     		if ("url" in $$props) $$invalidate(1, url = $$props.url);
-    		if ("elements" in $$props) $$invalidate(2, elements = $$props.elements);
-    		if ("results" in $$props) $$subscribe_results($$invalidate(3, results = $$props.results));
+    		if ("crawlName" in $$props) $$invalidate(2, crawlName = $$props.crawlName);
+    		if ("elements" in $$props) $$invalidate(3, elements = $$props.elements);
+    		if ("results" in $$props) $$subscribe_results($$invalidate(4, results = $$props.results));
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -47686,6 +47705,7 @@ var app = (function () {
     	return [
     		loadedUserData,
     		url,
+    		crawlName,
     		elements,
     		results,
     		$results,
@@ -47695,14 +47715,15 @@ var app = (function () {
     		addChildElement,
     		reassign,
     		uid,
-    		input_input_handler
+    		input0_input_handler,
+    		input1_input_handler
     	];
     }
 
     class Crawl extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$n, create_fragment$n, safe_not_equal, { uid: 10, loadedUserData: 0 });
+    		init(this, options, instance$n, create_fragment$n, safe_not_equal, { uid: 11, loadedUserData: 0 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -47714,12 +47735,12 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*uid*/ ctx[10] === undefined && !("uid" in props)) {
-    			console_1$b.warn("<Crawl> was created without expected prop 'uid'");
+    		if (/*uid*/ ctx[11] === undefined && !("uid" in props)) {
+    			console_1$a.warn("<Crawl> was created without expected prop 'uid'");
     		}
 
     		if (/*loadedUserData*/ ctx[0] === undefined && !("loadedUserData" in props)) {
-    			console_1$b.warn("<Crawl> was created without expected prop 'loadedUserData'");
+    			console_1$a.warn("<Crawl> was created without expected prop 'loadedUserData'");
     		}
     	}
 
@@ -47745,25 +47766,56 @@ var app = (function () {
     const file$l = "src/components/Home.svelte";
 
     function create_fragment$o(ctx) {
+    	let section0;
     	let div;
+    	let h1;
+    	let t1;
+    	let h2;
+    	let t3;
+    	let section1;
 
     	const block = {
     		c: function create() {
+    			section0 = element("section");
     			div = element("div");
-    			div.textContent = "Welcome to the dark side";
-    			add_location(div, file$l, 0, 0, 0);
+    			h1 = element("h1");
+    			h1.textContent = "Welcome!";
+    			t1 = space();
+    			h2 = element("h2");
+    			h2.textContent = "to the dark side";
+    			t3 = space();
+    			section1 = element("section");
+    			section1.textContent = "Welcome to the dark side";
+    			attr_dev(h1, "class", "title");
+    			add_location(h1, file$l, 3, 6, 82);
+    			attr_dev(h2, "class", "subtitle");
+    			add_location(h2, file$l, 4, 7, 121);
+    			attr_dev(div, "class", "hero-body");
+    			add_location(div, file$l, 1, 2, 51);
+    			attr_dev(section0, "class", "hero is-small is-light is-bold");
+    			add_location(section0, file$l, 0, 0, 0);
+    			attr_dev(section1, "class", "section");
+    			add_location(section1, file$l, 11, 0, 206);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div, anchor);
+    			insert_dev(target, section0, anchor);
+    			append_dev(section0, div);
+    			append_dev(div, h1);
+    			append_dev(div, t1);
+    			append_dev(div, h2);
+    			insert_dev(target, t3, anchor);
+    			insert_dev(target, section1, anchor);
     		},
     		p: noop,
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div);
+    			if (detaching) detach_dev(section0);
+    			if (detaching) detach_dev(t3);
+    			if (detaching) detach_dev(section1);
     		}
     	};
 
@@ -47809,43 +47861,75 @@ var app = (function () {
     const file$m = "src/components/Documentation.svelte";
 
     function create_fragment$p(ctx) {
-    	let div;
-    	let t0;
-    	let strong0;
+    	let section0;
+    	let div1;
+    	let div0;
+    	let h1;
+    	let t1;
+    	let section1;
+    	let div2;
     	let t2;
-    	let strong1;
+    	let strong0;
     	let t4;
+    	let strong1;
+    	let t6;
 
     	const block = {
     		c: function create() {
-    			div = element("div");
-    			t0 = text("XPath elemnts like\n  ");
+    			section0 = element("section");
+    			div1 = element("div");
+    			div0 = element("div");
+    			h1 = element("h1");
+    			h1.textContent = "Documentation";
+    			t1 = space();
+    			section1 = element("section");
+    			div2 = element("div");
+    			t2 = text("XPath elemnts like\n    ");
     			strong0 = element("strong");
     			strong0.textContent = "//*[@id=\"priceblock_ourprice\"]";
-    			t2 = text("\n  describe exact matches. Relative element pathes like\n  ");
+    			t4 = text("\n    describe exact matches. Relative element pathes like\n    ");
     			strong1 = element("strong");
     			strong1.textContent = "li.block.media._feedPick";
-    			t4 = text("\n  describe either exact elements or reoccuring elements that have children\n  elements that need to be crawled.");
-    			add_location(strong0, file$m, 2, 2, 29);
-    			add_location(strong1, file$m, 4, 2, 134);
-    			add_location(div, file$m, 0, 0, 0);
+    			t6 = text("\n    describe either exact elements or reoccuring elements that have children\n    elements that need to be crawled.");
+    			attr_dev(h1, "class", "title");
+    			add_location(h1, file$m, 3, 6, 109);
+    			attr_dev(div0, "class", "container");
+    			add_location(div0, file$m, 2, 4, 79);
+    			attr_dev(div1, "class", "hero-body");
+    			add_location(div1, file$m, 1, 2, 51);
+    			attr_dev(section0, "class", "hero is-small is-light is-bold");
+    			add_location(section0, file$m, 0, 0, 0);
+    			add_location(strong0, file$m, 11, 4, 257);
+    			add_location(strong1, file$m, 13, 4, 366);
+    			attr_dev(div2, "class", "container");
+    			add_location(div2, file$m, 9, 2, 206);
+    			attr_dev(section1, "class", "section");
+    			add_location(section1, file$m, 8, 0, 178);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div, anchor);
-    			append_dev(div, t0);
-    			append_dev(div, strong0);
-    			append_dev(div, t2);
-    			append_dev(div, strong1);
-    			append_dev(div, t4);
+    			insert_dev(target, section0, anchor);
+    			append_dev(section0, div1);
+    			append_dev(div1, div0);
+    			append_dev(div0, h1);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, section1, anchor);
+    			append_dev(section1, div2);
+    			append_dev(div2, t2);
+    			append_dev(div2, strong0);
+    			append_dev(div2, t4);
+    			append_dev(div2, strong1);
+    			append_dev(div2, t6);
     		},
     		p: noop,
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div);
+    			if (detaching) detach_dev(section0);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(section1);
     		}
     	};
 
@@ -47888,7 +47972,7 @@ var app = (function () {
 
     /* src/components/Crawl/MyCrawl.svelte generated by Svelte v3.22.3 */
 
-    const { console: console_1$c } = globals;
+    const { console: console_1$b } = globals;
     const file$n = "src/components/Crawl/MyCrawl.svelte";
 
     function get_each_context$4(ctx, list, i) {
@@ -47897,7 +47981,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (78:6) {:else}
+    // (85:6) {:else}
     function create_else_block_2(ctx) {
     	let span;
     	let i;
@@ -47907,9 +47991,9 @@ var app = (function () {
     			span = element("span");
     			i = element("i");
     			attr_dev(i, "class", "fas fa-chevron-down");
-    			add_location(i, file$n, 79, 10, 2094);
+    			add_location(i, file$n, 86, 10, 2210);
     			attr_dev(span, "class", "icon is-small has-text-link");
-    			add_location(span, file$n, 78, 8, 2041);
+    			add_location(span, file$n, 85, 8, 2157);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -47927,14 +48011,14 @@ var app = (function () {
     		block,
     		id: create_else_block_2.name,
     		type: "else",
-    		source: "(78:6) {:else}",
+    		source: "(85:6) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (70:6) {#if showElements}
+    // (77:6) {#if showElements}
     function create_if_block_3$1(ctx) {
     	let span;
     	let i;
@@ -47957,9 +48041,9 @@ var app = (function () {
     			t = space();
     			create_component(crawlelements.$$.fragment);
     			attr_dev(i, "class", "fas fa-chevron-up");
-    			add_location(i, file$n, 71, 10, 1847);
+    			add_location(i, file$n, 78, 10, 1963);
     			attr_dev(span, "class", "icon is-small has-text-link");
-    			add_location(span, file$n, 70, 8, 1794);
+    			add_location(span, file$n, 77, 8, 1910);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -47993,14 +48077,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3$1.name,
     		type: "if",
-    		source: "(70:6) {#if showElements}",
+    		source: "(77:6) {#if showElements}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (104:6) {:else}
+    // (111:6) {:else}
     function create_else_block_1$1(ctx) {
     	let span;
     	let i;
@@ -48010,9 +48094,9 @@ var app = (function () {
     			span = element("span");
     			i = element("i");
     			attr_dev(i, "class", "fas fa-chevron-down");
-    			add_location(i, file$n, 105, 10, 2818);
+    			add_location(i, file$n, 112, 10, 2934);
     			attr_dev(span, "class", "icon is-small has-text-link");
-    			add_location(span, file$n, 104, 8, 2765);
+    			add_location(span, file$n, 111, 8, 2881);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -48030,14 +48114,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1$1.name,
     		type: "else",
-    		source: "(104:6) {:else}",
+    		source: "(111:6) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (87:6) {#if showResults}
+    // (94:6) {#if showResults}
     function create_if_block$g(ctx) {
     	let span;
     	let i;
@@ -48068,9 +48152,9 @@ var app = (function () {
 
     			each_1_anchor = empty();
     			attr_dev(i, "class", "fas fa-chevron-up");
-    			add_location(i, file$n, 88, 10, 2342);
+    			add_location(i, file$n, 95, 10, 2458);
     			attr_dev(span, "class", "icon is-small has-text-link");
-    			add_location(span, file$n, 87, 8, 2289);
+    			add_location(span, file$n, 94, 8, 2405);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -48143,14 +48227,14 @@ var app = (function () {
     		block,
     		id: create_if_block$g.name,
     		type: "if",
-    		source: "(87:6) {#if showResults}",
+    		source: "(94:6) {#if showResults}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (98:10) {:else}
+    // (105:10) {:else}
     function create_else_block$7(ctx) {
     	let ul;
     	let li;
@@ -48162,8 +48246,8 @@ var app = (function () {
     			li = element("li");
     			li.textContent = "Loading";
     			t1 = space();
-    			add_location(li, file$n, 99, 14, 2676);
-    			add_location(ul, file$n, 98, 12, 2657);
+    			add_location(li, file$n, 106, 14, 2792);
+    			add_location(ul, file$n, 105, 12, 2773);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, ul, anchor);
@@ -48182,14 +48266,14 @@ var app = (function () {
     		block,
     		id: create_else_block$7.name,
     		type: "else",
-    		source: "(98:10) {:else}",
+    		source: "(105:10) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (94:33) 
+    // (101:33) 
     function create_if_block_2$5(ctx) {
     	let ul;
     	let li;
@@ -48201,8 +48285,8 @@ var app = (function () {
     			li = element("li");
     			li.textContent = "Run had errors";
     			t1 = space();
-    			add_location(li, file$n, 95, 14, 2585);
-    			add_location(ul, file$n, 94, 12, 2566);
+    			add_location(li, file$n, 102, 14, 2701);
+    			add_location(ul, file$n, 101, 12, 2682);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, ul, anchor);
@@ -48221,14 +48305,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2$5.name,
     		type: "if",
-    		source: "(94:33) ",
+    		source: "(101:33) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (92:10) {#if result.crawlResults}
+    // (99:10) {#if result.crawlResults}
     function create_if_block_1$8(ctx) {
     	let current;
 
@@ -48268,14 +48352,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$8.name,
     		type: "if",
-    		source: "(92:10) {#if result.crawlResults}",
+    		source: "(99:10) {#if result.crawlResults}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (91:8) {#each $results as result}
+    // (98:8) {#each $results as result}
     function create_each_block$4(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -48347,7 +48431,7 @@ var app = (function () {
     		block,
     		id: create_each_block$4.name,
     		type: "each",
-    		source: "(91:8) {#each $results as result}",
+    		source: "(98:8) {#each $results as result}",
     		ctx
     	});
 
@@ -48355,29 +48439,30 @@ var app = (function () {
     }
 
     function create_fragment$q(ctx) {
+    	let div7;
     	let div6;
-    	let div5;
+    	let div1;
     	let div0;
     	let a;
-    	let t0_value = /*crawl*/ ctx[0].url + "";
+    	let t0_value = /*crawl*/ ctx[0].crawlName + "";
     	let t0;
     	let a_href_value;
     	let t1;
-    	let div1;
+    	let div2;
     	let t2_value = /*crawl*/ ctx[0].createDate.toDate().toLocaleString() + "";
     	let t2;
     	let t3;
-    	let div2;
+    	let div3;
     	let t4;
     	let current_block_type_index;
     	let if_block0;
     	let t5;
-    	let div3;
+    	let div4;
     	let t6;
     	let current_block_type_index_1;
     	let if_block1;
     	let t7;
-    	let div4;
+    	let div5;
     	let button0;
     	let span0;
     	let i0;
@@ -48411,24 +48496,25 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
+    			div7 = element("div");
     			div6 = element("div");
-    			div5 = element("div");
+    			div1 = element("div");
     			div0 = element("div");
     			a = element("a");
     			t0 = text(t0_value);
     			t1 = space();
-    			div1 = element("div");
+    			div2 = element("div");
     			t2 = text(t2_value);
     			t3 = space();
-    			div2 = element("div");
+    			div3 = element("div");
     			t4 = text("Elements\n      ");
     			if_block0.c();
     			t5 = space();
-    			div3 = element("div");
+    			div4 = element("div");
     			t6 = text("Result\n      ");
     			if_block1.c();
     			t7 = space();
-    			div4 = element("div");
+    			div5 = element("div");
     			button0 = element("button");
     			span0 = element("span");
     			i0 = element("i");
@@ -48438,80 +48524,83 @@ var app = (function () {
     			i1 = element("i");
     			attr_dev(a, "href", a_href_value = /*crawl*/ ctx[0].url);
     			attr_dev(a, "target", "_blank");
-    			add_location(a, file$n, 62, 6, 1504);
-    			attr_dev(div0, "class", "column is-3 url svelte-k4aqpr");
-    			add_location(div0, file$n, 61, 4, 1468);
-    			attr_dev(div1, "class", "column is-2");
-    			add_location(div1, file$n, 64, 4, 1571);
-    			attr_dev(div2, "class", "column is-3 elements svelte-k4aqpr");
-    			add_location(div2, file$n, 65, 4, 1651);
-    			attr_dev(div3, "class", "column is-3");
-    			add_location(div3, file$n, 84, 4, 2172);
+    			add_location(a, file$n, 67, 8, 1600);
+    			attr_dev(div0, "class", "url svelte-8jz01h");
+    			add_location(div0, file$n, 66, 6, 1574);
+    			attr_dev(div1, "class", "column is-3 urlBlock svelte-8jz01h");
+    			add_location(div1, file$n, 65, 4, 1533);
+    			attr_dev(div2, "class", "column is-2");
+    			add_location(div2, file$n, 71, 4, 1687);
+    			attr_dev(div3, "class", "column is-3 elements svelte-8jz01h");
+    			add_location(div3, file$n, 72, 4, 1767);
+    			attr_dev(div4, "class", "column is-3");
+    			add_location(div4, file$n, 91, 4, 2288);
     			attr_dev(i0, "class", "fas fa-redo-alt");
-    			add_location(i0, file$n, 121, 10, 3224);
+    			add_location(i0, file$n, 128, 10, 3340);
     			attr_dev(span0, "class", "icon");
-    			add_location(span0, file$n, 120, 8, 3194);
+    			add_location(span0, file$n, 127, 8, 3310);
     			button0.disabled = button0_disabled_value = !/*userHasQuotaLeft*/ ctx[1];
     			attr_dev(button0, "class", "button");
     			attr_dev(button0, "title", "Recrawl");
     			toggle_class(button0, "is-loading", /*reCrawlLoading*/ ctx[4]);
-    			add_location(button0, file$n, 114, 6, 3024);
+    			add_location(button0, file$n, 121, 6, 3140);
     			attr_dev(i1, "class", "fas fa-minus-circle has-text-danger");
-    			add_location(i1, file$n, 130, 10, 3466);
+    			add_location(i1, file$n, 137, 10, 3582);
     			attr_dev(span1, "class", "icon");
-    			add_location(span1, file$n, 129, 8, 3436);
+    			add_location(span1, file$n, 136, 8, 3552);
     			attr_dev(button1, "class", "button");
     			attr_dev(button1, "title", "Delete");
     			toggle_class(button1, "is-loading", /*deleteCrawlLoading*/ ctx[5]);
-    			add_location(button1, file$n, 124, 6, 3292);
-    			attr_dev(div4, "class", "column is-1");
-    			add_location(div4, file$n, 113, 4, 2992);
-    			attr_dev(div5, "class", "columns");
-    			add_location(div5, file$n, 60, 2, 1442);
-    			attr_dev(div6, "class", "box");
-    			add_location(div6, file$n, 59, 0, 1422);
+    			add_location(button1, file$n, 131, 6, 3408);
+    			attr_dev(div5, "class", "column is-1");
+    			add_location(div5, file$n, 120, 4, 3108);
+    			attr_dev(div6, "class", "columns");
+    			add_location(div6, file$n, 64, 2, 1507);
+    			attr_dev(div7, "class", "box");
+    			add_location(div7, file$n, 63, 0, 1487);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor, remount) {
-    			insert_dev(target, div6, anchor);
-    			append_dev(div6, div5);
-    			append_dev(div5, div0);
+    			insert_dev(target, div7, anchor);
+    			append_dev(div7, div6);
+    			append_dev(div6, div1);
+    			append_dev(div1, div0);
     			append_dev(div0, a);
     			append_dev(a, t0);
-    			append_dev(div5, t1);
-    			append_dev(div5, div1);
-    			append_dev(div1, t2);
-    			append_dev(div5, t3);
-    			append_dev(div5, div2);
-    			append_dev(div2, t4);
-    			if_blocks[current_block_type_index].m(div2, null);
-    			append_dev(div5, t5);
-    			append_dev(div5, div3);
-    			append_dev(div3, t6);
-    			if_blocks_1[current_block_type_index_1].m(div3, null);
-    			append_dev(div5, t7);
-    			append_dev(div5, div4);
-    			append_dev(div4, button0);
+    			append_dev(div6, t1);
+    			append_dev(div6, div2);
+    			append_dev(div2, t2);
+    			append_dev(div6, t3);
+    			append_dev(div6, div3);
+    			append_dev(div3, t4);
+    			if_blocks[current_block_type_index].m(div3, null);
+    			append_dev(div6, t5);
+    			append_dev(div6, div4);
+    			append_dev(div4, t6);
+    			if_blocks_1[current_block_type_index_1].m(div4, null);
+    			append_dev(div6, t7);
+    			append_dev(div6, div5);
+    			append_dev(div5, button0);
     			append_dev(button0, span0);
     			append_dev(span0, i0);
-    			append_dev(div4, t8);
-    			append_dev(div4, button1);
+    			append_dev(div5, t8);
+    			append_dev(div5, button1);
     			append_dev(button1, span1);
     			append_dev(span1, i1);
     			current = true;
     			if (remount) run_all(dispose);
 
     			dispose = [
-    				listen_dev(div2, "click", /*click_handler*/ ctx[11], false, false, false),
-    				listen_dev(div3, "click", /*click_handler_1*/ ctx[12], false, false, false),
+    				listen_dev(div3, "click", /*click_handler*/ ctx[11], false, false, false),
+    				listen_dev(div4, "click", /*click_handler_1*/ ctx[12], false, false, false),
     				listen_dev(button0, "click", /*reCrawl*/ ctx[9], false, false, false),
     				listen_dev(button1, "click", /*deleteUserCrawl*/ ctx[10], false, false, false)
     			];
     		},
     		p: function update(ctx, [dirty]) {
-    			if ((!current || dirty & /*crawl*/ 1) && t0_value !== (t0_value = /*crawl*/ ctx[0].url + "")) set_data_dev(t0, t0_value);
+    			if ((!current || dirty & /*crawl*/ 1) && t0_value !== (t0_value = /*crawl*/ ctx[0].crawlName + "")) set_data_dev(t0, t0_value);
 
     			if (!current || dirty & /*crawl*/ 1 && a_href_value !== (a_href_value = /*crawl*/ ctx[0].url)) {
     				attr_dev(a, "href", a_href_value);
@@ -48539,7 +48628,7 @@ var app = (function () {
     				}
 
     				transition_in(if_block0, 1);
-    				if_block0.m(div2, null);
+    				if_block0.m(div3, null);
     			}
 
     			let previous_block_index_1 = current_block_type_index_1;
@@ -48563,7 +48652,7 @@ var app = (function () {
     				}
 
     				transition_in(if_block1, 1);
-    				if_block1.m(div3, null);
+    				if_block1.m(div4, null);
     			}
 
     			if (!current || dirty & /*userHasQuotaLeft*/ 2 && button0_disabled_value !== (button0_disabled_value = !/*userHasQuotaLeft*/ ctx[1])) {
@@ -48590,7 +48679,7 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div6);
+    			if (detaching) detach_dev(div7);
     			if_blocks[current_block_type_index].d();
     			if_blocks_1[current_block_type_index_1].d();
     			run_all(dispose);
@@ -48645,7 +48734,7 @@ var app = (function () {
     	const writable_props = ["crawl", "userHasQuotaLeft"];
 
     	Object.keys($$props).forEach(key => {
-    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$c.warn(`<MyCrawl> was created with unknown prop '${key}'`);
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$b.warn(`<MyCrawl> was created with unknown prop '${key}'`);
     	});
 
     	let { $$slots = {}, $$scope } = $$props;
@@ -48731,11 +48820,11 @@ var app = (function () {
     		const props = options.props || {};
 
     		if (/*crawl*/ ctx[0] === undefined && !("crawl" in props)) {
-    			console_1$c.warn("<MyCrawl> was created without expected prop 'crawl'");
+    			console_1$b.warn("<MyCrawl> was created without expected prop 'crawl'");
     		}
 
     		if (/*userHasQuotaLeft*/ ctx[1] === undefined && !("userHasQuotaLeft" in props)) {
-    			console_1$c.warn("<MyCrawl> was created without expected prop 'userHasQuotaLeft'");
+    			console_1$b.warn("<MyCrawl> was created without expected prop 'userHasQuotaLeft'");
     		}
     	}
 
@@ -48757,15 +48846,17 @@ var app = (function () {
     }
 
     /* src/components/Crawl/MyCrawls.svelte generated by Svelte v3.22.3 */
+
+    const { console: console_1$c } = globals;
     const file$o = "src/components/Crawl/MyCrawls.svelte";
 
     function get_each_context$5(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[5] = list[i];
+    	child_ctx[9] = list[i];
     	return child_ctx;
     }
 
-    // (21:0) {#if !userHasQuotaLeft}
+    // (70:0) {#if !userHasQuotaLeft}
     function create_if_block_1$9(ctx) {
     	let current;
     	const quotaused = new QuotaUsed({ $$inline: true });
@@ -48796,21 +48887,21 @@ var app = (function () {
     		block,
     		id: create_if_block_1$9.name,
     		type: "if",
-    		source: "(21:0) {#if !userHasQuotaLeft}",
+    		source: "(70:0) {#if !userHasQuotaLeft}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (26:4) {#if crawl.createDate}
+    // (114:4) {#if crawl.createDate}
     function create_if_block$h(ctx) {
     	let current;
 
     	const mycrawl = new MyCrawl({
     			props: {
-    				crawl: /*crawl*/ ctx[5],
-    				userHasQuotaLeft: /*userHasQuotaLeft*/ ctx[0]
+    				crawl: /*crawl*/ ctx[9],
+    				userHasQuotaLeft: /*userHasQuotaLeft*/ ctx[2]
     			},
     			$$inline: true
     		});
@@ -48825,8 +48916,8 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const mycrawl_changes = {};
-    			if (dirty & /*$crawls*/ 2) mycrawl_changes.crawl = /*crawl*/ ctx[5];
-    			if (dirty & /*userHasQuotaLeft*/ 1) mycrawl_changes.userHasQuotaLeft = /*userHasQuotaLeft*/ ctx[0];
+    			if (dirty & /*filteredCrawls*/ 1) mycrawl_changes.crawl = /*crawl*/ ctx[9];
+    			if (dirty & /*userHasQuotaLeft*/ 4) mycrawl_changes.userHasQuotaLeft = /*userHasQuotaLeft*/ ctx[2];
     			mycrawl.$set(mycrawl_changes);
     		},
     		i: function intro(local) {
@@ -48847,18 +48938,18 @@ var app = (function () {
     		block,
     		id: create_if_block$h.name,
     		type: "if",
-    		source: "(26:4) {#if crawl.createDate}",
+    		source: "(114:4) {#if crawl.createDate}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (25:2) {#each $crawls as crawl}
+    // (113:2) {#each filteredCrawls as crawl}
     function create_each_block$5(ctx) {
     	let if_block_anchor;
     	let current;
-    	let if_block = /*crawl*/ ctx[5].createDate && create_if_block$h(ctx);
+    	let if_block = /*crawl*/ ctx[9].createDate && create_if_block$h(ctx);
 
     	const block = {
     		c: function create() {
@@ -48871,11 +48962,11 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if (/*crawl*/ ctx[5].createDate) {
+    			if (/*crawl*/ ctx[9].createDate) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
 
-    					if (dirty & /*$crawls*/ 2) {
+    					if (dirty & /*filteredCrawls*/ 1) {
     						transition_in(if_block, 1);
     					}
     				} else {
@@ -48913,7 +49004,7 @@ var app = (function () {
     		block,
     		id: create_each_block$5.name,
     		type: "each",
-    		source: "(25:2) {#each $crawls as crawl}",
+    		source: "(113:2) {#each filteredCrawls as crawl}",
     		ctx
     	});
 
@@ -48928,9 +49019,36 @@ var app = (function () {
     	let t1;
     	let t2;
     	let section1;
+    	let div8;
+    	let div7;
+    	let div2;
+    	let span0;
+    	let t4;
+    	let span1;
+    	let i0;
+    	let t5;
+    	let div3;
+    	let span2;
+    	let t7;
+    	let span3;
+    	let i1;
+    	let t8;
+    	let div5;
+    	let div4;
+    	let p;
+    	let input;
+    	let t9;
+    	let span4;
+    	let i2;
+    	let t10;
+    	let div6;
+    	let span5;
+    	let i3;
+    	let t11;
     	let current;
-    	let if_block = !/*userHasQuotaLeft*/ ctx[0] && create_if_block_1$9(ctx);
-    	let each_value = /*$crawls*/ ctx[1];
+    	let dispose;
+    	let if_block = !/*userHasQuotaLeft*/ ctx[2] && create_if_block_1$9(ctx);
+    	let each_value = /*filteredCrawls*/ ctx[0];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -48953,26 +49071,93 @@ var app = (function () {
     			if (if_block) if_block.c();
     			t2 = space();
     			section1 = element("section");
+    			div8 = element("div");
+    			div7 = element("div");
+    			div2 = element("div");
+    			span0 = element("span");
+    			span0.textContent = "Name";
+    			t4 = space();
+    			span1 = element("span");
+    			i0 = element("i");
+    			t5 = space();
+    			div3 = element("div");
+    			span2 = element("span");
+    			span2.textContent = "Crawldate";
+    			t7 = space();
+    			span3 = element("span");
+    			i1 = element("i");
+    			t8 = space();
+    			div5 = element("div");
+    			div4 = element("div");
+    			p = element("p");
+    			input = element("input");
+    			t9 = space();
+    			span4 = element("span");
+    			i2 = element("i");
+    			t10 = space();
+    			div6 = element("div");
+    			span5 = element("span");
+    			i3 = element("i");
+    			t11 = space();
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
     			attr_dev(h1, "class", "title");
-    			add_location(h1, file$o, 13, 6, 426);
+    			add_location(h1, file$o, 62, 6, 1331);
     			attr_dev(div0, "class", "container");
-    			add_location(div0, file$o, 12, 4, 396);
+    			add_location(div0, file$o, 61, 4, 1301);
     			attr_dev(div1, "class", "hero-body");
-    			add_location(div1, file$o, 11, 2, 368);
+    			add_location(div1, file$o, 60, 2, 1273);
     			attr_dev(section0, "class", "hero is-small is-light is-bold");
-    			add_location(section0, file$o, 10, 0, 317);
+    			add_location(section0, file$o, 59, 0, 1222);
+    			attr_dev(span0, "class", "headerText svelte-1c2c9wp");
+    			add_location(span0, file$o, 76, 8, 1706);
+    			attr_dev(i0, "class", "fas fa-chevron-up");
+    			add_location(i0, file$o, 78, 10, 1807);
+    			attr_dev(span1, "class", "icon is-small has-text-primary");
+    			add_location(span1, file$o, 77, 8, 1751);
+    			attr_dev(div2, "class", "column is-3 headerColumn svelte-1c2c9wp");
+    			add_location(div2, file$o, 75, 6, 1659);
+    			attr_dev(span2, "class", "headerText svelte-1c2c9wp");
+    			add_location(span2, file$o, 82, 8, 1921);
+    			attr_dev(i1, "class", "fas fa-chevron-up");
+    			add_location(i1, file$o, 84, 10, 2027);
+    			attr_dev(span3, "class", "icon is-small has-text-primary");
+    			add_location(span3, file$o, 83, 8, 1971);
+    			attr_dev(div3, "class", "column is-2 headerColumn svelte-1c2c9wp");
+    			add_location(div3, file$o, 81, 6, 1874);
+    			attr_dev(input, "class", "input has-background-grey has-text-white svelte-1c2c9wp");
+    			attr_dev(input, "type", "text");
+    			add_location(input, file$o, 90, 12, 2205);
+    			attr_dev(i2, "class", "fas fa-search has-text-white");
+    			add_location(i2, file$o, 96, 14, 2443);
+    			attr_dev(span4, "class", "icon is-small is-left");
+    			add_location(span4, file$o, 95, 12, 2392);
+    			attr_dev(p, "class", "control has-icons-left");
+    			add_location(p, file$o, 89, 10, 2158);
+    			attr_dev(div4, "class", "field");
+    			add_location(div4, file$o, 88, 8, 2128);
+    			attr_dev(div5, "class", "column is-6");
+    			add_location(div5, file$o, 87, 6, 2094);
+    			attr_dev(i3, "class", "fas fa-filter has-text-primary");
+    			add_location(i3, file$o, 105, 10, 2634);
+    			attr_dev(span5, "class", "icon");
+    			add_location(span5, file$o, 104, 8, 2604);
+    			attr_dev(div6, "class", "column is-1 headerColumn svelte-1c2c9wp");
+    			add_location(div6, file$o, 102, 6, 2556);
+    			attr_dev(div7, "class", "columns");
+    			add_location(div7, file$o, 74, 4, 1631);
+    			attr_dev(div8, "class", "box has-background-grey has-text-white");
+    			add_location(div8, file$o, 73, 2, 1574);
     			attr_dev(section1, "class", "section");
-    			add_location(section1, file$o, 23, 0, 641);
+    			add_location(section1, file$o, 72, 0, 1546);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
-    		m: function mount(target, anchor) {
+    		m: function mount(target, anchor, remount) {
     			insert_dev(target, section0, anchor);
     			append_dev(section0, div1);
     			append_dev(div1, div0);
@@ -48981,17 +49166,50 @@ var app = (function () {
     			if (if_block) if_block.m(target, anchor);
     			insert_dev(target, t2, anchor);
     			insert_dev(target, section1, anchor);
+    			append_dev(section1, div8);
+    			append_dev(div8, div7);
+    			append_dev(div7, div2);
+    			append_dev(div2, span0);
+    			append_dev(div2, t4);
+    			append_dev(div2, span1);
+    			append_dev(span1, i0);
+    			append_dev(div7, t5);
+    			append_dev(div7, div3);
+    			append_dev(div3, span2);
+    			append_dev(div3, t7);
+    			append_dev(div3, span3);
+    			append_dev(span3, i1);
+    			append_dev(div7, t8);
+    			append_dev(div7, div5);
+    			append_dev(div5, div4);
+    			append_dev(div4, p);
+    			append_dev(p, input);
+    			set_input_value(input, /*searchText*/ ctx[1]);
+    			append_dev(p, t9);
+    			append_dev(p, span4);
+    			append_dev(span4, i2);
+    			append_dev(div7, t10);
+    			append_dev(div7, div6);
+    			append_dev(div6, span5);
+    			append_dev(span5, i3);
+    			append_dev(section1, t11);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(section1, null);
     			}
 
     			current = true;
+    			if (remount) run_all(dispose);
+
+    			dispose = [
+    				listen_dev(input, "input", /*input_input_handler*/ ctx[8]),
+    				listen_dev(input, "input", /*filterCrawls*/ ctx[3], false, false, false)
+    			];
     		},
     		p: function update(ctx, [dirty]) {
-    			if (!/*userHasQuotaLeft*/ ctx[0]) {
+    			if (!/*userHasQuotaLeft*/ ctx[2]) {
     				if (if_block) {
-    					if (dirty & /*userHasQuotaLeft*/ 1) {
+    					if (dirty & /*userHasQuotaLeft*/ 4) {
     						transition_in(if_block, 1);
     					}
     				} else {
@@ -49010,8 +49228,12 @@ var app = (function () {
     				check_outros();
     			}
 
-    			if (dirty & /*$crawls, userHasQuotaLeft*/ 3) {
-    				each_value = /*$crawls*/ ctx[1];
+    			if (dirty & /*searchText*/ 2 && input.value !== /*searchText*/ ctx[1]) {
+    				set_input_value(input, /*searchText*/ ctx[1]);
+    			}
+
+    			if (dirty & /*filteredCrawls, userHasQuotaLeft*/ 5) {
+    				each_value = /*filteredCrawls*/ ctx[0];
     				validate_each_argument(each_value);
     				let i;
 
@@ -49065,6 +49287,7 @@ var app = (function () {
     			if (detaching) detach_dev(t2);
     			if (detaching) detach_dev(section1);
     			destroy_each(each_blocks, detaching);
+    			run_all(dispose);
     		}
     	};
 
@@ -49080,24 +49303,51 @@ var app = (function () {
     }
 
     function instance$r($$self, $$props, $$invalidate) {
-    	let $crawls;
     	let { uid } = $$props;
     	let { loadedUserData } = $$props;
-    	let crawls = userCrawls(uid);
-    	validate_store(crawls, "crawls");
-    	component_subscribe($$self, crawls, value => $$invalidate(1, $crawls = value));
+    	let crawls = [];
+    	let filteredCrawls = [];
+    	let crawls$ = userCrawls(uid);
+    	let searchText = "";
+
+    	crawls$.subscribe(c => {
+    		crawls = c;
+
+    		if (searchText === "") {
+    			$$invalidate(0, filteredCrawls = c);
+    		}
+    	});
+
+    	function filterCrawls() {
+    		console.log("filtering");
+
+    		if (searchText === "") {
+    			$$invalidate(0, filteredCrawls = crawls);
+    			return;
+    		}
+
+    		$$invalidate(0, filteredCrawls = crawls.filter(c => {
+    			return c.crawlName.toLowerCase().includes(searchText.toLowerCase()) || c.url.toLowerCase().includes(searchText.toLowerCase());
+    		}));
+    	}
+
     	const writable_props = ["uid", "loadedUserData"];
 
     	Object.keys($$props).forEach(key => {
-    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<MyCrawls> was created with unknown prop '${key}'`);
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$c.warn(`<MyCrawls> was created with unknown prop '${key}'`);
     	});
 
     	let { $$slots = {}, $$scope } = $$props;
     	validate_slots("MyCrawls", $$slots, []);
 
+    	function input_input_handler() {
+    		searchText = this.value;
+    		$$invalidate(1, searchText);
+    	}
+
     	$$self.$set = $$props => {
-    		if ("uid" in $$props) $$invalidate(3, uid = $$props.uid);
-    		if ("loadedUserData" in $$props) $$invalidate(4, loadedUserData = $$props.loadedUserData);
+    		if ("uid" in $$props) $$invalidate(4, uid = $$props.uid);
+    		if ("loadedUserData" in $$props) $$invalidate(5, loadedUserData = $$props.loadedUserData);
     	};
 
     	$$self.$capture_state = () => ({
@@ -49107,15 +49357,21 @@ var app = (function () {
     		uid,
     		loadedUserData,
     		crawls,
-    		userHasQuotaLeft,
-    		$crawls
+    		filteredCrawls,
+    		crawls$,
+    		searchText,
+    		filterCrawls,
+    		userHasQuotaLeft
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ("uid" in $$props) $$invalidate(3, uid = $$props.uid);
-    		if ("loadedUserData" in $$props) $$invalidate(4, loadedUserData = $$props.loadedUserData);
-    		if ("crawls" in $$props) $$invalidate(2, crawls = $$props.crawls);
-    		if ("userHasQuotaLeft" in $$props) $$invalidate(0, userHasQuotaLeft = $$props.userHasQuotaLeft);
+    		if ("uid" in $$props) $$invalidate(4, uid = $$props.uid);
+    		if ("loadedUserData" in $$props) $$invalidate(5, loadedUserData = $$props.loadedUserData);
+    		if ("crawls" in $$props) crawls = $$props.crawls;
+    		if ("filteredCrawls" in $$props) $$invalidate(0, filteredCrawls = $$props.filteredCrawls);
+    		if ("crawls$" in $$props) crawls$ = $$props.crawls$;
+    		if ("searchText" in $$props) $$invalidate(1, searchText = $$props.searchText);
+    		if ("userHasQuotaLeft" in $$props) $$invalidate(2, userHasQuotaLeft = $$props.userHasQuotaLeft);
     	};
 
     	let userHasQuotaLeft;
@@ -49125,18 +49381,28 @@ var app = (function () {
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*loadedUserData*/ 16) {
-    			 $$invalidate(0, userHasQuotaLeft = loadedUserData.quotaUsed < loadedUserData.quota);
+    		if ($$self.$$.dirty & /*loadedUserData*/ 32) {
+    			 $$invalidate(2, userHasQuotaLeft = loadedUserData.quotaUsed < loadedUserData.quota);
     		}
     	};
 
-    	return [userHasQuotaLeft, $crawls, crawls, uid, loadedUserData];
+    	return [
+    		filteredCrawls,
+    		searchText,
+    		userHasQuotaLeft,
+    		filterCrawls,
+    		uid,
+    		loadedUserData,
+    		crawls,
+    		crawls$,
+    		input_input_handler
+    	];
     }
 
     class MyCrawls extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$r, create_fragment$r, safe_not_equal, { uid: 3, loadedUserData: 4 });
+    		init(this, options, instance$r, create_fragment$r, safe_not_equal, { uid: 4, loadedUserData: 5 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -49148,12 +49414,12 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*uid*/ ctx[3] === undefined && !("uid" in props)) {
-    			console.warn("<MyCrawls> was created without expected prop 'uid'");
+    		if (/*uid*/ ctx[4] === undefined && !("uid" in props)) {
+    			console_1$c.warn("<MyCrawls> was created without expected prop 'uid'");
     		}
 
-    		if (/*loadedUserData*/ ctx[4] === undefined && !("loadedUserData" in props)) {
-    			console.warn("<MyCrawls> was created without expected prop 'loadedUserData'");
+    		if (/*loadedUserData*/ ctx[5] === undefined && !("loadedUserData" in props)) {
+    			console_1$c.warn("<MyCrawls> was created without expected prop 'loadedUserData'");
     		}
     	}
 
@@ -49174,13 +49440,77 @@ var app = (function () {
     	}
     }
 
+    /* src/components/User/Profile/Profile.svelte generated by Svelte v3.22.3 */
+
+    const file$p = "src/components/User/Profile/Profile.svelte";
+
+    function create_fragment$s(ctx) {
+    	let div;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			div.textContent = "PROFILE OF A BITCH";
+    			add_location(div, file$p, 7, 0, 96);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    		},
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$s.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$s($$self, $$props) {
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Profile> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("Profile", $$slots, []);
+    	return [];
+    }
+
+    class Profile extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$s, create_fragment$s, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Profile",
+    			options,
+    			id: create_fragment$s.name
+    		});
+    	}
+    }
+
     /* src/components/App.svelte generated by Svelte v3.22.3 */
 
     const { console: console_1$d } = globals;
-    const file$p = "src/components/App.svelte";
+    const file$q = "src/components/App.svelte";
 
-    // (64:2) {#if !userVerified}
-    function create_if_block_2$6(ctx) {
+    // (66:2) {#if !userVerified}
+    function create_if_block_3$2(ctx) {
     	let current;
     	const singupverification = new SignupStepVerification({ $$inline: true });
 
@@ -49208,17 +49538,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_2$6.name,
+    		id: create_if_block_3$2.name,
     		type: "if",
-    		source: "(64:2) {#if !userVerified}",
+    		source: "(66:2) {#if !userVerified}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (70:6) <Route path="/">
-    function create_default_slot_4(ctx) {
+    // (71:6) <Route path="/">
+    function create_default_slot_5(ctx) {
     	let current;
     	const home = new Home({ $$inline: true });
 
@@ -49246,17 +49576,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_4.name,
+    		id: create_default_slot_5.name,
     		type: "slot",
-    		source: "(70:6) <Route path=\\\"/\\\">",
+    		source: "(71:6) <Route path=\\\"/\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (76:8) {:else}
-    function create_else_block_1$2(ctx) {
+    // (77:8) {:else}
+    function create_else_block_2$1(ctx) {
     	let t;
 
     	const block = {
@@ -49276,17 +49606,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block_1$2.name,
+    		id: create_else_block_2$1.name,
     		type: "else",
-    		source: "(76:8) {:else}",
+    		source: "(77:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (74:8) {#if loadedUser && loadedUserData}
-    function create_if_block_1$a(ctx) {
+    // (75:8) {#if loadedUser && loadedUserData}
+    function create_if_block_2$6(ctx) {
     	let current;
 
     	const mycrawls = new MyCrawls({
@@ -49327,22 +49657,22 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$a.name,
+    		id: create_if_block_2$6.name,
     		type: "if",
-    		source: "(74:8) {#if loadedUser && loadedUserData}",
+    		source: "(75:8) {#if loadedUser && loadedUserData}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (73:6) <Route path="/mycrawls">
-    function create_default_slot_3$1(ctx) {
+    // (74:6) <Route path="/mycrawls">
+    function create_default_slot_4(ctx) {
     	let current_block_type_index;
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block_1$a, create_else_block_1$2];
+    	const if_block_creators = [create_if_block_2$6, create_else_block_2$1];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -49405,17 +49735,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_3$1.name,
+    		id: create_default_slot_4.name,
     		type: "slot",
-    		source: "(73:6) <Route path=\\\"/mycrawls\\\">",
+    		source: "(74:6) <Route path=\\\"/mycrawls\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (81:8) {:else}
-    function create_else_block$8(ctx) {
+    // (82:8) {:else}
+    function create_else_block_1$2(ctx) {
     	let t;
 
     	const block = {
@@ -49435,17 +49765,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block$8.name,
+    		id: create_else_block_1$2.name,
     		type: "else",
-    		source: "(81:8) {:else}",
+    		source: "(82:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (79:8) {#if loadedUser && $userDbData}
-    function create_if_block$i(ctx) {
+    // (80:8) {#if loadedUser && $userDbData}
+    function create_if_block_1$a(ctx) {
     	let current;
 
     	const crawl = new Crawl({
@@ -49486,22 +49816,22 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$i.name,
+    		id: create_if_block_1$a.name,
     		type: "if",
-    		source: "(79:8) {#if loadedUser && $userDbData}",
+    		source: "(80:8) {#if loadedUser && $userDbData}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (78:6) <Route path="/crawl">
-    function create_default_slot_2$1(ctx) {
+    // (79:6) <Route path="/crawl">
+    function create_default_slot_3$1(ctx) {
     	let current_block_type_index;
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block$i, create_else_block$8];
+    	const if_block_creators = [create_if_block_1$a, create_else_block_1$2];
     	const if_blocks = [];
 
     	function select_block_type_1(ctx, dirty) {
@@ -49564,17 +49894,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_2$1.name,
+    		id: create_default_slot_3$1.name,
     		type: "slot",
-    		source: "(78:6) <Route path=\\\"/crawl\\\">",
+    		source: "(79:6) <Route path=\\\"/crawl\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (83:6) <Route path="documentation">
-    function create_default_slot_1$1(ctx) {
+    // (84:6) <Route path="/documentation">
+    function create_default_slot_2$1(ctx) {
     	let current;
     	const documentation = new Documentation({ $$inline: true });
 
@@ -49602,29 +49932,172 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_1$1.name,
+    		id: create_default_slot_2$1.name,
     		type: "slot",
-    		source: "(83:6) <Route path=\\\"documentation\\\">",
+    		source: "(84:6) <Route path=\\\"/documentation\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (67:2) <Router {url}>
-    function create_default_slot$2(ctx) {
+    // (92:6) {:else}
+    function create_else_block$8(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("NOT LOGGED IN");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block$8.name,
+    		type: "else",
+    		source: "(92:6) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (90:6) {#if loadedUser && $userDbData}
+    function create_if_block$i(ctx) {
+    	let current;
+    	const profile = new Profile({ $$inline: true });
+
+    	const block = {
+    		c: function create() {
+    			create_component(profile.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(profile, target, anchor);
+    			current = true;
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(profile.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(profile.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(profile, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$i.name,
+    		type: "if",
+    		source: "(90:6) {#if loadedUser && $userDbData}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (89:4) <Route path="user/profile">
+    function create_default_slot_1$1(ctx) {
+    	let current_block_type_index;
+    	let if_block;
+    	let if_block_anchor;
+    	let current;
+    	const if_block_creators = [create_if_block$i, create_else_block$8];
+    	const if_blocks = [];
+
+    	function select_block_type_2(ctx, dirty) {
+    		if (/*loadedUser*/ ctx[1] && /*$userDbData*/ ctx[4]) return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type_2(ctx);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+
+    	const block = {
+    		c: function create() {
+    			if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if_blocks[current_block_type_index].m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type_2(ctx);
+
+    			if (current_block_type_index !== previous_block_index) {
+    				group_outros();
+
+    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+
+    				check_outros();
+    				if_block = if_blocks[current_block_type_index];
+
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				}
+
+    				transition_in(if_block, 1);
+    				if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if_blocks[current_block_type_index].d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_1$1.name,
+    		type: "slot",
+    		source: "(89:4) <Route path=\\\"user/profile\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (69:2) <Router {url}>
+    function create_default_slot$3(ctx) {
     	let t0;
-    	let div;
     	let t1;
     	let t2;
     	let t3;
+    	let t4;
     	let current;
     	const navbar = new Navbar({ $$inline: true });
 
     	const route0 = new Route({
     			props: {
     				path: "/",
-    				$$slots: { default: [create_default_slot_4] },
+    				$$slots: { default: [create_default_slot_5] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -49633,7 +50106,7 @@ var app = (function () {
     	const route1 = new Route({
     			props: {
     				path: "/mycrawls",
-    				$$slots: { default: [create_default_slot_3$1] },
+    				$$slots: { default: [create_default_slot_4] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -49642,7 +50115,7 @@ var app = (function () {
     	const route2 = new Route({
     			props: {
     				path: "/crawl",
-    				$$slots: { default: [create_default_slot_2$1] },
+    				$$slots: { default: [create_default_slot_3$1] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -49650,7 +50123,16 @@ var app = (function () {
 
     	const route3 = new Route({
     			props: {
-    				path: "documentation",
+    				path: "/documentation",
+    				$$slots: { default: [create_default_slot_2$1] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const route4 = new Route({
+    			props: {
+    				path: "user/profile",
     				$$slots: { default: [create_default_slot_1$1] },
     				$$scope: { ctx }
     			},
@@ -49661,7 +50143,6 @@ var app = (function () {
     		c: function create() {
     			create_component(navbar.$$.fragment);
     			t0 = space();
-    			div = element("div");
     			create_component(route0.$$.fragment);
     			t1 = space();
     			create_component(route1.$$.fragment);
@@ -49669,19 +50150,21 @@ var app = (function () {
     			create_component(route2.$$.fragment);
     			t3 = space();
     			create_component(route3.$$.fragment);
-    			add_location(div, file$p, 68, 4, 1885);
+    			t4 = space();
+    			create_component(route4.$$.fragment);
     		},
     		m: function mount(target, anchor) {
     			mount_component(navbar, target, anchor);
     			insert_dev(target, t0, anchor);
-    			insert_dev(target, div, anchor);
-    			mount_component(route0, div, null);
-    			append_dev(div, t1);
-    			mount_component(route1, div, null);
-    			append_dev(div, t2);
-    			mount_component(route2, div, null);
-    			append_dev(div, t3);
-    			mount_component(route3, div, null);
+    			mount_component(route0, target, anchor);
+    			insert_dev(target, t1, anchor);
+    			mount_component(route1, target, anchor);
+    			insert_dev(target, t2, anchor);
+    			mount_component(route2, target, anchor);
+    			insert_dev(target, t3, anchor);
+    			mount_component(route3, target, anchor);
+    			insert_dev(target, t4, anchor);
+    			mount_component(route4, target, anchor);
     			current = true;
     		},
     		p: function update(ctx, dirty) {
@@ -49713,6 +50196,13 @@ var app = (function () {
     			}
 
     			route3.$set(route3_changes);
+    			const route4_changes = {};
+
+    			if (dirty & /*$$scope, loadedUser, $userDbData*/ 146) {
+    				route4_changes.$$scope = { dirty, ctx };
+    			}
+
+    			route4.$set(route4_changes);
     		},
     		i: function intro(local) {
     			if (current) return;
@@ -49721,6 +50211,7 @@ var app = (function () {
     			transition_in(route1.$$.fragment, local);
     			transition_in(route2.$$.fragment, local);
     			transition_in(route3.$$.fragment, local);
+    			transition_in(route4.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
@@ -49729,31 +50220,37 @@ var app = (function () {
     			transition_out(route1.$$.fragment, local);
     			transition_out(route2.$$.fragment, local);
     			transition_out(route3.$$.fragment, local);
+    			transition_out(route4.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
     			destroy_component(navbar, detaching);
     			if (detaching) detach_dev(t0);
-    			if (detaching) detach_dev(div);
-    			destroy_component(route0);
-    			destroy_component(route1);
-    			destroy_component(route2);
-    			destroy_component(route3);
+    			destroy_component(route0, detaching);
+    			if (detaching) detach_dev(t1);
+    			destroy_component(route1, detaching);
+    			if (detaching) detach_dev(t2);
+    			destroy_component(route2, detaching);
+    			if (detaching) detach_dev(t3);
+    			destroy_component(route3, detaching);
+    			if (detaching) detach_dev(t4);
+    			destroy_component(route4, detaching);
     		}
     	};
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot$2.name,
+    		id: create_default_slot$3.name,
     		type: "slot",
-    		source: "(67:2) <Router {url}>",
+    		source: "(69:2) <Router {url}>",
     		ctx
     	});
 
     	return block;
     }
 
-    function create_fragment$s(ctx) {
+    function create_fragment$t(ctx) {
+    	let base;
     	let link;
     	let script;
     	let script_src_value;
@@ -49761,12 +50258,12 @@ var app = (function () {
     	let main;
     	let t1;
     	let current;
-    	let if_block = !/*userVerified*/ ctx[3] && create_if_block_2$6(ctx);
+    	let if_block = !/*userVerified*/ ctx[3] && create_if_block_3$2(ctx);
 
     	const router = new Router({
     			props: {
     				url: /*url*/ ctx[0],
-    				$$slots: { default: [create_default_slot$2] },
+    				$$slots: { default: [create_default_slot$3] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -49774,6 +50271,7 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
+    			base = element("base");
     			link = element("link");
     			script = element("script");
     			t0 = space();
@@ -49781,19 +50279,22 @@ var app = (function () {
     			if (if_block) if_block.c();
     			t1 = space();
     			create_component(router.$$.fragment);
+    			attr_dev(base, "href", "/");
+    			add_location(base, file$q, 58, 0, 1664);
     			attr_dev(link, "rel", "stylesheet");
     			attr_dev(link, "href", "css/mystyles.css");
-    			add_location(link, file$p, 57, 2, 1611);
+    			add_location(link, file$q, 59, 2, 1682);
     			script.defer = true;
     			if (script.src !== (script_src_value = "https://use.fontawesome.com/releases/v5.3.1/js/all.js")) attr_dev(script, "src", script_src_value);
-    			add_location(script, file$p, 58, 2, 1663);
+    			add_location(script, file$q, 60, 2, 1734);
     			attr_dev(main, "class", "background");
-    			add_location(main, file$p, 62, 0, 1766);
+    			add_location(main, file$q, 64, 0, 1837);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
+    			append_dev(document.head, base);
     			append_dev(document.head, link);
     			append_dev(document.head, script);
     			insert_dev(target, t0, anchor);
@@ -49810,7 +50311,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block_2$6(ctx);
+    					if_block = create_if_block_3$2(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(main, t1);
@@ -49828,7 +50329,7 @@ var app = (function () {
     			const router_changes = {};
     			if (dirty & /*url*/ 1) router_changes.url = /*url*/ ctx[0];
 
-    			if (dirty & /*$$scope, loadedUser, loadedUserData, $userDbData*/ 150) {
+    			if (dirty & /*$$scope, loadedUser, $userDbData, loadedUserData*/ 150) {
     				router_changes.$$scope = { dirty, ctx };
     			}
 
@@ -49846,6 +50347,7 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
+    			detach_dev(base);
     			detach_dev(link);
     			detach_dev(script);
     			if (detaching) detach_dev(t0);
@@ -49857,7 +50359,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$s.name,
+    		id: create_fragment$t.name,
     		type: "component",
     		source: "",
     		ctx
@@ -49866,7 +50368,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$s($$self, $$props, $$invalidate) {
+    function instance$t($$self, $$props, $$invalidate) {
     	let $userDbData;
     	validate_store(userDbData, "userDbData");
     	component_subscribe($$self, userDbData, $$value => $$invalidate(4, $userDbData = $$value));
@@ -49943,6 +50445,7 @@ var app = (function () {
     		Home,
     		Documentation,
     		MyCrawls,
+    		Profile,
     		loadedUser,
     		loadedUserData,
     		unsbscribeUserData,
@@ -49969,13 +50472,13 @@ var app = (function () {
     class App extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$s, create_fragment$s, safe_not_equal, { url: 0 });
+    		init(this, options, instance$t, create_fragment$t, safe_not_equal, { url: 0 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "App",
     			options,
-    			id: create_fragment$s.name
+    			id: create_fragment$t.name
     		});
     	}
 

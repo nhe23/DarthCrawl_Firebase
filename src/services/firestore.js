@@ -31,11 +31,12 @@ export const newestCrawlResult = (crawlId, createTime) => {
   );
 };
 
-export const setCrawl = async ({ id, uid, createTime, url, elements }) => {
+export const setCrawl = async ({ id, uid, crawlName, createTime, url, elements }) => {
   return await db.collection("crawls").doc(id).set(
     {
       uid,
       createDate: createTime,
+      crawlName,
       url,
       crawlElements: elements,
     },
