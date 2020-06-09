@@ -8,6 +8,8 @@
   let filteredCrawls = [];
   let crawls$ = userCrawls(uid);
   let searchText = "";
+  let nameSortedDesc = false;
+  let dateSortedDesc = false;
   crawls$.subscribe(c => {
     crawls = c;
     if (searchText === "") {
@@ -30,6 +32,35 @@
       );
     });
   }
+
+  function sortDate() {
+    console.log("sort");
+    filteredCrawls = filteredCrawls.sort((a, b) => {
+      const dateASeconds = a.createDate.seconds;
+      const dateBSeconds = b.createDate.seconds;
+      console.log(dateASeconds-dateBSeconds);
+      dateSortedDesc = !dateSortedDesc;
+      return dateSortedDesc
+        ? dateASeconds - dateBSeconds
+        : dateBSeconds - dateASeconds;
+    });
+  }
+
+  function sortName() {
+    console.log("sort");
+    filteredCrawls = filteredCrawls.sort((a, b) => {
+      const nameA = a.crawlName.toUpperCase();
+      const nameB = b.crawlName.toUpperCase();
+      let returnValue = 0;
+      if (nameA < nameB) {
+        returnValue = nameSortedDesc ? -1 : 1;
+      } else if (nameA > nameB) {
+        returnValue = nameSortedDesc ? 1 : -1;
+      }
+      nameSortedDesc = !nameSortedDesc;
+      return returnValue;
+    });
+  }
 </script>
 
 <style>
@@ -47,7 +78,9 @@
     border-bottom-color: white;
     border-bottom-width: 1px;
   }
-
+  .sortIcon {
+    cursor: pointer;
+  }
   .headerColumn {
     display: flex;
     align-items: center;
@@ -70,49 +103,60 @@
 {#if !userHasQuotaLeft}
   <QuotaUsed />
 {/if}
+
 <section class="section">
-  <div class="box has-background-grey has-text-white">
-    <div class="columns">
-      <div class="column is-3 headerColumn">
-        <span class="headerText">Name</span>
-        <span class="icon is-small has-text-primary">
-          <i class="fas fa-chevron-up" />
-        </span>
-      </div>
-      <div class="column is-2 headerColumn">
-        <span class="headerText">Crawldate</span>
-        <span class="icon is-small has-text-primary">
-          <i class="fas fa-chevron-up" />
-        </span>
-      </div>
-      <div class="column is-6">
-        <div class="field">
-          <p class="control has-icons-left">
-            <input
-              class="input has-background-grey has-text-white"
-              bind:value={searchText}
-              on:input={filterCrawls}
-              type="text" />
-            <span class="icon is-small is-left">
-              <i class="fas fa-search has-text-white" />
+  <div class="container">
+    {#if crawls.length === 0}
+      No crawls yet
+    {:else}
+      <div class="box has-background-grey has-text-white">
+        <div class="columns">
+          <div class="column is-3 headerColumn">
+            <span class="headerText">Name</span>
+            <span
+              class="icon is-small has-text-primary sortIcon"
+              on:click={sortName}>
+              <i class="fas fa-sort" />
             </span>
-          </p>
+          </div>
+          <div class="column is-2 headerColumn">
+            <span class="headerText">Crawldate</span>
+            <span
+              class="icon is-small has-text-primary sortIcon"
+              on:click={sortDate}>
+              <i class="fas fa-sort" />
+            </span>
+          </div>
+          <div class="column is-6">
+            <div class="field">
+              <p class="control has-icons-left">
+                <input
+                  class="input has-background-grey has-text-white"
+                  bind:value={searchText}
+                  on:input={filterCrawls}
+                  type="text" />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-search has-text-white" />
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <div class="column is-1 headerColumn">
+
+            <span class="icon">
+              <i class="fas fa-filter has-text-primary" />
+            </span>
+
+          </div>
+
         </div>
       </div>
-
-      <div class="column is-1 headerColumn">
-
-        <span class="icon">
-          <i class="fas fa-filter has-text-primary" />
-        </span>
-
-      </div>
-
-    </div>
-  </div>
-  {#each filteredCrawls as crawl}
-    {#if crawl.createDate}
-      <MyCrawl {crawl} {userHasQuotaLeft} />
+      {#each filteredCrawls as crawl}
+        {#if crawl.createDate}
+          <MyCrawl {crawl} {userHasQuotaLeft} />
+        {/if}
+      {/each}
     {/if}
-  {/each}
+  </div>
 </section>

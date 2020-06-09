@@ -72,10 +72,10 @@
     <div class="column is-2">{crawl.createDate.toDate().toLocaleString()}</div>
     <div
       class="column is-3 elements"
-      on:click={() => (showElements = !showElements)}>
+      >
       Elements
       {#if showElements}
-        <span class="icon is-small has-text-link">
+        <span class="icon is-small has-text-link" on:click={() => (showElements = !showElements)}>
           <i class="fas fa-chevron-up" />
         </span>
         <CrawlElements
@@ -83,16 +83,16 @@
           parentIndeces={[]}
           staticView={true} />
       {:else}
-        <span class="icon is-small has-text-link">
+        <span class="icon is-small has-text-link" on:click={() => (showElements = !showElements)}>
           <i class="fas fa-chevron-down" />
         </span>
       {/if}
     </div>
 
-    <div class="column is-3" on:click={() => (showResults = !showResults)}>
+    <div class="column is-3">
       Result
       {#if showResults}
-        <span class="icon is-small has-text-link">
+        <span class="icon is-small has-text-link" on:click={() => (showResults = !showResults)}>
           <i class="fas fa-chevron-up" />
         </span>
         {#each $results as result}
@@ -109,7 +109,7 @@
           {/if}
         {/each}
       {:else}
-        <span class="icon is-small has-text-link">
+        <span class="icon is-small has-text-link" on:click={() => (showResults = !showResults)}>
           <i class="fas fa-chevron-down" />
         </span>
       {/if}
