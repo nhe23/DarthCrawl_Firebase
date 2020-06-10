@@ -2,6 +2,7 @@
   import { collectionData, docData } from "rxfire/firestore";
   import { startWith } from "rxjs/operators";
   import { fade } from "svelte/transition";
+  import { onMount } from "svelte";
   import {
     crawlResults,
     deleteCrawl,
@@ -9,6 +10,7 @@
     newestCrawlResult
   } from "../../services/firestore";
   import firebase from "firebase/app";
+  import { crawlElements } from "../../store";
   import CrawlElements from "./CrawlElements.svelte";
   import CrawlResults from "./CrawlResults.svelte";
   export let crawl;
@@ -18,10 +20,21 @@
   let showElements = false;
   let results = crawlResults(crawl.id);
   let result;
-
-  console.log(crawl);
+  let editCrawl = false;
+  let crawlEditable;
+  let elements;
 
   let reCrawlLoading = false;
+
+  const crawlElements$ = crawlElements.subscribe(c => {
+    elements = c;
+  });
+
+  onMount(() => {
+    console.log("MOUNT", crawl.crawlElements)
+    crawlElements.set(crawl.crawlElements);
+  });
+
   async function reCrawl() {
     reCrawlLoading = true;
     const createTime = firebase.firestore.Timestamp.now();
@@ -38,6 +51,10 @@
   function deleteUserCrawl() {
     deleteCrawlLoading = true;
     deleteCrawl(crawl.id).then(() => (deleteCrawlLoading = false));
+  }
+
+  function editCrawlF() {
+    crawlEditable = JSON.parse(JSON.stringify(crawl));
   }
 </script>
 
@@ -70,20 +87,58 @@
 
     </div>
     <div class="column is-2">{crawl.createDate.toDate().toLocaleString()}</div>
-    <div
-      class="column is-3 elements"
-      >
+    <div class="column is-3 elements">
       Elements
       {#if showElements}
-        <span class="icon is-small has-text-link" on:click={() => (showElements = !showElements)}>
+        <span
+          class="icon is-small has-text-link"
+          on:click={() => (showElements = !showElements)}>
           <i class="fas fa-chevron-up" />
         </span>
         <CrawlElements
-          elements={crawl.crawlElements}
+          elements={elements}
           parentIndeces={[]}
           staticView={true} />
+        <span
+          class="icon is-small"
+          on:click={() => {
+            console.log('Edit crawl');
+            editCrawl = true;
+            console.log(editCrawl);
+          }}>
+          <i class="fas fa-edit" />
+        </span>
+        {#if editCrawl}
+          <div class="modal is-active" class:is-active={editCrawl}>
+            <div class="modal-background" />
+            <div class="modal-card">
+              <header class="modal-card-head">
+                <p class="modal-card-title has-text-white">Edit Crawl</p>
+                <button
+                  class="delete"
+                  aria-label="close"
+                  on:click={() => (editCrawl = false)} />
+              </header>
+              <section class="modal-card-body">
+                <CrawlElements
+                  elements={elements}
+                  parentIndeces={[]}
+                  staticView={false} />
+
+              </section>
+              <footer class="modal-card-foot">
+                <button class="button is-success">Save changes</button>
+                <button class="button" on:click={() => (editCrawl = false)}>
+                  Cancel
+                </button>
+              </footer>
+            </div>
+          </div>
+        {/if}
       {:else}
-        <span class="icon is-small has-text-link" on:click={() => (showElements = !showElements)}>
+        <span
+          class="icon is-small has-text-link"
+          on:click={() => (showElements = !showElements)}>
           <i class="fas fa-chevron-down" />
         </span>
       {/if}
@@ -92,7 +147,9 @@
     <div class="column is-3">
       Result
       {#if showResults}
-        <span class="icon is-small has-text-link" on:click={() => (showResults = !showResults)}>
+        <span
+          class="icon is-small has-text-link"
+          on:click={() => (showResults = !showResults)}>
           <i class="fas fa-chevron-up" />
         </span>
         {#each $results as result}
@@ -109,7 +166,9 @@
           {/if}
         {/each}
       {:else}
-        <span class="icon is-small has-text-link" on:click={() => (showResults = !showResults)}>
+        <span
+          class="icon is-small has-text-link"
+          on:click={() => (showResults = !showResults)}>
           <i class="fas fa-chevron-down" />
         </span>
       {/if}

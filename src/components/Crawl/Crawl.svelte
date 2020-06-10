@@ -4,10 +4,11 @@
     newestCrawlResult,
     checkCrawlExists
   } from "../../services/firestore";
+  import { crawlElements, crawlElementsDefault } from "../../store";
   import { Link } from "../Router";
   import firebase from "firebase/app";
-  import { fade } from "svelte/transition";
-  import { slide } from "svelte/transition";
+  import { fade, slide } from "svelte/transition";
+  import { onMount } from "svelte";
   import CrawlElements from "./CrawlElements.svelte";
   import CrawlResults from "./CrawlResults.svelte";
   import QuotaUsed from "./QuotaUsed.svelte";
@@ -18,17 +19,17 @@
   let url = "";
   let crawlName = "";
   let crawlAlreadyExists = "";
-
-  let elements = [
-    {
-      id: 0,
-      value: "",
-      name: "",
-      children: []
-    }
-  ];
+  let count_value;
+  let elements = [];
+  const crawlElements$ = crawlElements.subscribe(c => {
+    elements = c;
+  });
 
   let results;
+
+  onMount(()=> {
+    crawlElements.set(crawlElementsDefault)
+  })
   async function addCrawl() {
     console.log(loadedUserData);
     console.log(elements);
@@ -49,62 +50,8 @@
     }
   }
 
-  function removeElement(event) {
-    console.log(event.detail.parentIndeces);
-    let elementCopy = [...elements];
-    let ref = elementCopy;
-    for (const i of event.detail.parentIndeces) {
-      ref = ref[i].children;
-    }
-    const elementToRemove = ref.find(r => r.id == event.detail.elementId);
-    const index = ref.indexOf(elementToRemove);
-    if (index !== -1) {
-      ref.splice(index, 1);
-    }
-    elements = [...elementCopy];
-  }
-
-  function addElement(event) {
-    console.log(loadedUserData);
-    let elementCopy = [...elements];
-    let ref = elementCopy;
-    console.log(event.detail.parentIndeces);
-    for (const i of event.detail.parentIndeces) {
-      ref = ref[i].children;
-    }
-    ref.push({ id: Date.now(), value: "", name: "", children: [] });
-    console.log("Elements before add");
-    console.log(elements);
-    elements = [...elementCopy];
-    console.log(elements);
-  }
-
-  function addChildElement(event) {
-    let elementCopy = [...elements];
-    let ref = elementCopy;
-    for (const i of event.detail.parentIndeces) {
-      ref = ref[i].children;
-    }
-    const parentElement = ref.find(r => r.id == event.detail.elementId);
-    const index = ref.indexOf(parentElement);
-    ref[index].children.push({
-      id: Date.now(),
-      value: "",
-      name: "",
-      children: []
-    });
-    elements = [...elementCopy];
-  }
-
-  function reassign() {
-    console.log(elements);
-    console.log(elements.some(e => e.value !== ""));
-    elements = [...elements];
-  }
-
   async function checkIfCrawlExists() {
-    if (crawlAlreadyExists.length >0)
-      return;
+    if (crawlAlreadyExists.length > 0) return;
     const id = md5(`${crawlName}_${uid}`);
     if (await checkCrawlExists(id)) {
       crawlAlreadyExists = "Crawl already exists";
@@ -119,7 +66,7 @@
     margin-top: 12px;
   }
 
-  .help{
+  .help {
     margin-left: 15px;
   }
   /* .crawl {
@@ -154,14 +101,15 @@
         <div class="column is-3">
           <input
             class="input is-rounded"
-            class:is-danger={crawlAlreadyExists.length >0}
+            class:is-danger={crawlAlreadyExists.length > 0}
             placeholder="Crawl Name"
             bind:value={crawlName}
-            on:input={() => {crawlAlreadyExists=""}}
+            on:input={() => {
+              crawlAlreadyExists = '';
+            }}
             on:blur={checkIfCrawlExists}
             type="text" />
-            <p class="help is-danger">{crawlAlreadyExists}</p>
-          
+          <p class="help is-danger">{crawlAlreadyExists}</p>
 
         </div>
         <div class="column is-7">
@@ -185,10 +133,6 @@
         <div class="cloumn is-5 container">
 
           <CrawlElements
-            on:removeElement={removeElement}
-            on:addElement={addElement}
-            on:addChildElement={addChildElement}
-            on:reassign={reassign}
             {elements}
             parentIndeces={[]} />
         </div>

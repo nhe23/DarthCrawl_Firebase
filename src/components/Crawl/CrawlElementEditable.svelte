@@ -1,29 +1,60 @@
 <script>
-  import { createEventDispatcher } from "svelte";
+  import { crawlElements } from "../../store";
   export let element;
   export let parentIndeces;
+
+  let elements;
+  let elementName;
+  let elementValue;
+  const crawlElements$ = crawlElements.subscribe(c => {
+    elements = c;
+  });
   console.log(element.id);
-  const dispatch = createEventDispatcher();
+
+  function setElement() {
+    let elementCopy = [...elements];
+    let ref = elementCopy;
+    for (const i of parentIndeces) {
+      ref = ref[i].children;
+    }
+
+    const parentElement = ref.find(r => r.id === element.id);
+    const index = ref.indexOf(parentElement);
+    ref[index].value = element.value;
+    ref[index].name = element.name;
+    crawlElements.set([...elementCopy]);
+  }
 
   function addChildElement() {
-    console.log("dispatch add child");
-    dispatch("addChildElement", {
-      elementId: element.id,
-      parentIndeces
+    let elementCopy = [...elements];
+    let ref = elementCopy;
+    for (const i of parentIndeces) {
+      ref = ref[i].children;
+    }
+    const parentElement = ref.find(r => r.id === element.id);
+    const index = ref.indexOf(parentElement);
+    ref[index].children.push({
+      id: Date.now(),
+      value: "",
+      name: "",
+      children: []
     });
+    crawlElements.set([...elementCopy]);
   }
 
   function removeElement() {
-    console.log(`Crawl element dispatches removal of ${element.id}`);
-    dispatch("removeElement", {
-      elementId: element.id,
-      parentIndeces
-    });
-  }
-
-  function reassign() {
-    console.log("Reassign");
-    dispatch("reassign", {});
+    console.log(parentIndeces);
+    let elementCopy = [...elements];
+    let ref = elementCopy;
+    for (const i of parentIndeces) {
+      ref = ref[i].children;
+    }
+    const elementToRemove = ref.find(r => r.id === element.id);
+    const index = ref.indexOf(elementToRemove);
+    if (index !== -1) {
+      ref.splice(index, 1);
+    }
+    crawlElements.set([...elementCopy]);
   }
 </script>
 
@@ -41,8 +72,8 @@
           class="input"
           type="text"
           placeholder="xPath"
-          bind:value={element.value}
-          on:blur={reassign} />
+          on:input={setElement}
+          bind:value={element.value} />
         <span
           on:click={removeElement}
           class="icon is-small is-left has-text-danger">
@@ -63,8 +94,8 @@
           class="input"
           type="text"
           placeholder="Name"
-          bind:value={element.name}
-          on:blur={reassign} />
+          on:input={setElement}
+          bind:value={element.name} />
       </div>
     </div>
   </div>

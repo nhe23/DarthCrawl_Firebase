@@ -2453,6 +2453,17 @@ var app = (function () {
 
     const userDbData = writable(null);
 
+    const crawlElementsDefault = [
+      {
+        id: 0,
+        value: "",
+        name: "",
+        children: [],
+      },
+    ];
+
+    const crawlElements = writable(crawlElementsDefault);
+
     var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
     function unwrapExports (x) {
@@ -45089,7 +45100,7 @@ var app = (function () {
     const { console: console_1$6 } = globals;
     const file$f = "src/components/Crawl/CrawlElementEditable.svelte";
 
-    // (51:8) {#if !element.children || (element.children.length === 0 && element.value !== '')}
+    // (82:8) {#if !element.children || (element.children.length === 0 && element.value !== '')}
     function create_if_block$b(ctx) {
     	let span;
     	let i;
@@ -45100,15 +45111,15 @@ var app = (function () {
     			span = element("span");
     			i = element("i");
     			attr_dev(i, "class", "fas fa-plus-circle");
-    			add_location(i, file$f, 54, 12, 1381);
+    			add_location(i, file$f, 85, 12, 2264);
     			attr_dev(span, "class", "icon is-small is-right has-text-success svelte-rshbib");
-    			add_location(span, file$f, 51, 10, 1263);
+    			add_location(span, file$f, 82, 10, 2146);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, span, anchor);
     			append_dev(span, i);
     			if (remount) dispose();
-    			dispose = listen_dev(span, "click", /*addChildElement*/ ctx[1], false, false, false);
+    			dispose = listen_dev(span, "click", /*addChildElement*/ ctx[2], false, false, false);
     		},
     		p: noop,
     		d: function destroy(detaching) {
@@ -45121,7 +45132,7 @@ var app = (function () {
     		block,
     		id: create_if_block$b.name,
     		type: "if",
-    		source: "(51:8) {#if !element.children || (element.children.length === 0 && element.value !== '')}",
+    		source: "(82:8) {#if !element.children || (element.children.length === 0 && element.value !== '')}",
     		ctx
     	});
 
@@ -45164,26 +45175,26 @@ var app = (function () {
     			attr_dev(input0, "class", "input");
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "placeholder", "xPath");
-    			add_location(input0, file$f, 39, 8, 844);
+    			add_location(input0, file$f, 70, 8, 1724);
     			attr_dev(i, "class", "fas fa-minus-circle");
-    			add_location(i, file$f, 48, 10, 1112);
+    			add_location(i, file$f, 79, 10, 1995);
     			attr_dev(span, "class", "icon is-small is-left has-text-danger svelte-rshbib");
-    			add_location(span, file$f, 45, 8, 1004);
+    			add_location(span, file$f, 76, 8, 1887);
     			attr_dev(div0, "class", "field control has-icons-left has-icons-right");
-    			add_location(div0, file$f, 38, 6, 777);
+    			add_location(div0, file$f, 69, 6, 1657);
     			attr_dev(div1, "class", "column is-8");
-    			add_location(div1, file$f, 37, 4, 745);
+    			add_location(div1, file$f, 68, 4, 1625);
     			attr_dev(input1, "class", "input");
     			attr_dev(input1, "type", "text");
     			attr_dev(input1, "placeholder", "Name");
-    			add_location(input1, file$f, 61, 8, 1542);
+    			add_location(input1, file$f, 92, 8, 2425);
     			attr_dev(div2, "class", "field control");
-    			add_location(div2, file$f, 60, 6, 1506);
+    			add_location(div2, file$f, 91, 6, 2389);
     			attr_dev(div3, "class", "column is-4");
-    			add_location(div3, file$f, 59, 4, 1474);
+    			add_location(div3, file$f, 90, 4, 2357);
     			attr_dev(div4, "class", "columns");
-    			add_location(div4, file$f, 36, 2, 719);
-    			add_location(main, file$f, 35, 0, 710);
+    			add_location(div4, file$f, 67, 2, 1599);
+    			add_location(main, file$f, 66, 0, 1590);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -45208,11 +45219,11 @@ var app = (function () {
     			if (remount) run_all(dispose);
 
     			dispose = [
-    				listen_dev(input0, "input", /*input0_input_handler*/ ctx[6]),
-    				listen_dev(input0, "blur", /*reassign*/ ctx[3], false, false, false),
-    				listen_dev(span, "click", /*removeElement*/ ctx[2], false, false, false),
-    				listen_dev(input1, "input", /*input1_input_handler*/ ctx[7]),
-    				listen_dev(input1, "blur", /*reassign*/ ctx[3], false, false, false)
+    				listen_dev(input0, "input", /*setElement*/ ctx[1], false, false, false),
+    				listen_dev(input0, "input", /*input0_input_handler*/ ctx[9]),
+    				listen_dev(span, "click", /*removeElement*/ ctx[3], false, false, false),
+    				listen_dev(input1, "input", /*setElement*/ ctx[1], false, false, false),
+    				listen_dev(input1, "input", /*input1_input_handler*/ ctx[10])
     			];
     		},
     		p: function update(ctx, [dirty]) {
@@ -45260,22 +45271,69 @@ var app = (function () {
     function instance$h($$self, $$props, $$invalidate) {
     	let { element } = $$props;
     	let { parentIndeces } = $$props;
+    	let elements;
+    	let elementName;
+    	let elementValue;
+
+    	const crawlElements$ = crawlElements.subscribe(c => {
+    		elements = c;
+    	});
+
     	console.log(element.id);
-    	const dispatch = createEventDispatcher();
+
+    	function setElement() {
+    		let elementCopy = [...elements];
+    		let ref = elementCopy;
+
+    		for (const i of parentIndeces) {
+    			ref = ref[i].children;
+    		}
+
+    		const parentElement = ref.find(r => r.id === element.id);
+    		const index = ref.indexOf(parentElement);
+    		ref[index].value = element.value;
+    		ref[index].name = element.name;
+    		crawlElements.set([...elementCopy]);
+    	}
 
     	function addChildElement() {
-    		console.log("dispatch add child");
-    		dispatch("addChildElement", { elementId: element.id, parentIndeces });
+    		let elementCopy = [...elements];
+    		let ref = elementCopy;
+
+    		for (const i of parentIndeces) {
+    			ref = ref[i].children;
+    		}
+
+    		const parentElement = ref.find(r => r.id === element.id);
+    		const index = ref.indexOf(parentElement);
+
+    		ref[index].children.push({
+    			id: Date.now(),
+    			value: "",
+    			name: "",
+    			children: []
+    		});
+
+    		crawlElements.set([...elementCopy]);
     	}
 
     	function removeElement() {
-    		console.log(`Crawl element dispatches removal of ${element.id}`);
-    		dispatch("removeElement", { elementId: element.id, parentIndeces });
-    	}
+    		console.log(parentIndeces);
+    		let elementCopy = [...elements];
+    		let ref = elementCopy;
 
-    	function reassign() {
-    		console.log("Reassign");
-    		dispatch("reassign", {});
+    		for (const i of parentIndeces) {
+    			ref = ref[i].children;
+    		}
+
+    		const elementToRemove = ref.find(r => r.id === element.id);
+    		const index = ref.indexOf(elementToRemove);
+
+    		if (index !== -1) {
+    			ref.splice(index, 1);
+    		}
+
+    		crawlElements.set([...elementCopy]);
     	}
 
     	const writable_props = ["element", "parentIndeces"];
@@ -45303,18 +45361,24 @@ var app = (function () {
     	};
 
     	$$self.$capture_state = () => ({
-    		createEventDispatcher,
+    		crawlElements,
     		element,
     		parentIndeces,
-    		dispatch,
+    		elements,
+    		elementName,
+    		elementValue,
+    		crawlElements$,
+    		setElement,
     		addChildElement,
-    		removeElement,
-    		reassign
+    		removeElement
     	});
 
     	$$self.$inject_state = $$props => {
     		if ("element" in $$props) $$invalidate(0, element = $$props.element);
     		if ("parentIndeces" in $$props) $$invalidate(4, parentIndeces = $$props.parentIndeces);
+    		if ("elements" in $$props) elements = $$props.elements;
+    		if ("elementName" in $$props) elementName = $$props.elementName;
+    		if ("elementValue" in $$props) elementValue = $$props.elementValue;
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -45323,11 +45387,14 @@ var app = (function () {
 
     	return [
     		element,
+    		setElement,
     		addChildElement,
     		removeElement,
-    		reassign,
     		parentIndeces,
-    		dispatch,
+    		elements,
+    		elementName,
+    		elementValue,
+    		crawlElements$,
     		input0_input_handler,
     		input1_input_handler
     	];
@@ -45433,26 +45500,22 @@ var app = (function () {
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[8] = list[i];
-    	child_ctx[10] = i;
+    	child_ctx[6] = list[i];
+    	child_ctx[8] = i;
     	return child_ctx;
     }
 
-    // (71:8) {:else}
+    // (54:8) {:else}
     function create_else_block$4(ctx) {
     	let current;
 
     	const crawlelementeditable = new CrawlElementEditable({
     			props: {
-    				element: /*element*/ ctx[8],
+    				element: /*element*/ ctx[6],
     				parentIndeces: /*parentIndeces*/ ctx[1]
     			},
     			$$inline: true
     		});
-
-    	crawlelementeditable.$on("removeElement", /*removeElement*/ ctx[5]);
-    	crawlelementeditable.$on("addChildElement", /*addChildElement*/ ctx[4]);
-    	crawlelementeditable.$on("reassign", /*reassign*/ ctx[6]);
 
     	const block = {
     		c: function create() {
@@ -45464,7 +45527,7 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const crawlelementeditable_changes = {};
-    			if (dirty & /*elements*/ 1) crawlelementeditable_changes.element = /*element*/ ctx[8];
+    			if (dirty & /*elements*/ 1) crawlelementeditable_changes.element = /*element*/ ctx[6];
     			if (dirty & /*parentIndeces*/ 2) crawlelementeditable_changes.parentIndeces = /*parentIndeces*/ ctx[1];
     			crawlelementeditable.$set(crawlelementeditable_changes);
     		},
@@ -45486,16 +45549,16 @@ var app = (function () {
     		block,
     		id: create_else_block$4.name,
     		type: "else",
-    		source: "(71:8) {:else}",
+    		source: "(54:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (69:8) {#if staticView}
+    // (52:8) {#if staticView}
     function create_if_block_2$3(ctx) {
-    	let t_value = /*element*/ ctx[8].value + "";
+    	let t_value = /*element*/ ctx[6].value + "";
     	let t;
 
     	const block = {
@@ -45506,7 +45569,7 @@ var app = (function () {
     			insert_dev(target, t, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*elements*/ 1 && t_value !== (t_value = /*element*/ ctx[8].value + "")) set_data_dev(t, t_value);
+    			if (dirty & /*elements*/ 1 && t_value !== (t_value = /*element*/ ctx[6].value + "")) set_data_dev(t, t_value);
     		},
     		i: noop,
     		o: noop,
@@ -45519,38 +45582,35 @@ var app = (function () {
     		block,
     		id: create_if_block_2$3.name,
     		type: "if",
-    		source: "(69:8) {#if staticView}",
+    		source: "(52:8) {#if staticView}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (79:8) {#if element.children && element.children.length > 0}
+    // (59:8) {#if element.children && element.children.length > 0}
     function create_if_block_1$5(ctx) {
     	let ul;
     	let current;
 
     	const crawlelements = new CrawlElements({
     			props: {
-    				elements: /*element*/ ctx[8].children,
-    				parentIndeces: [.../*parentIndeces*/ ctx[1], /*i*/ ctx[10]],
+    				elements: /*element*/ ctx[6].children,
+    				parentIndeces: [.../*parentIndeces*/ ctx[1], /*i*/ ctx[8]],
     				staticView: /*staticView*/ ctx[2]
     			},
     			$$inline: true
     		});
 
     	crawlelements.$on("addElement", /*addElement*/ ctx[3]);
-    	crawlelements.$on("removeElement", /*removeElement*/ ctx[5]);
-    	crawlelements.$on("addChildElement", /*addChildElement*/ ctx[4]);
-    	crawlelements.$on("reassign", /*reassign*/ ctx[6]);
 
     	const block = {
     		c: function create() {
     			ul = element("ul");
     			create_component(crawlelements.$$.fragment);
     			attr_dev(ul, "class", "has-text-grey-lighter svelte-1a0l5id");
-    			add_location(ul, file$g, 79, 10, 2133);
+    			add_location(ul, file$g, 59, 10, 1477);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, ul, anchor);
@@ -45559,8 +45619,8 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const crawlelements_changes = {};
-    			if (dirty & /*elements*/ 1) crawlelements_changes.elements = /*element*/ ctx[8].children;
-    			if (dirty & /*parentIndeces, elements*/ 3) crawlelements_changes.parentIndeces = [.../*parentIndeces*/ ctx[1], /*i*/ ctx[10]];
+    			if (dirty & /*elements*/ 1) crawlelements_changes.elements = /*element*/ ctx[6].children;
+    			if (dirty & /*parentIndeces, elements*/ 3) crawlelements_changes.parentIndeces = [.../*parentIndeces*/ ctx[1], /*i*/ ctx[8]];
     			if (dirty & /*staticView*/ 4) crawlelements_changes.staticView = /*staticView*/ ctx[2];
     			crawlelements.$set(crawlelements_changes);
     		},
@@ -45583,14 +45643,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$5.name,
     		type: "if",
-    		source: "(79:8) {#if element.children && element.children.length > 0}",
+    		source: "(59:8) {#if element.children && element.children.length > 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (67:4) {#each elements as element, i (element.id)}
+    // (50:4) {#each elements as element, i (element.id)}
     function create_each_block$1(key_1, ctx) {
     	let li;
     	let current_block_type_index;
@@ -45607,7 +45667,7 @@ var app = (function () {
 
     	current_block_type_index = select_block_type(ctx);
     	if_block0 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
-    	let if_block1 = /*element*/ ctx[8].children && /*element*/ ctx[8].children.length > 0 && create_if_block_1$5(ctx);
+    	let if_block1 = /*element*/ ctx[6].children && /*element*/ ctx[6].children.length > 0 && create_if_block_1$5(ctx);
 
     	const block = {
     		key: key_1,
@@ -45618,7 +45678,7 @@ var app = (function () {
     			t = space();
     			if (if_block1) if_block1.c();
     			attr_dev(li, "class", "has-text-grey-dark svelte-1a0l5id");
-    			add_location(li, file$g, 67, 6, 1734);
+    			add_location(li, file$g, 50, 6, 1207);
     			this.first = li;
     		},
     		m: function mount(target, anchor) {
@@ -45653,7 +45713,7 @@ var app = (function () {
     				if_block0.m(li, t);
     			}
 
-    			if (/*element*/ ctx[8].children && /*element*/ ctx[8].children.length > 0) {
+    			if (/*element*/ ctx[6].children && /*element*/ ctx[6].children.length > 0) {
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
 
@@ -45698,14 +45758,14 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(67:4) {#each elements as element, i (element.id)}",
+    		source: "(50:4) {#each elements as element, i (element.id)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (94:4) {#if !staticView}
+    // (71:4) {#if !staticView}
     function create_if_block$c(ctx) {
     	let button;
     	let dispose;
@@ -45715,7 +45775,7 @@ var app = (function () {
     			button = element("button");
     			button.textContent = "+";
     			attr_dev(button, "class", "button is-secondary");
-    			add_location(button, file$g, 94, 6, 2576);
+    			add_location(button, file$g, 71, 6, 1785);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, button, anchor);
@@ -45733,7 +45793,7 @@ var app = (function () {
     		block,
     		id: create_if_block$c.name,
     		type: "if",
-    		source: "(94:4) {#if !staticView}",
+    		source: "(71:4) {#if !staticView}",
     		ctx
     	});
 
@@ -45749,7 +45809,7 @@ var app = (function () {
     	let current;
     	let each_value = /*elements*/ ctx[0];
     	validate_each_argument(each_value);
-    	const get_key = ctx => /*element*/ ctx[8].id;
+    	const get_key = ctx => /*element*/ ctx[6].id;
     	validate_each_keys(ctx, each_value, get_each_context$1, get_key);
 
     	for (let i = 0; i < each_value.length; i += 1) {
@@ -45772,8 +45832,8 @@ var app = (function () {
     			t = space();
     			if (if_block) if_block.c();
     			attr_dev(ul, "class", "has-text-grey-lighter svelte-1a0l5id");
-    			add_location(ul, file$g, 65, 2, 1645);
-    			add_location(main, file$g, 64, 0, 1636);
+    			add_location(ul, file$g, 48, 2, 1118);
+    			add_location(main, file$g, 47, 0, 1109);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -45791,7 +45851,7 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*elements, parentIndeces, staticView, addElement, removeElement, addChildElement, reassign*/ 127) {
+    			if (dirty & /*elements, parentIndeces, staticView, addElement*/ 15) {
     				const each_value = /*elements*/ ctx[0];
     				validate_each_argument(each_value);
     				group_outros();
@@ -45853,44 +45913,36 @@ var app = (function () {
 
     function instance$j($$self, $$props, $$invalidate) {
     	let { elements } = $$props;
+    	let storedElements;
+
+    	const crawlElements$ = crawlElements.subscribe(c => {
+    		storedElements = c;
+    	});
+
+    	console.log(elements);
     	let { parentIndeces } = $$props;
     	let { staticView = false } = $$props;
-    	console.log(elements);
-    	const dispatch = createEventDispatcher();
 
-    	function addElement(event) {
-    		dispatch("addElement", {
-    			parentIndeces: event.detail.parentIndeces
-    			? event.detail.parentIndeces
-    			: parentIndeces
+    	function addElement() {
+    		let elementCopy = [...storedElements];
+    		let ref = elementCopy;
+    		console.log(parentIndeces);
+
+    		for (const i of parentIndeces) {
+    			ref = ref[i].children;
+    		}
+
+    		ref.push({
+    			id: Date.now(),
+    			value: "",
+    			name: "",
+    			children: []
     		});
-    	}
 
-    	function addChildElement(event) {
-    		console.log("dispatch add child root");
-
-    		dispatch("addChildElement", {
-    			parentIndeces: event.detail.parentIndeces,
-    			elementId: event.detail.elementId
-    		});
-    	} // const parent = elements.find(e => e.id == elementId);
-    	// const ids = parent.children.map(c => c.id);
-
-    	// const id = Math.max(...ids) + 1;
-    	// parent.children = [...parent.children, { id, value: "" }];
-    	// elements = [...elements.filter(e => e.id !== elementId), parent];
-    	// console.log(elements);
-    	function removeElement(event) {
-    		console.log(`Element id ${event.detail.elementId}`);
-
-    		dispatch("removeElement", {
-    			parentIndeces: event.detail.parentIndeces,
-    			elementId: event.detail.elementId
-    		});
-    	}
-
-    	function reassign(event) {
-    		dispatch("reassign", {});
+    		console.log("Elements before add");
+    		console.log(storedElements);
+    		crawlElements.set([...elementCopy]);
+    		console.log(storedElements);
     	}
 
     	const writable_props = ["elements", "parentIndeces", "staticView"];
@@ -45910,21 +45962,20 @@ var app = (function () {
 
     	$$self.$capture_state = () => ({
     		fade,
-    		createEventDispatcher,
+    		crawlElements,
     		CrawlElementEditable,
     		CrawlElement,
     		elements,
+    		storedElements,
+    		crawlElements$,
     		parentIndeces,
     		staticView,
-    		dispatch,
-    		addElement,
-    		addChildElement,
-    		removeElement,
-    		reassign
+    		addElement
     	});
 
     	$$self.$inject_state = $$props => {
     		if ("elements" in $$props) $$invalidate(0, elements = $$props.elements);
+    		if ("storedElements" in $$props) storedElements = $$props.storedElements;
     		if ("parentIndeces" in $$props) $$invalidate(1, parentIndeces = $$props.parentIndeces);
     		if ("staticView" in $$props) $$invalidate(2, staticView = $$props.staticView);
     	};
@@ -45933,15 +45984,7 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [
-    		elements,
-    		parentIndeces,
-    		staticView,
-    		addElement,
-    		addChildElement,
-    		removeElement,
-    		reassign
-    	];
+    	return [elements, parentIndeces, staticView, addElement];
     }
 
     class CrawlElements extends SvelteComponentDev {
@@ -47061,7 +47104,7 @@ var app = (function () {
     const { console: console_1$a } = globals;
     const file$k = "src/components/Crawl/Crawl.svelte";
 
-    // (143:10) <Link to="/documentation">
+    // (90:10) <Link to="/documentation">
     function create_default_slot$2(ctx) {
     	let t;
 
@@ -47081,14 +47124,14 @@ var app = (function () {
     		block,
     		id: create_default_slot$2.name,
     		type: "slot",
-    		source: "(143:10) <Link to=\\\"/documentation\\\">",
+    		source: "(90:10) <Link to=\\\"/documentation\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (148:2) {#if loadedUserData.quotaUsed >= loadedUserData.quota}
+    // (95:2) {#if loadedUserData.quotaUsed >= loadedUserData.quota}
     function create_if_block_3(ctx) {
     	let current;
     	const quotaused = new QuotaUsed({ $$inline: true });
@@ -47119,14 +47162,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(148:2) {#if loadedUserData.quotaUsed >= loadedUserData.quota}",
+    		source: "(95:2) {#if loadedUserData.quotaUsed >= loadedUserData.quota}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (196:10) {#if $results}
+    // (140:10) {#if $results}
     function create_if_block$f(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -47198,14 +47241,14 @@ var app = (function () {
     		block,
     		id: create_if_block$f.name,
     		type: "if",
-    		source: "(196:10) {#if $results}",
+    		source: "(140:10) {#if $results}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (206:12) {:else}
+    // (150:12) {:else}
     function create_else_block$6(ctx) {
     	let current;
 
@@ -47247,14 +47290,14 @@ var app = (function () {
     		block,
     		id: create_else_block$6.name,
     		type: "else",
-    		source: "(206:12) {:else}",
+    		source: "(150:12) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (202:40) 
+    // (146:40) 
     function create_if_block_2$4(ctx) {
     	let div;
     	let t_value = /*$results*/ ctx[6][0].error + "";
@@ -47265,7 +47308,7 @@ var app = (function () {
     			div = element("div");
     			t = text(t_value);
     			attr_dev(div, "class", "notification is-danger is-light");
-    			add_location(div, file$k, 202, 14, 5413);
+    			add_location(div, file$k, 146, 14, 3912);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -47285,14 +47328,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2$4.name,
     		type: "if",
-    		source: "(202:40) ",
+    		source: "(146:40) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (198:12) {#if $results.length === 0}
+    // (142:12) {#if $results.length === 0}
     function create_if_block_1$7(ctx) {
     	let progress;
 
@@ -47302,7 +47345,7 @@ var app = (function () {
     			progress.textContent = "15%";
     			attr_dev(progress, "class", "progress is-small is-primary");
     			attr_dev(progress, "max", "100");
-    			add_location(progress, file$k, 198, 14, 5254);
+    			add_location(progress, file$k, 142, 14, 3753);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, progress, anchor);
@@ -47319,7 +47362,7 @@ var app = (function () {
     		block,
     		id: create_if_block_1$7.name,
     		type: "if",
-    		source: "(198:12) {#if $results.length === 0}",
+    		source: "(142:12) {#if $results.length === 0}",
     		ctx
     	});
 
@@ -47380,10 +47423,6 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	crawlelements.$on("removeElement", /*removeElement*/ ctx[8]);
-    	crawlelements.$on("addElement", /*addElement*/ ctx[9]);
-    	crawlelements.$on("addChildElement", /*addChildElement*/ ctx[10]);
-    	crawlelements.$on("reassign", /*reassign*/ ctx[11]);
     	let if_block1 = /*$results*/ ctx[6] && create_if_block$f(ctx);
 
     	const block = {
@@ -47424,48 +47463,48 @@ var app = (function () {
     			div7 = element("div");
     			if (if_block1) if_block1.c();
     			attr_dev(h1, "class", "title");
-    			add_location(h1, file$k, 138, 8, 3256);
+    			add_location(h1, file$k, 85, 8, 1904);
     			attr_dev(h2, "class", "subtitle");
-    			add_location(h2, file$k, 139, 8, 3297);
+    			add_location(h2, file$k, 86, 8, 1945);
     			attr_dev(div0, "class", "container");
-    			add_location(div0, file$k, 137, 6, 3224);
+    			add_location(div0, file$k, 84, 6, 1872);
     			attr_dev(div1, "class", "hero-body");
-    			add_location(div1, file$k, 136, 4, 3194);
+    			add_location(div1, file$k, 83, 4, 1842);
     			attr_dev(section0, "class", "hero is-small is-light is-bold");
-    			add_location(section0, file$k, 135, 2, 3141);
+    			add_location(section0, file$k, 82, 2, 1789);
     			attr_dev(input0, "class", "input is-rounded");
     			attr_dev(input0, "placeholder", "Crawl Name");
     			attr_dev(input0, "type", "text");
     			toggle_class(input0, "is-danger", /*crawlAlreadyExists*/ ctx[3].length > 0);
-    			add_location(input0, file$k, 154, 10, 3735);
-    			attr_dev(p, "class", "help is-danger svelte-1esm83a");
-    			add_location(p, file$k, 162, 12, 4043);
+    			add_location(input0, file$k, 101, 10, 2383);
+    			attr_dev(p, "class", "help is-danger svelte-17n7i3i");
+    			add_location(p, file$k, 111, 10, 2721);
     			attr_dev(div2, "class", "column is-3");
-    			add_location(div2, file$k, 153, 8, 3699);
+    			add_location(div2, file$k, 100, 8, 2347);
     			attr_dev(input1, "class", "input is-rounded");
     			attr_dev(input1, "placeholder", "URL");
     			attr_dev(input1, "type", "text");
-    			add_location(input1, file$k, 167, 10, 4165);
+    			add_location(input1, file$k, 115, 10, 2832);
     			attr_dev(div3, "class", "column is-7");
-    			add_location(div3, file$k, 166, 8, 4129);
-    			attr_dev(button, "class", "button is-primary crawlButton svelte-1esm83a");
+    			add_location(div3, file$k, 114, 8, 2796);
+    			attr_dev(button, "class", "button is-primary crawlButton svelte-17n7i3i");
     			button.disabled = button_disabled_value = /*url*/ ctx[1].length === 0 || !/*elements*/ ctx[4].some(func) || /*loadedUserData*/ ctx[0].quotaUsed >= /*loadedUserData*/ ctx[0].quota || /*crawlName*/ ctx[2].length === 0;
-    			add_location(button, file$k, 174, 10, 4354);
+    			add_location(button, file$k, 122, 10, 3021);
     			attr_dev(div4, "class", "column is-2");
-    			add_location(div4, file$k, 173, 8, 4318);
+    			add_location(div4, file$k, 121, 8, 2985);
     			attr_dev(div5, "class", "columns");
-    			add_location(div5, file$k, 152, 6, 3669);
+    			add_location(div5, file$k, 99, 6, 2317);
     			attr_dev(div6, "class", "cloumn is-5 container");
-    			add_location(div6, file$k, 184, 8, 4714);
+    			add_location(div6, file$k, 132, 8, 3381);
     			attr_dev(div7, "class", "column is-6 container text");
-    			add_location(div7, file$k, 194, 8, 5024);
-    			attr_dev(div8, "class", "columns elements svelte-1esm83a");
-    			add_location(div8, file$k, 183, 6, 4675);
+    			add_location(div7, file$k, 138, 8, 3523);
+    			attr_dev(div8, "class", "columns elements svelte-17n7i3i");
+    			add_location(div8, file$k, 131, 6, 3342);
     			attr_dev(div9, "class", "container");
-    			add_location(div9, file$k, 151, 4, 3639);
+    			add_location(div9, file$k, 98, 4, 2287);
     			attr_dev(section1, "class", "section");
-    			add_location(section1, file$k, 150, 2, 3609);
-    			add_location(main, file$k, 134, 0, 3132);
+    			add_location(section1, file$k, 97, 2, 2257);
+    			add_location(main, file$k, 81, 0, 1780);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -47511,17 +47550,17 @@ var app = (function () {
     			if (remount) run_all(dispose);
 
     			dispose = [
-    				listen_dev(input0, "input", /*input0_input_handler*/ ctx[14]),
-    				listen_dev(input0, "input", /*input_handler*/ ctx[15], false, false, false),
-    				listen_dev(input0, "blur", /*checkIfCrawlExists*/ ctx[12], false, false, false),
-    				listen_dev(input1, "input", /*input1_input_handler*/ ctx[16]),
+    				listen_dev(input0, "input", /*input0_input_handler*/ ctx[12]),
+    				listen_dev(input0, "input", /*input_handler*/ ctx[13], false, false, false),
+    				listen_dev(input0, "blur", /*checkIfCrawlExists*/ ctx[8], false, false, false),
+    				listen_dev(input1, "input", /*input1_input_handler*/ ctx[14]),
     				listen_dev(button, "click", /*addCrawl*/ ctx[7], false, false, false)
     			];
     		},
     		p: function update(ctx, [dirty]) {
     			const link_changes = {};
 
-    			if (dirty & /*$$scope*/ 131072) {
+    			if (dirty & /*$$scope*/ 32768) {
     				link_changes.$$scope = { dirty, ctx };
     			}
 
@@ -47642,10 +47681,20 @@ var app = (function () {
     	let url = "";
     	let crawlName = "";
     	let crawlAlreadyExists = "";
-    	let elements = [{ id: 0, value: "", name: "", children: [] }];
+    	let count_value;
+    	let elements = [];
+
+    	const crawlElements$ = crawlElements.subscribe(c => {
+    		$$invalidate(4, elements = c);
+    	});
+
     	let results;
     	validate_store(results, "results");
     	$$subscribe_results();
+
+    	onMount(() => {
+    		crawlElements.set(crawlElementsDefault);
+    	});
 
     	async function addCrawl() {
     		console.log(loadedUserData);
@@ -47668,75 +47717,6 @@ var app = (function () {
     		} catch(err) {
     			console.log(err);
     		}
-    	}
-
-    	function removeElement(event) {
-    		console.log(event.detail.parentIndeces);
-    		let elementCopy = [...elements];
-    		let ref = elementCopy;
-
-    		for (const i of event.detail.parentIndeces) {
-    			ref = ref[i].children;
-    		}
-
-    		const elementToRemove = ref.find(r => r.id == event.detail.elementId);
-    		const index = ref.indexOf(elementToRemove);
-
-    		if (index !== -1) {
-    			ref.splice(index, 1);
-    		}
-
-    		$$invalidate(4, elements = [...elementCopy]);
-    	}
-
-    	function addElement(event) {
-    		console.log(loadedUserData);
-    		let elementCopy = [...elements];
-    		let ref = elementCopy;
-    		console.log(event.detail.parentIndeces);
-
-    		for (const i of event.detail.parentIndeces) {
-    			ref = ref[i].children;
-    		}
-
-    		ref.push({
-    			id: Date.now(),
-    			value: "",
-    			name: "",
-    			children: []
-    		});
-
-    		console.log("Elements before add");
-    		console.log(elements);
-    		$$invalidate(4, elements = [...elementCopy]);
-    		console.log(elements);
-    	}
-
-    	function addChildElement(event) {
-    		let elementCopy = [...elements];
-    		let ref = elementCopy;
-
-    		for (const i of event.detail.parentIndeces) {
-    			ref = ref[i].children;
-    		}
-
-    		const parentElement = ref.find(r => r.id == event.detail.elementId);
-    		const index = ref.indexOf(parentElement);
-
-    		ref[index].children.push({
-    			id: Date.now(),
-    			value: "",
-    			name: "",
-    			children: []
-    		});
-
-    		$$invalidate(4, elements = [...elementCopy]);
-    	}
-
-    	function reassign() {
-    		console.log(elements);
-    		console.log(elements.some(e => e.value !== ""));
-    		$$invalidate(4, elements = [...elements]);
     	}
 
     	async function checkIfCrawlExists() {
@@ -47774,7 +47754,7 @@ var app = (function () {
     	}
 
     	$$self.$set = $$props => {
-    		if ("uid" in $$props) $$invalidate(13, uid = $$props.uid);
+    		if ("uid" in $$props) $$invalidate(9, uid = $$props.uid);
     		if ("loadedUserData" in $$props) $$invalidate(0, loadedUserData = $$props.loadedUserData);
     	};
 
@@ -47782,10 +47762,13 @@ var app = (function () {
     		setCrawl,
     		newestCrawlResult,
     		checkCrawlExists,
+    		crawlElements,
+    		crawlElementsDefault,
     		Link,
     		firebase: index_cjs$3,
     		fade,
     		slide,
+    		onMount,
     		CrawlElements,
     		CrawlResults,
     		QuotaUsed,
@@ -47795,23 +47778,22 @@ var app = (function () {
     		url,
     		crawlName,
     		crawlAlreadyExists,
+    		count_value,
     		elements,
+    		crawlElements$,
     		results,
     		addCrawl,
-    		removeElement,
-    		addElement,
-    		addChildElement,
-    		reassign,
     		checkIfCrawlExists,
     		$results
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ("uid" in $$props) $$invalidate(13, uid = $$props.uid);
+    		if ("uid" in $$props) $$invalidate(9, uid = $$props.uid);
     		if ("loadedUserData" in $$props) $$invalidate(0, loadedUserData = $$props.loadedUserData);
     		if ("url" in $$props) $$invalidate(1, url = $$props.url);
     		if ("crawlName" in $$props) $$invalidate(2, crawlName = $$props.crawlName);
     		if ("crawlAlreadyExists" in $$props) $$invalidate(3, crawlAlreadyExists = $$props.crawlAlreadyExists);
+    		if ("count_value" in $$props) count_value = $$props.count_value;
     		if ("elements" in $$props) $$invalidate(4, elements = $$props.elements);
     		if ("results" in $$props) $$subscribe_results($$invalidate(5, results = $$props.results));
     	};
@@ -47829,12 +47811,10 @@ var app = (function () {
     		results,
     		$results,
     		addCrawl,
-    		removeElement,
-    		addElement,
-    		addChildElement,
-    		reassign,
     		checkIfCrawlExists,
     		uid,
+    		count_value,
+    		crawlElements$,
     		input0_input_handler,
     		input_handler,
     		input1_input_handler
@@ -47844,7 +47824,7 @@ var app = (function () {
     class Crawl extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$n, create_fragment$n, safe_not_equal, { uid: 13, loadedUserData: 0 });
+    		init(this, options, instance$n, create_fragment$n, safe_not_equal, { uid: 9, loadedUserData: 0 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -47856,7 +47836,7 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*uid*/ ctx[13] === undefined && !("uid" in props)) {
+    		if (/*uid*/ ctx[9] === undefined && !("uid" in props)) {
     			console_1$a.warn("<Crawl> was created without expected prop 'uid'");
     		}
 
@@ -48108,11 +48088,11 @@ var app = (function () {
 
     function get_each_context$4(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[7] = list[i];
+    	child_ctx[9] = list[i];
     	return child_ctx;
     }
 
-    // (85:6) {:else}
+    // (138:6) {:else}
     function create_else_block_2(ctx) {
     	let span;
     	let i;
@@ -48123,15 +48103,15 @@ var app = (function () {
     			span = element("span");
     			i = element("i");
     			attr_dev(i, "class", "fas fa-chevron-down");
-    			add_location(i, file$n, 86, 10, 2259);
+    			add_location(i, file$n, 141, 10, 3937);
     			attr_dev(span, "class", "icon is-small has-text-link");
-    			add_location(span, file$n, 85, 8, 2158);
+    			add_location(span, file$n, 138, 8, 3816);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, span, anchor);
     			append_dev(span, i);
     			if (remount) dispose();
-    			dispose = listen_dev(span, "click", /*click_handler_1*/ ctx[12], false, false, false);
+    			dispose = listen_dev(span, "click", /*click_handler_4*/ ctx[20], false, false, false);
     		},
     		p: noop,
     		i: noop,
@@ -48146,54 +48126,246 @@ var app = (function () {
     		block,
     		id: create_else_block_2.name,
     		type: "else",
-    		source: "(85:6) {:else}",
+    		source: "(138:6) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (77:6) {#if showElements}
+    // (92:6) {#if showElements}
     function create_if_block_3$1(ctx) {
-    	let span;
-    	let i;
-    	let t;
+    	let span0;
+    	let i0;
+    	let t0;
+    	let t1;
+    	let span1;
+    	let i1;
+    	let t2;
+    	let if_block_anchor;
     	let current;
     	let dispose;
 
     	const crawlelements = new CrawlElements({
     			props: {
-    				elements: /*crawl*/ ctx[0].crawlElements,
+    				elements: /*elements*/ ctx[5],
     				parentIndeces: [],
     				staticView: true
     			},
     			$$inline: true
     		});
 
+    	let if_block = /*editCrawl*/ ctx[4] && create_if_block_4(ctx);
+
     	const block = {
     		c: function create() {
-    			span = element("span");
-    			i = element("i");
-    			t = space();
+    			span0 = element("span");
+    			i0 = element("i");
+    			t0 = space();
     			create_component(crawlelements.$$.fragment);
-    			attr_dev(i, "class", "fas fa-chevron-up");
-    			add_location(i, file$n, 78, 10, 1964);
-    			attr_dev(span, "class", "icon is-small has-text-link");
-    			add_location(span, file$n, 77, 8, 1863);
+    			t1 = space();
+    			span1 = element("span");
+    			i1 = element("i");
+    			t2 = space();
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty();
+    			attr_dev(i0, "class", "fas fa-chevron-up");
+    			add_location(i0, file$n, 95, 10, 2376);
+    			attr_dev(span0, "class", "icon is-small has-text-link");
+    			add_location(span0, file$n, 92, 8, 2255);
+    			attr_dev(i1, "class", "fas fa-edit");
+    			add_location(i1, file$n, 108, 10, 2740);
+    			attr_dev(span1, "class", "icon is-small");
+    			add_location(span1, file$n, 101, 8, 2545);
     		},
     		m: function mount(target, anchor, remount) {
-    			insert_dev(target, span, anchor);
-    			append_dev(span, i);
-    			insert_dev(target, t, anchor);
+    			insert_dev(target, span0, anchor);
+    			append_dev(span0, i0);
+    			insert_dev(target, t0, anchor);
     			mount_component(crawlelements, target, anchor);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, span1, anchor);
+    			append_dev(span1, i1);
+    			insert_dev(target, t2, anchor);
+    			if (if_block) if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
     			current = true;
-    			if (remount) dispose();
-    			dispose = listen_dev(span, "click", /*click_handler*/ ctx[11], false, false, false);
+    			if (remount) run_all(dispose);
+
+    			dispose = [
+    				listen_dev(span0, "click", /*click_handler*/ ctx[16], false, false, false),
+    				listen_dev(span1, "click", /*click_handler_1*/ ctx[17], false, false, false)
+    			];
     		},
     		p: function update(ctx, dirty) {
     			const crawlelements_changes = {};
-    			if (dirty & /*crawl*/ 1) crawlelements_changes.elements = /*crawl*/ ctx[0].crawlElements;
+    			if (dirty & /*elements*/ 32) crawlelements_changes.elements = /*elements*/ ctx[5];
     			crawlelements.$set(crawlelements_changes);
+
+    			if (/*editCrawl*/ ctx[4]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+
+    					if (dirty & /*editCrawl*/ 16) {
+    						transition_in(if_block, 1);
+    					}
+    				} else {
+    					if_block = create_if_block_4(ctx);
+    					if_block.c();
+    					transition_in(if_block, 1);
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			} else if (if_block) {
+    				group_outros();
+
+    				transition_out(if_block, 1, 1, () => {
+    					if_block = null;
+    				});
+
+    				check_outros();
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(crawlelements.$$.fragment, local);
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(crawlelements.$$.fragment, local);
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(span0);
+    			if (detaching) detach_dev(t0);
+    			destroy_component(crawlelements, detaching);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(span1);
+    			if (detaching) detach_dev(t2);
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_3$1.name,
+    		type: "if",
+    		source: "(92:6) {#if showElements}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (111:8) {#if editCrawl}
+    function create_if_block_4(ctx) {
+    	let div2;
+    	let div0;
+    	let t0;
+    	let div1;
+    	let header;
+    	let p;
+    	let t2;
+    	let button0;
+    	let t3;
+    	let section;
+    	let t4;
+    	let footer;
+    	let button1;
+    	let t6;
+    	let button2;
+    	let current;
+    	let dispose;
+
+    	const crawlelements = new CrawlElements({
+    			props: {
+    				elements: /*elements*/ ctx[5],
+    				parentIndeces: [],
+    				staticView: false
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			div2 = element("div");
+    			div0 = element("div");
+    			t0 = space();
+    			div1 = element("div");
+    			header = element("header");
+    			p = element("p");
+    			p.textContent = "Edit Crawl";
+    			t2 = space();
+    			button0 = element("button");
+    			t3 = space();
+    			section = element("section");
+    			create_component(crawlelements.$$.fragment);
+    			t4 = space();
+    			footer = element("footer");
+    			button1 = element("button");
+    			button1.textContent = "Save changes";
+    			t6 = space();
+    			button2 = element("button");
+    			button2.textContent = "Cancel";
+    			attr_dev(div0, "class", "modal-background");
+    			add_location(div0, file$n, 112, 12, 2886);
+    			attr_dev(p, "class", "modal-card-title has-text-white");
+    			add_location(p, file$n, 115, 16, 3019);
+    			attr_dev(button0, "class", "delete");
+    			attr_dev(button0, "aria-label", "close");
+    			add_location(button0, file$n, 116, 16, 3093);
+    			attr_dev(header, "class", "modal-card-head");
+    			add_location(header, file$n, 114, 14, 2970);
+    			attr_dev(section, "class", "modal-card-body");
+    			add_location(section, file$n, 121, 14, 3267);
+    			attr_dev(button1, "class", "button is-success");
+    			add_location(button1, file$n, 129, 16, 3536);
+    			attr_dev(button2, "class", "button");
+    			add_location(button2, file$n, 130, 16, 3608);
+    			attr_dev(footer, "class", "modal-card-foot");
+    			add_location(footer, file$n, 128, 14, 3487);
+    			attr_dev(div1, "class", "modal-card");
+    			add_location(div1, file$n, 113, 12, 2931);
+    			attr_dev(div2, "class", "modal is-active");
+    			toggle_class(div2, "is-active", /*editCrawl*/ ctx[4]);
+    			add_location(div2, file$n, 111, 10, 2816);
+    		},
+    		m: function mount(target, anchor, remount) {
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, div0);
+    			append_dev(div2, t0);
+    			append_dev(div2, div1);
+    			append_dev(div1, header);
+    			append_dev(header, p);
+    			append_dev(header, t2);
+    			append_dev(header, button0);
+    			append_dev(div1, t3);
+    			append_dev(div1, section);
+    			mount_component(crawlelements, section, null);
+    			append_dev(div1, t4);
+    			append_dev(div1, footer);
+    			append_dev(footer, button1);
+    			append_dev(footer, t6);
+    			append_dev(footer, button2);
+    			current = true;
+    			if (remount) run_all(dispose);
+
+    			dispose = [
+    				listen_dev(button0, "click", /*click_handler_2*/ ctx[18], false, false, false),
+    				listen_dev(button2, "click", /*click_handler_3*/ ctx[19], false, false, false)
+    			];
+    		},
+    		p: function update(ctx, dirty) {
+    			const crawlelements_changes = {};
+    			if (dirty & /*elements*/ 32) crawlelements_changes.elements = /*elements*/ ctx[5];
+    			crawlelements.$set(crawlelements_changes);
+
+    			if (dirty & /*editCrawl*/ 16) {
+    				toggle_class(div2, "is-active", /*editCrawl*/ ctx[4]);
+    			}
     		},
     		i: function intro(local) {
     			if (current) return;
@@ -48205,25 +48377,24 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(span);
-    			if (detaching) detach_dev(t);
-    			destroy_component(crawlelements, detaching);
-    			dispose();
+    			if (detaching) detach_dev(div2);
+    			destroy_component(crawlelements);
+    			run_all(dispose);
     		}
     	};
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_3$1.name,
+    		id: create_if_block_4.name,
     		type: "if",
-    		source: "(77:6) {#if showElements}",
+    		source: "(111:8) {#if editCrawl}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (111:6) {:else}
+    // (168:6) {:else}
     function create_else_block_1$1(ctx) {
     	let span;
     	let i;
@@ -48234,15 +48405,15 @@ var app = (function () {
     			span = element("span");
     			i = element("i");
     			attr_dev(i, "class", "fas fa-chevron-down");
-    			add_location(i, file$n, 112, 10, 3029);
+    			add_location(i, file$n, 171, 10, 4747);
     			attr_dev(span, "class", "icon is-small has-text-link");
-    			add_location(span, file$n, 111, 8, 2930);
+    			add_location(span, file$n, 168, 8, 4628);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, span, anchor);
     			append_dev(span, i);
     			if (remount) dispose();
-    			dispose = listen_dev(span, "click", /*click_handler_3*/ ctx[14], false, false, false);
+    			dispose = listen_dev(span, "click", /*click_handler_6*/ ctx[22], false, false, false);
     		},
     		p: noop,
     		i: noop,
@@ -48257,14 +48428,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1$1.name,
     		type: "else",
-    		source: "(111:6) {:else}",
+    		source: "(168:6) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (94:6) {#if showResults}
+    // (149:6) {#if showResults}
     function create_if_block$g(ctx) {
     	let span;
     	let i;
@@ -48272,7 +48443,7 @@ var app = (function () {
     	let each_1_anchor;
     	let current;
     	let dispose;
-    	let each_value = /*$results*/ ctx[6];
+    	let each_value = /*$results*/ ctx[8];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -48296,9 +48467,9 @@ var app = (function () {
 
     			each_1_anchor = empty();
     			attr_dev(i, "class", "fas fa-chevron-up");
-    			add_location(i, file$n, 95, 10, 2507);
+    			add_location(i, file$n, 152, 10, 4205);
     			attr_dev(span, "class", "icon is-small has-text-link");
-    			add_location(span, file$n, 94, 8, 2408);
+    			add_location(span, file$n, 149, 8, 4086);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, span, anchor);
@@ -48312,11 +48483,11 @@ var app = (function () {
     			insert_dev(target, each_1_anchor, anchor);
     			current = true;
     			if (remount) dispose();
-    			dispose = listen_dev(span, "click", /*click_handler_2*/ ctx[13], false, false, false);
+    			dispose = listen_dev(span, "click", /*click_handler_5*/ ctx[21], false, false, false);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*$results*/ 64) {
-    				each_value = /*$results*/ ctx[6];
+    			if (dirty & /*$results*/ 256) {
+    				each_value = /*$results*/ ctx[8];
     				validate_each_argument(each_value);
     				let i;
 
@@ -48374,14 +48545,14 @@ var app = (function () {
     		block,
     		id: create_if_block$g.name,
     		type: "if",
-    		source: "(94:6) {#if showResults}",
+    		source: "(149:6) {#if showResults}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (105:10) {:else}
+    // (162:10) {:else}
     function create_else_block$7(ctx) {
     	let ul;
     	let li;
@@ -48393,8 +48564,8 @@ var app = (function () {
     			li = element("li");
     			li.textContent = "Loading";
     			t1 = space();
-    			add_location(li, file$n, 106, 14, 2841);
-    			add_location(ul, file$n, 105, 12, 2822);
+    			add_location(li, file$n, 163, 14, 4539);
+    			add_location(ul, file$n, 162, 12, 4520);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, ul, anchor);
@@ -48413,14 +48584,14 @@ var app = (function () {
     		block,
     		id: create_else_block$7.name,
     		type: "else",
-    		source: "(105:10) {:else}",
+    		source: "(162:10) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (101:33) 
+    // (158:33) 
     function create_if_block_2$5(ctx) {
     	let ul;
     	let li;
@@ -48432,8 +48603,8 @@ var app = (function () {
     			li = element("li");
     			li.textContent = "Run had errors";
     			t1 = space();
-    			add_location(li, file$n, 102, 14, 2750);
-    			add_location(ul, file$n, 101, 12, 2731);
+    			add_location(li, file$n, 159, 14, 4448);
+    			add_location(ul, file$n, 158, 12, 4429);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, ul, anchor);
@@ -48452,19 +48623,19 @@ var app = (function () {
     		block,
     		id: create_if_block_2$5.name,
     		type: "if",
-    		source: "(101:33) ",
+    		source: "(158:33) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (99:10) {#if result.crawlResults}
+    // (156:10) {#if result.crawlResults}
     function create_if_block_1$8(ctx) {
     	let current;
 
     	const crawlresults = new CrawlResults({
-    			props: { results: /*result*/ ctx[7].crawlResults },
+    			props: { results: /*result*/ ctx[9].crawlResults },
     			$$inline: true
     		});
 
@@ -48478,7 +48649,7 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const crawlresults_changes = {};
-    			if (dirty & /*$results*/ 64) crawlresults_changes.results = /*result*/ ctx[7].crawlResults;
+    			if (dirty & /*$results*/ 256) crawlresults_changes.results = /*result*/ ctx[9].crawlResults;
     			crawlresults.$set(crawlresults_changes);
     		},
     		i: function intro(local) {
@@ -48499,14 +48670,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$8.name,
     		type: "if",
-    		source: "(99:10) {#if result.crawlResults}",
+    		source: "(156:10) {#if result.crawlResults}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (98:8) {#each $results as result}
+    // (155:8) {#each $results as result}
     function create_each_block$4(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -48516,8 +48687,8 @@ var app = (function () {
     	const if_blocks = [];
 
     	function select_block_type_2(ctx, dirty) {
-    		if (/*result*/ ctx[7].crawlResults) return 0;
-    		if (/*result*/ ctx[7].error) return 1;
+    		if (/*result*/ ctx[9].crawlResults) return 0;
+    		if (/*result*/ ctx[9].error) return 1;
     		return 2;
     	}
 
@@ -48578,7 +48749,7 @@ var app = (function () {
     		block,
     		id: create_each_block$4.name,
     		type: "each",
-    		source: "(98:8) {#each $results as result}",
+    		source: "(155:8) {#each $results as result}",
     		ctx
     	});
 
@@ -48671,40 +48842,40 @@ var app = (function () {
     			i1 = element("i");
     			attr_dev(a, "href", a_href_value = /*crawl*/ ctx[0].url);
     			attr_dev(a, "target", "_blank");
-    			add_location(a, file$n, 67, 8, 1600);
+    			add_location(a, file$n, 84, 8, 2005);
     			attr_dev(div0, "class", "url svelte-8jz01h");
-    			add_location(div0, file$n, 66, 6, 1574);
+    			add_location(div0, file$n, 83, 6, 1979);
     			attr_dev(div1, "class", "column is-3 urlBlock svelte-8jz01h");
-    			add_location(div1, file$n, 65, 4, 1533);
+    			add_location(div1, file$n, 82, 4, 1938);
     			attr_dev(div2, "class", "column is-2");
-    			add_location(div2, file$n, 71, 4, 1687);
+    			add_location(div2, file$n, 88, 4, 2092);
     			attr_dev(div3, "class", "column is-3 elements svelte-8jz01h");
-    			add_location(div3, file$n, 72, 4, 1767);
+    			add_location(div3, file$n, 89, 4, 2172);
     			attr_dev(div4, "class", "column is-3");
-    			add_location(div4, file$n, 91, 4, 2337);
+    			add_location(div4, file$n, 146, 4, 4015);
     			attr_dev(i0, "class", "fas fa-redo-alt");
-    			add_location(i0, file$n, 128, 10, 3435);
+    			add_location(i0, file$n, 187, 10, 5153);
     			attr_dev(span0, "class", "icon");
-    			add_location(span0, file$n, 127, 8, 3405);
+    			add_location(span0, file$n, 186, 8, 5123);
     			button0.disabled = button0_disabled_value = !/*userHasQuotaLeft*/ ctx[1];
     			attr_dev(button0, "class", "button");
     			attr_dev(button0, "title", "Recrawl");
-    			toggle_class(button0, "is-loading", /*reCrawlLoading*/ ctx[4]);
-    			add_location(button0, file$n, 121, 6, 3235);
+    			toggle_class(button0, "is-loading", /*reCrawlLoading*/ ctx[6]);
+    			add_location(button0, file$n, 180, 6, 4953);
     			attr_dev(i1, "class", "fas fa-minus-circle has-text-danger");
-    			add_location(i1, file$n, 137, 10, 3677);
+    			add_location(i1, file$n, 196, 10, 5395);
     			attr_dev(span1, "class", "icon");
-    			add_location(span1, file$n, 136, 8, 3647);
+    			add_location(span1, file$n, 195, 8, 5365);
     			attr_dev(button1, "class", "button");
     			attr_dev(button1, "title", "Delete");
-    			toggle_class(button1, "is-loading", /*deleteCrawlLoading*/ ctx[5]);
-    			add_location(button1, file$n, 131, 6, 3503);
+    			toggle_class(button1, "is-loading", /*deleteCrawlLoading*/ ctx[7]);
+    			add_location(button1, file$n, 190, 6, 5221);
     			attr_dev(div5, "class", "column is-1");
-    			add_location(div5, file$n, 120, 4, 3203);
+    			add_location(div5, file$n, 179, 4, 4921);
     			attr_dev(div6, "class", "columns");
-    			add_location(div6, file$n, 64, 2, 1507);
+    			add_location(div6, file$n, 81, 2, 1912);
     			attr_dev(div7, "class", "box");
-    			add_location(div7, file$n, 63, 0, 1487);
+    			add_location(div7, file$n, 80, 0, 1892);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -48740,8 +48911,8 @@ var app = (function () {
     			if (remount) run_all(dispose);
 
     			dispose = [
-    				listen_dev(button0, "click", /*reCrawl*/ ctx[9], false, false, false),
-    				listen_dev(button1, "click", /*deleteUserCrawl*/ ctx[10], false, false, false)
+    				listen_dev(button0, "click", /*reCrawl*/ ctx[11], false, false, false),
+    				listen_dev(button1, "click", /*deleteUserCrawl*/ ctx[12], false, false, false)
     			];
     		},
     		p: function update(ctx, [dirty]) {
@@ -48804,12 +48975,12 @@ var app = (function () {
     				prop_dev(button0, "disabled", button0_disabled_value);
     			}
 
-    			if (dirty & /*reCrawlLoading*/ 16) {
-    				toggle_class(button0, "is-loading", /*reCrawlLoading*/ ctx[4]);
+    			if (dirty & /*reCrawlLoading*/ 64) {
+    				toggle_class(button0, "is-loading", /*reCrawlLoading*/ ctx[6]);
     			}
 
-    			if (dirty & /*deleteCrawlLoading*/ 32) {
-    				toggle_class(button1, "is-loading", /*deleteCrawlLoading*/ ctx[5]);
+    			if (dirty & /*deleteCrawlLoading*/ 128) {
+    				toggle_class(button1, "is-loading", /*deleteCrawlLoading*/ ctx[7]);
     			}
     		},
     		i: function intro(local) {
@@ -48850,21 +49021,32 @@ var app = (function () {
     	let showElements = false;
     	let results = crawlResults(crawl.id);
     	validate_store(results, "results");
-    	component_subscribe($$self, results, value => $$invalidate(6, $results = value));
+    	component_subscribe($$self, results, value => $$invalidate(8, $results = value));
     	let result;
-    	console.log(crawl);
+    	let editCrawl = false;
+    	let crawlEditable;
+    	let elements;
     	let reCrawlLoading = false;
 
+    	const crawlElements$ = crawlElements.subscribe(c => {
+    		$$invalidate(5, elements = c);
+    	});
+
+    	onMount(() => {
+    		console.log("MOUNT", crawl.crawlElements);
+    		crawlElements.set(crawl.crawlElements);
+    	});
+
     	async function reCrawl() {
-    		$$invalidate(4, reCrawlLoading = true);
+    		$$invalidate(6, reCrawlLoading = true);
     		const createTime = index_cjs$3.firestore.Timestamp.now();
     		await setReCrawl(crawl.id, createTime);
 
-    		$$invalidate(7, result = newestCrawlResult(crawl.id, createTime).subscribe(r => {
+    		$$invalidate(9, result = newestCrawlResult(crawl.id, createTime).subscribe(r => {
     			console.log(r);
 
     			if (r.length > 0) {
-    				$$invalidate(4, reCrawlLoading = false);
+    				$$invalidate(6, reCrawlLoading = false);
     			}
     		}));
     	}
@@ -48872,8 +49054,12 @@ var app = (function () {
     	let deleteCrawlLoading = false;
 
     	function deleteUserCrawl() {
-    		$$invalidate(5, deleteCrawlLoading = true);
-    		deleteCrawl(crawl.id).then(() => $$invalidate(5, deleteCrawlLoading = false));
+    		$$invalidate(7, deleteCrawlLoading = true);
+    		deleteCrawl(crawl.id).then(() => $$invalidate(7, deleteCrawlLoading = false));
+    	}
+
+    	function editCrawlF() {
+    		crawlEditable = JSON.parse(JSON.stringify(crawl));
     	}
 
     	const writable_props = ["crawl", "userHasQuotaLeft"];
@@ -48885,9 +49071,18 @@ var app = (function () {
     	let { $$slots = {}, $$scope } = $$props;
     	validate_slots("MyCrawl", $$slots, []);
     	const click_handler = () => $$invalidate(3, showElements = !showElements);
-    	const click_handler_1 = () => $$invalidate(3, showElements = !showElements);
-    	const click_handler_2 = () => $$invalidate(2, showResults = !showResults);
-    	const click_handler_3 = () => $$invalidate(2, showResults = !showResults);
+
+    	const click_handler_1 = () => {
+    		console.log("Edit crawl");
+    		$$invalidate(4, editCrawl = true);
+    		console.log(editCrawl);
+    	};
+
+    	const click_handler_2 = () => $$invalidate(4, editCrawl = false);
+    	const click_handler_3 = () => $$invalidate(4, editCrawl = false);
+    	const click_handler_4 = () => $$invalidate(3, showElements = !showElements);
+    	const click_handler_5 = () => $$invalidate(2, showResults = !showResults);
+    	const click_handler_6 = () => $$invalidate(2, showResults = !showResults);
 
     	$$self.$set = $$props => {
     		if ("crawl" in $$props) $$invalidate(0, crawl = $$props.crawl);
@@ -48899,11 +49094,13 @@ var app = (function () {
     		docData,
     		startWith,
     		fade,
+    		onMount,
     		crawlResults,
     		deleteCrawl,
     		setReCrawl,
     		newestCrawlResult,
     		firebase: index_cjs$3,
+    		crawlElements,
     		CrawlElements,
     		CrawlResults,
     		crawl,
@@ -48912,10 +49109,15 @@ var app = (function () {
     		showElements,
     		results,
     		result,
+    		editCrawl,
+    		crawlEditable,
+    		elements,
     		reCrawlLoading,
+    		crawlElements$,
     		reCrawl,
     		deleteCrawlLoading,
     		deleteUserCrawl,
+    		editCrawlF,
     		$results
     	});
 
@@ -48924,10 +49126,13 @@ var app = (function () {
     		if ("userHasQuotaLeft" in $$props) $$invalidate(1, userHasQuotaLeft = $$props.userHasQuotaLeft);
     		if ("showResults" in $$props) $$invalidate(2, showResults = $$props.showResults);
     		if ("showElements" in $$props) $$invalidate(3, showElements = $$props.showElements);
-    		if ("results" in $$props) $$invalidate(8, results = $$props.results);
-    		if ("result" in $$props) $$invalidate(7, result = $$props.result);
-    		if ("reCrawlLoading" in $$props) $$invalidate(4, reCrawlLoading = $$props.reCrawlLoading);
-    		if ("deleteCrawlLoading" in $$props) $$invalidate(5, deleteCrawlLoading = $$props.deleteCrawlLoading);
+    		if ("results" in $$props) $$invalidate(10, results = $$props.results);
+    		if ("result" in $$props) $$invalidate(9, result = $$props.result);
+    		if ("editCrawl" in $$props) $$invalidate(4, editCrawl = $$props.editCrawl);
+    		if ("crawlEditable" in $$props) crawlEditable = $$props.crawlEditable;
+    		if ("elements" in $$props) $$invalidate(5, elements = $$props.elements);
+    		if ("reCrawlLoading" in $$props) $$invalidate(6, reCrawlLoading = $$props.reCrawlLoading);
+    		if ("deleteCrawlLoading" in $$props) $$invalidate(7, deleteCrawlLoading = $$props.deleteCrawlLoading);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -48939,6 +49144,8 @@ var app = (function () {
     		userHasQuotaLeft,
     		showResults,
     		showElements,
+    		editCrawl,
+    		elements,
     		reCrawlLoading,
     		deleteCrawlLoading,
     		$results,
@@ -48946,10 +49153,16 @@ var app = (function () {
     		results,
     		reCrawl,
     		deleteUserCrawl,
+    		crawlEditable,
+    		crawlElements$,
+    		editCrawlF,
     		click_handler,
     		click_handler_1,
     		click_handler_2,
-    		click_handler_3
+    		click_handler_3,
+    		click_handler_4,
+    		click_handler_5,
+    		click_handler_6
     	];
     }
 
