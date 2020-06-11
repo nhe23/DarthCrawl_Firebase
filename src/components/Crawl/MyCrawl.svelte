@@ -13,6 +13,7 @@
   import { crawlElements } from "../../store";
   import CrawlElements from "./CrawlElements.svelte";
   import CrawlResults from "./CrawlResults.svelte";
+  import EditCrawl from "./EditCrawl.svelte"
   export let crawl;
   export let userHasQuotaLeft;
 
@@ -31,7 +32,6 @@
   });
 
   onMount(() => {
-    console.log("MOUNT", crawl.crawlElements)
     crawlElements.set(crawl.crawlElements);
   });
 
@@ -109,31 +109,10 @@
           <i class="fas fa-edit" />
         </span>
         {#if editCrawl}
-          <div class="modal is-active" class:is-active={editCrawl}>
-            <div class="modal-background" />
-            <div class="modal-card">
-              <header class="modal-card-head">
-                <p class="modal-card-title has-text-white">Edit Crawl</p>
-                <button
-                  class="delete"
-                  aria-label="close"
-                  on:click={() => (editCrawl = false)} />
-              </header>
-              <section class="modal-card-body">
-                <CrawlElements
-                  elements={elements}
-                  parentIndeces={[]}
-                  staticView={false} />
-
-              </section>
-              <footer class="modal-card-foot">
-                <button class="button is-success">Save changes</button>
-                <button class="button" on:click={() => (editCrawl = false)}>
-                  Cancel
-                </button>
-              </footer>
-            </div>
-          </div>
+          <EditCrawl on:cancel={() => {
+            crawlElements.set(crawl.crawlElements);
+            editCrawl=false;
+          }} on:close={() => {editCrawl=false}} {elements} {crawl}/>
         {/if}
       {:else}
         <span

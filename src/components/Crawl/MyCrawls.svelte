@@ -34,11 +34,9 @@
   }
 
   function sortDate() {
-    console.log("sort");
     filteredCrawls = filteredCrawls.sort((a, b) => {
       const dateASeconds = a.createDate.seconds;
       const dateBSeconds = b.createDate.seconds;
-      console.log(dateASeconds-dateBSeconds);
       dateSortedDesc = !dateSortedDesc;
       return dateSortedDesc
         ? dateASeconds - dateBSeconds
@@ -47,7 +45,6 @@
   }
 
   function sortName() {
-    console.log("sort");
     filteredCrawls = filteredCrawls.sort((a, b) => {
       const nameA = a.crawlName.toUpperCase();
       const nameB = b.crawlName.toUpperCase();

@@ -3,9 +3,9 @@
   export let element;
   export let parentIndeces;
 
+  let elementName = element.name;
+  let elementValue = element.value;
   let elements;
-  let elementName;
-  let elementValue;
   const crawlElements$ = crawlElements.subscribe(c => {
     elements = c;
   });
@@ -20,9 +20,11 @@
 
     const parentElement = ref.find(r => r.id === element.id);
     const index = ref.indexOf(parentElement);
-    ref[index].value = element.value;
-    ref[index].name = element.name;
+    console.log(elementValue);
+    ref[index].value = elementValue;
+    ref[index].name = elementName;
     crawlElements.set([...elementCopy]);
+    console.log("SET ELEMENT");
   }
 
   function addChildElement() {
@@ -72,8 +74,8 @@
           class="input"
           type="text"
           placeholder="xPath"
-          on:input={setElement}
-          bind:value={element.value} />
+          bind:value={elementValue}
+          on:input={setElement} />
         <span
           on:click={removeElement}
           class="icon is-small is-left has-text-danger">
@@ -94,8 +96,8 @@
           class="input"
           type="text"
           placeholder="Name"
-          on:input={setElement}
-          bind:value={element.name} />
+          bind:value={elementName}
+          on:input={setElement} />
       </div>
     </div>
   </div>

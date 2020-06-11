@@ -2,7 +2,6 @@
   import { fade } from "svelte/transition";
   import { crawlElements } from "../../store";
   import CrawlElementEditable from "./CrawlElementEditable.svelte";
-  import CrawlElement from "./CrawlElement.svelte";
 
   export let elements;
   let storedElements;
