@@ -21,15 +21,17 @@
   let crawlAlreadyExists = "";
   let count_value;
   let elements = [];
-  const crawlElements$ = crawlElements.subscribe(c => {
-    elements = c;
-  });
 
   let results;
 
-  onMount(()=> {
-    crawlElements.set(crawlElementsDefault)
-  })
+  onMount(() => {
+    console.log("MOUNT CRAWL");
+    crawlElements.set(crawlElementsDefault);
+    const crawlElements$ = crawlElements.subscribe(c => {
+      elements = c;
+    });
+  });
+
   async function addCrawl() {
     console.log(loadedUserData);
     console.log(elements);
@@ -132,9 +134,7 @@
       <div class="columns elements">
         <div class="cloumn is-5 container">
 
-          <CrawlElements
-            {elements}
-            parentIndeces={[]} />
+          <CrawlElements {elements} parentIndeces={[]} />
         </div>
         <div class="column is-6 container text">
           {#if $results}

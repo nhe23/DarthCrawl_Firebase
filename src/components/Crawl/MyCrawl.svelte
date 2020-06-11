@@ -76,6 +76,10 @@
     white-space: nowrap;
     text-overflow: ellipsis !important;
   }
+
+  .edit{
+    cursor: pointer;
+  }
 </style>
 
 <div class="box">
@@ -100,11 +104,9 @@
           parentIndeces={[]}
           staticView={true} />
         <span
-          class="icon is-small"
+          class="icon is-small edit"
           on:click={() => {
-            console.log('Edit crawl');
             editCrawl = true;
-            console.log(editCrawl);
           }}>
           <i class="fas fa-edit" />
         </span>
