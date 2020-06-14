@@ -2,14 +2,15 @@
   import { crawlElements } from "../../store";
   export let element;
   export let parentIndeces;
+  export let storeId;
 
   let elementName = element.name;
   let elementValue = element.value;
   let elements;
   const crawlElements$ = crawlElements.subscribe(c => {
-    elements = c;
+    const storedCrawl = c.find(e => e.id === storeId);
+    if (storedCrawl) elements = storedCrawl.elements;
   });
-  console.log(element.id);
 
   function setElement() {
     let elementCopy = [...elements];
@@ -20,11 +21,13 @@
 
     const parentElement = ref.find(r => r.id === element.id);
     const index = ref.indexOf(parentElement);
-    console.log(elementValue);
     ref[index].value = elementValue;
     ref[index].name = elementName;
-    crawlElements.set([...elementCopy]);
-    console.log("SET ELEMENT");
+    crawlElements.update(c => {
+      const crawlEdit = c.find(e => e.id === storeId);
+      crawlEdit.elements = [...elementCopy];
+      return c;
+    });
   }
 
   function addChildElement() {
@@ -45,7 +48,6 @@
   }
 
   function removeElement() {
-    console.log(parentIndeces);
     let elementCopy = [...elements];
     let ref = elementCopy;
     for (const i of parentIndeces) {

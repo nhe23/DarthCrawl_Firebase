@@ -4,7 +4,7 @@
     newestCrawlResult,
     checkCrawlExists
   } from "../../services/firestore";
-  import { crawlElements, crawlElementsDefault } from "../../store";
+  import { crawlElements, crawlsElementsDefault } from "../../store";
   import { Link } from "../Router";
   import firebase from "firebase/app";
   import { fade, slide } from "svelte/transition";
@@ -25,16 +25,14 @@
   let results;
 
   onMount(() => {
-    console.log("MOUNT CRAWL");
-    crawlElements.set(crawlElementsDefault);
+    crawlElements.set(crawlsElementsDefault);
     const crawlElements$ = crawlElements.subscribe(c => {
-      elements = c;
+      elements = c[0].elements;
     });
   });
 
   async function addCrawl() {
-    console.log(loadedUserData);
-    console.log(elements);
+    
     const id = md5(`${crawlName}_${uid}`);
     try {
       const createTime = firebase.firestore.Timestamp.now();
@@ -134,7 +132,7 @@
       <div class="columns elements">
         <div class="cloumn is-5 container">
 
-          <CrawlElements {elements} parentIndeces={[]} />
+          <CrawlElements {elements} parentIndeces={[]} storeId={crawlsElementsDefault[0].id}/>
         </div>
         <div class="column is-6 container text">
           {#if $results}

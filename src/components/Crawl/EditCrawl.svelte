@@ -13,7 +13,8 @@
   let editCrawl = true;
   let storedElements;
   const crawlElements$ = crawlElements.subscribe(c => {
-    storedElements = c;
+    const storedCrawl = c.find(e => e.id === crawl.id);
+    if (storedCrawl) elements = storedCrawl.elements;
   });
   function close() {
     editCrawl = false;
@@ -49,7 +50,11 @@
       <button class="delete" aria-label="close" on:click={close} />
     </header>
     <section class="modal-card-body">
-      <CrawlElements {elements} parentIndeces={[]} staticView={false} />
+      <CrawlElements
+        storeId={crawl.id}
+        {elements}
+        parentIndeces={[]}
+        staticView={false} />
 
     </section>
     <footer class="modal-card-foot">

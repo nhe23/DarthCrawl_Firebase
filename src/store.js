@@ -2,13 +2,18 @@ import { writable } from "svelte/store";
 
 export const userDbData = writable(null);
 
-export const crawlElementsDefault = [
+export const crawlsElementsDefault = [
   {
     id: 0,
-    value: "",
-    name: "",
-    children: [],
+    elements: [
+      {
+        id: 0,
+        value: "",
+        name: "",
+        children: [],
+      },
+    ],
   },
 ];
 
-export const crawlElements = writable(crawlElementsDefault);
+export const crawlElements = writable(crawlsElementsDefault);

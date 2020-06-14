@@ -4,26 +4,29 @@
   import CrawlElementEditable from "./CrawlElementEditable.svelte";
 
   export let elements;
+  export let storeId;
   let storedElements;
   const crawlElements$ = crawlElements.subscribe(c => {
-    storedElements = c;
+
+     const storedCrawl = c.find(s => s.id === storeId);
+     if (storedCrawl) storedElements = storedCrawl.elements;
   });
-  console.log(elements)
+
   export let parentIndeces;
   export let staticView = false;
 
   function addElement() {
     let elementCopy = [...storedElements];
     let ref = elementCopy;
-    console.log(parentIndeces);
     for (const i of parentIndeces) {
       ref = ref[i].children;
     }
     ref.push({ id: Date.now(), value: "", name: "", children: [] });
-    console.log("Elements before add");
-    console.log(storedElements);
-    crawlElements.set([...elementCopy]);
-    console.log(storedElements);
+    crawlElements.update(c => {
+      const crawlEdit = c.find(e => e.id === storeId)
+      crawlEdit.elements = [...elementCopy]
+      return c;
+      });
   }
 
 </script>
@@ -53,7 +56,7 @@
         {:else}
           <CrawlElementEditable
             {element}
-            {parentIndeces} />
+            {parentIndeces} {storeId} />
         {/if}
         {#if element.children && element.children.length > 0}
           <ul class="has-text-grey-lighter">

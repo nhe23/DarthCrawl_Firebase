@@ -1,4 +1,5 @@
 <script>
+  import { onDestroy } from "svelte";
   import { userCrawls } from "../../services/firestore";
   import MyCrawl from "./MyCrawl.svelte";
   import QuotaUsed from "./QuotaUsed.svelte";
@@ -6,11 +7,11 @@
   export let loadedUserData;
   let crawls = [];
   let filteredCrawls = [];
-  let crawls$ = userCrawls(uid);
+  let userCralws = userCrawls(uid);
   let searchText = "";
   let nameSortedDesc = false;
   let dateSortedDesc = false;
-  crawls$.subscribe(c => {
+  const userCrawls$ = userCralws.subscribe(c => {
     crawls = c;
     if (searchText === "") {
       filteredCrawls = c;
@@ -19,8 +20,11 @@
 
   $: userHasQuotaLeft = loadedUserData.quotaUsed < loadedUserData.quota;
 
+  onDestroy(() => {
+    userCrawls$.unsubscribe();
+  });
+
   function filterCrawls() {
-    console.log("filtering");
     if (searchText === "") {
       filteredCrawls = crawls;
       return;

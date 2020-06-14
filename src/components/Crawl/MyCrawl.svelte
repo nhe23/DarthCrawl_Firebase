@@ -13,7 +13,7 @@
   import { crawlElements } from "../../store";
   import CrawlElements from "./CrawlElements.svelte";
   import CrawlResults from "./CrawlResults.svelte";
-  import EditCrawl from "./EditCrawl.svelte"
+  import EditCrawl from "./EditCrawl.svelte";
   export let crawl;
   export let userHasQuotaLeft;
 
@@ -28,11 +28,17 @@
   let reCrawlLoading = false;
 
   const crawlElements$ = crawlElements.subscribe(c => {
-    elements = c;
+    const storedCrawl = c.find(e => e.id === crawl.id);
+    if (storedCrawl) {
+      elements = storedCrawl.elements;
+    }
   });
 
   onMount(() => {
-    crawlElements.set(crawl.crawlElements);
+    crawlElements.update(c => [
+      ...c,
+      { id: crawl.id, elements: crawl.crawlElements }
+    ]);
   });
 
   async function reCrawl() {
@@ -40,7 +46,6 @@
     const createTime = firebase.firestore.Timestamp.now();
     await setReCrawl(crawl.id, createTime);
     result = newestCrawlResult(crawl.id, createTime).subscribe(r => {
-      console.log(r);
       if (r.length > 0) {
         reCrawlLoading = false;
       }
@@ -53,8 +58,14 @@
     deleteCrawl(crawl.id).then(() => (deleteCrawlLoading = false));
   }
 
-  function editCrawlF() {
-    crawlEditable = JSON.parse(JSON.stringify(crawl));
+
+  function resetCrawlElements() {
+    editCrawl = false;
+    crawlElements.update(c => {
+      const crawlEdit = c.find(e => e.id === crawl.id);
+      crawlEdit.elements = crawl.crawlElements;
+      return c;
+    });
   }
 </script>
 
@@ -77,7 +88,7 @@
     text-overflow: ellipsis !important;
   }
 
-  .edit{
+  .edit {
     cursor: pointer;
   }
 </style>
@@ -100,7 +111,8 @@
           <i class="fas fa-chevron-up" />
         </span>
         <CrawlElements
-          elements={elements}
+          storeId={crawl.id}
+          {elements}
           parentIndeces={[]}
           staticView={true} />
         <span
@@ -111,10 +123,13 @@
           <i class="fas fa-edit" />
         </span>
         {#if editCrawl}
-          <EditCrawl on:cancel={() => {
-            crawlElements.set(crawl.crawlElements);
-            editCrawl=false;
-          }} on:close={() => {editCrawl=false}} {elements} {crawl}/>
+          <EditCrawl
+            on:cancel={resetCrawlElements}
+            on:close={() => {
+              editCrawl = false;
+            }}
+            {elements}
+            {crawl} />
         {/if}
       {:else}
         <span
