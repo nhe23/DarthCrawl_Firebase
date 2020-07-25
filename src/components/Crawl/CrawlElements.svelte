@@ -2,14 +2,13 @@
   import { fade } from "svelte/transition";
   import { crawlElements } from "../../store";
   import CrawlElementEditable from "./CrawlElementEditable.svelte";
-
   export let elements;
   export let storeId;
   let storedElements;
-  const crawlElements$ = crawlElements.subscribe(c => {
 
-     const storedCrawl = c.find(s => s.id === storeId);
-     if (storedCrawl) storedElements = storedCrawl.elements;
+  const crawlElements$ = crawlElements.subscribe(c => {
+    const storedCrawl = c.find(s => s.id === storeId);
+    if (storedCrawl) storedElements = storedCrawl.elements;
   });
 
   export let parentIndeces;
@@ -23,12 +22,11 @@
     }
     ref.push({ id: Date.now(), value: "", name: "", children: [] });
     crawlElements.update(c => {
-      const crawlEdit = c.find(e => e.id === storeId)
-      crawlEdit.elements = [...elementCopy]
+      const crawlEdit = c.find(e => e.id === storeId);
+      crawlEdit.elements = [...elementCopy];
       return c;
-      });
+    });
   }
-
 </script>
 
 <style>
@@ -54,9 +52,7 @@
         {#if staticView}
           {element.value}
         {:else}
-          <CrawlElementEditable
-            {element}
-            {parentIndeces} {storeId} />
+          <CrawlElementEditable {element} {parentIndeces} {storeId} />
         {/if}
         {#if element.children && element.children.length > 0}
           <ul class="has-text-grey-lighter">
@@ -64,6 +60,7 @@
               on:addElement={addElement}
               elements={element.children}
               parentIndeces={[...parentIndeces, i]}
+              {storeId}
               {staticView} />
           </ul>
         {/if}

@@ -7,8 +7,10 @@
   let elementName = element.name;
   let elementValue = element.value;
   let elements;
+
   const crawlElements$ = crawlElements.subscribe(c => {
     const storedCrawl = c.find(e => e.id === storeId);
+
     if (storedCrawl) elements = storedCrawl.elements;
   });
 
@@ -44,7 +46,11 @@
       name: "",
       children: []
     });
-    crawlElements.set([...elementCopy]);
+    crawlElements.update(c => {
+      const crawlEdit = c.find(e => e.id === storeId);
+      crawlEdit.elements = [...elementCopy];
+      return c;
+    });
   }
 
   function removeElement() {
@@ -58,7 +64,11 @@
     if (index !== -1) {
       ref.splice(index, 1);
     }
-    crawlElements.set([...elementCopy]);
+    crawlElements.update(c => {
+      const crawlEdit = c.find(e => e.id === storeId);
+      crawlEdit.elements = [...elementCopy];
+      return c;
+    });
   }
 </script>
 

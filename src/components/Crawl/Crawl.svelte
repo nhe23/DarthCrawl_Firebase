@@ -26,13 +26,11 @@
 
   onMount(() => {
     crawlElements.set(crawlsElementsDefault);
-    const crawlElements$ = crawlElements.subscribe(c => {
-      elements = c[0].elements;
-    });
   });
-
+  const crawlElements$ = crawlElements.subscribe(c => {
+    elements = c[0].elements;
+  });
   async function addCrawl() {
-    
     const id = md5(`${crawlName}_${uid}`);
     try {
       const createTime = firebase.firestore.Timestamp.now();
@@ -132,7 +130,11 @@
       <div class="columns elements">
         <div class="cloumn is-5 container">
 
-          <CrawlElements {elements} parentIndeces={[]} storeId={crawlsElementsDefault[0].id}/>
+          <CrawlElements
+            storeId={crawlsElementsDefault[0].id}
+            {elements}
+            parentIndeces={[]}
+            staticView={false} />
         </div>
         <div class="column is-6 container text">
           {#if $results}

@@ -39990,124 +39990,124 @@ var app = (function () {
     			t0 = space();
     			div1 = element("div");
     			div1.textContent = "Darth Crawl";
-    			add_location(title, file$1, 19, 4, 379);
-    			add_location(desc, file$1, 20, 4, 393);
-    			add_location(defs, file$1, 21, 4, 406);
-    			attr_dev(path0, "d", "M12.165,60.5 L12.165,131.3 C12.165,139.13 15.987,146.468\n            22.401,150.962 L24.165,152.198 L58.401,176.162 C66.663,181.946\n            77.667,181.946 85.929,176.162 L120.165,152.198 L121.929,150.962\n            C128.343,146.468 132.165,139.13 132.165,131.3 L132.165,90.5\n            L132.165,60.5 C132.165,27.362 12.165,27.362 12.165,60.5");
+    			add_location(title, file$1, 18, 6, 376);
+    			add_location(desc, file$1, 19, 6, 392);
+    			add_location(defs, file$1, 20, 6, 407);
+    			attr_dev(path0, "d", "M12.165,60.5 L12.165,131.3 C12.165,139.13 15.987,146.468\n              22.401,150.962 L24.165,152.198 L58.401,176.162 C66.663,181.946\n              77.667,181.946 85.929,176.162 L120.165,152.198 L121.929,150.962\n              C128.343,146.468 132.165,139.13 132.165,131.3 L132.165,90.5\n              L132.165,60.5 C132.165,27.362 12.165,27.362 12.165,60.5");
     			attr_dev(path0, "fill", "#323232");
     			attr_dev(path0, "id", "Fill-59");
-    			add_location(path0, file$1, 25, 10, 662);
-    			attr_dev(path1, "d", "M120.165,42.4994 L120.165,34.0154 L141.381,21.2834\n            L128.649,42.4994 L120.165,42.4994 Z");
+    			add_location(path0, file$1, 31, 12, 731);
+    			attr_dev(path1, "d", "M120.165,42.4994 L120.165,34.0154 L141.381,21.2834\n              L128.649,42.4994 L120.165,42.4994 Z");
     			attr_dev(path1, "fill", "#BEBEBE");
     			attr_dev(path1, "id", "Fill-60");
-    			add_location(path1, file$1, 33, 10, 1097);
-    			attr_dev(path2, "d", "M24.165,42.4994 L24.165,34.0154 L2.949,21.2834 L15.681,42.4994\n            L24.165,42.4994 Z");
+    			add_location(path1, file$1, 39, 12, 1182);
+    			attr_dev(path2, "d", "M24.165,42.4994 L24.165,34.0154 L2.949,21.2834 L15.681,42.4994\n              L24.165,42.4994 Z");
     			attr_dev(path2, "fill", "#BEBEBE");
     			attr_dev(path2, "id", "Fill-61");
-    			add_location(path2, file$1, 38, 10, 1283);
-    			attr_dev(path3, "d", "M12.165,114.5 L12.165,114.5 C5.565,114.5 0.165,109.1 0.165,102.5\n            L0.165,84.5 C0.165,77.9 5.565,72.5 12.165,72.5 L12.165,72.5\n            C18.765,72.5 24.165,77.9 24.165,84.5 L24.165,102.5 C24.165,109.1\n            18.765,114.5 12.165,114.5");
+    			add_location(path2, file$1, 44, 12, 1378);
+    			attr_dev(path3, "d", "M12.165,114.5 L12.165,114.5 C5.565,114.5 0.165,109.1\n              0.165,102.5 L0.165,84.5 C0.165,77.9 5.565,72.5 12.165,72.5\n              L12.165,72.5 C18.765,72.5 24.165,77.9 24.165,84.5 L24.165,102.5\n              C24.165,109.1 18.765,114.5 12.165,114.5");
     			attr_dev(path3, "fill", "#323232");
     			attr_dev(path3, "id", "Fill-62");
-    			add_location(path3, file$1, 43, 10, 1463);
-    			attr_dev(path4, "d", "M132.165,114.5 L132.165,114.5 C125.565,114.5 120.165,109.1\n            120.165,102.5 L120.165,84.5 C120.165,77.9 125.565,72.5 132.165,72.5\n            L132.165,72.5 C138.765,72.5 144.165,77.9 144.165,84.5 L144.165,102.5\n            C144.165,109.1 138.765,114.5 132.165,114.5");
+    			add_location(path3, file$1, 49, 12, 1568);
+    			attr_dev(path4, "d", "M132.165,114.5 L132.165,114.5 C125.565,114.5 120.165,109.1\n              120.165,102.5 L120.165,84.5 C120.165,77.9 125.565,72.5\n              132.165,72.5 L132.165,72.5 C138.765,72.5 144.165,77.9 144.165,84.5\n              L144.165,102.5 C144.165,109.1 138.765,114.5 132.165,114.5");
     			attr_dev(path4, "fill", "#323232");
     			attr_dev(path4, "id", "Fill-63");
-    			add_location(path4, file$1, 50, 10, 1802);
-    			attr_dev(path5, "d", "M72.165,0.5 C39.027,0.5 12.165,27.362 12.165,60.5 L18.165,72.5\n            L12.165,96.5 L42.165,150.5 L60.165,132.5 L66.165,150.5 L78.165,150.5\n            L84.165,132.5 L102.165,150.5 L132.165,90.5 L126.165,72.494\n            L132.165,60.5 C132.165,27.362 105.303,0.5 72.165,0.5");
+    			add_location(path4, file$1, 56, 12, 1921);
+    			attr_dev(path5, "d", "M72.165,0.5 C39.027,0.5 12.165,27.362 12.165,60.5 L18.165,72.5\n              L12.165,96.5 L42.165,150.5 L60.165,132.5 L66.165,150.5\n              L78.165,150.5 L84.165,132.5 L102.165,150.5 L132.165,90.5\n              L126.165,72.494 L132.165,60.5 C132.165,27.362 105.303,0.5\n              72.165,0.5");
     			attr_dev(path5, "fill", "#921816");
     			attr_dev(path5, "id", "Fill-64");
-    			add_location(path5, file$1, 57, 10, 2164);
-    			attr_dev(path6, "d", "M78.165,90.4994 L102.165,72.4994 L120.165,84.4994\n            L102.165,108.4994 L78.165,90.4994 Z");
+    			add_location(path5, file$1, 63, 12, 2297);
+    			attr_dev(path6, "d", "M78.165,90.4994 L102.165,72.4994 L120.165,84.4994\n              L102.165,108.4994 L78.165,90.4994 Z");
     			attr_dev(path6, "fill", "#323232");
     			attr_dev(path6, "id", "Fill-65");
-    			add_location(path6, file$1, 64, 10, 2531);
-    			attr_dev(path7, "d", "M96.165,84.5 C92.847,84.5 90.165,87.182 90.165,90.5\n            C90.165,93.818 92.847,96.5 96.165,96.5 C99.483,96.5 102.165,93.818\n            102.165,90.5 C102.165,87.182 99.483,84.5 96.165,84.5");
+    			add_location(path6, file$1, 71, 12, 2692);
+    			attr_dev(path7, "d", "M96.165,84.5 C92.847,84.5 90.165,87.182 90.165,90.5\n              C90.165,93.818 92.847,96.5 96.165,96.5 C99.483,96.5 102.165,93.818\n              102.165,90.5 C102.165,87.182 99.483,84.5 96.165,84.5");
     			attr_dev(path7, "fill", "#F1C40F");
     			attr_dev(path7, "id", "Fill-66");
-    			add_location(path7, file$1, 69, 10, 2716);
-    			attr_dev(path8, "d", "M66.165,90.4994 L42.165,72.4994 L24.165,84.4994 L36.165,108.4994\n            L66.165,90.4994 Z");
+    			add_location(path7, file$1, 76, 12, 2887);
+    			attr_dev(path8, "d", "M66.165,90.4994 L42.165,72.4994 L24.165,84.4994\n              L36.165,108.4994 L66.165,90.4994 Z");
     			attr_dev(path8, "fill", "#323232");
     			attr_dev(path8, "id", "Fill-67");
-    			add_location(path8, file$1, 75, 10, 2999);
-    			attr_dev(path9, "d", "M48.165,84.5 C44.847,84.5 42.165,87.182 42.165,90.5\n            C42.165,93.818 44.847,96.5 48.165,96.5 C51.483,96.5 54.165,93.818\n            54.165,90.5 C54.165,87.182 51.483,84.5 48.165,84.5");
+    			add_location(path8, file$1, 82, 12, 3182);
+    			attr_dev(path9, "d", "M48.165,84.5 C44.847,84.5 42.165,87.182 42.165,90.5\n              C42.165,93.818 44.847,96.5 48.165,96.5 C51.483,96.5 54.165,93.818\n              54.165,90.5 C54.165,87.182 51.483,84.5 48.165,84.5");
     			attr_dev(path9, "fill", "#F1C40F");
     			attr_dev(path9, "id", "Fill-68");
-    			add_location(path9, file$1, 80, 10, 3181);
-    			attr_dev(path10, "d", "M84.165,156.4994 L60.165,156.4994 L56.499,174.8294\n            L58.401,176.1614 C66.663,181.9454 77.667,181.9454 85.929,176.1614\n            L87.831,174.8294 L84.165,156.4994 Z");
+    			add_location(path9, file$1, 87, 12, 3374);
+    			attr_dev(path10, "d", "M84.165,156.4994 L60.165,156.4994 L56.499,174.8294\n              L58.401,176.1614 C66.663,181.9454 77.667,181.9454 85.929,176.1614\n              L87.831,174.8294 L84.165,156.4994 Z");
     			attr_dev(path10, "fill", "#921816");
     			attr_dev(path10, "id", "Fill-69");
-    			add_location(path10, file$1, 86, 10, 3461);
-    			attr_dev(path11, "d", "M72.165,18.4994 L60.165,36.4994 L72.165,90.4994 L84.165,36.4994\n            L72.165,18.4994 Z");
+    			add_location(path10, file$1, 93, 12, 3666);
+    			attr_dev(path11, "d", "M72.165,18.4994 L60.165,36.4994 L72.165,90.4994 L84.165,36.4994\n              L72.165,18.4994 Z");
     			attr_dev(path11, "fill", "#323232");
     			attr_dev(path11, "id", "Fill-70");
-    			add_location(path11, file$1, 92, 10, 3725);
-    			attr_dev(path12, "d", "M42.165,84.4994 L54.165,66.4994 L48.165,48.4994 L30.165,66.4994\n            L30.165,36.4994 L36.165,54.4994 L48.165,42.4994 L60.165,66.4994\n            L42.165,84.4994 Z");
+    			add_location(path11, file$1, 99, 12, 3942);
+    			attr_dev(path12, "d", "M42.165,84.4994 L54.165,66.4994 L48.165,48.4994 L30.165,66.4994\n              L30.165,36.4994 L36.165,54.4994 L48.165,42.4994 L60.165,66.4994\n              L42.165,84.4994 Z");
     			attr_dev(path12, "fill", "#323232");
     			attr_dev(path12, "id", "Fill-71");
-    			add_location(path12, file$1, 97, 10, 3906);
-    			attr_dev(path13, "d", "M30.165,54.4994 L21.681,36.4994 L30.165,28.0154 L38.649,36.4994\n            L30.165,54.4994 Z");
+    			add_location(path12, file$1, 104, 12, 4133);
+    			attr_dev(path13, "d", "M30.165,54.4994 L21.681,36.4994 L30.165,28.0154 L38.649,36.4994\n              L30.165,54.4994 Z");
     			attr_dev(path13, "fill", "#323232");
     			attr_dev(path13, "id", "Fill-72");
-    			add_location(path13, file$1, 103, 10, 4163);
-    			attr_dev(path14, "d", "M72.165,42.4994 L78.165,36.4994 L72.165,12.4994 L66.165,36.4994\n            L72.165,42.4994 Z");
+    			add_location(path13, file$1, 110, 12, 4402);
+    			attr_dev(path14, "d", "M72.165,42.4994 L78.165,36.4994 L72.165,12.4994 L66.165,36.4994\n              L72.165,42.4994 Z");
     			attr_dev(path14, "fill", "#BEBEBE");
     			attr_dev(path14, "id", "Fill-73");
-    			add_location(path14, file$1, 108, 10, 4344);
-    			attr_dev(path15, "d", "M30.165,42.4994 L36.165,36.4994 L30.165,12.4994 L24.165,36.4994\n            L30.165,42.4994 Z");
+    			add_location(path14, file$1, 115, 12, 4593);
+    			attr_dev(path15, "d", "M30.165,42.4994 L36.165,36.4994 L30.165,12.4994 L24.165,36.4994\n              L30.165,42.4994 Z");
     			attr_dev(path15, "fill", "#BEBEBE");
     			attr_dev(path15, "id", "Fill-74");
-    			add_location(path15, file$1, 113, 10, 4525);
-    			attr_dev(path16, "d", "M102.165,84.4994 L90.165,66.4994 L96.165,48.4994 L114.165,66.4994\n            L114.165,36.4994 L108.165,54.4994 L96.165,42.4994 L84.165,66.4994\n            L102.165,84.4994 Z");
+    			add_location(path15, file$1, 120, 12, 4784);
+    			attr_dev(path16, "d", "M102.165,84.4994 L90.165,66.4994 L96.165,48.4994\n              L114.165,66.4994 L114.165,36.4994 L108.165,54.4994 L96.165,42.4994\n              L84.165,66.4994 L102.165,84.4994 Z");
     			attr_dev(path16, "fill", "#323232");
     			attr_dev(path16, "id", "Fill-75");
-    			add_location(path16, file$1, 118, 10, 4706);
-    			attr_dev(path17, "d", "M114.165,54.4994 L122.649,36.4994 L114.165,28.0154\n            L105.681,36.4994 L114.165,54.4994 Z");
+    			add_location(path16, file$1, 125, 12, 4975);
+    			attr_dev(path17, "d", "M114.165,54.4994 L122.649,36.4994 L114.165,28.0154\n              L105.681,36.4994 L114.165,54.4994 Z");
     			attr_dev(path17, "fill", "#323232");
     			attr_dev(path17, "id", "Fill-76");
-    			add_location(path17, file$1, 124, 10, 4968);
-    			attr_dev(path18, "d", "M114.165,42.4994 L108.165,36.4994 L114.165,12.4994\n            L120.165,36.4994 L114.165,42.4994 Z");
+    			add_location(path17, file$1, 131, 12, 5249);
+    			attr_dev(path18, "d", "M114.165,42.4994 L108.165,36.4994 L114.165,12.4994\n              L120.165,36.4994 L114.165,42.4994 Z");
     			attr_dev(path18, "fill", "#BEBEBE");
     			attr_dev(path18, "id", "Fill-77");
-    			add_location(path18, file$1, 129, 10, 5154);
-    			attr_dev(path19, "d", "M36.165,90.4994 L18.165,120.4994 L36.165,132.4994\n            L54.165,108.4994 L36.165,126.4994 L24.165,120.4994 L36.165,90.4994 Z");
+    			add_location(path18, file$1, 136, 12, 5445);
+    			attr_dev(path19, "d", "M36.165,90.4994 L18.165,120.4994 L36.165,132.4994\n              L54.165,108.4994 L36.165,126.4994 L24.165,120.4994 L36.165,90.4994\n              Z");
     			attr_dev(path19, "fill", "#323232");
     			attr_dev(path19, "id", "Fill-78");
-    			add_location(path19, file$1, 134, 10, 5340);
-    			attr_dev(path20, "d", "M108.165,90.4994 L126.165,120.4994 L108.165,132.4994\n            L90.165,108.4994 L108.165,126.4994 L120.165,120.4994\n            L108.165,90.4994 Z");
+    			add_location(path19, file$1, 141, 12, 5641);
+    			attr_dev(path20, "d", "M108.165,90.4994 L126.165,120.4994 L108.165,132.4994\n              L90.165,108.4994 L108.165,126.4994 L120.165,120.4994\n              L108.165,90.4994 Z");
     			attr_dev(path20, "fill", "#323232");
     			attr_dev(path20, "id", "Fill-79");
-    			add_location(path20, file$1, 139, 10, 5558);
-    			attr_dev(path21, "d", "M72.165,126.4994 L84.165,120.4994 L72.165,132.4994\n            L60.165,120.4994 L72.165,126.4994 Z");
+    			add_location(path20, file$1, 147, 12, 5883);
+    			attr_dev(path21, "d", "M72.165,126.4994 L84.165,120.4994 L72.165,132.4994\n              L60.165,120.4994 L72.165,126.4994 Z");
     			attr_dev(path21, "fill", "#323232");
     			attr_dev(path21, "id", "Fill-80");
-    			add_location(path21, file$1, 145, 10, 5794);
-    			attr_dev(path22, "d", "M69.165,156.4994 L60.165,168.4994 L66.165,174.4994\n            L66.165,168.4994 L72.165,162.4994 L78.165,168.4994 L78.165,174.4994\n            L84.165,168.4994 L75.165,156.4994 L69.165,156.4994 Z");
+    			add_location(path21, file$1, 153, 12, 6131);
+    			attr_dev(path22, "d", "M69.165,156.4994 L60.165,168.4994 L66.165,174.4994\n              L66.165,168.4994 L72.165,162.4994 L78.165,168.4994\n              L78.165,174.4994 L84.165,168.4994 L75.165,156.4994\n              L69.165,156.4994 Z");
     			attr_dev(path22, "fill", "#323232");
     			attr_dev(path22, "id", "Fill-81");
-    			add_location(path22, file$1, 150, 10, 5980);
+    			add_location(path22, file$1, 158, 12, 6327);
     			attr_dev(g0, "id", "darth-maul");
     			attr_dev(g0, "transform", "translate(1757.000000, 2037.000000)");
-    			add_location(g0, file$1, 24, 8, 584);
+    			add_location(g0, file$1, 30, 10, 651);
     			attr_dev(g1, "id", "star-wars-copy");
     			attr_dev(g1, "transform", "translate(-1757.000000, -2037.000000)");
-    			add_location(g1, file$1, 23, 6, 502);
+    			add_location(g1, file$1, 27, 8, 547);
     			attr_dev(g2, "fill", "none");
     			attr_dev(g2, "fillrule", "evenodd");
     			attr_dev(g2, "id", "Page-1");
     			attr_dev(g2, "stroke", "none");
     			attr_dev(g2, "strokewidth", "1");
-    			add_location(g2, file$1, 22, 4, 419);
+    			add_location(g2, file$1, 21, 6, 422);
     			attr_dev(svg, "height", "40px");
     			attr_dev(svg, "version", "1.1");
     			attr_dev(svg, "viewBox", "0 0 145 181");
     			attr_dev(svg, "width", "38px");
-    			add_location(svg, file$1, 18, 2, 306);
+    			add_location(svg, file$1, 17, 4, 301);
     			attr_dev(div0, "class", "brandLogo");
-    			add_location(div0, file$1, 17, 0, 280);
-    			attr_dev(div1, "class", "is-hidden-mobile brandText has-text-primary svelte-1rqqx38");
-    			add_location(div1, file$1, 161, 2, 6306);
-    			attr_dev(div2, "class", "branding svelte-1rqqx38");
-    			add_location(div2, file$1, 16, 0, 257);
+    			add_location(div0, file$1, 16, 2, 273);
+    			attr_dev(div1, "class", "is-hidden-mobile brandText has-text-primary svelte-hx1zuy");
+    			add_location(div1, file$1, 170, 2, 6685);
+    			attr_dev(div2, "class", "branding svelte-hx1zuy");
+    			add_location(div2, file$1, 15, 0, 248);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -45103,7 +45103,7 @@ var app = (function () {
     /* src/components/Crawl/CrawlElementEditable.svelte generated by Svelte v3.22.3 */
     const file$f = "src/components/Crawl/CrawlElementEditable.svelte";
 
-    // (86:8) {#if !element.children || (element.children.length === 0 && element.value !== '')}
+    // (96:8) {#if !element.children || (element.children.length === 0 && element.value !== '')}
     function create_if_block$b(ctx) {
     	let span;
     	let i;
@@ -45114,9 +45114,9 @@ var app = (function () {
     			span = element("span");
     			i = element("i");
     			attr_dev(i, "class", "fas fa-plus-circle");
-    			add_location(i, file$f, 89, 12, 2461);
+    			add_location(i, file$f, 99, 12, 2693);
     			attr_dev(span, "class", "icon is-small is-right has-text-success svelte-rshbib");
-    			add_location(span, file$f, 86, 10, 2343);
+    			add_location(span, file$f, 96, 10, 2575);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, span, anchor);
@@ -45135,7 +45135,7 @@ var app = (function () {
     		block,
     		id: create_if_block$b.name,
     		type: "if",
-    		source: "(86:8) {#if !element.children || (element.children.length === 0 && element.value !== '')}",
+    		source: "(96:8) {#if !element.children || (element.children.length === 0 && element.value !== '')}",
     		ctx
     	});
 
@@ -45178,26 +45178,26 @@ var app = (function () {
     			attr_dev(input0, "class", "input");
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "placeholder", "xPath");
-    			add_location(input0, file$f, 74, 8, 1922);
+    			add_location(input0, file$f, 84, 8, 2154);
     			attr_dev(i, "class", "fas fa-minus-circle");
-    			add_location(i, file$f, 83, 10, 2192);
+    			add_location(i, file$f, 93, 10, 2424);
     			attr_dev(span, "class", "icon is-small is-left has-text-danger svelte-rshbib");
-    			add_location(span, file$f, 80, 8, 2084);
+    			add_location(span, file$f, 90, 8, 2316);
     			attr_dev(div0, "class", "field control has-icons-left has-icons-right");
-    			add_location(div0, file$f, 73, 6, 1855);
+    			add_location(div0, file$f, 83, 6, 2087);
     			attr_dev(div1, "class", "column is-8");
-    			add_location(div1, file$f, 72, 4, 1823);
+    			add_location(div1, file$f, 82, 4, 2055);
     			attr_dev(input1, "class", "input");
     			attr_dev(input1, "type", "text");
     			attr_dev(input1, "placeholder", "Name");
-    			add_location(input1, file$f, 96, 8, 2622);
+    			add_location(input1, file$f, 106, 8, 2854);
     			attr_dev(div2, "class", "field control");
-    			add_location(div2, file$f, 95, 6, 2586);
+    			add_location(div2, file$f, 105, 6, 2818);
     			attr_dev(div3, "class", "column is-4");
-    			add_location(div3, file$f, 94, 4, 2554);
+    			add_location(div3, file$f, 104, 4, 2786);
     			attr_dev(div4, "class", "columns");
-    			add_location(div4, file$f, 71, 2, 1797);
-    			add_location(main, file$f, 70, 0, 1788);
+    			add_location(div4, file$f, 81, 2, 2029);
+    			add_location(main, file$f, 80, 0, 2020);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -45322,7 +45322,11 @@ var app = (function () {
     			children: []
     		});
 
-    		crawlElements.set([...elementCopy]);
+    		crawlElements.update(c => {
+    			const crawlEdit = c.find(e => e.id === storeId);
+    			crawlEdit.elements = [...elementCopy];
+    			return c;
+    		});
     	}
 
     	function removeElement() {
@@ -45340,7 +45344,11 @@ var app = (function () {
     			ref.splice(index, 1);
     		}
 
-    		crawlElements.set([...elementCopy]);
+    		crawlElements.update(c => {
+    			const crawlEdit = c.find(e => e.id === storeId);
+    			crawlEdit.elements = [...elementCopy];
+    			return c;
+    		});
     	}
 
     	const writable_props = ["element", "parentIndeces", "storeId"];
@@ -45474,7 +45482,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (56:8) {:else}
+    // (54:8) {:else}
     function create_else_block$4(ctx) {
     	let current;
 
@@ -45520,14 +45528,14 @@ var app = (function () {
     		block,
     		id: create_else_block$4.name,
     		type: "else",
-    		source: "(56:8) {:else}",
+    		source: "(54:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (54:8) {#if staticView}
+    // (52:8) {#if staticView}
     function create_if_block_2$3(ctx) {
     	let t_value = /*element*/ ctx[7].value + "";
     	let t;
@@ -45553,14 +45561,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2$3.name,
     		type: "if",
-    		source: "(54:8) {#if staticView}",
+    		source: "(52:8) {#if staticView}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (61:8) {#if element.children && element.children.length > 0}
+    // (57:8) {#if element.children && element.children.length > 0}
     function create_if_block_1$5(ctx) {
     	let ul;
     	let current;
@@ -45569,6 +45577,7 @@ var app = (function () {
     			props: {
     				elements: /*element*/ ctx[7].children,
     				parentIndeces: [.../*parentIndeces*/ ctx[2], /*i*/ ctx[9]],
+    				storeId: /*storeId*/ ctx[1],
     				staticView: /*staticView*/ ctx[3]
     			},
     			$$inline: true
@@ -45581,7 +45590,7 @@ var app = (function () {
     			ul = element("ul");
     			create_component(crawlelements.$$.fragment);
     			attr_dev(ul, "class", "has-text-grey-lighter svelte-1a0l5id");
-    			add_location(ul, file$g, 61, 10, 1505);
+    			add_location(ul, file$g, 57, 10, 1477);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, ul, anchor);
@@ -45592,6 +45601,7 @@ var app = (function () {
     			const crawlelements_changes = {};
     			if (dirty & /*elements*/ 1) crawlelements_changes.elements = /*element*/ ctx[7].children;
     			if (dirty & /*parentIndeces, elements*/ 5) crawlelements_changes.parentIndeces = [.../*parentIndeces*/ ctx[2], /*i*/ ctx[9]];
+    			if (dirty & /*storeId*/ 2) crawlelements_changes.storeId = /*storeId*/ ctx[1];
     			if (dirty & /*staticView*/ 8) crawlelements_changes.staticView = /*staticView*/ ctx[3];
     			crawlelements.$set(crawlelements_changes);
     		},
@@ -45614,14 +45624,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$5.name,
     		type: "if",
-    		source: "(61:8) {#if element.children && element.children.length > 0}",
+    		source: "(57:8) {#if element.children && element.children.length > 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:4) {#each elements as element, i (element.id)}
+    // (50:4) {#each elements as element, i (element.id)}
     function create_each_block$1(key_1, ctx) {
     	let li;
     	let current_block_type_index;
@@ -45649,7 +45659,7 @@ var app = (function () {
     			t = space();
     			if (if_block1) if_block1.c();
     			attr_dev(li, "class", "has-text-grey-dark svelte-1a0l5id");
-    			add_location(li, file$g, 52, 6, 1225);
+    			add_location(li, file$g, 50, 6, 1221);
     			this.first = li;
     		},
     		m: function mount(target, anchor) {
@@ -45729,14 +45739,14 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(52:4) {#each elements as element, i (element.id)}",
+    		source: "(50:4) {#each elements as element, i (element.id)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (73:4) {#if !staticView}
+    // (70:4) {#if !staticView}
     function create_if_block$c(ctx) {
     	let button;
     	let dispose;
@@ -45746,7 +45756,7 @@ var app = (function () {
     			button = element("button");
     			button.textContent = "+";
     			attr_dev(button, "class", "button is-secondary");
-    			add_location(button, file$g, 73, 6, 1813);
+    			add_location(button, file$g, 70, 6, 1809);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, button, anchor);
@@ -45764,7 +45774,7 @@ var app = (function () {
     		block,
     		id: create_if_block$c.name,
     		type: "if",
-    		source: "(73:4) {#if !staticView}",
+    		source: "(70:4) {#if !staticView}",
     		ctx
     	});
 
@@ -45803,8 +45813,8 @@ var app = (function () {
     			t = space();
     			if (if_block) if_block.c();
     			attr_dev(ul, "class", "has-text-grey-lighter svelte-1a0l5id");
-    			add_location(ul, file$g, 50, 2, 1136);
-    			add_location(main, file$g, 49, 0, 1127);
+    			add_location(ul, file$g, 48, 2, 1132);
+    			add_location(main, file$g, 47, 0, 1123);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -45822,7 +45832,7 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*elements, parentIndeces, staticView, addElement, storeId*/ 31) {
+    			if (dirty & /*elements, parentIndeces, storeId, staticView, addElement*/ 31) {
     				const each_value = /*elements*/ ctx[0];
     				validate_each_argument(each_value);
     				group_outros();
@@ -47091,7 +47101,7 @@ var app = (function () {
     const { console: console_1$8 } = globals;
     const file$k = "src/components/Crawl/Crawl.svelte";
 
-    // (90:10) <Link to="/documentation">
+    // (88:10) <Link to="/documentation">
     function create_default_slot$2(ctx) {
     	let t;
 
@@ -47111,14 +47121,14 @@ var app = (function () {
     		block,
     		id: create_default_slot$2.name,
     		type: "slot",
-    		source: "(90:10) <Link to=\\\"/documentation\\\">",
+    		source: "(88:10) <Link to=\\\"/documentation\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (95:2) {#if loadedUserData.quotaUsed >= loadedUserData.quota}
+    // (93:2) {#if loadedUserData.quotaUsed >= loadedUserData.quota}
     function create_if_block_3(ctx) {
     	let current;
     	const quotaused = new QuotaUsed({ $$inline: true });
@@ -47149,14 +47159,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(95:2) {#if loadedUserData.quotaUsed >= loadedUserData.quota}",
+    		source: "(93:2) {#if loadedUserData.quotaUsed >= loadedUserData.quota}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (138:10) {#if $results}
+    // (140:10) {#if $results}
     function create_if_block$f(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -47228,14 +47238,14 @@ var app = (function () {
     		block,
     		id: create_if_block$f.name,
     		type: "if",
-    		source: "(138:10) {#if $results}",
+    		source: "(140:10) {#if $results}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (148:12) {:else}
+    // (150:12) {:else}
     function create_else_block$6(ctx) {
     	let current;
 
@@ -47277,14 +47287,14 @@ var app = (function () {
     		block,
     		id: create_else_block$6.name,
     		type: "else",
-    		source: "(148:12) {:else}",
+    		source: "(150:12) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (144:40) 
+    // (146:40) 
     function create_if_block_2$4(ctx) {
     	let div;
     	let t_value = /*$results*/ ctx[6][0].error + "";
@@ -47295,7 +47305,7 @@ var app = (function () {
     			div = element("div");
     			t = text(t_value);
     			attr_dev(div, "class", "notification is-danger is-light");
-    			add_location(div, file$k, 144, 14, 3894);
+    			add_location(div, file$k, 146, 14, 3950);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -47315,14 +47325,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2$4.name,
     		type: "if",
-    		source: "(144:40) ",
+    		source: "(146:40) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (140:12) {#if $results.length === 0}
+    // (142:12) {#if $results.length === 0}
     function create_if_block_1$7(ctx) {
     	let progress;
 
@@ -47332,7 +47342,7 @@ var app = (function () {
     			progress.textContent = "15%";
     			attr_dev(progress, "class", "progress is-small is-primary");
     			attr_dev(progress, "max", "100");
-    			add_location(progress, file$k, 140, 14, 3735);
+    			add_location(progress, file$k, 142, 14, 3791);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, progress, anchor);
@@ -47349,7 +47359,7 @@ var app = (function () {
     		block,
     		id: create_if_block_1$7.name,
     		type: "if",
-    		source: "(140:12) {#if $results.length === 0}",
+    		source: "(142:12) {#if $results.length === 0}",
     		ctx
     	});
 
@@ -47404,9 +47414,10 @@ var app = (function () {
 
     	const crawlelements = new CrawlElements({
     			props: {
+    				storeId: crawlsElementsDefault[0].id,
     				elements: /*elements*/ ctx[4],
     				parentIndeces: [],
-    				storeId: crawlsElementsDefault[0].id
+    				staticView: false
     			},
     			$$inline: true
     		});
@@ -47451,48 +47462,48 @@ var app = (function () {
     			div7 = element("div");
     			if (if_block1) if_block1.c();
     			attr_dev(h1, "class", "title");
-    			add_location(h1, file$k, 85, 8, 1873);
+    			add_location(h1, file$k, 83, 8, 1861);
     			attr_dev(h2, "class", "subtitle");
-    			add_location(h2, file$k, 86, 8, 1914);
+    			add_location(h2, file$k, 84, 8, 1902);
     			attr_dev(div0, "class", "container");
-    			add_location(div0, file$k, 84, 6, 1841);
+    			add_location(div0, file$k, 82, 6, 1829);
     			attr_dev(div1, "class", "hero-body");
-    			add_location(div1, file$k, 83, 4, 1811);
+    			add_location(div1, file$k, 81, 4, 1799);
     			attr_dev(section0, "class", "hero is-small is-light is-bold");
-    			add_location(section0, file$k, 82, 2, 1758);
+    			add_location(section0, file$k, 80, 2, 1746);
     			attr_dev(input0, "class", "input is-rounded");
     			attr_dev(input0, "placeholder", "Crawl Name");
     			attr_dev(input0, "type", "text");
     			toggle_class(input0, "is-danger", /*crawlAlreadyExists*/ ctx[3].length > 0);
-    			add_location(input0, file$k, 101, 10, 2352);
+    			add_location(input0, file$k, 99, 10, 2340);
     			attr_dev(p, "class", "help is-danger svelte-17n7i3i");
-    			add_location(p, file$k, 111, 10, 2690);
+    			add_location(p, file$k, 109, 10, 2678);
     			attr_dev(div2, "class", "column is-3");
-    			add_location(div2, file$k, 100, 8, 2316);
+    			add_location(div2, file$k, 98, 8, 2304);
     			attr_dev(input1, "class", "input is-rounded");
     			attr_dev(input1, "placeholder", "URL");
     			attr_dev(input1, "type", "text");
-    			add_location(input1, file$k, 115, 10, 2801);
+    			add_location(input1, file$k, 113, 10, 2789);
     			attr_dev(div3, "class", "column is-7");
-    			add_location(div3, file$k, 114, 8, 2765);
+    			add_location(div3, file$k, 112, 8, 2753);
     			attr_dev(button, "class", "button is-primary crawlButton svelte-17n7i3i");
     			button.disabled = button_disabled_value = /*url*/ ctx[1].length === 0 || !/*elements*/ ctx[4].some(func) || /*loadedUserData*/ ctx[0].quotaUsed >= /*loadedUserData*/ ctx[0].quota || /*crawlName*/ ctx[2].length === 0;
-    			add_location(button, file$k, 122, 10, 2990);
+    			add_location(button, file$k, 120, 10, 2978);
     			attr_dev(div4, "class", "column is-2");
-    			add_location(div4, file$k, 121, 8, 2954);
+    			add_location(div4, file$k, 119, 8, 2942);
     			attr_dev(div5, "class", "columns");
-    			add_location(div5, file$k, 99, 6, 2286);
+    			add_location(div5, file$k, 97, 6, 2274);
     			attr_dev(div6, "class", "cloumn is-5 container");
-    			add_location(div6, file$k, 132, 8, 3350);
+    			add_location(div6, file$k, 130, 8, 3338);
     			attr_dev(div7, "class", "column is-6 container text");
-    			add_location(div7, file$k, 136, 8, 3505);
+    			add_location(div7, file$k, 138, 8, 3561);
     			attr_dev(div8, "class", "columns elements svelte-17n7i3i");
-    			add_location(div8, file$k, 131, 6, 3311);
+    			add_location(div8, file$k, 129, 6, 3299);
     			attr_dev(div9, "class", "container");
-    			add_location(div9, file$k, 98, 4, 2256);
+    			add_location(div9, file$k, 96, 4, 2244);
     			attr_dev(section1, "class", "section");
-    			add_location(section1, file$k, 97, 2, 2226);
-    			add_location(main, file$k, 81, 0, 1749);
+    			add_location(section1, file$k, 95, 2, 2214);
+    			add_location(main, file$k, 79, 0, 1737);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -47538,17 +47549,17 @@ var app = (function () {
     			if (remount) run_all(dispose);
 
     			dispose = [
-    				listen_dev(input0, "input", /*input0_input_handler*/ ctx[11]),
-    				listen_dev(input0, "input", /*input_handler*/ ctx[12], false, false, false),
+    				listen_dev(input0, "input", /*input0_input_handler*/ ctx[12]),
+    				listen_dev(input0, "input", /*input_handler*/ ctx[13], false, false, false),
     				listen_dev(input0, "blur", /*checkIfCrawlExists*/ ctx[8], false, false, false),
-    				listen_dev(input1, "input", /*input1_input_handler*/ ctx[13]),
+    				listen_dev(input1, "input", /*input1_input_handler*/ ctx[14]),
     				listen_dev(button, "click", /*addCrawl*/ ctx[7], false, false, false)
     			];
     		},
     		p: function update(ctx, [dirty]) {
     			const link_changes = {};
 
-    			if (dirty & /*$$scope*/ 16384) {
+    			if (dirty & /*$$scope*/ 32768) {
     				link_changes.$$scope = { dirty, ctx };
     			}
 
@@ -47677,10 +47688,10 @@ var app = (function () {
 
     	onMount(() => {
     		crawlElements.set(crawlsElementsDefault);
+    	});
 
-    		const crawlElements$ = crawlElements.subscribe(c => {
-    			$$invalidate(4, elements = c[0].elements);
-    		});
+    	const crawlElements$ = crawlElements.subscribe(c => {
+    		$$invalidate(4, elements = c[0].elements);
     	});
 
     	async function addCrawl() {
@@ -47766,6 +47777,7 @@ var app = (function () {
     		count_value,
     		elements,
     		results,
+    		crawlElements$,
     		addCrawl,
     		checkIfCrawlExists,
     		$results
@@ -47798,6 +47810,7 @@ var app = (function () {
     		checkIfCrawlExists,
     		uid,
     		count_value,
+    		crawlElements$,
     		input0_input_handler,
     		input_handler,
     		input1_input_handler
@@ -50155,29 +50168,152 @@ var app = (function () {
     }
 
     /* src/components/User/Profile/Profile.svelte generated by Svelte v3.22.3 */
-
     const file$q = "src/components/User/Profile/Profile.svelte";
 
     function create_fragment$s(ctx) {
-    	let div;
+    	let section0;
+    	let div1;
+    	let div0;
+    	let h1;
+    	let t1;
+    	let section1;
+    	let div8;
+    	let div4;
+    	let div3;
+    	let t2;
+    	let div2;
+    	let span0;
+    	let t4;
+    	let span1;
+    	let t5_value = `${/*user*/ ctx[0].displayName}` + "";
+    	let t5;
+    	let t6;
+    	let div7;
+    	let div6;
+    	let div5;
+    	let t7;
+    	let t8_value = /*userData*/ ctx[1].quotaUsed + "";
+    	let t8;
+    	let t9;
+    	let t10_value = /*userData*/ ctx[1].quota + "";
+    	let t10;
+    	let current;
+
+    	const profilepciture = new ProfilePicture({
+    			props: {
+    				imgSrc: /*userData*/ ctx[1].imgSrc,
+    				size: "L"
+    			},
+    			$$inline: true
+    		});
 
     	const block = {
     		c: function create() {
-    			div = element("div");
-    			div.textContent = "PROFILE OF A BITCH";
-    			add_location(div, file$q, 7, 0, 96);
+    			section0 = element("section");
+    			div1 = element("div");
+    			div0 = element("div");
+    			h1 = element("h1");
+    			h1.textContent = "Profile";
+    			t1 = space();
+    			section1 = element("section");
+    			div8 = element("div");
+    			div4 = element("div");
+    			div3 = element("div");
+    			create_component(profilepciture.$$.fragment);
+    			t2 = space();
+    			div2 = element("div");
+    			span0 = element("span");
+    			span0.textContent = "Hello there ";
+    			t4 = space();
+    			span1 = element("span");
+    			t5 = text(t5_value);
+    			t6 = space();
+    			div7 = element("div");
+    			div6 = element("div");
+    			div5 = element("div");
+    			t7 = text("Quota ");
+    			t8 = text(t8_value);
+    			t9 = text("/");
+    			t10 = text(t10_value);
+    			attr_dev(h1, "class", "title");
+    			add_location(h1, file$q, 24, 6, 453);
+    			attr_dev(div0, "class", "container");
+    			add_location(div0, file$q, 23, 4, 423);
+    			attr_dev(div1, "class", "hero-body");
+    			add_location(div1, file$q, 22, 2, 395);
+    			attr_dev(section0, "class", "hero is-small is-light is-bold");
+    			add_location(section0, file$q, 21, 0, 344);
+    			attr_dev(span0, "title", "General Kenobi");
+    			add_location(span0, file$q, 35, 10, 740);
+    			add_location(span1, file$q, 36, 10, 804);
+    			attr_dev(div2, "class", "row svelte-1icz8ps");
+    			add_location(div2, file$q, 34, 8, 712);
+    			attr_dev(div3, "class", "box profileContainer svelte-1icz8ps");
+    			add_location(div3, file$q, 32, 6, 608);
+    			attr_dev(div4, "class", "column is-6");
+    			add_location(div4, file$q, 31, 4, 576);
+    			add_location(div5, file$q, 43, 8, 943);
+    			attr_dev(div6, "class", "box");
+    			add_location(div6, file$q, 42, 6, 917);
+    			attr_dev(div7, "class", "column is-6");
+    			add_location(div7, file$q, 41, 4, 885);
+    			attr_dev(div8, "class", "container row svelte-1icz8ps");
+    			add_location(div8, file$q, 30, 2, 544);
+    			attr_dev(section1, "class", "section");
+    			add_location(section1, file$q, 29, 0, 516);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div, anchor);
+    			insert_dev(target, section0, anchor);
+    			append_dev(section0, div1);
+    			append_dev(div1, div0);
+    			append_dev(div0, h1);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, section1, anchor);
+    			append_dev(section1, div8);
+    			append_dev(div8, div4);
+    			append_dev(div4, div3);
+    			mount_component(profilepciture, div3, null);
+    			append_dev(div3, t2);
+    			append_dev(div3, div2);
+    			append_dev(div2, span0);
+    			append_dev(div2, t4);
+    			append_dev(div2, span1);
+    			append_dev(span1, t5);
+    			append_dev(div8, t6);
+    			append_dev(div8, div7);
+    			append_dev(div7, div6);
+    			append_dev(div6, div5);
+    			append_dev(div5, t7);
+    			append_dev(div5, t8);
+    			append_dev(div5, t9);
+    			append_dev(div5, t10);
+    			current = true;
     		},
-    		p: noop,
-    		i: noop,
-    		o: noop,
+    		p: function update(ctx, [dirty]) {
+    			const profilepciture_changes = {};
+    			if (dirty & /*userData*/ 2) profilepciture_changes.imgSrc = /*userData*/ ctx[1].imgSrc;
+    			profilepciture.$set(profilepciture_changes);
+    			if ((!current || dirty & /*user*/ 1) && t5_value !== (t5_value = `${/*user*/ ctx[0].displayName}` + "")) set_data_dev(t5, t5_value);
+    			if ((!current || dirty & /*userData*/ 2) && t8_value !== (t8_value = /*userData*/ ctx[1].quotaUsed + "")) set_data_dev(t8, t8_value);
+    			if ((!current || dirty & /*userData*/ 2) && t10_value !== (t10_value = /*userData*/ ctx[1].quota + "")) set_data_dev(t10, t10_value);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(profilepciture.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(profilepciture.$$.fragment, local);
+    			current = false;
+    		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div);
+    			if (detaching) detach_dev(section0);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(section1);
+    			destroy_component(profilepciture);
     		}
     	};
 
@@ -50192,8 +50328,10 @@ var app = (function () {
     	return block;
     }
 
-    function instance$s($$self, $$props) {
-    	const writable_props = [];
+    function instance$s($$self, $$props, $$invalidate) {
+    	let { user } = $$props;
+    	let { userData } = $$props;
+    	const writable_props = ["user", "userData"];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Profile> was created with unknown prop '${key}'`);
@@ -50201,13 +50339,35 @@ var app = (function () {
 
     	let { $$slots = {}, $$scope } = $$props;
     	validate_slots("Profile", $$slots, []);
-    	return [];
+
+    	$$self.$set = $$props => {
+    		if ("user" in $$props) $$invalidate(0, user = $$props.user);
+    		if ("userData" in $$props) $$invalidate(1, userData = $$props.userData);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		ProfilePciture: ProfilePicture,
+    		userDbData,
+    		user,
+    		userData
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("user" in $$props) $$invalidate(0, user = $$props.user);
+    		if ("userData" in $$props) $$invalidate(1, userData = $$props.userData);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [user, userData];
     }
 
     class Profile extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$s, create_fragment$s, safe_not_equal, {});
+    		init(this, options, instance$s, create_fragment$s, safe_not_equal, { user: 0, userData: 1 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -50215,6 +50375,33 @@ var app = (function () {
     			options,
     			id: create_fragment$s.name
     		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*user*/ ctx[0] === undefined && !("user" in props)) {
+    			console.warn("<Profile> was created without expected prop 'user'");
+    		}
+
+    		if (/*userData*/ ctx[1] === undefined && !("userData" in props)) {
+    			console.warn("<Profile> was created without expected prop 'userData'");
+    		}
+    	}
+
+    	get user() {
+    		throw new Error("<Profile>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set user(value) {
+    		throw new Error("<Profile>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get userData() {
+    		throw new Error("<Profile>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set userData(value) {
+    		throw new Error("<Profile>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
 
@@ -50666,6 +50853,7 @@ var app = (function () {
     		m: function mount(target, anchor) {
     			insert_dev(target, t, anchor);
     		},
+    		p: noop,
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
@@ -50687,7 +50875,14 @@ var app = (function () {
     // (90:6) {#if loadedUser && $userDbData}
     function create_if_block$i(ctx) {
     	let current;
-    	const profile = new Profile({ $$inline: true });
+
+    	const profile = new Profile({
+    			props: {
+    				user: /*loadedUser*/ ctx[1],
+    				userData: /*$userDbData*/ ctx[4]
+    			},
+    			$$inline: true
+    		});
 
     	const block = {
     		c: function create() {
@@ -50696,6 +50891,12 @@ var app = (function () {
     		m: function mount(target, anchor) {
     			mount_component(profile, target, anchor);
     			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const profile_changes = {};
+    			if (dirty & /*loadedUser*/ 2) profile_changes.user = /*loadedUser*/ ctx[1];
+    			if (dirty & /*$userDbData*/ 16) profile_changes.userData = /*$userDbData*/ ctx[4];
+    			profile.$set(profile_changes);
     		},
     		i: function intro(local) {
     			if (current) return;
@@ -50753,7 +50954,9 @@ var app = (function () {
     			let previous_block_index = current_block_type_index;
     			current_block_type_index = select_block_type_2(ctx);
 
-    			if (current_block_type_index !== previous_block_index) {
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(ctx, dirty);
+    			} else {
     				group_outros();
 
     				transition_out(if_blocks[previous_block_index], 1, 1, () => {

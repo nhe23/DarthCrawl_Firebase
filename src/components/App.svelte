@@ -88,7 +88,7 @@
 
     <Route path="user/profile">
       {#if loadedUser && $userDbData}
-        <Profile />
+        <Profile user={loadedUser} userData={$userDbData}/>
       {:else}NOT LOGGED IN{/if}
     </Route>
   </Router>
