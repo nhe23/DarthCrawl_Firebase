@@ -29,7 +29,7 @@
   async function save() {
     saving = true;
     const createTime = firebase.firestore.Timestamp.now();
-    crawl.elements = storedElements;
+    crawl.elements = elements;
     crawl.createTime = createTime;
     await setCrawl(crawl);
     let result = newestCrawlResult(crawl.id, createTime).subscribe(r => {

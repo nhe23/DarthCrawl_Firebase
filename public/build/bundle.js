@@ -2469,6 +2469,8 @@ var app = (function () {
 
     const crawlElements = writable(crawlsElementsDefault);
 
+    const myCrawls = writable(null);
+
     var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
     function unwrapExports (x) {
@@ -39845,7 +39847,7 @@ var app = (function () {
         .where("uid", "==", uid)
         .orderBy("createDate");
 
-      return collectionData(query, "id").pipe(startWith([{ url: "test" }]));
+      return collectionData(query, "id");
     };
 
     const userData = async (uid) => {
@@ -48131,28 +48133,28 @@ var app = (function () {
     			button2 = element("button");
     			button2.textContent = "Cancel";
     			attr_dev(div0, "class", "modal-background");
-    			add_location(div0, file$n, 45, 2, 1213);
+    			add_location(div0, file$n, 45, 2, 1207);
     			attr_dev(p, "class", "modal-card-title has-text-white");
-    			add_location(p, file$n, 48, 6, 1316);
+    			add_location(p, file$n, 48, 6, 1310);
     			attr_dev(button0, "class", "delete");
     			attr_dev(button0, "aria-label", "close");
-    			add_location(button0, file$n, 49, 6, 1380);
+    			add_location(button0, file$n, 49, 6, 1374);
     			attr_dev(header, "class", "modal-card-head");
-    			add_location(header, file$n, 47, 4, 1277);
+    			add_location(header, file$n, 47, 4, 1271);
     			attr_dev(section, "class", "modal-card-body");
-    			add_location(section, file$n, 51, 4, 1460);
+    			add_location(section, file$n, 51, 4, 1454);
     			attr_dev(button1, "class", "button is-primary");
     			toggle_class(button1, "is-loading", /*saving*/ ctx[2]);
-    			add_location(button1, file$n, 60, 6, 1677);
+    			add_location(button1, file$n, 60, 6, 1671);
     			attr_dev(button2, "class", "button");
-    			add_location(button2, file$n, 66, 6, 1821);
+    			add_location(button2, file$n, 66, 6, 1815);
     			attr_dev(footer, "class", "modal-card-foot");
-    			add_location(footer, file$n, 59, 4, 1638);
+    			add_location(footer, file$n, 59, 4, 1632);
     			attr_dev(div1, "class", "modal-card");
-    			add_location(div1, file$n, 46, 2, 1248);
+    			add_location(div1, file$n, 46, 2, 1242);
     			attr_dev(div2, "class", "modal is-active");
     			toggle_class(div2, "is-active", /*editCrawl*/ ctx[3]);
-    			add_location(div2, file$n, 44, 0, 1153);
+    			add_location(div2, file$n, 44, 0, 1147);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -48250,7 +48252,7 @@ var app = (function () {
     	async function save() {
     		$$invalidate(2, saving = true);
     		const createTime = index_cjs$3.firestore.Timestamp.now();
-    		$$invalidate(1, crawl.elements = storedElements, crawl);
+    		$$invalidate(1, crawl.elements = elements, crawl);
     		$$invalidate(1, crawl.createTime = createTime, crawl);
     		await setCrawl(crawl);
 
@@ -48361,7 +48363,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (134:6) {:else}
+    // (145:6) {:else}
     function create_else_block_2(ctx) {
     	let span;
     	let i;
@@ -48372,9 +48374,9 @@ var app = (function () {
     			span = element("span");
     			i = element("i");
     			attr_dev(i, "class", "fas fa-chevron-down");
-    			add_location(i, file$o, 137, 10, 3420);
+    			add_location(i, file$o, 154, 10, 3968);
     			attr_dev(span, "class", "icon is-small has-text-link");
-    			add_location(span, file$o, 134, 8, 3299);
+    			add_location(span, file$o, 145, 8, 3677);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, span, anchor);
@@ -48395,14 +48397,14 @@ var app = (function () {
     		block,
     		id: create_else_block_2.name,
     		type: "else",
-    		source: "(134:6) {:else}",
+    		source: "(145:6) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (107:6) {#if showElements}
+    // (112:6) {#if crawl.showElements}
     function create_if_block_3$1(ctx) {
     	let span0;
     	let i0;
@@ -48417,15 +48419,15 @@ var app = (function () {
 
     	const crawlelements = new CrawlElements({
     			props: {
-    				storeId: /*crawl*/ ctx[0].id,
-    				elements: /*elements*/ ctx[5],
+    				storeId: /*crawl*/ ctx[2].dbCrawl.id,
+    				elements: /*elements*/ ctx[4],
     				parentIndeces: [],
     				staticView: true
     			},
     			$$inline: true
     		});
 
-    	let if_block = /*editCrawl*/ ctx[4] && create_if_block_4(ctx);
+    	let if_block = /*editCrawl*/ ctx[3] && create_if_block_4(ctx);
 
     	const block = {
     		c: function create() {
@@ -48440,13 +48442,13 @@ var app = (function () {
     			if (if_block) if_block.c();
     			if_block_anchor = empty();
     			attr_dev(i0, "class", "fas fa-chevron-up");
-    			add_location(i0, file$o, 110, 10, 2695);
+    			add_location(i0, file$o, 121, 10, 3051);
     			attr_dev(span0, "class", "icon is-small has-text-link");
-    			add_location(span0, file$o, 107, 8, 2574);
+    			add_location(span0, file$o, 112, 8, 2760);
     			attr_dev(i1, "class", "fas fa-edit");
-    			add_location(i1, file$o, 122, 10, 3009);
+    			add_location(i1, file$o, 133, 10, 3373);
     			attr_dev(span1, "class", "icon is-small edit svelte-jtarl5");
-    			add_location(span1, file$o, 117, 8, 2884);
+    			add_location(span1, file$o, 128, 8, 3248);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, span0, anchor);
@@ -48469,15 +48471,15 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const crawlelements_changes = {};
-    			if (dirty & /*crawl*/ 1) crawlelements_changes.storeId = /*crawl*/ ctx[0].id;
-    			if (dirty & /*elements*/ 32) crawlelements_changes.elements = /*elements*/ ctx[5];
+    			if (dirty & /*crawl*/ 4) crawlelements_changes.storeId = /*crawl*/ ctx[2].dbCrawl.id;
+    			if (dirty & /*elements*/ 16) crawlelements_changes.elements = /*elements*/ ctx[4];
     			crawlelements.$set(crawlelements_changes);
 
-    			if (/*editCrawl*/ ctx[4]) {
+    			if (/*editCrawl*/ ctx[3]) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
 
-    					if (dirty & /*editCrawl*/ 16) {
+    					if (dirty & /*editCrawl*/ 8) {
     						transition_in(if_block, 1);
     					}
     				} else {
@@ -48524,26 +48526,26 @@ var app = (function () {
     		block,
     		id: create_if_block_3$1.name,
     		type: "if",
-    		source: "(107:6) {#if showElements}",
+    		source: "(112:6) {#if crawl.showElements}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (125:8) {#if editCrawl}
+    // (136:8) {#if editCrawl}
     function create_if_block_4(ctx) {
     	let current;
 
     	const editcrawl = new EditCrawl({
     			props: {
-    				elements: /*elements*/ ctx[5],
-    				crawl: /*crawl*/ ctx[0]
+    				elements: /*elements*/ ctx[4],
+    				crawl: /*crawl*/ ctx[2].dbCrawl
     			},
     			$$inline: true
     		});
 
-    	editcrawl.$on("cancel", /*resetCrawlElements*/ ctx[13]);
+    	editcrawl.$on("cancel", /*resetCrawlElements*/ ctx[12]);
     	editcrawl.$on("close", /*close_handler*/ ctx[18]);
 
     	const block = {
@@ -48556,8 +48558,8 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const editcrawl_changes = {};
-    			if (dirty & /*elements*/ 32) editcrawl_changes.elements = /*elements*/ ctx[5];
-    			if (dirty & /*crawl*/ 1) editcrawl_changes.crawl = /*crawl*/ ctx[0];
+    			if (dirty & /*elements*/ 16) editcrawl_changes.elements = /*elements*/ ctx[4];
+    			if (dirty & /*crawl*/ 4) editcrawl_changes.crawl = /*crawl*/ ctx[2].dbCrawl;
     			editcrawl.$set(editcrawl_changes);
     		},
     		i: function intro(local) {
@@ -48578,14 +48580,14 @@ var app = (function () {
     		block,
     		id: create_if_block_4.name,
     		type: "if",
-    		source: "(125:8) {#if editCrawl}",
+    		source: "(136:8) {#if editCrawl}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (164:6) {:else}
+    // (187:6) {:else}
     function create_else_block_1$1(ctx) {
     	let span;
     	let i;
@@ -48596,9 +48598,9 @@ var app = (function () {
     			span = element("span");
     			i = element("i");
     			attr_dev(i, "class", "fas fa-chevron-down");
-    			add_location(i, file$o, 167, 10, 4230);
+    			add_location(i, file$o, 196, 10, 5124);
     			attr_dev(span, "class", "icon is-small has-text-link");
-    			add_location(span, file$o, 164, 8, 4111);
+    			add_location(span, file$o, 187, 8, 4835);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, span, anchor);
@@ -48619,14 +48621,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1$1.name,
     		type: "else",
-    		source: "(164:6) {:else}",
+    		source: "(187:6) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (145:6) {#if showResults}
+    // (162:6) {#if crawl.showResults}
     function create_if_block$g(ctx) {
     	let span;
     	let i;
@@ -48658,9 +48660,9 @@ var app = (function () {
 
     			each_1_anchor = empty();
     			attr_dev(i, "class", "fas fa-chevron-up");
-    			add_location(i, file$o, 148, 10, 3688);
+    			add_location(i, file$o, 171, 10, 4412);
     			attr_dev(span, "class", "icon is-small has-text-link");
-    			add_location(span, file$o, 145, 8, 3569);
+    			add_location(span, file$o, 162, 8, 4123);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, span, anchor);
@@ -48736,14 +48738,14 @@ var app = (function () {
     		block,
     		id: create_if_block$g.name,
     		type: "if",
-    		source: "(145:6) {#if showResults}",
+    		source: "(162:6) {#if crawl.showResults}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (158:10) {:else}
+    // (181:10) {:else}
     function create_else_block$7(ctx) {
     	let ul;
     	let li;
@@ -48755,8 +48757,8 @@ var app = (function () {
     			li = element("li");
     			li.textContent = "Loading";
     			t1 = space();
-    			add_location(li, file$o, 159, 14, 4022);
-    			add_location(ul, file$o, 158, 12, 4003);
+    			add_location(li, file$o, 182, 14, 4746);
+    			add_location(ul, file$o, 181, 12, 4727);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, ul, anchor);
@@ -48775,14 +48777,14 @@ var app = (function () {
     		block,
     		id: create_else_block$7.name,
     		type: "else",
-    		source: "(158:10) {:else}",
+    		source: "(181:10) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (154:33) 
+    // (177:33) 
     function create_if_block_2$5(ctx) {
     	let ul;
     	let li;
@@ -48794,8 +48796,8 @@ var app = (function () {
     			li = element("li");
     			li.textContent = "Run had errors";
     			t1 = space();
-    			add_location(li, file$o, 155, 14, 3931);
-    			add_location(ul, file$o, 154, 12, 3912);
+    			add_location(li, file$o, 178, 14, 4655);
+    			add_location(ul, file$o, 177, 12, 4636);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, ul, anchor);
@@ -48814,14 +48816,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2$5.name,
     		type: "if",
-    		source: "(154:33) ",
+    		source: "(177:33) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (152:10) {#if result.crawlResults}
+    // (175:10) {#if result.crawlResults}
     function create_if_block_1$8(ctx) {
     	let current;
 
@@ -48861,14 +48863,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$8.name,
     		type: "if",
-    		source: "(152:10) {#if result.crawlResults}",
+    		source: "(175:10) {#if result.crawlResults}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (151:8) {#each $results as result}
+    // (174:8) {#each $results as result}
     function create_each_block$4(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -48940,7 +48942,7 @@ var app = (function () {
     		block,
     		id: create_each_block$4.name,
     		type: "each",
-    		source: "(151:8) {#each $results as result}",
+    		source: "(174:8) {#each $results as result}",
     		ctx
     	});
 
@@ -48953,12 +48955,12 @@ var app = (function () {
     	let div1;
     	let div0;
     	let a;
-    	let t0_value = /*crawl*/ ctx[0].crawlName + "";
+    	let t0_value = /*crawl*/ ctx[2].crawlName + "";
     	let t0;
     	let a_href_value;
     	let t1;
     	let div2;
-    	let t2_value = /*crawl*/ ctx[0].createDate.toDate().toLocaleString() + "";
+    	let t2_value = /*crawl*/ ctx[2].dbCrawl.createDate.toDate().toLocaleString() + "";
     	let t2;
     	let t3;
     	let div3;
@@ -48986,7 +48988,7 @@ var app = (function () {
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
-    		if (/*showElements*/ ctx[3]) return 0;
+    		if (/*crawl*/ ctx[2].showElements) return 0;
     		return 1;
     	}
 
@@ -48996,7 +48998,7 @@ var app = (function () {
     	const if_blocks_1 = [];
 
     	function select_block_type_1(ctx, dirty) {
-    		if (/*showResults*/ ctx[2]) return 0;
+    		if (/*crawl*/ ctx[2].showResults) return 0;
     		return 1;
     	}
 
@@ -49031,42 +49033,42 @@ var app = (function () {
     			button1 = element("button");
     			span1 = element("span");
     			i1 = element("i");
-    			attr_dev(a, "href", a_href_value = /*crawl*/ ctx[0].url);
+    			attr_dev(a, "href", a_href_value = /*crawl*/ ctx[2].dbCrawl.url);
     			attr_dev(a, "target", "_blank");
-    			add_location(a, file$o, 99, 8, 2324);
+    			add_location(a, file$o, 102, 8, 2476);
     			attr_dev(div0, "class", "url svelte-jtarl5");
-    			add_location(div0, file$o, 98, 6, 2298);
+    			add_location(div0, file$o, 101, 6, 2450);
     			attr_dev(div1, "class", "column is-3 urlBlock svelte-jtarl5");
-    			add_location(div1, file$o, 97, 4, 2257);
+    			add_location(div1, file$o, 100, 4, 2409);
     			attr_dev(div2, "class", "column is-2");
-    			add_location(div2, file$o, 103, 4, 2411);
+    			add_location(div2, file$o, 106, 4, 2571);
     			attr_dev(div3, "class", "column is-3 elements svelte-jtarl5");
-    			add_location(div3, file$o, 104, 4, 2491);
+    			add_location(div3, file$o, 109, 4, 2671);
     			attr_dev(div4, "class", "column is-3");
-    			add_location(div4, file$o, 142, 4, 3498);
+    			add_location(div4, file$o, 159, 4, 4046);
     			attr_dev(i0, "class", "fas fa-redo-alt");
-    			add_location(i0, file$o, 183, 10, 4636);
+    			add_location(i0, file$o, 212, 10, 5530);
     			attr_dev(span0, "class", "icon");
-    			add_location(span0, file$o, 182, 8, 4606);
+    			add_location(span0, file$o, 211, 8, 5500);
     			button0.disabled = button0_disabled_value = !/*userHasQuotaLeft*/ ctx[1];
     			attr_dev(button0, "class", "button");
     			attr_dev(button0, "title", "Recrawl");
-    			toggle_class(button0, "is-loading", /*reCrawlLoading*/ ctx[6]);
-    			add_location(button0, file$o, 176, 6, 4436);
+    			toggle_class(button0, "is-loading", /*reCrawlLoading*/ ctx[5]);
+    			add_location(button0, file$o, 205, 6, 5330);
     			attr_dev(i1, "class", "fas fa-minus-circle has-text-danger");
-    			add_location(i1, file$o, 192, 10, 4878);
+    			add_location(i1, file$o, 221, 10, 5772);
     			attr_dev(span1, "class", "icon");
-    			add_location(span1, file$o, 191, 8, 4848);
+    			add_location(span1, file$o, 220, 8, 5742);
     			attr_dev(button1, "class", "button");
     			attr_dev(button1, "title", "Delete");
-    			toggle_class(button1, "is-loading", /*deleteCrawlLoading*/ ctx[7]);
-    			add_location(button1, file$o, 186, 6, 4704);
+    			toggle_class(button1, "is-loading", /*deleteCrawlLoading*/ ctx[6]);
+    			add_location(button1, file$o, 215, 6, 5598);
     			attr_dev(div5, "class", "column is-1");
-    			add_location(div5, file$o, 175, 4, 4404);
+    			add_location(div5, file$o, 204, 4, 5298);
     			attr_dev(div6, "class", "columns");
-    			add_location(div6, file$o, 96, 2, 2231);
+    			add_location(div6, file$o, 99, 2, 2383);
     			attr_dev(div7, "class", "box");
-    			add_location(div7, file$o, 95, 0, 2211);
+    			add_location(div7, file$o, 98, 0, 2363);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -49102,18 +49104,18 @@ var app = (function () {
     			if (remount) run_all(dispose);
 
     			dispose = [
-    				listen_dev(button0, "click", /*reCrawl*/ ctx[11], false, false, false),
-    				listen_dev(button1, "click", /*deleteUserCrawl*/ ctx[12], false, false, false)
+    				listen_dev(button0, "click", /*reCrawl*/ ctx[10], false, false, false),
+    				listen_dev(button1, "click", /*deleteUserCrawl*/ ctx[11], false, false, false)
     			];
     		},
     		p: function update(ctx, [dirty]) {
-    			if ((!current || dirty & /*crawl*/ 1) && t0_value !== (t0_value = /*crawl*/ ctx[0].crawlName + "")) set_data_dev(t0, t0_value);
+    			if ((!current || dirty & /*crawl*/ 4) && t0_value !== (t0_value = /*crawl*/ ctx[2].crawlName + "")) set_data_dev(t0, t0_value);
 
-    			if (!current || dirty & /*crawl*/ 1 && a_href_value !== (a_href_value = /*crawl*/ ctx[0].url)) {
+    			if (!current || dirty & /*crawl*/ 4 && a_href_value !== (a_href_value = /*crawl*/ ctx[2].dbCrawl.url)) {
     				attr_dev(a, "href", a_href_value);
     			}
 
-    			if ((!current || dirty & /*crawl*/ 1) && t2_value !== (t2_value = /*crawl*/ ctx[0].createDate.toDate().toLocaleString() + "")) set_data_dev(t2, t2_value);
+    			if ((!current || dirty & /*crawl*/ 4) && t2_value !== (t2_value = /*crawl*/ ctx[2].dbCrawl.createDate.toDate().toLocaleString() + "")) set_data_dev(t2, t2_value);
     			let previous_block_index = current_block_type_index;
     			current_block_type_index = select_block_type(ctx);
 
@@ -49166,12 +49168,12 @@ var app = (function () {
     				prop_dev(button0, "disabled", button0_disabled_value);
     			}
 
-    			if (dirty & /*reCrawlLoading*/ 64) {
-    				toggle_class(button0, "is-loading", /*reCrawlLoading*/ ctx[6]);
+    			if (dirty & /*reCrawlLoading*/ 32) {
+    				toggle_class(button0, "is-loading", /*reCrawlLoading*/ ctx[5]);
     			}
 
-    			if (dirty & /*deleteCrawlLoading*/ 128) {
-    				toggle_class(button1, "is-loading", /*deleteCrawlLoading*/ ctx[7]);
+    			if (dirty & /*deleteCrawlLoading*/ 64) {
+    				toggle_class(button1, "is-loading", /*deleteCrawlLoading*/ ctx[6]);
     			}
     		},
     		i: function intro(local) {
@@ -49205,46 +49207,38 @@ var app = (function () {
     }
 
     function instance$q($$self, $$props, $$invalidate) {
-    	let $results;
-    	let { crawl } = $$props;
+    	let $results,
+    		$$unsubscribe_results = noop,
+    		$$subscribe_results = () => ($$unsubscribe_results(), $$unsubscribe_results = subscribe(results, $$value => $$invalidate(8, $results = $$value)), results);
+
+    	$$self.$$.on_destroy.push(() => $$unsubscribe_results());
+    	let { crawlName } = $$props;
     	let { userHasQuotaLeft } = $$props;
-    	let showResults = false;
-    	let showElements = false;
-    	let results = crawlResults(crawl.id);
-    	validate_store(results, "results");
-    	component_subscribe($$self, results, value => $$invalidate(8, $results = value));
+    	let crawl;
     	let result;
     	let editCrawl = false;
     	let crawlEditable;
     	let elements;
     	let reCrawlLoading = false;
 
-    	const crawlElements$ = crawlElements.subscribe(c => {
-    		const storedCrawl = c.find(e => e.id === crawl.id);
-
-    		if (storedCrawl) {
-    			$$invalidate(5, elements = storedCrawl.elements);
-    		}
-    	});
-
     	onMount(() => {
     		crawlElements.update(c => [
     			...c,
     			{
-    				id: crawl.id,
-    				elements: crawl.crawlElements
+    				id: crawl.dbCrawl.id,
+    				elements: crawl.dbCrawl.crawlElements
     			}
     		]);
     	});
 
     	async function reCrawl() {
-    		$$invalidate(6, reCrawlLoading = true);
+    		$$invalidate(5, reCrawlLoading = true);
     		const createTime = index_cjs$3.firestore.Timestamp.now();
-    		await setReCrawl(crawl.id, createTime);
+    		await setReCrawl(crawl.dbCrawl.id, createTime);
 
-    		$$invalidate(9, result = newestCrawlResult(crawl.id, createTime).subscribe(r => {
+    		$$invalidate(9, result = newestCrawlResult(crawl.dbCrawl.id, createTime).subscribe(r => {
     			if (r.length > 0) {
-    				$$invalidate(6, reCrawlLoading = false);
+    				$$invalidate(5, reCrawlLoading = false);
     			}
     		}));
     	}
@@ -49252,12 +49246,12 @@ var app = (function () {
     	let deleteCrawlLoading = false;
 
     	function deleteUserCrawl() {
-    		$$invalidate(7, deleteCrawlLoading = true);
-    		deleteCrawl(crawl.id).then(() => $$invalidate(7, deleteCrawlLoading = false));
+    		$$invalidate(6, deleteCrawlLoading = true);
+    		deleteCrawl(crawl.dbCrawl.id).then(() => $$invalidate(6, deleteCrawlLoading = false));
     	}
 
     	function resetCrawlElements() {
-    		$$invalidate(4, editCrawl = false);
+    		$$invalidate(3, editCrawl = false);
 
     		crawlElements.update(c => {
     			const crawlEdit = c.find(e => e.id === crawl.id);
@@ -49266,7 +49260,7 @@ var app = (function () {
     		});
     	}
 
-    	const writable_props = ["crawl", "userHasQuotaLeft"];
+    	const writable_props = ["crawlName", "userHasQuotaLeft"];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<MyCrawl> was created with unknown prop '${key}'`);
@@ -49274,22 +49268,49 @@ var app = (function () {
 
     	let { $$slots = {}, $$scope } = $$props;
     	validate_slots("MyCrawl", $$slots, []);
-    	const click_handler = () => $$invalidate(3, showElements = !showElements);
+
+    	const click_handler = () => {
+    		myCrawls.update(m => {
+    			const c = m.find(n => n.crawlName === crawlName);
+    			c.showElements = !c.showElements;
+    			return m;
+    		});
+    	};
 
     	const click_handler_1 = () => {
-    		$$invalidate(4, editCrawl = true);
+    		$$invalidate(3, editCrawl = true);
     	};
 
     	const close_handler = () => {
-    		$$invalidate(4, editCrawl = false);
+    		$$invalidate(3, editCrawl = false);
     	};
 
-    	const click_handler_2 = () => $$invalidate(3, showElements = !showElements);
-    	const click_handler_3 = () => $$invalidate(2, showResults = !showResults);
-    	const click_handler_4 = () => $$invalidate(2, showResults = !showResults);
+    	const click_handler_2 = () => {
+    		myCrawls.update(m => {
+    			const c = m.find(n => n.crawlName === crawlName);
+    			c.showElements = !c.showElements;
+    			return m;
+    		});
+    	};
+
+    	const click_handler_3 = () => {
+    		myCrawls.update(m => {
+    			const c = m.find(n => n.crawlName === crawlName);
+    			c.showResults = !c.showResults;
+    			return m;
+    		});
+    	};
+
+    	const click_handler_4 = () => {
+    		myCrawls.update(m => {
+    			const c = m.find(n => n.crawlName === crawlName);
+    			c.showResults = !c.showResults;
+    			return m;
+    		});
+    	};
 
     	$$self.$set = $$props => {
-    		if ("crawl" in $$props) $$invalidate(0, crawl = $$props.crawl);
+    		if ("crawlName" in $$props) $$invalidate(0, crawlName = $$props.crawlName);
     		if ("userHasQuotaLeft" in $$props) $$invalidate(1, userHasQuotaLeft = $$props.userHasQuotaLeft);
     	};
 
@@ -49299,68 +49320,97 @@ var app = (function () {
     		startWith,
     		fade,
     		onMount,
+    		onDestroy,
     		crawlResults,
     		deleteCrawl,
     		setReCrawl,
     		newestCrawlResult,
     		firebase: index_cjs$3,
     		crawlElements,
+    		myCrawls,
     		CrawlElements,
     		CrawlResults,
     		EditCrawl,
-    		crawl,
+    		crawlName,
     		userHasQuotaLeft,
-    		showResults,
-    		showElements,
-    		results,
+    		crawl,
     		result,
     		editCrawl,
     		crawlEditable,
     		elements,
     		reCrawlLoading,
-    		crawlElements$,
     		reCrawl,
     		deleteCrawlLoading,
     		deleteUserCrawl,
     		resetCrawlElements,
+    		results,
+    		myCrawls$,
+    		crawlElements$,
     		$results
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ("crawl" in $$props) $$invalidate(0, crawl = $$props.crawl);
+    		if ("crawlName" in $$props) $$invalidate(0, crawlName = $$props.crawlName);
     		if ("userHasQuotaLeft" in $$props) $$invalidate(1, userHasQuotaLeft = $$props.userHasQuotaLeft);
-    		if ("showResults" in $$props) $$invalidate(2, showResults = $$props.showResults);
-    		if ("showElements" in $$props) $$invalidate(3, showElements = $$props.showElements);
-    		if ("results" in $$props) $$invalidate(10, results = $$props.results);
+    		if ("crawl" in $$props) $$invalidate(2, crawl = $$props.crawl);
     		if ("result" in $$props) $$invalidate(9, result = $$props.result);
-    		if ("editCrawl" in $$props) $$invalidate(4, editCrawl = $$props.editCrawl);
+    		if ("editCrawl" in $$props) $$invalidate(3, editCrawl = $$props.editCrawl);
     		if ("crawlEditable" in $$props) crawlEditable = $$props.crawlEditable;
-    		if ("elements" in $$props) $$invalidate(5, elements = $$props.elements);
-    		if ("reCrawlLoading" in $$props) $$invalidate(6, reCrawlLoading = $$props.reCrawlLoading);
-    		if ("deleteCrawlLoading" in $$props) $$invalidate(7, deleteCrawlLoading = $$props.deleteCrawlLoading);
+    		if ("elements" in $$props) $$invalidate(4, elements = $$props.elements);
+    		if ("reCrawlLoading" in $$props) $$invalidate(5, reCrawlLoading = $$props.reCrawlLoading);
+    		if ("deleteCrawlLoading" in $$props) $$invalidate(6, deleteCrawlLoading = $$props.deleteCrawlLoading);
+    		if ("results" in $$props) $$subscribe_results($$invalidate(7, results = $$props.results));
+    		if ("myCrawls$" in $$props) myCrawls$ = $$props.myCrawls$;
+    		if ("crawlElements$" in $$props) crawlElements$ = $$props.crawlElements$;
     	};
+
+    	let results;
+    	let myCrawls$;
+    	let crawlElements$;
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*crawlName*/ 1) {
+    			 myCrawls$ = myCrawls.subscribe(m => {
+    				$$invalidate(2, crawl = m.find(f => f.crawlName === crawlName));
+    			});
+    		}
+
+    		if ($$self.$$.dirty & /*crawl*/ 4) {
+    			 $$subscribe_results($$invalidate(7, results = crawl ? crawlResults(crawl.dbCrawl.id) : null));
+    		}
+
+    		if ($$self.$$.dirty & /*crawl*/ 4) {
+    			 crawlElements$ = crawlElements.subscribe(c => {
+    				const storedCrawl = c.find(e => e.id === crawl.dbCrawl.id);
+
+    				if (storedCrawl) {
+    					$$invalidate(4, elements = storedCrawl.elements);
+    				}
+    			});
+    		}
+    	};
+
     	return [
-    		crawl,
+    		crawlName,
     		userHasQuotaLeft,
-    		showResults,
-    		showElements,
+    		crawl,
     		editCrawl,
     		elements,
     		reCrawlLoading,
     		deleteCrawlLoading,
+    		results,
     		$results,
     		result,
-    		results,
     		reCrawl,
     		deleteUserCrawl,
     		resetCrawlElements,
-    		crawlEditable,
+    		myCrawls$,
     		crawlElements$,
+    		crawlEditable,
     		click_handler,
     		click_handler_1,
     		close_handler,
@@ -49373,7 +49423,7 @@ var app = (function () {
     class MyCrawl extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$q, create_fragment$q, safe_not_equal, { crawl: 0, userHasQuotaLeft: 1 });
+    		init(this, options, instance$q, create_fragment$q, safe_not_equal, { crawlName: 0, userHasQuotaLeft: 1 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -49385,8 +49435,8 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*crawl*/ ctx[0] === undefined && !("crawl" in props)) {
-    			console.warn("<MyCrawl> was created without expected prop 'crawl'");
+    		if (/*crawlName*/ ctx[0] === undefined && !("crawlName" in props)) {
+    			console.warn("<MyCrawl> was created without expected prop 'crawlName'");
     		}
 
     		if (/*userHasQuotaLeft*/ ctx[1] === undefined && !("userHasQuotaLeft" in props)) {
@@ -49394,11 +49444,11 @@ var app = (function () {
     		}
     	}
 
-    	get crawl() {
+    	get crawlName() {
     		throw new Error("<MyCrawl>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
-    	set crawl(value) {
+    	set crawlName(value) {
     		throw new Error("<MyCrawl>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
@@ -49412,16 +49462,18 @@ var app = (function () {
     }
 
     /* src/components/Crawl/MyCrawls.svelte generated by Svelte v3.22.3 */
+
+    const { console: console_1$9 } = globals;
     const file$p = "src/components/Crawl/MyCrawls.svelte";
 
     function get_each_context$5(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[14] = list[i];
+    	child_ctx[16] = list[i];
     	return child_ctx;
     }
 
-    // (104:0) {#if !userHasQuotaLeft}
-    function create_if_block_2$6(ctx) {
+    // (148:0) {#if !userHasQuotaLeft}
+    function create_if_block_3$2(ctx) {
     	let current;
     	const quotaused = new QuotaUsed({ $$inline: true });
 
@@ -49449,16 +49501,16 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_2$6.name,
+    		id: create_if_block_3$2.name,
     		type: "if",
-    		source: "(104:0) {#if !userHasQuotaLeft}",
+    		source: "(148:0) {#if !userHasQuotaLeft}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (112:4) {:else}
+    // (156:4) {:else}
     function create_else_block$8(ctx) {
     	let div6;
     	let div5;
@@ -49486,20 +49538,10 @@ var app = (function () {
     	let span5;
     	let i3;
     	let t8;
-    	let each_1_anchor;
+    	let if_block_anchor;
     	let current;
     	let dispose;
-    	let each_value = /*filteredCrawls*/ ctx[1];
-    	validate_each_argument(each_value);
-    	let each_blocks = [];
-
-    	for (let i = 0; i < each_value.length; i += 1) {
-    		each_blocks[i] = create_each_block$5(get_each_context$5(ctx, each_value, i));
-    	}
-
-    	const out = i => transition_out(each_blocks[i], 1, 1, () => {
-    		each_blocks[i] = null;
-    	});
+    	let if_block = /*filteredCrawls*/ ctx[0] && create_if_block_1$9(ctx);
 
     	const block = {
     		c: function create() {
@@ -49531,51 +49573,47 @@ var app = (function () {
     			span5 = element("span");
     			i3 = element("i");
     			t8 = space();
-
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].c();
-    			}
-
-    			each_1_anchor = empty();
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty();
     			attr_dev(span0, "class", "headerText svelte-1fqoijs");
-    			add_location(span0, file$p, 115, 12, 2774);
+    			add_location(span0, file$p, 159, 12, 3987);
     			attr_dev(i0, "class", "fas fa-sort");
-    			add_location(i0, file$p, 119, 14, 2940);
+    			add_location(i0, file$p, 163, 14, 4153);
     			attr_dev(span1, "class", "icon is-small has-text-primary sortIcon svelte-1fqoijs");
-    			add_location(span1, file$p, 116, 12, 2823);
+    			add_location(span1, file$p, 160, 12, 4036);
     			attr_dev(div0, "class", "column is-3 headerColumn svelte-1fqoijs");
-    			add_location(div0, file$p, 114, 10, 2723);
+    			add_location(div0, file$p, 158, 10, 3936);
     			attr_dev(span2, "class", "headerText svelte-1fqoijs");
-    			add_location(span2, file$p, 123, 12, 3064);
+    			add_location(span2, file$p, 167, 12, 4277);
     			attr_dev(i1, "class", "fas fa-sort");
-    			add_location(i1, file$p, 127, 14, 3235);
+    			add_location(i1, file$p, 171, 14, 4448);
     			attr_dev(span3, "class", "icon is-small has-text-primary sortIcon svelte-1fqoijs");
-    			add_location(span3, file$p, 124, 12, 3118);
+    			add_location(span3, file$p, 168, 12, 4331);
     			attr_dev(div1, "class", "column is-2 headerColumn svelte-1fqoijs");
-    			add_location(div1, file$p, 122, 10, 3013);
+    			add_location(div1, file$p, 166, 10, 4226);
     			attr_dev(input, "class", "input has-background-grey has-text-white svelte-1fqoijs");
     			attr_dev(input, "type", "text");
-    			add_location(input, file$p, 133, 16, 3431);
+    			add_location(input, file$p, 177, 16, 4644);
     			attr_dev(i2, "class", "fas fa-search has-text-white");
-    			add_location(i2, file$p, 139, 18, 3693);
+    			add_location(i2, file$p, 183, 18, 4906);
     			attr_dev(span4, "class", "icon is-small is-left");
-    			add_location(span4, file$p, 138, 16, 3638);
+    			add_location(span4, file$p, 182, 16, 4851);
     			attr_dev(p, "class", "control has-icons-left");
-    			add_location(p, file$p, 132, 14, 3380);
+    			add_location(p, file$p, 176, 14, 4593);
     			attr_dev(div2, "class", "field");
-    			add_location(div2, file$p, 131, 12, 3346);
+    			add_location(div2, file$p, 175, 12, 4559);
     			attr_dev(div3, "class", "column is-6");
-    			add_location(div3, file$p, 130, 10, 3308);
+    			add_location(div3, file$p, 174, 10, 4521);
     			attr_dev(i3, "class", "fas fa-filter has-text-primary");
-    			add_location(i3, file$p, 148, 14, 3912);
+    			add_location(i3, file$p, 192, 14, 5125);
     			attr_dev(span5, "class", "icon");
-    			add_location(span5, file$p, 147, 12, 3878);
+    			add_location(span5, file$p, 191, 12, 5091);
     			attr_dev(div4, "class", "column is-1 headerColumn svelte-1fqoijs");
-    			add_location(div4, file$p, 145, 10, 3826);
+    			add_location(div4, file$p, 189, 10, 5039);
     			attr_dev(div5, "class", "columns");
-    			add_location(div5, file$p, 113, 8, 2691);
+    			add_location(div5, file$p, 157, 8, 3904);
     			attr_dev(div6, "class", "box has-background-grey has-text-white");
-    			add_location(div6, file$p, 112, 6, 2630);
+    			add_location(div6, file$p, 156, 6, 3843);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, div6, anchor);
@@ -49596,7 +49634,7 @@ var app = (function () {
     			append_dev(div3, div2);
     			append_dev(div2, p);
     			append_dev(p, input);
-    			set_input_value(input, /*searchText*/ ctx[2]);
+    			set_input_value(input, /*searchText*/ ctx[1]);
     			append_dev(p, t6);
     			append_dev(p, span4);
     			append_dev(span4, i2);
@@ -49605,29 +49643,140 @@ var app = (function () {
     			append_dev(div4, span5);
     			append_dev(span5, i3);
     			insert_dev(target, t8, anchor);
-
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].m(target, anchor);
-    			}
-
-    			insert_dev(target, each_1_anchor, anchor);
+    			if (if_block) if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
     			current = true;
     			if (remount) run_all(dispose);
 
     			dispose = [
     				listen_dev(span1, "click", /*sortName*/ ctx[6], false, false, false),
     				listen_dev(span3, "click", /*sortDate*/ ctx[5], false, false, false),
-    				listen_dev(input, "input", /*input_input_handler*/ ctx[13]),
+    				listen_dev(input, "input", /*input_input_handler*/ ctx[15]),
     				listen_dev(input, "input", /*filterCrawls*/ ctx[4], false, false, false)
     			];
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*searchText*/ 4 && input.value !== /*searchText*/ ctx[2]) {
-    				set_input_value(input, /*searchText*/ ctx[2]);
+    			if (dirty & /*searchText*/ 2 && input.value !== /*searchText*/ ctx[1]) {
+    				set_input_value(input, /*searchText*/ ctx[1]);
     			}
 
-    			if (dirty & /*filteredCrawls, userHasQuotaLeft*/ 10) {
-    				each_value = /*filteredCrawls*/ ctx[1];
+    			if (/*filteredCrawls*/ ctx[0]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+
+    					if (dirty & /*filteredCrawls*/ 1) {
+    						transition_in(if_block, 1);
+    					}
+    				} else {
+    					if_block = create_if_block_1$9(ctx);
+    					if_block.c();
+    					transition_in(if_block, 1);
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			} else if (if_block) {
+    				group_outros();
+
+    				transition_out(if_block, 1, 1, () => {
+    					if_block = null;
+    				});
+
+    				check_outros();
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div6);
+    			if (detaching) detach_dev(t8);
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block$8.name,
+    		type: "else",
+    		source: "(156:4) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (154:4) {#if myCrawlsLocal && myCrawlsLocal.length === 0}
+    function create_if_block$h(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("No crawls yet");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$h.name,
+    		type: "if",
+    		source: "(154:4) {#if myCrawlsLocal && myCrawlsLocal.length === 0}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (200:6) {#if filteredCrawls}
+    function create_if_block_1$9(ctx) {
+    	let each_1_anchor;
+    	let current;
+    	let each_value = /*filteredCrawls*/ ctx[0];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$5(get_each_context$5(ctx, each_value, i));
+    	}
+
+    	const out = i => transition_out(each_blocks[i], 1, 1, () => {
+    		each_blocks[i] = null;
+    	});
+
+    	const block = {
+    		c: function create() {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			each_1_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, each_1_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*filteredCrawls, userHasQuotaLeft*/ 9) {
+    				each_value = /*filteredCrawls*/ ctx[0];
     				validate_each_argument(each_value);
     				let i;
 
@@ -49673,62 +49822,29 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div6);
-    			if (detaching) detach_dev(t8);
     			destroy_each(each_blocks, detaching);
     			if (detaching) detach_dev(each_1_anchor);
-    			run_all(dispose);
     		}
     	};
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block$8.name,
-    		type: "else",
-    		source: "(112:4) {:else}",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (110:4) {#if crawls.length === 0}
-    function create_if_block$h(ctx) {
-    	let t;
-
-    	const block = {
-    		c: function create() {
-    			t = text("No crawls yet");
-    		},
-    		m: function mount(target, anchor) {
-    			insert_dev(target, t, anchor);
-    		},
-    		p: noop,
-    		i: noop,
-    		o: noop,
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(t);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_if_block$h.name,
+    		id: create_if_block_1$9.name,
     		type: "if",
-    		source: "(110:4) {#if crawls.length === 0}",
+    		source: "(200:6) {#if filteredCrawls}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (157:8) {#if crawl.createDate}
-    function create_if_block_1$9(ctx) {
+    // (202:10) {#if crawl.dbCrawl.createDate}
+    function create_if_block_2$6(ctx) {
     	let current;
 
     	const mycrawl = new MyCrawl({
     			props: {
-    				crawl: /*crawl*/ ctx[14],
+    				crawlName: /*crawl*/ ctx[16].crawlName,
     				userHasQuotaLeft: /*userHasQuotaLeft*/ ctx[3]
     			},
     			$$inline: true
@@ -49744,7 +49860,7 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const mycrawl_changes = {};
-    			if (dirty & /*filteredCrawls*/ 2) mycrawl_changes.crawl = /*crawl*/ ctx[14];
+    			if (dirty & /*filteredCrawls*/ 1) mycrawl_changes.crawlName = /*crawl*/ ctx[16].crawlName;
     			if (dirty & /*userHasQuotaLeft*/ 8) mycrawl_changes.userHasQuotaLeft = /*userHasQuotaLeft*/ ctx[3];
     			mycrawl.$set(mycrawl_changes);
     		},
@@ -49764,20 +49880,20 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$9.name,
+    		id: create_if_block_2$6.name,
     		type: "if",
-    		source: "(157:8) {#if crawl.createDate}",
+    		source: "(202:10) {#if crawl.dbCrawl.createDate}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (156:6) {#each filteredCrawls as crawl}
+    // (201:8) {#each filteredCrawls as crawl}
     function create_each_block$5(ctx) {
     	let if_block_anchor;
     	let current;
-    	let if_block = /*crawl*/ ctx[14].createDate && create_if_block_1$9(ctx);
+    	let if_block = /*crawl*/ ctx[16].dbCrawl.createDate && create_if_block_2$6(ctx);
 
     	const block = {
     		c: function create() {
@@ -49790,15 +49906,15 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if (/*crawl*/ ctx[14].createDate) {
+    			if (/*crawl*/ ctx[16].dbCrawl.createDate) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
 
-    					if (dirty & /*filteredCrawls*/ 2) {
+    					if (dirty & /*filteredCrawls*/ 1) {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block_1$9(ctx);
+    					if_block = create_if_block_2$6(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -49832,7 +49948,7 @@ var app = (function () {
     		block,
     		id: create_each_block$5.name,
     		type: "each",
-    		source: "(156:6) {#each filteredCrawls as crawl}",
+    		source: "(201:8) {#each filteredCrawls as crawl}",
     		ctx
     	});
 
@@ -49851,12 +49967,12 @@ var app = (function () {
     	let current_block_type_index;
     	let if_block1;
     	let current;
-    	let if_block0 = !/*userHasQuotaLeft*/ ctx[3] && create_if_block_2$6(ctx);
+    	let if_block0 = !/*userHasQuotaLeft*/ ctx[3] && create_if_block_3$2(ctx);
     	const if_block_creators = [create_if_block$h, create_else_block$8];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
-    		if (/*crawls*/ ctx[0].length === 0) return 0;
+    		if (/*myCrawlsLocal*/ ctx[2] && /*myCrawlsLocal*/ ctx[2].length === 0) return 0;
     		return 1;
     	}
 
@@ -49877,17 +49993,17 @@ var app = (function () {
     			div2 = element("div");
     			if_block1.c();
     			attr_dev(h1, "class", "title");
-    			add_location(h1, file$p, 96, 6, 2294);
+    			add_location(h1, file$p, 140, 6, 3483);
     			attr_dev(div0, "class", "container");
-    			add_location(div0, file$p, 95, 4, 2264);
+    			add_location(div0, file$p, 139, 4, 3453);
     			attr_dev(div1, "class", "hero-body");
-    			add_location(div1, file$p, 94, 2, 2236);
+    			add_location(div1, file$p, 138, 2, 3425);
     			attr_dev(section0, "class", "hero is-small is-light is-bold");
-    			add_location(section0, file$p, 93, 0, 2185);
+    			add_location(section0, file$p, 137, 0, 3374);
     			attr_dev(div2, "class", "container");
-    			add_location(div2, file$p, 108, 2, 2538);
+    			add_location(div2, file$p, 152, 2, 3727);
     			attr_dev(section1, "class", "section");
-    			add_location(section1, file$p, 107, 0, 2510);
+    			add_location(section1, file$p, 151, 0, 3699);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -49912,7 +50028,7 @@ var app = (function () {
     						transition_in(if_block0, 1);
     					}
     				} else {
-    					if_block0 = create_if_block_2$6(ctx);
+    					if_block0 = create_if_block_3$2(ctx);
     					if_block0.c();
     					transition_in(if_block0, 1);
     					if_block0.m(t2.parentNode, t2);
@@ -49987,17 +50103,60 @@ var app = (function () {
     	let { uid } = $$props;
     	let { loadedUserData } = $$props;
     	let crawls = [];
-    	let filteredCrawls = [];
+    	let filteredCrawls;
     	let userCralws = userCrawls(uid);
     	let searchText = "";
     	let nameSortedDesc = false;
     	let dateSortedDesc = false;
+    	let myCrawlsLocal;
+
+    	const myCrawls$ = myCrawls.subscribe(m => {
+    		$$invalidate(2, myCrawlsLocal = m);
+    		if (!filteredCrawls) return $$invalidate(0, filteredCrawls = myCrawlsLocal);
+
+    		$$invalidate(0, filteredCrawls = filteredCrawls.map(f => {
+    			const storedCrawl = m.find(c => c.crawlName === f.crawlName);
+    			return storedCrawl;
+    		}));
+    	});
 
     	const userCrawls$ = userCralws.subscribe(c => {
-    		$$invalidate(0, crawls = c);
+    		if (!myCrawlsLocal) {
+    			const crawls = [];
 
-    		if (searchText === "") {
-    			$$invalidate(1, filteredCrawls = c);
+    			for (const crawl of c) {
+    				crawls.push({
+    					crawlName: crawl.crawlName,
+    					dbCrawl: crawl,
+    					showElements: false,
+    					showResults: false,
+    					deleteCrawlLoading: false,
+    					reCrawlLoading: false
+    				});
+    			}
+
+    			console.log(crawls);
+    			myCrawls.update(u => crawls);
+    			return;
+    		}
+
+    		for (const crawl of c) {
+    			if (!crawl.createDate) return;
+
+    			if (!myCrawlsLocal.some(m => m && m.crawlName === crawl.crawlName)) {
+    				myCrawls.update(u => {
+    					u.push();
+    					return u;
+    				});
+    			} else {
+    				myCrawls.update(u => {
+    					u = u.map(m => {
+    						m.dbCrawl = crawl;
+    					});
+
+    					return u;
+    				});
+    			}
     		}
     	});
 
@@ -50007,29 +50166,33 @@ var app = (function () {
 
     	function filterCrawls() {
     		if (searchText === "") {
-    			$$invalidate(1, filteredCrawls = crawls);
+    			$$invalidate(0, filteredCrawls = myCrawlsLocal);
     			return;
     		}
 
-    		$$invalidate(1, filteredCrawls = crawls.filter(c => {
-    			return c.crawlName.toLowerCase().includes(searchText.toLowerCase()) || c.url.toLowerCase().includes(searchText.toLowerCase());
+    		$$invalidate(0, filteredCrawls = myCrawlsLocal.filter(c => {
+    			return c.crawlName.toLowerCase().includes(searchText.toLowerCase()) || c.dbCrawl.url.toLowerCase().includes(searchText.toLowerCase());
     		}));
+
+    		myCrawls.update(m => m);
     	}
 
     	function sortDate() {
-    		$$invalidate(1, filteredCrawls = filteredCrawls.sort((a, b) => {
-    			const dateASeconds = a.createDate.seconds;
-    			const dateBSeconds = b.createDate.seconds;
+    		$$invalidate(0, filteredCrawls = filteredCrawls.sort((a, b) => {
+    			const dateASeconds = a.dbCrawl.createDate.seconds;
+    			const dateBSeconds = b.dbCrawl.createDate.seconds;
     			dateSortedDesc = !dateSortedDesc;
 
     			return dateSortedDesc
     			? dateASeconds - dateBSeconds
     			: dateBSeconds - dateASeconds;
     		}));
+
+    		myCrawls.update(m => m);
     	}
 
     	function sortName() {
-    		$$invalidate(1, filteredCrawls = filteredCrawls.sort((a, b) => {
+    		$$invalidate(0, filteredCrawls = filteredCrawls.sort((a, b) => {
     			const nameA = a.crawlName.toUpperCase();
     			const nameB = b.crawlName.toUpperCase();
     			let returnValue = 0;
@@ -50043,12 +50206,14 @@ var app = (function () {
     			nameSortedDesc = !nameSortedDesc;
     			return returnValue;
     		}));
+
+    		myCrawls.update(m => m);
     	}
 
     	const writable_props = ["uid", "loadedUserData"];
 
     	Object.keys($$props).forEach(key => {
-    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<MyCrawls> was created with unknown prop '${key}'`);
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$9.warn(`<MyCrawls> was created with unknown prop '${key}'`);
     	});
 
     	let { $$slots = {}, $$scope } = $$props;
@@ -50056,7 +50221,7 @@ var app = (function () {
 
     	function input_input_handler() {
     		searchText = this.value;
-    		$$invalidate(2, searchText);
+    		$$invalidate(1, searchText);
     	}
 
     	$$self.$set = $$props => {
@@ -50067,6 +50232,7 @@ var app = (function () {
     	$$self.$capture_state = () => ({
     		onDestroy,
     		userCrawls,
+    		myCrawls,
     		MyCrawl,
     		QuotaUsed,
     		uid,
@@ -50077,6 +50243,8 @@ var app = (function () {
     		searchText,
     		nameSortedDesc,
     		dateSortedDesc,
+    		myCrawlsLocal,
+    		myCrawls$,
     		userCrawls$,
     		filterCrawls,
     		sortDate,
@@ -50087,12 +50255,13 @@ var app = (function () {
     	$$self.$inject_state = $$props => {
     		if ("uid" in $$props) $$invalidate(7, uid = $$props.uid);
     		if ("loadedUserData" in $$props) $$invalidate(8, loadedUserData = $$props.loadedUserData);
-    		if ("crawls" in $$props) $$invalidate(0, crawls = $$props.crawls);
-    		if ("filteredCrawls" in $$props) $$invalidate(1, filteredCrawls = $$props.filteredCrawls);
+    		if ("crawls" in $$props) crawls = $$props.crawls;
+    		if ("filteredCrawls" in $$props) $$invalidate(0, filteredCrawls = $$props.filteredCrawls);
     		if ("userCralws" in $$props) userCralws = $$props.userCralws;
-    		if ("searchText" in $$props) $$invalidate(2, searchText = $$props.searchText);
+    		if ("searchText" in $$props) $$invalidate(1, searchText = $$props.searchText);
     		if ("nameSortedDesc" in $$props) nameSortedDesc = $$props.nameSortedDesc;
     		if ("dateSortedDesc" in $$props) dateSortedDesc = $$props.dateSortedDesc;
+    		if ("myCrawlsLocal" in $$props) $$invalidate(2, myCrawlsLocal = $$props.myCrawlsLocal);
     		if ("userHasQuotaLeft" in $$props) $$invalidate(3, userHasQuotaLeft = $$props.userHasQuotaLeft);
     	};
 
@@ -50109,9 +50278,9 @@ var app = (function () {
     	};
 
     	return [
-    		crawls,
     		filteredCrawls,
     		searchText,
+    		myCrawlsLocal,
     		userHasQuotaLeft,
     		filterCrawls,
     		sortDate,
@@ -50120,7 +50289,9 @@ var app = (function () {
     		loadedUserData,
     		nameSortedDesc,
     		dateSortedDesc,
+    		crawls,
     		userCralws,
+    		myCrawls$,
     		userCrawls$,
     		input_input_handler
     	];
@@ -50142,11 +50313,11 @@ var app = (function () {
     		const props = options.props || {};
 
     		if (/*uid*/ ctx[7] === undefined && !("uid" in props)) {
-    			console.warn("<MyCrawls> was created without expected prop 'uid'");
+    			console_1$9.warn("<MyCrawls> was created without expected prop 'uid'");
     		}
 
     		if (/*loadedUserData*/ ctx[8] === undefined && !("loadedUserData" in props)) {
-    			console.warn("<MyCrawls> was created without expected prop 'loadedUserData'");
+    			console_1$9.warn("<MyCrawls> was created without expected prop 'loadedUserData'");
     		}
     	}
 
@@ -50407,11 +50578,11 @@ var app = (function () {
 
     /* src/components/App.svelte generated by Svelte v3.22.3 */
 
-    const { console: console_1$9 } = globals;
+    const { console: console_1$a } = globals;
     const file$r = "src/components/App.svelte";
 
     // (66:2) {#if !userVerified}
-    function create_if_block_3$2(ctx) {
+    function create_if_block_3$3(ctx) {
     	let current;
     	const singupverification = new SignupStepVerification({ $$inline: true });
 
@@ -50439,7 +50610,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_3$2.name,
+    		id: create_if_block_3$3.name,
     		type: "if",
     		source: "(66:2) {#if !userVerified}",
     		ctx
@@ -51175,7 +51346,7 @@ var app = (function () {
     	let main;
     	let t1;
     	let current;
-    	let if_block = !/*userVerified*/ ctx[3] && create_if_block_3$2(ctx);
+    	let if_block = !/*userVerified*/ ctx[3] && create_if_block_3$3(ctx);
 
     	const router = new Router({
     			props: {
@@ -51228,7 +51399,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block_3$2(ctx);
+    					if_block = create_if_block_3$3(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(main, t1);
@@ -51330,7 +51501,7 @@ var app = (function () {
     	const writable_props = ["url"];
 
     	Object.keys($$props).forEach(key => {
-    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$9.warn(`<App> was created with unknown prop '${key}'`);
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$a.warn(`<App> was created with unknown prop '${key}'`);
     	});
 
     	let { $$slots = {}, $$scope } = $$props;

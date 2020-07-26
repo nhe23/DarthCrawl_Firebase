@@ -2,7 +2,7 @@
   import { collectionData, docData } from "rxfire/firestore";
   import { startWith } from "rxjs/operators";
   import { fade } from "svelte/transition";
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import {
     crawlResults,
     deleteCrawl,
@@ -10,16 +10,16 @@
     newestCrawlResult
   } from "../../services/firestore";
   import firebase from "firebase/app";
-  import { crawlElements } from "../../store";
+  import { crawlElements, myCrawls } from "../../store";
   import CrawlElements from "./CrawlElements.svelte";
   import CrawlResults from "./CrawlResults.svelte";
   import EditCrawl from "./EditCrawl.svelte";
-  export let crawl;
+  export let crawlName;
   export let userHasQuotaLeft;
 
-  let showResults = false;
-  let showElements = false;
-  let results = crawlResults(crawl.id);
+  let crawl;
+  $: results = crawl ? crawlResults(crawl.dbCrawl.id) : null;
+
   let result;
   let editCrawl = false;
   let crawlEditable;
@@ -27,8 +27,12 @@
 
   let reCrawlLoading = false;
 
-  const crawlElements$ = crawlElements.subscribe(c => {
-    const storedCrawl = c.find(e => e.id === crawl.id);
+  $: myCrawls$ = myCrawls.subscribe(m => {
+    crawl = m.find(f => f.crawlName === crawlName);
+  });
+
+  $: crawlElements$ = crawlElements.subscribe(c => {
+    const storedCrawl = c.find(e => e.id === crawl.dbCrawl.id);
     if (storedCrawl) {
       elements = storedCrawl.elements;
     }
@@ -37,15 +41,15 @@
   onMount(() => {
     crawlElements.update(c => [
       ...c,
-      { id: crawl.id, elements: crawl.crawlElements }
+      { id: crawl.dbCrawl.id, elements: crawl.dbCrawl.crawlElements }
     ]);
   });
 
   async function reCrawl() {
     reCrawlLoading = true;
     const createTime = firebase.firestore.Timestamp.now();
-    await setReCrawl(crawl.id, createTime);
-    result = newestCrawlResult(crawl.id, createTime).subscribe(r => {
+    await setReCrawl(crawl.dbCrawl.id, createTime);
+    result = newestCrawlResult(crawl.dbCrawl.id, createTime).subscribe(r => {
       if (r.length > 0) {
         reCrawlLoading = false;
       }
@@ -55,9 +59,8 @@
   let deleteCrawlLoading = false;
   function deleteUserCrawl() {
     deleteCrawlLoading = true;
-    deleteCrawl(crawl.id).then(() => (deleteCrawlLoading = false));
+    deleteCrawl(crawl.dbCrawl.id).then(() => (deleteCrawlLoading = false));
   }
-
 
   function resetCrawlElements() {
     editCrawl = false;
@@ -97,21 +100,29 @@
   <div class="columns">
     <div class="column is-3 urlBlock">
       <div class="url">
-        <a href={crawl.url} target="_blank">{crawl.crawlName}</a>
+        <a href={crawl.dbCrawl.url} target="_blank">{crawl.crawlName}</a>
       </div>
 
     </div>
-    <div class="column is-2">{crawl.createDate.toDate().toLocaleString()}</div>
+    <div class="column is-2">
+      {crawl.dbCrawl.createDate.toDate().toLocaleString()}
+    </div>
     <div class="column is-3 elements">
       Elements
-      {#if showElements}
+      {#if crawl.showElements}
         <span
           class="icon is-small has-text-link"
-          on:click={() => (showElements = !showElements)}>
+          on:click={() => {
+            myCrawls.update(m => {
+              const c = m.find(n => n.crawlName === crawlName);
+              c.showElements = !c.showElements;
+              return m;
+            });
+          }}>
           <i class="fas fa-chevron-up" />
         </span>
         <CrawlElements
-          storeId={crawl.id}
+          storeId={crawl.dbCrawl.id}
           {elements}
           parentIndeces={[]}
           staticView={true} />
@@ -129,12 +140,18 @@
               editCrawl = false;
             }}
             {elements}
-            {crawl} />
+            crawl={crawl.dbCrawl} />
         {/if}
       {:else}
         <span
           class="icon is-small has-text-link"
-          on:click={() => (showElements = !showElements)}>
+          on:click={() => {
+            myCrawls.update(m => {
+              const c = m.find(n => n.crawlName === crawlName);
+              c.showElements = !c.showElements;
+              return m;
+            });
+          }}>
           <i class="fas fa-chevron-down" />
         </span>
       {/if}
@@ -142,10 +159,16 @@
 
     <div class="column is-3">
       Result
-      {#if showResults}
+      {#if crawl.showResults}
         <span
           class="icon is-small has-text-link"
-          on:click={() => (showResults = !showResults)}>
+          on:click={() => {
+            myCrawls.update(m => {
+              const c = m.find(n => n.crawlName === crawlName);
+              c.showResults = !c.showResults;
+              return m;
+            });
+          }}>
           <i class="fas fa-chevron-up" />
         </span>
         {#each $results as result}
@@ -164,7 +187,13 @@
       {:else}
         <span
           class="icon is-small has-text-link"
-          on:click={() => (showResults = !showResults)}>
+          on:click={() => {
+            myCrawls.update(m => {
+              const c = m.find(n => n.crawlName === crawlName);
+              c.showResults = !c.showResults;
+              return m;
+            });
+          }}>
           <i class="fas fa-chevron-down" />
         </span>
       {/if}

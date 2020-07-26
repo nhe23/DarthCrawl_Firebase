@@ -17,3 +17,5 @@ export const crawlsElementsDefault = [
 ];
 
 export const crawlElements = writable(crawlsElementsDefault);
+
+export const myCrawls = writable(null);

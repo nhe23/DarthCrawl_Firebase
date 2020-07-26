@@ -8,7 +8,7 @@ export const userCrawls = (uid) => {
     .where("uid", "==", uid)
     .orderBy("createDate");
 
-  return collectionData(query, "id").pipe(startWith([{ url: "test" }]));
+  return collectionData(query, "id");
 };
 
 export const userData = async (uid) => {

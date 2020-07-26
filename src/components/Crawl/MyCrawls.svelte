@@ -1,20 +1,61 @@
 <script>
   import { onDestroy } from "svelte";
   import { userCrawls } from "../../services/firestore";
+  import { myCrawls } from "../../store";
   import MyCrawl from "./MyCrawl.svelte";
   import QuotaUsed from "./QuotaUsed.svelte";
   export let uid;
   export let loadedUserData;
   let crawls = [];
-  let filteredCrawls = [];
+  let filteredCrawls;
   let userCralws = userCrawls(uid);
   let searchText = "";
   let nameSortedDesc = false;
   let dateSortedDesc = false;
+  let myCrawlsLocal;
+
+  const myCrawls$ = myCrawls.subscribe(m => {
+    myCrawlsLocal = m;
+    if (!filteredCrawls) return (filteredCrawls = myCrawlsLocal);
+
+    filteredCrawls = filteredCrawls.map(f => {
+      const storedCrawl = m.find(c => c.crawlName === f.crawlName);
+      return storedCrawl;
+    });
+  });
+
   const userCrawls$ = userCralws.subscribe(c => {
-    crawls = c;
-    if (searchText === "") {
-      filteredCrawls = c;
+    if (!myCrawlsLocal) {
+      const crawls = [];
+      for (const crawl of c) {
+        crawls.push({
+          crawlName: crawl.crawlName,
+          dbCrawl: crawl,
+          showElements: false,
+          showResults: false,
+          deleteCrawlLoading: false,
+          reCrawlLoading: false
+        });
+      }
+      console.log(crawls);
+      myCrawls.update(u => crawls);
+      return;
+    }
+    for (const crawl of c) {
+      if (!crawl.createDate) return;
+      if (!myCrawlsLocal.some(m => m && m.crawlName === crawl.crawlName)) {
+        myCrawls.update(u => {
+          u.push();
+          return u;
+        });
+      } else {
+        myCrawls.update(u => {
+          u = u.map(m => {
+            m.dbCrawl = crawl;
+          });
+          return u;
+        });
+      }
     }
   });
 
@@ -26,26 +67,28 @@
 
   function filterCrawls() {
     if (searchText === "") {
-      filteredCrawls = crawls;
+      filteredCrawls = myCrawlsLocal;
       return;
     }
-    filteredCrawls = crawls.filter(c => {
+    filteredCrawls = myCrawlsLocal.filter(c => {
       return (
         c.crawlName.toLowerCase().includes(searchText.toLowerCase()) ||
-        c.url.toLowerCase().includes(searchText.toLowerCase())
+        c.dbCrawl.url.toLowerCase().includes(searchText.toLowerCase())
       );
     });
+    myCrawls.update(m => m);
   }
 
   function sortDate() {
     filteredCrawls = filteredCrawls.sort((a, b) => {
-      const dateASeconds = a.createDate.seconds;
-      const dateBSeconds = b.createDate.seconds;
+      const dateASeconds = a.dbCrawl.createDate.seconds;
+      const dateBSeconds = b.dbCrawl.createDate.seconds;
       dateSortedDesc = !dateSortedDesc;
       return dateSortedDesc
         ? dateASeconds - dateBSeconds
         : dateBSeconds - dateASeconds;
     });
+    myCrawls.update(m => m);
   }
 
   function sortName() {
@@ -61,6 +104,7 @@
       nameSortedDesc = !nameSortedDesc;
       return returnValue;
     });
+    myCrawls.update(m => m);
   }
 </script>
 
@@ -107,7 +151,7 @@
 
 <section class="section">
   <div class="container">
-    {#if crawls.length === 0}
+    {#if myCrawlsLocal && myCrawlsLocal.length === 0}
       No crawls yet
     {:else}
       <div class="box has-background-grey has-text-white">
@@ -153,11 +197,13 @@
 
         </div>
       </div>
-      {#each filteredCrawls as crawl}
-        {#if crawl.createDate}
-          <MyCrawl {crawl} {userHasQuotaLeft} />
-        {/if}
-      {/each}
+      {#if filteredCrawls}
+        {#each filteredCrawls as crawl}
+          {#if crawl.dbCrawl.createDate}
+            <MyCrawl crawlName={crawl.crawlName} {userHasQuotaLeft} />
+          {/if}
+        {/each}
+      {/if}
     {/if}
   </div>
 </section>
