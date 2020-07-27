@@ -39870,7 +39870,14 @@ var app = (function () {
       );
     };
 
-    const setCrawl = async ({ id, uid, crawlName, createTime, url, elements }) => {
+    const setCrawl = async ({
+      id,
+      uid,
+      crawlName,
+      createTime,
+      url,
+      elements,
+    }) => {
       return await db$1.collection("crawls").doc(id).set(
         {
           uid,
@@ -39883,8 +39890,8 @@ var app = (function () {
       );
     };
 
-    const checkCrawlExists = async(id) => {
-      return  (await db$1.collection("crawls").doc(id).get()).exists
+    const checkCrawlExists = async (id) => {
+      return (await db$1.collection("crawls").doc(id).get()).exists;
     };
 
     const setReCrawl = async (id, createTime) => {
@@ -48359,11 +48366,11 @@ var app = (function () {
 
     function get_each_context$4(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[9] = list[i];
+    	child_ctx[8] = list[i];
     	return child_ctx;
     }
 
-    // (145:6) {:else}
+    // (151:6) {:else}
     function create_else_block_2(ctx) {
     	let span;
     	let i;
@@ -48374,15 +48381,15 @@ var app = (function () {
     			span = element("span");
     			i = element("i");
     			attr_dev(i, "class", "fas fa-chevron-down");
-    			add_location(i, file$o, 154, 10, 3968);
+    			add_location(i, file$o, 160, 10, 4175);
     			attr_dev(span, "class", "icon is-small has-text-link");
-    			add_location(span, file$o, 145, 8, 3677);
+    			add_location(span, file$o, 151, 8, 3884);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, span, anchor);
     			append_dev(span, i);
     			if (remount) dispose();
-    			dispose = listen_dev(span, "click", /*click_handler_2*/ ctx[19], false, false, false);
+    			dispose = listen_dev(span, "click", /*click_handler_2*/ ctx[18], false, false, false);
     		},
     		p: noop,
     		i: noop,
@@ -48397,14 +48404,14 @@ var app = (function () {
     		block,
     		id: create_else_block_2.name,
     		type: "else",
-    		source: "(145:6) {:else}",
+    		source: "(151:6) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (112:6) {#if crawl.showElements}
+    // (118:6) {#if crawl.showElements}
     function create_if_block_3$1(ctx) {
     	let span0;
     	let i0;
@@ -48442,13 +48449,13 @@ var app = (function () {
     			if (if_block) if_block.c();
     			if_block_anchor = empty();
     			attr_dev(i0, "class", "fas fa-chevron-up");
-    			add_location(i0, file$o, 121, 10, 3051);
+    			add_location(i0, file$o, 127, 10, 3258);
     			attr_dev(span0, "class", "icon is-small has-text-link");
-    			add_location(span0, file$o, 112, 8, 2760);
+    			add_location(span0, file$o, 118, 8, 2967);
     			attr_dev(i1, "class", "fas fa-edit");
-    			add_location(i1, file$o, 133, 10, 3373);
+    			add_location(i1, file$o, 139, 10, 3580);
     			attr_dev(span1, "class", "icon is-small edit svelte-jtarl5");
-    			add_location(span1, file$o, 128, 8, 3248);
+    			add_location(span1, file$o, 134, 8, 3455);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, span0, anchor);
@@ -48465,8 +48472,8 @@ var app = (function () {
     			if (remount) run_all(dispose);
 
     			dispose = [
-    				listen_dev(span0, "click", /*click_handler*/ ctx[16], false, false, false),
-    				listen_dev(span1, "click", /*click_handler_1*/ ctx[17], false, false, false)
+    				listen_dev(span0, "click", /*click_handler*/ ctx[15], false, false, false),
+    				listen_dev(span1, "click", /*click_handler_1*/ ctx[16], false, false, false)
     			];
     		},
     		p: function update(ctx, dirty) {
@@ -48526,14 +48533,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3$1.name,
     		type: "if",
-    		source: "(112:6) {#if crawl.showElements}",
+    		source: "(118:6) {#if crawl.showElements}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (136:8) {#if editCrawl}
+    // (142:8) {#if editCrawl}
     function create_if_block_4(ctx) {
     	let current;
 
@@ -48545,8 +48552,8 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	editcrawl.$on("cancel", /*resetCrawlElements*/ ctx[12]);
-    	editcrawl.$on("close", /*close_handler*/ ctx[18]);
+    	editcrawl.$on("cancel", /*resetCrawlElements*/ ctx[11]);
+    	editcrawl.$on("close", /*close_handler*/ ctx[17]);
 
     	const block = {
     		c: function create() {
@@ -48580,14 +48587,14 @@ var app = (function () {
     		block,
     		id: create_if_block_4.name,
     		type: "if",
-    		source: "(136:8) {#if editCrawl}",
+    		source: "(142:8) {#if editCrawl}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (187:6) {:else}
+    // (193:6) {:else}
     function create_else_block_1$1(ctx) {
     	let span;
     	let i;
@@ -48598,15 +48605,15 @@ var app = (function () {
     			span = element("span");
     			i = element("i");
     			attr_dev(i, "class", "fas fa-chevron-down");
-    			add_location(i, file$o, 196, 10, 5124);
+    			add_location(i, file$o, 202, 10, 5331);
     			attr_dev(span, "class", "icon is-small has-text-link");
-    			add_location(span, file$o, 187, 8, 4835);
+    			add_location(span, file$o, 193, 8, 5042);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, span, anchor);
     			append_dev(span, i);
     			if (remount) dispose();
-    			dispose = listen_dev(span, "click", /*click_handler_4*/ ctx[21], false, false, false);
+    			dispose = listen_dev(span, "click", /*click_handler_4*/ ctx[20], false, false, false);
     		},
     		p: noop,
     		i: noop,
@@ -48621,14 +48628,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1$1.name,
     		type: "else",
-    		source: "(187:6) {:else}",
+    		source: "(193:6) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (162:6) {#if crawl.showResults}
+    // (168:6) {#if crawl.showResults}
     function create_if_block$g(ctx) {
     	let span;
     	let i;
@@ -48636,7 +48643,7 @@ var app = (function () {
     	let each_1_anchor;
     	let current;
     	let dispose;
-    	let each_value = /*$results*/ ctx[8];
+    	let each_value = /*$results*/ ctx[7];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -48660,9 +48667,9 @@ var app = (function () {
 
     			each_1_anchor = empty();
     			attr_dev(i, "class", "fas fa-chevron-up");
-    			add_location(i, file$o, 171, 10, 4412);
+    			add_location(i, file$o, 177, 10, 4619);
     			attr_dev(span, "class", "icon is-small has-text-link");
-    			add_location(span, file$o, 162, 8, 4123);
+    			add_location(span, file$o, 168, 8, 4330);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, span, anchor);
@@ -48676,11 +48683,11 @@ var app = (function () {
     			insert_dev(target, each_1_anchor, anchor);
     			current = true;
     			if (remount) dispose();
-    			dispose = listen_dev(span, "click", /*click_handler_3*/ ctx[20], false, false, false);
+    			dispose = listen_dev(span, "click", /*click_handler_3*/ ctx[19], false, false, false);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*$results*/ 256) {
-    				each_value = /*$results*/ ctx[8];
+    			if (dirty & /*$results*/ 128) {
+    				each_value = /*$results*/ ctx[7];
     				validate_each_argument(each_value);
     				let i;
 
@@ -48738,14 +48745,14 @@ var app = (function () {
     		block,
     		id: create_if_block$g.name,
     		type: "if",
-    		source: "(162:6) {#if crawl.showResults}",
+    		source: "(168:6) {#if crawl.showResults}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (181:10) {:else}
+    // (187:10) {:else}
     function create_else_block$7(ctx) {
     	let ul;
     	let li;
@@ -48757,8 +48764,8 @@ var app = (function () {
     			li = element("li");
     			li.textContent = "Loading";
     			t1 = space();
-    			add_location(li, file$o, 182, 14, 4746);
-    			add_location(ul, file$o, 181, 12, 4727);
+    			add_location(li, file$o, 188, 14, 4953);
+    			add_location(ul, file$o, 187, 12, 4934);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, ul, anchor);
@@ -48777,14 +48784,14 @@ var app = (function () {
     		block,
     		id: create_else_block$7.name,
     		type: "else",
-    		source: "(181:10) {:else}",
+    		source: "(187:10) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (177:33) 
+    // (183:33) 
     function create_if_block_2$5(ctx) {
     	let ul;
     	let li;
@@ -48796,8 +48803,8 @@ var app = (function () {
     			li = element("li");
     			li.textContent = "Run had errors";
     			t1 = space();
-    			add_location(li, file$o, 178, 14, 4655);
-    			add_location(ul, file$o, 177, 12, 4636);
+    			add_location(li, file$o, 184, 14, 4862);
+    			add_location(ul, file$o, 183, 12, 4843);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, ul, anchor);
@@ -48816,19 +48823,19 @@ var app = (function () {
     		block,
     		id: create_if_block_2$5.name,
     		type: "if",
-    		source: "(177:33) ",
+    		source: "(183:33) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (175:10) {#if result.crawlResults}
+    // (181:10) {#if result.crawlResults}
     function create_if_block_1$8(ctx) {
     	let current;
 
     	const crawlresults = new CrawlResults({
-    			props: { results: /*result*/ ctx[9].crawlResults },
+    			props: { results: /*result*/ ctx[8].crawlResults },
     			$$inline: true
     		});
 
@@ -48842,7 +48849,7 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const crawlresults_changes = {};
-    			if (dirty & /*$results*/ 256) crawlresults_changes.results = /*result*/ ctx[9].crawlResults;
+    			if (dirty & /*$results*/ 128) crawlresults_changes.results = /*result*/ ctx[8].crawlResults;
     			crawlresults.$set(crawlresults_changes);
     		},
     		i: function intro(local) {
@@ -48863,14 +48870,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$8.name,
     		type: "if",
-    		source: "(175:10) {#if result.crawlResults}",
+    		source: "(181:10) {#if result.crawlResults}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (174:8) {#each $results as result}
+    // (180:8) {#each $results as result}
     function create_each_block$4(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -48880,8 +48887,8 @@ var app = (function () {
     	const if_blocks = [];
 
     	function select_block_type_2(ctx, dirty) {
-    		if (/*result*/ ctx[9].crawlResults) return 0;
-    		if (/*result*/ ctx[9].error) return 1;
+    		if (/*result*/ ctx[8].crawlResults) return 0;
+    		if (/*result*/ ctx[8].error) return 1;
     		return 2;
     	}
 
@@ -48942,7 +48949,7 @@ var app = (function () {
     		block,
     		id: create_each_block$4.name,
     		type: "each",
-    		source: "(174:8) {#each $results as result}",
+    		source: "(180:8) {#each $results as result}",
     		ctx
     	});
 
@@ -49035,40 +49042,40 @@ var app = (function () {
     			i1 = element("i");
     			attr_dev(a, "href", a_href_value = /*crawl*/ ctx[2].dbCrawl.url);
     			attr_dev(a, "target", "_blank");
-    			add_location(a, file$o, 102, 8, 2476);
+    			add_location(a, file$o, 108, 8, 2683);
     			attr_dev(div0, "class", "url svelte-jtarl5");
-    			add_location(div0, file$o, 101, 6, 2450);
+    			add_location(div0, file$o, 107, 6, 2657);
     			attr_dev(div1, "class", "column is-3 urlBlock svelte-jtarl5");
-    			add_location(div1, file$o, 100, 4, 2409);
+    			add_location(div1, file$o, 106, 4, 2616);
     			attr_dev(div2, "class", "column is-2");
-    			add_location(div2, file$o, 106, 4, 2571);
+    			add_location(div2, file$o, 112, 4, 2778);
     			attr_dev(div3, "class", "column is-3 elements svelte-jtarl5");
-    			add_location(div3, file$o, 109, 4, 2671);
+    			add_location(div3, file$o, 115, 4, 2878);
     			attr_dev(div4, "class", "column is-3");
-    			add_location(div4, file$o, 159, 4, 4046);
+    			add_location(div4, file$o, 165, 4, 4253);
     			attr_dev(i0, "class", "fas fa-redo-alt");
-    			add_location(i0, file$o, 212, 10, 5530);
+    			add_location(i0, file$o, 218, 10, 5743);
     			attr_dev(span0, "class", "icon");
-    			add_location(span0, file$o, 211, 8, 5500);
+    			add_location(span0, file$o, 217, 8, 5713);
     			button0.disabled = button0_disabled_value = !/*userHasQuotaLeft*/ ctx[1];
     			attr_dev(button0, "class", "button");
     			attr_dev(button0, "title", "Recrawl");
-    			toggle_class(button0, "is-loading", /*reCrawlLoading*/ ctx[5]);
-    			add_location(button0, file$o, 205, 6, 5330);
+    			toggle_class(button0, "is-loading", /*crawl*/ ctx[2].reCrawlLoading);
+    			add_location(button0, file$o, 211, 6, 5537);
     			attr_dev(i1, "class", "fas fa-minus-circle has-text-danger");
-    			add_location(i1, file$o, 221, 10, 5772);
+    			add_location(i1, file$o, 227, 10, 5985);
     			attr_dev(span1, "class", "icon");
-    			add_location(span1, file$o, 220, 8, 5742);
+    			add_location(span1, file$o, 226, 8, 5955);
     			attr_dev(button1, "class", "button");
     			attr_dev(button1, "title", "Delete");
-    			toggle_class(button1, "is-loading", /*deleteCrawlLoading*/ ctx[6]);
-    			add_location(button1, file$o, 215, 6, 5598);
+    			toggle_class(button1, "is-loading", /*deleteCrawlLoading*/ ctx[5]);
+    			add_location(button1, file$o, 221, 6, 5811);
     			attr_dev(div5, "class", "column is-1");
-    			add_location(div5, file$o, 204, 4, 5298);
+    			add_location(div5, file$o, 210, 4, 5505);
     			attr_dev(div6, "class", "columns");
-    			add_location(div6, file$o, 99, 2, 2383);
+    			add_location(div6, file$o, 105, 2, 2590);
     			attr_dev(div7, "class", "box");
-    			add_location(div7, file$o, 98, 0, 2363);
+    			add_location(div7, file$o, 104, 0, 2570);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -49104,8 +49111,8 @@ var app = (function () {
     			if (remount) run_all(dispose);
 
     			dispose = [
-    				listen_dev(button0, "click", /*reCrawl*/ ctx[10], false, false, false),
-    				listen_dev(button1, "click", /*deleteUserCrawl*/ ctx[11], false, false, false)
+    				listen_dev(button0, "click", /*reCrawl*/ ctx[9], false, false, false),
+    				listen_dev(button1, "click", /*deleteUserCrawl*/ ctx[10], false, false, false)
     			];
     		},
     		p: function update(ctx, [dirty]) {
@@ -49168,12 +49175,12 @@ var app = (function () {
     				prop_dev(button0, "disabled", button0_disabled_value);
     			}
 
-    			if (dirty & /*reCrawlLoading*/ 32) {
-    				toggle_class(button0, "is-loading", /*reCrawlLoading*/ ctx[5]);
+    			if (dirty & /*crawl*/ 4) {
+    				toggle_class(button0, "is-loading", /*crawl*/ ctx[2].reCrawlLoading);
     			}
 
-    			if (dirty & /*deleteCrawlLoading*/ 64) {
-    				toggle_class(button1, "is-loading", /*deleteCrawlLoading*/ ctx[6]);
+    			if (dirty & /*deleteCrawlLoading*/ 32) {
+    				toggle_class(button1, "is-loading", /*deleteCrawlLoading*/ ctx[5]);
     			}
     		},
     		i: function intro(local) {
@@ -49209,7 +49216,7 @@ var app = (function () {
     function instance$q($$self, $$props, $$invalidate) {
     	let $results,
     		$$unsubscribe_results = noop,
-    		$$subscribe_results = () => ($$unsubscribe_results(), $$unsubscribe_results = subscribe(results, $$value => $$invalidate(8, $results = $$value)), results);
+    		$$subscribe_results = () => ($$unsubscribe_results(), $$unsubscribe_results = subscribe(results, $$value => $$invalidate(7, $results = $$value)), results);
 
     	$$self.$$.on_destroy.push(() => $$unsubscribe_results());
     	let { crawlName } = $$props;
@@ -49219,7 +49226,6 @@ var app = (function () {
     	let editCrawl = false;
     	let crawlEditable;
     	let elements;
-    	let reCrawlLoading = false;
 
     	onMount(() => {
     		crawlElements.update(c => [
@@ -49232,13 +49238,22 @@ var app = (function () {
     	});
 
     	async function reCrawl() {
-    		$$invalidate(5, reCrawlLoading = true);
+    		myCrawls.update(m => {
+    			const c = m.find(n => n.crawlName === crawlName);
+    			c.reCrawlLoading = true;
+    			return m;
+    		});
+
     		const createTime = index_cjs$3.firestore.Timestamp.now();
     		await setReCrawl(crawl.dbCrawl.id, createTime);
 
-    		$$invalidate(9, result = newestCrawlResult(crawl.dbCrawl.id, createTime).subscribe(r => {
+    		$$invalidate(8, result = newestCrawlResult(crawl.dbCrawl.id, createTime).subscribe(r => {
     			if (r.length > 0) {
-    				$$invalidate(5, reCrawlLoading = false);
+    				myCrawls.update(m => {
+    					const c = m.find(n => n.crawlName === crawlName);
+    					c.reCrawlLoading = false;
+    					return m;
+    				});
     			}
     		}));
     	}
@@ -49246,8 +49261,8 @@ var app = (function () {
     	let deleteCrawlLoading = false;
 
     	function deleteUserCrawl() {
-    		$$invalidate(6, deleteCrawlLoading = true);
-    		deleteCrawl(crawl.dbCrawl.id).then(() => $$invalidate(6, deleteCrawlLoading = false));
+    		$$invalidate(5, deleteCrawlLoading = true);
+    		deleteCrawl(crawl.dbCrawl.id).then(() => $$invalidate(5, deleteCrawlLoading = false));
     	}
 
     	function resetCrawlElements() {
@@ -49338,7 +49353,6 @@ var app = (function () {
     		editCrawl,
     		crawlEditable,
     		elements,
-    		reCrawlLoading,
     		reCrawl,
     		deleteCrawlLoading,
     		deleteUserCrawl,
@@ -49353,13 +49367,12 @@ var app = (function () {
     		if ("crawlName" in $$props) $$invalidate(0, crawlName = $$props.crawlName);
     		if ("userHasQuotaLeft" in $$props) $$invalidate(1, userHasQuotaLeft = $$props.userHasQuotaLeft);
     		if ("crawl" in $$props) $$invalidate(2, crawl = $$props.crawl);
-    		if ("result" in $$props) $$invalidate(9, result = $$props.result);
+    		if ("result" in $$props) $$invalidate(8, result = $$props.result);
     		if ("editCrawl" in $$props) $$invalidate(3, editCrawl = $$props.editCrawl);
     		if ("crawlEditable" in $$props) crawlEditable = $$props.crawlEditable;
     		if ("elements" in $$props) $$invalidate(4, elements = $$props.elements);
-    		if ("reCrawlLoading" in $$props) $$invalidate(5, reCrawlLoading = $$props.reCrawlLoading);
-    		if ("deleteCrawlLoading" in $$props) $$invalidate(6, deleteCrawlLoading = $$props.deleteCrawlLoading);
-    		if ("results" in $$props) $$subscribe_results($$invalidate(7, results = $$props.results));
+    		if ("deleteCrawlLoading" in $$props) $$invalidate(5, deleteCrawlLoading = $$props.deleteCrawlLoading);
+    		if ("results" in $$props) $$subscribe_results($$invalidate(6, results = $$props.results));
     		if ("myCrawls$" in $$props) myCrawls$ = $$props.myCrawls$;
     		if ("crawlElements$" in $$props) crawlElements$ = $$props.crawlElements$;
     	};
@@ -49380,7 +49393,7 @@ var app = (function () {
     		}
 
     		if ($$self.$$.dirty & /*crawl*/ 4) {
-    			 $$subscribe_results($$invalidate(7, results = crawl ? crawlResults(crawl.dbCrawl.id) : null));
+    			 $$subscribe_results($$invalidate(6, results = crawl ? crawlResults(crawl.dbCrawl.id) : null));
     		}
 
     		if ($$self.$$.dirty & /*crawl*/ 4) {
@@ -49400,7 +49413,6 @@ var app = (function () {
     		crawl,
     		editCrawl,
     		elements,
-    		reCrawlLoading,
     		deleteCrawlLoading,
     		results,
     		$results,
@@ -49472,7 +49484,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (148:0) {#if !userHasQuotaLeft}
+    // (151:0) {#if !userHasQuotaLeft}
     function create_if_block_3$2(ctx) {
     	let current;
     	const quotaused = new QuotaUsed({ $$inline: true });
@@ -49503,14 +49515,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3$2.name,
     		type: "if",
-    		source: "(148:0) {#if !userHasQuotaLeft}",
+    		source: "(151:0) {#if !userHasQuotaLeft}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (156:4) {:else}
+    // (159:4) {:else}
     function create_else_block$8(ctx) {
     	let div6;
     	let div5;
@@ -49576,44 +49588,44 @@ var app = (function () {
     			if (if_block) if_block.c();
     			if_block_anchor = empty();
     			attr_dev(span0, "class", "headerText svelte-1fqoijs");
-    			add_location(span0, file$p, 159, 12, 3987);
+    			add_location(span0, file$p, 162, 12, 4097);
     			attr_dev(i0, "class", "fas fa-sort");
-    			add_location(i0, file$p, 163, 14, 4153);
+    			add_location(i0, file$p, 166, 14, 4263);
     			attr_dev(span1, "class", "icon is-small has-text-primary sortIcon svelte-1fqoijs");
-    			add_location(span1, file$p, 160, 12, 4036);
+    			add_location(span1, file$p, 163, 12, 4146);
     			attr_dev(div0, "class", "column is-3 headerColumn svelte-1fqoijs");
-    			add_location(div0, file$p, 158, 10, 3936);
+    			add_location(div0, file$p, 161, 10, 4046);
     			attr_dev(span2, "class", "headerText svelte-1fqoijs");
-    			add_location(span2, file$p, 167, 12, 4277);
+    			add_location(span2, file$p, 170, 12, 4387);
     			attr_dev(i1, "class", "fas fa-sort");
-    			add_location(i1, file$p, 171, 14, 4448);
+    			add_location(i1, file$p, 174, 14, 4558);
     			attr_dev(span3, "class", "icon is-small has-text-primary sortIcon svelte-1fqoijs");
-    			add_location(span3, file$p, 168, 12, 4331);
+    			add_location(span3, file$p, 171, 12, 4441);
     			attr_dev(div1, "class", "column is-2 headerColumn svelte-1fqoijs");
-    			add_location(div1, file$p, 166, 10, 4226);
+    			add_location(div1, file$p, 169, 10, 4336);
     			attr_dev(input, "class", "input has-background-grey has-text-white svelte-1fqoijs");
     			attr_dev(input, "type", "text");
-    			add_location(input, file$p, 177, 16, 4644);
+    			add_location(input, file$p, 180, 16, 4754);
     			attr_dev(i2, "class", "fas fa-search has-text-white");
-    			add_location(i2, file$p, 183, 18, 4906);
+    			add_location(i2, file$p, 186, 18, 5016);
     			attr_dev(span4, "class", "icon is-small is-left");
-    			add_location(span4, file$p, 182, 16, 4851);
+    			add_location(span4, file$p, 185, 16, 4961);
     			attr_dev(p, "class", "control has-icons-left");
-    			add_location(p, file$p, 176, 14, 4593);
+    			add_location(p, file$p, 179, 14, 4703);
     			attr_dev(div2, "class", "field");
-    			add_location(div2, file$p, 175, 12, 4559);
+    			add_location(div2, file$p, 178, 12, 4669);
     			attr_dev(div3, "class", "column is-6");
-    			add_location(div3, file$p, 174, 10, 4521);
+    			add_location(div3, file$p, 177, 10, 4631);
     			attr_dev(i3, "class", "fas fa-filter has-text-primary");
-    			add_location(i3, file$p, 192, 14, 5125);
+    			add_location(i3, file$p, 195, 14, 5235);
     			attr_dev(span5, "class", "icon");
-    			add_location(span5, file$p, 191, 12, 5091);
+    			add_location(span5, file$p, 194, 12, 5201);
     			attr_dev(div4, "class", "column is-1 headerColumn svelte-1fqoijs");
-    			add_location(div4, file$p, 189, 10, 5039);
+    			add_location(div4, file$p, 192, 10, 5149);
     			attr_dev(div5, "class", "columns");
-    			add_location(div5, file$p, 157, 8, 3904);
+    			add_location(div5, file$p, 160, 8, 4014);
     			attr_dev(div6, "class", "box has-background-grey has-text-white");
-    			add_location(div6, file$p, 156, 6, 3843);
+    			add_location(div6, file$p, 159, 6, 3953);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, div6, anchor);
@@ -49705,14 +49717,14 @@ var app = (function () {
     		block,
     		id: create_else_block$8.name,
     		type: "else",
-    		source: "(156:4) {:else}",
+    		source: "(159:4) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (154:4) {#if myCrawlsLocal && myCrawlsLocal.length === 0}
+    // (157:4) {#if myCrawlsLocal && myCrawlsLocal.length === 0}
     function create_if_block$h(ctx) {
     	let t;
 
@@ -49735,14 +49747,14 @@ var app = (function () {
     		block,
     		id: create_if_block$h.name,
     		type: "if",
-    		source: "(154:4) {#if myCrawlsLocal && myCrawlsLocal.length === 0}",
+    		source: "(157:4) {#if myCrawlsLocal && myCrawlsLocal.length === 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (200:6) {#if filteredCrawls}
+    // (203:6) {#if filteredCrawls}
     function create_if_block_1$9(ctx) {
     	let each_1_anchor;
     	let current;
@@ -49831,14 +49843,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$9.name,
     		type: "if",
-    		source: "(200:6) {#if filteredCrawls}",
+    		source: "(203:6) {#if filteredCrawls}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (202:10) {#if crawl.dbCrawl.createDate}
+    // (205:10) {#if crawl.dbCrawl.createDate}
     function create_if_block_2$6(ctx) {
     	let current;
 
@@ -49882,14 +49894,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2$6.name,
     		type: "if",
-    		source: "(202:10) {#if crawl.dbCrawl.createDate}",
+    		source: "(205:10) {#if crawl.dbCrawl.createDate}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (201:8) {#each filteredCrawls as crawl}
+    // (204:8) {#each filteredCrawls as crawl}
     function create_each_block$5(ctx) {
     	let if_block_anchor;
     	let current;
@@ -49948,7 +49960,7 @@ var app = (function () {
     		block,
     		id: create_each_block$5.name,
     		type: "each",
-    		source: "(201:8) {#each filteredCrawls as crawl}",
+    		source: "(204:8) {#each filteredCrawls as crawl}",
     		ctx
     	});
 
@@ -49993,17 +50005,17 @@ var app = (function () {
     			div2 = element("div");
     			if_block1.c();
     			attr_dev(h1, "class", "title");
-    			add_location(h1, file$p, 140, 6, 3483);
+    			add_location(h1, file$p, 143, 6, 3593);
     			attr_dev(div0, "class", "container");
-    			add_location(div0, file$p, 139, 4, 3453);
+    			add_location(div0, file$p, 142, 4, 3563);
     			attr_dev(div1, "class", "hero-body");
-    			add_location(div1, file$p, 138, 2, 3425);
+    			add_location(div1, file$p, 141, 2, 3535);
     			attr_dev(section0, "class", "hero is-small is-light is-bold");
-    			add_location(section0, file$p, 137, 0, 3374);
+    			add_location(section0, file$p, 140, 0, 3484);
     			attr_dev(div2, "class", "container");
-    			add_location(div2, file$p, 152, 2, 3727);
+    			add_location(div2, file$p, 155, 2, 3837);
     			attr_dev(section1, "class", "section");
-    			add_location(section1, file$p, 151, 0, 3699);
+    			add_location(section1, file$p, 154, 0, 3809);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -50115,7 +50127,13 @@ var app = (function () {
     		if (!filteredCrawls) return $$invalidate(0, filteredCrawls = myCrawlsLocal);
 
     		$$invalidate(0, filteredCrawls = filteredCrawls.map(f => {
-    			const storedCrawl = m.find(c => c.crawlName === f.crawlName);
+    			console.log(m);
+
+    			const storedCrawl = m.find(c => {
+    				console.log(c);
+    				return c.crawlName === f.crawlName;
+    			});
+
     			return storedCrawl;
     		}));
     	});
@@ -50150,10 +50168,8 @@ var app = (function () {
     				});
     			} else {
     				myCrawls.update(u => {
-    					u = u.map(m => {
-    						m.dbCrawl = crawl;
-    					});
-
+    					const storedCrawl = u.find(f => f.crawlName == crawl.crawlName);
+    					storedCrawl.dbCrawl = crawl;
     					return u;
     				});
     			}

@@ -25,8 +25,6 @@
   let crawlEditable;
   let elements;
 
-  let reCrawlLoading = false;
-
   $: myCrawls$ = myCrawls.subscribe(m => {
     crawl = m.find(f => f.crawlName === crawlName);
   });
@@ -46,12 +44,20 @@
   });
 
   async function reCrawl() {
-    reCrawlLoading = true;
+    myCrawls.update(m => {
+      const c = m.find(n => n.crawlName === crawlName);
+      c.reCrawlLoading = true;
+      return m;
+    });
     const createTime = firebase.firestore.Timestamp.now();
     await setReCrawl(crawl.dbCrawl.id, createTime);
     result = newestCrawlResult(crawl.dbCrawl.id, createTime).subscribe(r => {
       if (r.length > 0) {
-        reCrawlLoading = false;
+        myCrawls.update(m => {
+          const c = m.find(n => n.crawlName === crawlName);
+          c.reCrawlLoading = false;
+          return m;
+        });
       }
     });
   }
@@ -207,7 +213,7 @@
         on:click={reCrawl}
         disabled={!userHasQuotaLeft}
         class="button"
-        class:is-loading={reCrawlLoading}
+        class:is-loading={crawl.reCrawlLoading}
         title="Recrawl">
         <span class="icon">
           <i class="fas fa-redo-alt" />

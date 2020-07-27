@@ -31,7 +31,14 @@ export const newestCrawlResult = (crawlId, createTime) => {
   );
 };
 
-export const setCrawl = async ({ id, uid, crawlName, createTime, url, elements }) => {
+export const setCrawl = async ({
+  id,
+  uid,
+  crawlName,
+  createTime,
+  url,
+  elements,
+}) => {
   return await db.collection("crawls").doc(id).set(
     {
       uid,
@@ -44,9 +51,9 @@ export const setCrawl = async ({ id, uid, crawlName, createTime, url, elements }
   );
 };
 
-export const checkCrawlExists = async(id) => {
-  return  (await db.collection("crawls").doc(id).get()).exists
-}
+export const checkCrawlExists = async (id) => {
+  return (await db.collection("crawls").doc(id).get()).exists;
+};
 
 export const setReCrawl = async (id, createTime) => {
   return await db.collection("crawls").doc(id).set(

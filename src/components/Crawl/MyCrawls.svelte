@@ -19,7 +19,11 @@
     if (!filteredCrawls) return (filteredCrawls = myCrawlsLocal);
 
     filteredCrawls = filteredCrawls.map(f => {
-      const storedCrawl = m.find(c => c.crawlName === f.crawlName);
+      console.log(m);
+      const storedCrawl = m.find(c => {
+        console.log(c);
+        return c.crawlName === f.crawlName;
+      });
       return storedCrawl;
     });
   });
@@ -50,9 +54,8 @@
         });
       } else {
         myCrawls.update(u => {
-          u = u.map(m => {
-            m.dbCrawl = crawl;
-          });
+          const storedCrawl = u.find(f => f.crawlName == crawl.crawlName)
+          storedCrawl.dbCrawl=crawl
           return u;
         });
       }
