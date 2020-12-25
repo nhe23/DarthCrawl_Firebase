@@ -62,10 +62,18 @@
     });
   }
 
-  let deleteCrawlLoading = false;
   function deleteUserCrawl() {
-    deleteCrawlLoading = true;
-    deleteCrawl(crawl.dbCrawl.id).then(() => (deleteCrawlLoading = false));
+    myCrawls.update(m => {
+      const c = m.find(n => n.crawlName === crawlName);
+      c.deleteCrawlLoading = true;
+      return m;
+    });
+    deleteCrawl(crawl.dbCrawl.id).then(() => {
+      myCrawls.update(m => {
+        m = m.filter(n => n.crawlName !== crawlName);
+        return m;
+      });
+    });
   }
 
   function resetCrawlElements() {
@@ -221,7 +229,7 @@
       </button>
       <button
         on:click={deleteUserCrawl}
-        class:is-loading={deleteCrawlLoading}
+        class:is-loading={crawl.deleteCrawlLoading}
         class="button"
         title="Delete">
         <span class="icon">

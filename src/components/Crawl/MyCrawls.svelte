@@ -15,13 +15,25 @@
   let myCrawlsLocal;
 
   const myCrawls$ = myCrawls.subscribe(m => {
-    myCrawlsLocal = m;
-    if (!filteredCrawls) return (filteredCrawls = myCrawlsLocal);
+    if (!filteredCrawls) {
+      myCrawlsLocal = m?[...m]:null;
+      return (filteredCrawls = m?[...m]:null);
+    }
+
+    if (myCrawlsLocal && myCrawlsLocal.length < m.length) {
+      const newCrawls = m.filter(
+        n => !myCrawlsLocal.some(f => f.crawlName === n.crawlName)
+      );
+      filteredCrawls = [...filteredCrawls, ...newCrawls];
+    } else if (myCrawlsLocal && myCrawlsLocal.length > m.length) {
+      filteredCrawls = filteredCrawls.filter(n =>
+        m.some(f => f.crawlName === n.crawlName)
+      );
+    }
+    myCrawlsLocal = m?[...m]:null;
 
     filteredCrawls = filteredCrawls.map(f => {
-      console.log(m);
       const storedCrawl = m.find(c => {
-        console.log(c);
         return c.crawlName === f.crawlName;
       });
       return storedCrawl;
@@ -41,7 +53,6 @@
           reCrawlLoading: false
         });
       }
-      console.log(crawls);
       myCrawls.update(u => crawls);
       return;
     }
@@ -49,13 +60,20 @@
       if (!crawl.createDate) return;
       if (!myCrawlsLocal.some(m => m && m.crawlName === crawl.crawlName)) {
         myCrawls.update(u => {
-          u.push();
+          u.push({
+            crawlName: crawl.crawlName,
+            dbCrawl: crawl,
+            showElements: false,
+            showResults: false,
+            deleteCrawlLoading: false,
+            reCrawlLoading: false
+          });
           return u;
         });
       } else {
         myCrawls.update(u => {
-          const storedCrawl = u.find(f => f.crawlName == crawl.crawlName)
-          storedCrawl.dbCrawl=crawl
+          const storedCrawl = u.find(f => f.crawlName == crawl.crawlName);
+          storedCrawl.dbCrawl = crawl;
           return u;
         });
       }
