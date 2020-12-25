@@ -115,7 +115,7 @@
     </div>
     <div class="column is-3 elements">
       Elements
-      {#if crawl.showElements}
+      {#if crawl.showElements && elements}
         <span
           class="icon is-small has-text-link"
           on:click={() => {
@@ -165,7 +165,7 @@
 
     <div class="column is-3">
       Result
-      {#if crawl.showResults}
+      {#if crawl.showResults && $results}
         <span
           class="icon is-small has-text-link"
           on:click={() => {
